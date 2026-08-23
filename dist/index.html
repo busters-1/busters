@@ -552,7 +552,7 @@
   </div>
   
   <div class="deck-summary" id="deck-summary-box">
-    <div>합산 피해 감소(DR): <span id="deck-dr">0%</span> / 하드캡 -40%</div>
+    <div>합산 피해 감소(DR): <span id="deck-dr">0%</span></div>
     <div>합산 스탯: <span id="deck-stats">없음</span></div>
   </div>
 </div>
@@ -686,11 +686,11 @@
   <div class="filter-group">
     <span class="filter-label">🛡️ 특수효과 분류:</span>
     <button class="btn-filter active" data-effect="ALL" onclick="filterEffect('ALL')">전체</button>
-    <button class="btn-filter" data-effect="DAMAGE_REDUCTION" onclick="filterEffect('DAMAGE_REDUCTION')">🛡️ 받피감 (-40% 캡)</button>
-    <button class="btn-filter" data-effect="REFLECT_DAMAGE" onclick="filterEffect('REFLECT_DAMAGE')">🦔 피해 반사 (40% 캡)</button>
-    <button class="btn-filter" data-effect="HEAL_ON_HIT" onclick="filterEffect('HEAL_ON_HIT')">🩸 타격 흡혈 (6% 캡)</button>
-    <button class="btn-filter" data-effect="DODGE" onclick="filterEffect('DODGE')">💨 회피/가드 (50% 캡)</button>
-    <button class="btn-filter" data-effect="RESIST_PIERCE" onclick="filterEffect('RESIST_PIERCE')">🗡️ 저항 관통 (75% 캡)</button>
+    <button class="btn-filter" data-effect="DAMAGE_REDUCTION" onclick="filterEffect('DAMAGE_REDUCTION')">🛡️ 받는 피해 감소</button>
+    <button class="btn-filter" data-effect="REFLECT_DAMAGE" onclick="filterEffect('REFLECT_DAMAGE')">🦔 피해 반사</button>
+    <button class="btn-filter" data-effect="HEAL_ON_HIT" onclick="filterEffect('HEAL_ON_HIT')">🩸 타격 흡혈</button>
+    <button class="btn-filter" data-effect="DODGE" onclick="filterEffect('DODGE')">💨 회피/가드</button>
+    <button class="btn-filter" data-effect="RESIST_PIERCE" onclick="filterEffect('RESIST_PIERCE')">🗡️ 저항 관통</button>
     <button class="btn-filter" data-effect="PERIODIC_HEAL" onclick="filterEffect('PERIODIC_HEAL')">⏱️ 지속 재생</button>
     <button class="btn-filter" data-effect="HEAL_ON_KILL" onclick="filterEffect('HEAL_ON_KILL')">💀 처치 회복</button>
     <button class="btn-filter" data-effect="KILL_STACK" onclick="filterEffect('KILL_STACK')">📈 스택 누적</button>
@@ -20698,7 +20698,7 @@ function renderDeckPanel() {
 
   container.innerHTML = chipsHtml;
   const cappedDR = Math.min(0.40, totalDR);
-  document.getElementById('deck-dr').innerText = `${(cappedDR * 100).toFixed(0)}% (${(totalDR * 100).toFixed(0)}% 합산)`;
+  document.getElementById('deck-dr').innerText = `${(totalDR * 100).toFixed(0)}%`;
   const statText = Object.entries(statSums).map(([k, v]) => `${k} +${v}`).join(', ');
   document.getElementById('deck-stats').innerText = statText || '없음';
 }
