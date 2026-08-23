@@ -1,0 +1,10 @@
+# Ignore heavy game raw files and extraction dumps
+*.pck
+extracted_*
+game_raw_backup/
+__pycache__/
+node_modules/
+*.pyc
+
+# Scratch
+scratch/
