@@ -552,8 +552,7 @@
   </div>
   
   <div class="deck-summary" id="deck-summary-box">
-    <div>합산 피해 감소(DR): <span id="deck-dr">0%</span></div>
-    <div>합산 스탯: <span id="deck-stats">없음</span></div>
+        <div>합산 스탯: <span id="deck-stats">없음</span></div>
   </div>
 </div>
 
@@ -20242,7 +20241,6 @@ function renderDeckPanel() {
   const container = document.getElementById('deck-slots-container');
   if (active.runes.length === 0) {
     container.innerHTML = '<span style="color: var(--text-muted); font-size: 12px;">테이블 좌측 체크박스를 클릭하여 룬을 덱에 자유롭게 등록하세요 (개수 제한 없음 · 실시간 합산 계산)</span>';
-    document.getElementById('deck-dr').innerText = '0%';
     document.getElementById('deck-stats').innerText = '없음';
     return;
   }
@@ -20271,8 +20269,6 @@ function renderDeckPanel() {
   });
 
   container.innerHTML = chipsHtml;
-  const cappedDR = Math.min(0.40, totalDR);
-  document.getElementById('deck-dr').innerText = `${(totalDR * 100).toFixed(0)}%`;
   const statText = Object.entries(statSums).map(([k, v]) => `${k} +${v}`).join(', ');
   document.getElementById('deck-stats').innerText = statText || '없음';
 }
