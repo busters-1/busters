@@ -19706,7 +19706,7 @@ function renderTable() {
         <td class="col-name">
           <div class="item-title-box">
             <div class="item-name">${r.name}</div>
-            ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : \'\'}
+            ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : ''}
             <div class="item-tags">
               ${(r.elements || []).map(e => `<span class="tag-badge elem">${e}</span>`).join('')}
               ${SAILING_DRIFT_CHANCE_RUNES.has(r.id) ? '<span class="tag-badge" style="background:#3b134e; color:#f0abfc; border:1px solid #c084fc;">🗺️ 표류확률↓</span>' : ''}
@@ -19747,7 +19747,7 @@ function openDetailModal(id) {
   const modalContent = document.getElementById('modal-content');
   modalContent.innerHTML = `
     <h2 style="font-size:18px; color:#fff; margin-bottom:12px;">${r.name} (${r.grade}등급 · ${r.floor}층)</h2>
-    <div style="font-size:13px; color:#8b949e; margin-bottom:16px;">📍 출현지: <span style="color:#c9d1d9;">${r.acquisition || \'던전\'}</span></div>
+    <div style="font-size:13px; color:#8b949e; margin-bottom:16px;">📍 출현지: <span style="color:#c9d1d9;">${r.acquisition || '던전'}</span></div>
     
     <h3 style="font-size:14px; color:#58a6ff; margin-bottom:6px;">📊 스탯</h3>
     <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
