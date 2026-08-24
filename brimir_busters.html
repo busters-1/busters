@@ -1875,6 +1875,34 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
+    "id": "skeleton",
+    "name": "해골병",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 9,
+    "floor": 1,
+    "color": "orange",
+    "color_list": [
+      "orange"
+    ],
+    "stat_bonuses": {
+      "강골": 25,
+      "적응력": 5
+    },
+    "passive": {
+      "id": "bone_armor_lesser",
+      "name": "백골 갑주",
+      "description": "공격받을 때 일정 확률로 흘려낸다"
+    },
+    "actives": [],
+    "acquisition": "1층 - 여명의 석화지대",
+    "effect_type": "DODGE",
+    "effect_type_ko": "💨 회피/가드",
+    "effect_value": 0.1,
+    "elements": [],
+    "is_relic": false
+  },
+  {
     "id": "chained_wraith",
     "name": "사슬의 모르그",
     "type": "guardian",
@@ -2007,46 +2035,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "orc_hero",
-    "name": "오크 군주",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 5,
-    "floor": 2,
-    "color": "green",
-    "color_list": [
-      "green"
-    ],
-    "stat_bonuses": {
-      "근력": 45,
-      "불굴": 25,
-      "물리내성": 20,
-      "강골": 25,
-      "마법내성": 25,
-      "내구력": 20
-    },
-    "passive": {
-      "id": "heros_path",
-      "name": "영웅의 길",
-      "description": "체력이 절반 이하로 떨어지면 받는 피해를 크게 덜어낸다"
-    },
-    "actives": [
-      {
-        "skill_id": "gigantification",
-        "name": "거신의 힘",
-        "cooldown": 30,
-        "description": "분노를 모아 거인으로 변신. 슈퍼아머로 밀고 들어가 적을 짓뭉갠다. 전투로 재충전.",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "2층 - 속삭임의 숲",
-    "effect_type": "DAMAGE_REDUCTION",
-    "effect_type_ko": "🛡️ 피해 감소",
-    "effect_value": 0.08,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "awakened_megalith",
     "name": "태고의 그로트",
     "type": "guardian",
@@ -2125,6 +2113,46 @@ const RUNES_DATA = [
     "actives": [],
     "acquisition": "2층 - 사방의 황야",
     "effect_type": "PCT_BONUS_DAMAGE",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "death_knight",
+    "name": "망령 기사",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 2,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "근력": 35,
+      "내구력": 20,
+      "마법내성": 20,
+      "강골": 15,
+      "정신력": 10,
+      "약효": 5
+    },
+    "passive": {
+      "id": "none",
+      "name": "기본 정수 (고유 패시브 없음)",
+      "description": "스탯 강화 및 액티브 스킬 전용 룬입니다."
+    },
+    "actives": [
+      {
+        "skill_id": "grudge",
+        "name": "원한",
+        "cooldown": 30,
+        "description": "주변 적에게 5초간 강한 지속 데미지",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "2층 - 적막의 무덤",
+    "effect_type": "NONE",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
     "elements": [],
@@ -2318,6 +2346,46 @@ const RUNES_DATA = [
     "effect_type": "NONE",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "blood_blade_wolf",
+    "name": "핏빛 칼날늑대",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 2,
+    "color": "red",
+    "color_list": [
+      "red"
+    ],
+    "stat_bonuses": {
+      "민첩": 40,
+      "예리": 15,
+      "후각": 17,
+      "마력": 20,
+      "영력": 6,
+      "영력재생": 2
+    },
+    "passive": {
+      "id": "keen_scent",
+      "name": "예민한 후각",
+      "description": "신해 탐색 시 더 넓게 살피고, 공격 시 간혹 적의 약점을 꿰뚫는다"
+    },
+    "actives": [
+      {
+        "skill_id": "blood_dash",
+        "name": "혈향 돌진",
+        "cooldown": 30.8,
+        "description": "핏자국을 따라 돌진, 적에게 5초 취약",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "2층 - 야수의 둥지",
+    "effect_type": "PCT_BONUS_DAMAGE",
+    "effect_type_ko": "💥 피해 증폭",
+    "effect_value": 0.3,
     "elements": [],
     "is_relic": false
   },
@@ -3860,6 +3928,43 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
+    "id": "wraith",
+    "name": "원귀",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 9,
+    "floor": 2,
+    "color": "purple",
+    "color_list": [
+      "purple"
+    ],
+    "stat_bonuses": {
+      "마법내성": 18,
+      "마력": 5,
+      "영력": 2
+    },
+    "passive": {
+      "id": "incorporeal_lesser",
+      "name": "비실체",
+      "description": "실체 없는 몸이 물리 공격을 이따금 흘려낸다"
+    },
+    "actives": [
+      {
+        "skill_id": "spectral_drain",
+        "name": "영혼 착취",
+        "cooldown": 26.4,
+        "description": "데미지 + HP/SP 소량 흡수",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "2층 - 적막의 무덤",
+    "effect_type": "DODGE",
+    "effect_type_ko": "💨 회피/가드",
+    "effect_value": 0.1,
+    "elements": [],
+    "is_relic": false
+  },
+  {
     "id": "kobold",
     "name": "코볼트",
     "type": "normal",
@@ -4094,34 +4199,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "skeleton",
-    "name": "해골병",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 9,
-    "floor": 2,
-    "color": "orange",
-    "color_list": [
-      "orange"
-    ],
-    "stat_bonuses": {
-      "강골": 25,
-      "적응력": 5
-    },
-    "passive": {
-      "id": "bone_armor_lesser",
-      "name": "백골 갑주",
-      "description": "공격받을 때 일정 확률로 흘려낸다"
-    },
-    "actives": [],
-    "acquisition": "2층 - 사방의 황야",
-    "effect_type": "DODGE",
-    "effect_type_ko": "💨 회피/가드",
-    "effect_value": 0.1,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "white_temple_knight",
     "name": "석화의 비그디스",
     "type": "guardian",
@@ -4224,6 +4301,46 @@ const RUNES_DATA = [
     "effect_type": "APPLY_DEBUFF",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "orc_hero",
+    "name": "오크 군주",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 3,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "근력": 45,
+      "불굴": 25,
+      "물리내성": 20,
+      "강골": 25,
+      "마법내성": 25,
+      "내구력": 20
+    },
+    "passive": {
+      "id": "heros_path",
+      "name": "영웅의 길",
+      "description": "체력이 절반 이하로 떨어지면 받는 피해를 크게 덜어낸다"
+    },
+    "actives": [
+      {
+        "skill_id": "gigantification",
+        "name": "거신의 힘",
+        "cooldown": 30,
+        "description": "분노를 모아 거인으로 변신. 슈퍼아머로 밀고 들어가 적을 짓뭉갠다. 전투로 재충전.",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "3층 - 부족의 소굴 (상흔)",
+    "effect_type": "DAMAGE_REDUCTION",
+    "effect_type_ko": "🛡️ 피해 감소",
+    "effect_value": 0.08,
     "elements": [],
     "is_relic": false
   },
@@ -4780,6 +4897,35 @@ const RUNES_DATA = [
       }
     ],
     "acquisition": "3층 - 얽힌 길",
+    "effect_type": "PCT_BONUS_DAMAGE",
+    "effect_type_ko": "💥 피해 증폭",
+    "effect_value": 0.3,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "mimic",
+    "name": "미믹",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 7,
+    "floor": 3,
+    "color": "yellow",
+    "color_list": [
+      "yellow"
+    ],
+    "stat_bonuses": {
+      "행운": 5,
+      "예리": 10,
+      "무게한도": 25
+    },
+    "passive": {
+      "id": "first_strike",
+      "name": "의태 기습",
+      "description": "보물로 위장했다 전투 첫 일격에 큰 추가 피해를 입힌다"
+    },
+    "actives": [],
+    "acquisition": "3층 - 몽환의 숲",
     "effect_type": "PCT_BONUS_DAMAGE",
     "effect_type_ko": "💥 피해 증폭",
     "effect_value": 0.3,
@@ -5548,43 +5694,6 @@ const RUNES_DATA = [
     "effect_type": "PERIODIC_HEAL",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "wraith",
-    "name": "원귀",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 9,
-    "floor": 3,
-    "color": "purple",
-    "color_list": [
-      "purple"
-    ],
-    "stat_bonuses": {
-      "마법내성": 18,
-      "마력": 5,
-      "영력": 2
-    },
-    "passive": {
-      "id": "incorporeal_lesser",
-      "name": "비실체",
-      "description": "실체 없는 몸이 물리 공격을 이따금 흘려낸다"
-    },
-    "actives": [
-      {
-        "skill_id": "spectral_drain",
-        "name": "영혼 착취",
-        "cooldown": 26.4,
-        "description": "데미지 + HP/SP 소량 흡수",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "3층 - 얽힌 길",
-    "effect_type": "DODGE",
-    "effect_type_ko": "💨 회피/가드",
-    "effect_value": 0.1,
     "elements": [],
     "is_relic": false
   },
@@ -6778,46 +6887,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "death_knight",
-    "name": "망령 기사",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 6,
-    "floor": 4,
-    "color": "green",
-    "color_list": [
-      "green"
-    ],
-    "stat_bonuses": {
-      "근력": 35,
-      "내구력": 20,
-      "마법내성": 20,
-      "강골": 15,
-      "정신력": 10,
-      "약효": 5
-    },
-    "passive": {
-      "id": "none",
-      "name": "기본 정수 (고유 패시브 없음)",
-      "description": "스탯 강화 및 액티브 스킬 전용 룬입니다."
-    },
-    "actives": [
-      {
-        "skill_id": "grudge",
-        "name": "원한",
-        "cooldown": 30,
-        "description": "주변 적에게 5초간 강한 지속 데미지",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "4층 - 거인의 협곡",
-    "effect_type": "NONE",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "gorgon_statue",
     "name": "석화 석상",
     "type": "normal",
@@ -7037,46 +7106,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "blood_blade_wolf",
-    "name": "핏빛 칼날늑대",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 6,
-    "floor": 4,
-    "color": "red",
-    "color_list": [
-      "red"
-    ],
-    "stat_bonuses": {
-      "민첩": 40,
-      "예리": 15,
-      "후각": 17,
-      "마력": 20,
-      "영력": 6,
-      "영력재생": 2
-    },
-    "passive": {
-      "id": "keen_scent",
-      "name": "예민한 후각",
-      "description": "신해 탐색 시 더 넓게 살피고, 공격 시 간혹 적의 약점을 꿰뚫는다"
-    },
-    "actives": [
-      {
-        "skill_id": "blood_dash",
-        "name": "혈향 돌진",
-        "cooldown": 30.8,
-        "description": "핏자국을 따라 돌진, 적에게 5초 취약",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "4층 - 거인의 협곡",
-    "effect_type": "PCT_BONUS_DAMAGE",
-    "effect_type_ko": "💥 피해 증폭",
-    "effect_value": 0.3,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "golden_mimic",
     "name": "황금 미믹",
     "type": "normal",
@@ -7226,73 +7255,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "mimic",
-    "name": "미믹",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 7,
-    "floor": 4,
-    "color": "yellow",
-    "color_list": [
-      "yellow"
-    ],
-    "stat_bonuses": {
-      "행운": 5,
-      "예리": 10,
-      "무게한도": 25
-    },
-    "passive": {
-      "id": "first_strike",
-      "name": "의태 기습",
-      "description": "보물로 위장했다 전투 첫 일격에 큰 추가 피해를 입힌다"
-    },
-    "actives": [],
-    "acquisition": "4층 - 운명의 관문",
-    "effect_type": "PCT_BONUS_DAMAGE",
-    "effect_type_ko": "💥 피해 증폭",
-    "effect_value": 0.3,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "dark_mage",
-    "name": "암흑 마법사",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 7,
-    "floor": 4,
-    "color": "blue",
-    "color_list": [
-      "blue"
-    ],
-    "stat_bonuses": {
-      "마력": 31,
-      "마법내성": 25,
-      "예리": 10,
-      "영력": 16
-    },
-    "passive": {
-      "id": "mana_siphon",
-      "name": "마나 흡수",
-      "description": "공격으로 적을 때릴 때마다 마나를 흡수한다"
-    },
-    "actives": [
-      {
-        "skill_id": "void_bolt",
-        "name": "허공 화살",
-        "cooldown": 22,
-        "description": "강골 무시 암흑 투사체",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "4층 - 거인의 협곡",
-    "effect_type": "MANA_ON_HIT",
-    "effect_type_ko": "🩸 타격 흡혈",
-    "effect_value": 0.04,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "gravel_gunner",
     "name": "자갈 포격수",
     "type": "normal",
@@ -7329,47 +7291,6 @@ const RUNES_DATA = [
     "effect_value": 0.0,
     "elements": [
       "대지"
-    ],
-    "is_relic": false
-  },
-  {
-    "id": "storm_elemental",
-    "name": "폭풍 정령",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 7,
-    "floor": 4,
-    "color": "purple",
-    "color_list": [
-      "purple"
-    ],
-    "stat_bonuses": {
-      "마력": 27,
-      "민첩": 25,
-      "마법내성": 20,
-      "예리": 10,
-      "영력": 9
-    },
-    "passive": {
-      "id": "static_charge",
-      "name": "정전기 축적",
-      "description": "공격 시 번개 스택 부여"
-    },
-    "actives": [
-      {
-        "skill_id": "chain_lightning",
-        "name": "연쇄 번개",
-        "cooldown": 41,
-        "description": "대상에서 시작해 최대 4체 연쇄 번개, 각 적에게 데미지",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "4층 - 거인의 협곡",
-    "effect_type": "APPLY_ELEMENT",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [
-      "번개"
     ],
     "is_relic": false
   },
@@ -7504,83 +7425,6 @@ const RUNES_DATA = [
     "elements": [
       "대지"
     ],
-    "is_relic": false
-  },
-  {
-    "id": "ogre",
-    "name": "오우거",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 5,
-    "color": [
-      "red",
-      "blue",
-      "brown",
-      "orange",
-      "purple"
-    ],
-    "color_list": [
-      "red",
-      "blue",
-      "brown",
-      "orange",
-      "purple"
-    ],
-    "stat_bonuses": {
-      "물리내성": 100,
-      "근력": 50,
-      "강골": 60,
-      "내구력": 30,
-      "적응력": 6
-    },
-    "passive": {
-      "id": "iron_hide",
-      "name": "무쇠가죽",
-      "description": "강철 같은 거인 가죽 — 물리 피해를 크게 흘려낸다"
-    },
-    "actives": [
-      {
-        "skill_id": "ogre_swing",
-        "name": "휘두르기",
-        "cooldown": 35,
-        "description": "거인의 둔기로 주위를 통째로 쓸어버린다",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "ogre_crouch",
-        "name": "웅크리기",
-        "cooldown": 23,
-        "description": "웅크려 거대한 가죽으로 막는다 — 내성·재생 급증",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "ogre_quake",
-        "name": "대지가르기",
-        "cooldown": 35,
-        "description": "땅을 갈라 광역 충격파를 일으킨다",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "ogre_charge",
-        "name": "돌진",
-        "cooldown": 33,
-        "description": "거구로 돌진해 들이받는다",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "ogre_grab",
-        "name": "붙잡기",
-        "cooldown": 26,
-        "description": "붙잡아 자신에게 끌어당긴다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "5층 - 백색 신전",
-    "effect_type": "DAMAGE_REDUCTION",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
     "is_relic": false
   },
   {
@@ -7899,57 +7743,6 @@ const RUNES_DATA = [
     "effect_type_ko": "일반",
     "effect_value": 0.0,
     "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "venom_lord",
-    "name": "맹독 군주",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 5,
-    "floor": 7,
-    "color": [
-      "green",
-      "red"
-    ],
-    "color_list": [
-      "green",
-      "red"
-    ],
-    "stat_bonuses": {
-      "민첩": 44,
-      "마력": 35,
-      "예리": 43,
-      "행운": 18
-    },
-    "passive": {
-      "id": "venom_coat",
-      "name": "맹독 도포",
-      "description": "공격 시 독 스택 부여"
-    },
-    "actives": [
-      {
-        "skill_id": "venom_fang",
-        "name": "맹독 송곳니",
-        "cooldown": 26,
-        "description": "맹독 일격 — 독 스택 2 (발병 가속)",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "spore_field",
-        "name": "포자 구름",
-        "cooldown": 30,
-        "description": "독 포자 장판 — 독 스택",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "7층 - 역병 지대",
-    "effect_type": "APPLY_ELEMENT",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [
-      "독"
-    ],
     "is_relic": false
   },
   {
@@ -8283,60 +8076,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "frost_weaver",
-    "name": "서리 거미",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 5,
-    "floor": 7,
-    "color": [
-      "blue",
-      "cyan"
-    ],
-    "color_list": [
-      "blue",
-      "cyan"
-    ],
-    "stat_bonuses": {
-      "마력": 40,
-      "정신력": 30,
-      "근력": 18,
-      "냉기저항": 12,
-      "민첩": 22,
-      "예리": 10,
-      "영력": 14
-    },
-    "passive": {
-      "id": "frost_snare",
-      "name": "결빙 거미줄",
-      "description": "공격 시 일정 확률로 적을 결빙 거미줄로 속박한다"
-    },
-    "actives": [
-      {
-        "skill_id": "frost_web",
-        "name": "결빙 거미줄",
-        "cooldown": 34.5,
-        "description": "바닥 한기 거미줄 — 속박 + 냉기 DOT. 빙결 직전까지 몰아붙이는 셋업.",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "frost_bind",
-        "name": "서리 결박",
-        "cooldown": 18,
-        "description": "단일 대상 결빙 포박 — 강제 빙결 + 냉기 스택.",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "7층 - 고드름 동굴",
-    "effect_type": "APPLY_CC",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [
-      "냉기"
-    ],
-    "is_relic": false
-  },
-  {
     "id": "frost_lord",
     "name": "서리 군주",
     "type": "normal",
@@ -8553,115 +8292,6 @@ const RUNES_DATA = [
     "effect_type_ko": "💨 회피/가드",
     "effect_value": 0.1,
     "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "merran",
-    "name": "얼음 정령",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 5,
-    "floor": 5,
-    "color": [
-      "blue",
-      "red"
-    ],
-    "color_list": [
-      "blue",
-      "red"
-    ],
-    "stat_bonuses": {
-      "강골": 30,
-      "내구력": 22,
-      "물리내성": 20,
-      "불굴": 25,
-      "냉기저항": 25
-    },
-    "passive": {
-      "id": "weakness_expose",
-      "name": "빙하 분쇄",
-      "description": "공격 시 일정 확률로 적의 갑옷을 분쇄해 방어를 약화시킨다"
-    },
-    "actives": [
-      {
-        "skill_id": "glacial_smash",
-        "name": "빙하 강타",
-        "cooldown": 33,
-        "description": "거대 빙하 강타 — 광역 물리 + 넉백 경직.",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "glacier_charge",
-        "name": "빙하 돌진",
-        "cooldown": 30.8,
-        "description": "빙하처럼 돌진하는 관통 강타 — 경직.",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "5층 - 백색 신전",
-    "effect_type": "APPLY_DEBUFF",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "plague_serpent",
-    "name": "역병 독사",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 5,
-    "floor": 7,
-    "color": [
-      "green",
-      "purple",
-      "red"
-    ],
-    "color_list": [
-      "green",
-      "purple",
-      "red"
-    ],
-    "stat_bonuses": {
-      "민첩": 63,
-      "근력": 47,
-      "불굴": 30
-    },
-    "passive": {
-      "id": "outbreak",
-      "name": "발병",
-      "description": "적에게 쌓인 독이 임계에 달하면 잠복한 독이 터진다"
-    },
-    "actives": [
-      {
-        "skill_id": "spore_field",
-        "name": "포자 구름",
-        "cooldown": 30,
-        "description": "독 포자 장판 — 독 스택",
-        "is_ranged": true
-      },
-      {
-        "skill_id": "venom_fang",
-        "name": "맹독 송곳니",
-        "cooldown": 26,
-        "description": "맹독 일격 — 독 스택 2 (발병 가속)",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "paralytic_dart",
-        "name": "마비독침",
-        "cooldown": 22,
-        "description": "마비독 다트 — 적을 잠시 마비시키고 독 스택",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 역병 지대",
-    "effect_type": "STAT_BONUS",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [
-      "독"
-    ],
     "is_relic": false
   },
   {
@@ -9787,50 +9417,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "frozen_soul",
-    "name": "얼어붙은 영혼",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 6,
-    "floor": 7,
-    "color": [
-      "blue",
-      "cyan"
-    ],
-    "color_list": [
-      "blue",
-      "cyan"
-    ],
-    "stat_bonuses": {
-      "마력": 40,
-      "냉기저항": 30,
-      "마법내성": 22,
-      "영력": 11,
-      "치유력": 5,
-      "통찰": 4
-    },
-    "passive": {
-      "id": "wraith_feast",
-      "name": "혼령 흡수",
-      "description": "적을 처치하면 혼령을 빨아들여 생명력을 되찾는다"
-    },
-    "actives": [
-      {
-        "skill_id": "frost_bolt",
-        "name": "빙결탄",
-        "cooldown": 22,
-        "description": "원거리 빙결탄",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "7층 - 얼음 무덤",
-    "effect_type": "HEAL_ON_KILL",
-    "effect_type_ko": "🩸 타격 흡혈",
-    "effect_value": 0.04,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "ice_wyvern",
     "name": "얼음 와이번",
     "type": "normal",
@@ -10424,6 +10010,44 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
+    "id": "dark_mage",
+    "name": "암흑 마법사",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 7,
+    "floor": 5,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "마력": 31,
+      "마법내성": 25,
+      "예리": 10,
+      "영력": 16
+    },
+    "passive": {
+      "id": "mana_siphon",
+      "name": "마나 흡수",
+      "description": "공격으로 적을 때릴 때마다 마나를 흡수한다"
+    },
+    "actives": [
+      {
+        "skill_id": "void_bolt",
+        "name": "허공 화살",
+        "cooldown": 22,
+        "description": "강골 무시 암흑 투사체",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "5층 - 어둠의 협곡",
+    "effect_type": "MANA_ON_HIT",
+    "effect_type_ko": "🩸 타격 흡혈",
+    "effect_value": 0.04,
+    "elements": [],
+    "is_relic": false
+  },
+  {
     "id": "soul_wraith",
     "name": "영혼의 망령",
     "type": "normal",
@@ -10575,6 +10199,47 @@ const RUNES_DATA = [
     "effect_type_ko": "일반",
     "effect_value": 0.0,
     "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "storm_elemental",
+    "name": "폭풍 정령",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 7,
+    "floor": 5,
+    "color": "purple",
+    "color_list": [
+      "purple"
+    ],
+    "stat_bonuses": {
+      "마력": 27,
+      "민첩": 25,
+      "마법내성": 20,
+      "예리": 10,
+      "영력": 9
+    },
+    "passive": {
+      "id": "static_charge",
+      "name": "정전기 축적",
+      "description": "공격 시 번개 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "chain_lightning",
+        "name": "연쇄 번개",
+        "cooldown": 41,
+        "description": "대상에서 시작해 최대 4체 연쇄 번개, 각 적에게 데미지",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "5층 - 폭풍의 협곡",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "번개"
+    ],
     "is_relic": false
   },
   {
@@ -10936,6 +10601,83 @@ const RUNES_DATA = [
     ],
     "acquisition": "6층 - 심연의 대해",
     "effect_type": "PCT_BONUS_DAMAGE",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "ogre",
+    "name": "오우거",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 3,
+    "floor": 6,
+    "color": [
+      "red",
+      "blue",
+      "brown",
+      "orange",
+      "purple"
+    ],
+    "color_list": [
+      "red",
+      "blue",
+      "brown",
+      "orange",
+      "purple"
+    ],
+    "stat_bonuses": {
+      "물리내성": 100,
+      "근력": 50,
+      "강골": 60,
+      "내구력": 30,
+      "적응력": 6
+    },
+    "passive": {
+      "id": "iron_hide",
+      "name": "무쇠가죽",
+      "description": "강철 같은 거인 가죽 — 물리 피해를 크게 흘려낸다"
+    },
+    "actives": [
+      {
+        "skill_id": "ogre_swing",
+        "name": "휘두르기",
+        "cooldown": 35,
+        "description": "거인의 둔기로 주위를 통째로 쓸어버린다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "ogre_crouch",
+        "name": "웅크리기",
+        "cooldown": 23,
+        "description": "웅크려 거대한 가죽으로 막는다 — 내성·재생 급증",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "ogre_quake",
+        "name": "대지가르기",
+        "cooldown": 35,
+        "description": "땅을 갈라 광역 충격파를 일으킨다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "ogre_charge",
+        "name": "돌진",
+        "cooldown": 33,
+        "description": "거구로 돌진해 들이받는다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "ogre_grab",
+        "name": "붙잡기",
+        "cooldown": 26,
+        "description": "붙잡아 자신에게 끌어당긴다",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "6층 - 심연의 대해",
+    "effect_type": "DAMAGE_REDUCTION",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
     "elements": [],
@@ -14366,7 +14108,7 @@ const RUNES_DATA = [
         "is_ranged": true
       }
     ],
-    "acquisition": "6층 - 심연의 대해",
+    "acquisition": "6층 - 표류 무인도",
     "effect_type": "PCT_BONUS_DAMAGE",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
@@ -15304,7 +15046,7 @@ const RUNES_DATA = [
         "is_ranged": true
       }
     ],
-    "acquisition": "6층 - 심연의 대해",
+    "acquisition": "6층 - 안개 산호초",
     "effect_type": "APPLY_ELEMENT",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
@@ -15344,7 +15086,7 @@ const RUNES_DATA = [
         "is_ranged": true
       }
     ],
-    "acquisition": "6층 - 항해 인양",
+    "acquisition": "6층 - 안개 산호초",
     "effect_type": "STAT_BONUS",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
@@ -15715,7 +15457,7 @@ const RUNES_DATA = [
       "description": "피격 시 간혹 공격을 흘려낸다"
     },
     "actives": [],
-    "acquisition": "6층 - 심연의 대해",
+    "acquisition": "6층 - 안개 산호초",
     "effect_type": "DODGE",
     "effect_type_ko": "💨 회피/가드",
     "effect_value": 0.1,
@@ -15743,7 +15485,7 @@ const RUNES_DATA = [
       "description": "유령 선원들이 쉼 없이 선체를 매만져 표류 시 배 손상을 줄인다"
     },
     "actives": [],
-    "acquisition": "6층 - 항해 인양",
+    "acquisition": "6층 - 안개 산호초",
     "effect_type": "STAT_BONUS",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
@@ -17615,6 +17357,57 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
+    "id": "venom_lord",
+    "name": "맹독 군주",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": [
+      "green",
+      "red"
+    ],
+    "color_list": [
+      "green",
+      "red"
+    ],
+    "stat_bonuses": {
+      "민첩": 44,
+      "마력": 35,
+      "예리": 43,
+      "행운": 18
+    },
+    "passive": {
+      "id": "venom_coat",
+      "name": "맹독 도포",
+      "description": "공격 시 독 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "venom_fang",
+        "name": "맹독 송곳니",
+        "cooldown": 26,
+        "description": "맹독 일격 — 독 스택 2 (발병 가속)",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "spore_field",
+        "name": "포자 구름",
+        "cooldown": 30,
+        "description": "독 포자 장판 — 독 스택",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "7층 - 역병 지대",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "독"
+    ],
+    "is_relic": false
+  },
+  {
     "id": "malder_elephant",
     "name": "부패한 매머드",
     "type": "normal",
@@ -17897,6 +17690,60 @@ const RUNES_DATA = [
     "effect_type_ko": "💨 회피/가드",
     "effect_value": 0.1,
     "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "frost_weaver",
+    "name": "서리 거미",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "color_list": [
+      "blue",
+      "cyan"
+    ],
+    "stat_bonuses": {
+      "마력": 40,
+      "정신력": 30,
+      "근력": 18,
+      "냉기저항": 12,
+      "민첩": 22,
+      "예리": 10,
+      "영력": 14
+    },
+    "passive": {
+      "id": "frost_snare",
+      "name": "결빙 거미줄",
+      "description": "공격 시 일정 확률로 적을 결빙 거미줄로 속박한다"
+    },
+    "actives": [
+      {
+        "skill_id": "frost_web",
+        "name": "결빙 거미줄",
+        "cooldown": 34.5,
+        "description": "바닥 한기 거미줄 — 속박 + 냉기 DOT. 빙결 직전까지 몰아붙이는 셋업.",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "frost_bind",
+        "name": "서리 결박",
+        "cooldown": 18,
+        "description": "단일 대상 결빙 포박 — 강제 빙결 + 냉기 스택.",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "7층 - 고드름 동굴",
+    "effect_type": "APPLY_CC",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "냉기"
+    ],
     "is_relic": false
   },
   {
@@ -18297,6 +18144,56 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
+    "id": "merran",
+    "name": "얼음 정령",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": [
+      "blue",
+      "red"
+    ],
+    "color_list": [
+      "blue",
+      "red"
+    ],
+    "stat_bonuses": {
+      "강골": 30,
+      "내구력": 22,
+      "물리내성": 20,
+      "불굴": 25,
+      "냉기저항": 25
+    },
+    "passive": {
+      "id": "weakness_expose",
+      "name": "빙하 분쇄",
+      "description": "공격 시 일정 확률로 적의 갑옷을 분쇄해 방어를 약화시킨다"
+    },
+    "actives": [
+      {
+        "skill_id": "glacial_smash",
+        "name": "빙하 강타",
+        "cooldown": 33,
+        "description": "거대 빙하 강타 — 광역 물리 + 넉백 경직.",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "glacier_charge",
+        "name": "빙하 돌진",
+        "cooldown": 30.8,
+        "description": "빙하처럼 돌진하는 관통 강타 — 경직.",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 고드름 동굴",
+    "effect_type": "APPLY_DEBUFF",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
     "id": "ice_crystal_golem",
     "name": "얼음결정 골렘",
     "type": "normal",
@@ -18353,6 +18250,65 @@ const RUNES_DATA = [
     "effect_type_ko": "🦔 피해 반사",
     "effect_value": 0.12,
     "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "plague_serpent",
+    "name": "역병 독사",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": [
+      "green",
+      "purple",
+      "red"
+    ],
+    "color_list": [
+      "green",
+      "purple",
+      "red"
+    ],
+    "stat_bonuses": {
+      "민첩": 63,
+      "근력": 47,
+      "불굴": 30
+    },
+    "passive": {
+      "id": "outbreak",
+      "name": "발병",
+      "description": "적에게 쌓인 독이 임계에 달하면 잠복한 독이 터진다"
+    },
+    "actives": [
+      {
+        "skill_id": "spore_field",
+        "name": "포자 구름",
+        "cooldown": 30,
+        "description": "독 포자 장판 — 독 스택",
+        "is_ranged": true
+      },
+      {
+        "skill_id": "venom_fang",
+        "name": "맹독 송곳니",
+        "cooldown": 26,
+        "description": "맹독 일격 — 독 스택 2 (발병 가속)",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "paralytic_dart",
+        "name": "마비독침",
+        "cooldown": 22,
+        "description": "마비독 다트 — 적을 잠시 마비시키고 독 스택",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 역병 지대",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "독"
+    ],
     "is_relic": false
   },
   {
@@ -19007,6 +18963,50 @@ const RUNES_DATA = [
     "effect_type": "APPLY_ELEMENT",
     "effect_type_ko": "일반",
     "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "frozen_soul",
+    "name": "얼어붙은 영혼",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 7,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "color_list": [
+      "blue",
+      "cyan"
+    ],
+    "stat_bonuses": {
+      "마력": 40,
+      "냉기저항": 30,
+      "마법내성": 22,
+      "영력": 11,
+      "치유력": 5,
+      "통찰": 4
+    },
+    "passive": {
+      "id": "wraith_feast",
+      "name": "혼령 흡수",
+      "description": "적을 처치하면 혼령을 빨아들여 생명력을 되찾는다"
+    },
+    "actives": [
+      {
+        "skill_id": "frost_bolt",
+        "name": "빙결탄",
+        "cooldown": 22,
+        "description": "원거리 빙결탄",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "7층 - 얼음 무덤",
+    "effect_type": "HEAL_ON_KILL",
+    "effect_type_ko": "🩸 타격 흡혈",
+    "effect_value": 0.04,
     "elements": [],
     "is_relic": false
   },
