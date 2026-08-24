@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>브리미르(Brimir) 버스터즈 — 룬 도감</title>
-<meta name="description" content="브리미르: 심장으로의 순례 408종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
+<meta name="description" content="브리미르: 심장으로의 순례 402종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://busters.kr/">
 <meta property="og:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta property="og:description" content="브리미르: 심장으로의 순례 408종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
+<meta property="og:description" content="브리미르: 심장으로의 순례 402종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta name="twitter:description" content="브리미르: 심장으로의 순례 408종 룬 도감 & 멀티 덱 시뮬레이터">
+<meta name="twitter:description" content="브리미르: 심장으로의 순례 402종 룬 도감 & 멀티 덱 시뮬레이터">
 <style>
   :root {
     --bg-main: #0d1117;
@@ -525,7 +525,7 @@
 <div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>브리미르: 심장으로의 순례 — 408종 룬 도감 & 빌드 덱 시뮬레이터</p>
+    <p>브리미르: 심장으로의 순례 — 402종 룬 도감 & 빌드 덱 시뮬레이터</p>
     <nav class="nav-tabs">
     <a href="index.html" class="nav-tab active">💎 룬 도감</a>
     <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
@@ -15021,63 +15021,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "belarios",
-    "name": "영겁의 용",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "green",
-      "yellow",
-      "purple"
-    ],
-    "color_list": [
-      "green",
-      "yellow",
-      "purple"
-    ],
-    "stat_bonuses": {
-      "근력": 100,
-      "마법내성": 75,
-      "내구력": 75
-    },
-    "passive": {
-      "id": "eternal_scale",
-      "name": "영겁의 비늘",
-      "description": "누적된 상처가 임계에 닿으면 다음 일격을 통째로 흘려보낸다"
-    },
-    "actives": [
-      {
-        "skill_id": "greed_scale",
-        "name": "비늘 결계",
-        "cooldown": 23,
-        "description": "비늘이 곤두서 결계를 이룬다 — 마법이 튕겨 나간다",
-        "is_ranged": false
-      },
-      {
-        "skill_id": "space_shatter",
-        "name": "공간 붕괴",
-        "cooldown": 30,
-        "description": "지정한 자리의 공간이 무너져 내린다 — 피할 수 없다",
-        "is_ranged": true
-      },
-      {
-        "skill_id": "death_breath",
-        "name": "부식의 숨결",
-        "cooldown": 33,
-        "description": "모든 것을 삭히는 숨결을 전방에 쏟아낸다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "DODGE",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "stonewinter",
     "name": "서리 바위거인",
     "type": "normal",
@@ -15254,45 +15197,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "vol_herchan",
-    "name": "심연의 흑기사",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "green",
-    "color_list": [
-      "green"
-    ],
-    "stat_bonuses": {
-      "물리내성": 90,
-      "독저항": 60,
-      "강골": 50,
-      "내구력": 40,
-      "정신력": 20
-    },
-    "passive": {
-      "id": "evolving_carapace",
-      "name": "진화형 외피",
-      "description": "피격할수록 외피가 단단해져 물리 내성이 누적된다"
-    },
-    "actives": [
-      {
-        "skill_id": "iron_bastion",
-        "name": "철옹성",
-        "cooldown": 23,
-        "description": "외피를 극한으로 경화시킨다 — 물리내성이 폭증한다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "KILL_STACK",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "baion",
     "name": "얼어붙은 구울",
     "type": "normal",
@@ -15369,172 +15273,6 @@ const RUNES_DATA = [
     "effect_type": "HEAL_ON_HIT",
     "effect_type_ko": "🩸 타격 흡혈",
     "effect_value": 0.04,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "bone_dragonian",
-    "name": "해골 와이번",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "red",
-    "color_list": [
-      "red"
-    ],
-    "stat_bonuses": {
-      "마력": 68,
-      "마법내성": 40,
-      "암흑친화": 40,
-      "강골": 40,
-      "정신력": 30,
-      "영력": 22
-    },
-    "passive": {
-      "id": "bone_scale",
-      "name": "뼈 비늘",
-      "description": "공격에 죽음의 기운을 실어 어둠 스택을 부여한다"
-    },
-    "actives": [
-      {
-        "skill_id": "bone_breath",
-        "name": "뼈 브레스",
-        "cooldown": 33,
-        "description": "뼈 사이로 죽음의 브레스를 내뿜어 광역 피해를 입힌다",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "APPLY_ELEMENT",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [
-      "암흑"
-    ],
-    "is_relic": false
-  },
-  {
-    "id": "grudge_colossus",
-    "name": "원귀 거상",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "purple",
-      "blue"
-    ],
-    "color_list": [
-      "purple",
-      "blue"
-    ],
-    "stat_bonuses": {
-      "정신력": 70,
-      "예리": 40,
-      "내구력": 40,
-      "마법내성": 40,
-      "물리내성": 30,
-      "통찰": 20
-    },
-    "passive": {
-      "id": "spectral_ward",
-      "name": "영체 외피",
-      "description": "원혼의 장막이 주변 아군을 감싸 피해를 흘려낸다"
-    },
-    "actives": [
-      {
-        "skill_id": "mind_bulwark",
-        "name": "정신 방벽",
-        "cooldown": 23,
-        "description": "원혼의 장막을 둘러 정신력이 치솟는다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "WARD_AURA",
-    "effect_type_ko": "🛡️ 피해 감소",
-    "effect_value": 0.08,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "wailing_wraith",
-    "name": "비탄의 망령",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "purple",
-    "color_list": [
-      "purple"
-    ],
-    "stat_bonuses": {
-      "정신력": 99,
-      "예리": 50,
-      "통찰": 40,
-      "행운": 11,
-      "마법내성": 40
-    },
-    "passive": {
-      "id": "grudge_curse",
-      "name": "원한의 저주",
-      "description": "공격에 사무친 원한이 실려 적을 공포에 빠뜨린다"
-    },
-    "actives": [
-      {
-        "skill_id": "wail_of_grudge",
-        "name": "원한의 비명",
-        "cooldown": 18,
-        "description": "사무친 원한의 비명이 주변 적들을 공포에 빠뜨린다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "APPLY_CC",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "abyssal_watcher",
-    "name": "심연의 응시자",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "yellow",
-    "color_list": [
-      "yellow"
-    ],
-    "stat_bonuses": {
-      "예리": 99,
-      "통찰": 50,
-      "행운": 11,
-      "민첩": 40,
-      "정신력": 40,
-      "유연성": 6,
-      "은신": 6
-    },
-    "passive": {
-      "id": "piercing_sight",
-      "name": "간파의 눈",
-      "description": "직감으로 적의 약점을 꿰뚫어 방어를 무너뜨린다"
-    },
-    "actives": [
-      {
-        "skill_id": "evil_eye",
-        "name": "사안",
-        "cooldown": 17.7,
-        "description": "심연의 눈이 적을 응시해 몸을 굳게 만든다",
-        "is_ranged": true
-      }
-    ],
-    "acquisition": "7층 - 심연의 눈",
-    "effect_type": "APPLY_DEBUFF",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
     "elements": [],
     "is_relic": false
   },
