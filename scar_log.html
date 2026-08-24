@@ -521,10 +521,12 @@
       <span class="nav-tab active" style="padding: 6px 12px; font-size: 12px; background: linear-gradient(135deg, #1f6feb, #238636); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;">📜 신해 일지</span>
     </div>
 
-    <div class="current-day-badge" id="current-badge">
+    <div class="current-day-badge" id="current-badge" onclick="openStartDayModal()" style="cursor: pointer;" title="클릭하여 시작/현재 일차 변경">
       🔥 <span id="latest-day-display">10</span>일차 (<span id="latest-turn-display">1</span>탐험)
+      <span style="font-size: 11px; opacity: 0.7; margin-left: 2px;">✏️</span>
     </div>
 
+    <button class="btn" onclick="openStartDayModal()" title="진행 중인 일차로 바로 점프">⚙️ 시작일차 설정</button>
     <button class="btn btn-primary" onclick="addNewDay(10)">➕ +10일 탐험 추가</button>
     <button class="btn btn-success" onclick="startNewRun()">✨ 다음 회차 추가</button>
     <button class="btn btn-danger" onclick="confirmResetAll()">🗑️ 전체 초기화</button>
@@ -555,6 +557,44 @@
       <!-- Injected dynamically -->
     </tbody>
   </table>
+</div>
+
+
+<!-- Modal: Start Day Customization -->
+<div class="modal-overlay" id="start-day-modal" onclick="closeStartDayModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 420px;">
+    <div class="modal-header">
+      <h3>⚙️ 시작/현재 일차 설정</h3>
+      <button class="modal-close-btn" onclick="closeStartDayModal()">×</button>
+    </div>
+    <div class="modal-body" style="padding: 20px;">
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
+        이미 인게임에서 생존 일수가 진행 중이신 경우, 시작 일차를 직접 설정하여 현재 진행도부터 편리하게 기록할 수 있습니다. (10일 단위)
+      </p>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
+        <button class="btn" onclick="adjustCustomDay(-10)" style="padding: 8px 14px; font-size: 16px;">−</button>
+        <div style="position: relative; width: 140px;">
+          <input type="number" id="custom-start-day-input" step="10" min="10" max="9990" value="10" style="width: 100%; background: #0d1117; border: 1px solid var(--border-color); color: var(--accent-gold); font-size: 20px; font-weight: 800; text-align: center; padding: 8px 12px; border-radius: 6px; outline: none;">
+        </div>
+        <span style="font-size: 14px; font-weight: 700; color: var(--text-bright);">일차</span>
+        <button class="btn" onclick="adjustCustomDay(10)" style="padding: 8px 14px; font-size: 16px;">+</button>
+      </div>
+
+      <div style="display: flex; gap: 6px; justify-content: center; margin-bottom: 18px; flex-wrap: wrap;">
+        <button class="btn" onclick="setQuickCustomDay(10)">10일차 (기본)</button>
+        <button class="btn" onclick="setQuickCustomDay(50)">50일차</button>
+        <button class="btn" onclick="setQuickCustomDay(80)">80일차</button>
+        <button class="btn" onclick="setQuickCustomDay(100)">100일차</button>
+        <button class="btn" onclick="setQuickCustomDay(150)">150일차</button>
+      </div>
+
+      <div style="display: flex; gap: 8px; justify-content: flex-end;">
+        <button class="btn" onclick="closeStartDayModal()">취소</button>
+        <button class="btn btn-primary" onclick="applyCustomStartDay()">적용하기</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal: Floor Scar Selection -->
@@ -663,8 +703,11 @@ function getActiveRun() {
   if (!active.entries || typeof active.entries !== 'object') {
     active.entries = {};
   }
-  if (!active.maxDay || typeof active.maxDay !== 'number' || active.maxDay < 10) {
-    active.maxDay = 10;
+  if (!active.startDay || typeof active.startDay !== 'number' || active.startDay < 10) {
+    active.startDay = 10;
+  }
+  if (!active.maxDay || typeof active.maxDay !== 'number' || active.maxDay < active.startDay) {
+    active.maxDay = active.startDay;
   }
   return active;
 }
@@ -894,7 +937,8 @@ function renderTable() {
 
     let html = '';
 
-    for (let d = maxD; d >= 10; d -= 10) {
+    const startD = (run && run.startDay) || 10;
+    for (let d = maxD; d >= startD; d -= 10) {
       const turnIndex = d / 10;
       const dayData = (run.entries && run.entries[d]) || {};
       const isLatest = (d === maxD);
@@ -954,6 +998,52 @@ function renderTable() {
   } catch(err) {
     console.error("renderTable error:", err);
   }
+}
+
+
+function openStartDayModal() {
+  const run = getActiveRun();
+  const currentDay = run.startDay || 10;
+  const input = document.getElementById('custom-start-day-input');
+  if (input) input.value = currentDay;
+  const modal = document.getElementById('start-day-modal');
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeStartDayModal() {
+  const modal = document.getElementById('start-day-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function adjustCustomDay(delta) {
+  const input = document.getElementById('custom-start-day-input');
+  if (input) {
+    let val = parseInt(input.value, 10) || 10;
+    val = Math.max(10, val + delta);
+    if (val % 10 !== 0) val = Math.ceil(val / 10) * 10;
+    input.value = val;
+  }
+}
+
+function setQuickCustomDay(dayVal) {
+  const input = document.getElementById('custom-start-day-input');
+  if (input) input.value = dayVal;
+}
+
+function applyCustomStartDay() {
+  const input = document.getElementById('custom-start-day-input');
+  let val = parseInt(input.value, 10) || 10;
+  if (val < 10) val = 10;
+  if (val % 10 !== 0) val = Math.ceil(val / 10) * 10;
+
+  const run = getActiveRun();
+  run.startDay = val;
+  if (!run.maxDay || run.maxDay < val) {
+    run.maxDay = val;
+  }
+  saveState();
+  renderAll();
+  closeStartDayModal();
 }
 
 // Immediate execution
