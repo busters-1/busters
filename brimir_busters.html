@@ -15646,9 +15646,9 @@ const RUNES_DATA = [
     "grade": 3,
     "floor": 7,
     "color": [
-      "green",
+      "purple",
       "yellow",
-      "purple"
+      "green"
     ],
     "stat_bonuses": {
       "근력": 100,
@@ -15656,6 +15656,7 @@ const RUNES_DATA = [
       "마법내성": 75
     },
     "passive": {
+      "id": "eternal_scale",
       "name": "영겁의 비늘",
       "description": "누적된 상처가 임계에 닿으면 다음 일격을 통째로 흘려보낸다"
     },
@@ -15690,7 +15691,37 @@ const RUNES_DATA = [
         "cooldown": 25,
         "description": "모든 것을 삭히는 숨결을 전방에 쏟아낸다 (암흑 피해)"
       }
-    ]
+    ],
+    "color_list": [
+      "purple",
+      "yellow",
+      "green"
+    ],
+    "actives": [
+      {
+        "skill_id": "greed_scale",
+        "name": "비늘 결계",
+        "cooldown": 12,
+        "description": "비늘이 곤두서 결계를 이룬다 — 마법이 튕겨 나간다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "space_shatter",
+        "name": "공간 붕괴",
+        "cooldown": 20,
+        "description": "지정한 자리의 공간이 무너져 내린다 — 피할 수 없다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "death_breath",
+        "name": "부식의 숨결",
+        "cooldown": 25,
+        "description": "모든 것을 삭히는 숨결을 전방에 쏟아낸다 (암흑 피해)",
+        "is_ranged": true
+      }
+    ],
+    "effect_type": "HIT_GUARD",
+    "effect_type_ko": "🛡️ 회피/가드"
   },
   {
     "id": "soulbinder",
@@ -15746,6 +15777,7 @@ const RUNES_DATA = [
       "물리내성": 30
     },
     "passive": {
+      "id": "spectral_ward",
       "name": "영체 외피",
       "description": "원혼의 장막이 주변 아군을 감싸 피해를 흘려낸다"
     },
@@ -15767,7 +15799,21 @@ const RUNES_DATA = [
         "cooldown": 12,
         "description": "원혼의 장막을 둘러 정신력이 치솟는다"
       }
-    ]
+    ],
+    "color_list": [
+      "blue"
+    ],
+    "actives": [
+      {
+        "skill_id": "mind_bulwark",
+        "name": "정신 방벽",
+        "cooldown": 12,
+        "description": "원혼의 장막을 둘러 정신력이 치솟는다",
+        "is_ranged": false
+      }
+    ],
+    "effect_type": "PARTY_AURA",
+    "effect_type_ko": "🛡️ 아군 보호 오라"
   },
   {
     "id": "giant_arrow",
