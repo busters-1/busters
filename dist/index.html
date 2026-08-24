@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>브리미르(Brimir) 버스터즈 — 룬 도감</title>
-<meta name="description" content="브리미르: 심장으로의 순례 408종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
+<meta name="description" content="브리미르: 심장으로의 순례 400종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://busters.kr/">
 <meta property="og:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta property="og:description" content="브리미르: 심장으로의 순례 408종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
+<meta property="og:description" content="브리미르: 심장으로의 순례 400종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta name="twitter:description" content="브리미르: 심장으로의 순례 408종 룬 도감 & 멀티 덱 시뮬레이터">
+<meta name="twitter:description" content="브리미르: 심장으로의 순례 400종 룬 도감 & 멀티 덱 시뮬레이터">
 <style>
   :root {
     --bg-main: #0d1117;
@@ -525,7 +525,7 @@
 <div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>브리미르: 심장으로의 순례 — 408종 룬 도감 & 빌드 덱 시뮬레이터</p>
+    <p>브리미르: 심장으로의 순례 — 400종 룬 도감 & 빌드 덱 시뮬레이터</p>
     <nav class="nav-tabs">
     <a href="index.html" class="nav-tab active">💎 룬 도감</a>
     <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
@@ -634,7 +634,7 @@
         <option value="stat_물저항">💧 물저항 높은 순</option>
       </optgroup>
     </select>
-    <div style="color: var(--text-muted); font-size: 12px;">공식 몬스터 룬: <strong id="match-count" style="color: var(--accent-gold);">408</strong>개</div>
+    <div style="color: var(--text-muted); font-size: 12px;">공식 몬스터 룬: <strong id="match-count" style="color: var(--accent-gold);">400</strong>개</div>
   </div>
 
     <div class="filter-group">
@@ -15521,75 +15521,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "wailing_wraith",
-    "name": "비탄의 망령",
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "purple"
-    ],
-    "stat_bonuses": {
-      "의지": 99,
-      "감각": 50,
-      "육감": 40,
-      "행운": 11,
-      "마법내성": 40
-    },
-    "passive": {
-      "name": "비탄의 절규",
-      "description": "피격 시 일정 확률로 주위 적들에게 공포를 부여합니다."
-    },
-    "active": {
-      "name": "영혼 착취",
-      "cooldown": 18,
-      "description": "적의 영혼을 강탈하여 피해를 입히고 자신의 생명력을 회복합니다."
-    },
-    "acquisition": "7층 - 검총 (보스)",
-    "special_effects": [
-      "공포",
-      "흡혈/회복"
-    ]
-  },
-  {
-    "id": "glacier_giant",
-    "name": "빙하 거인",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "red",
-    "color_list": [
-      "red"
-    ],
-    "stat_bonuses": {
-      "근력": 75,
-      "불굴": 60,
-      "물리내성": 50,
-      "강골": 40,
-      "내구력": 25
-    },
-    "passive": {
-      "id": "glacial_frenzy",
-      "name": "빙하의 광분",
-      "description": "얼어붙은 사냥감을 내리칠수록 광기가 차오른다 — 가득 차면 거인이 날뛴다"
-    },
-    "actives": [
-      {
-        "skill_id": "glacier_stampede",
-        "name": "빙하의 진격",
-        "cooldown": 33,
-        "description": "빙하가 밀려오듯 짓쳐 들어가 앞을 쓸어버린다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 얼음 무덤",
-    "effect_type": "PCT_BONUS_DAMAGE",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "reaper_lord",
     "name": "사령군주",
     "type": "normal",
@@ -15707,148 +15638,6 @@ const RUNES_DATA = [
     "is_relic": false
   },
   {
-    "id": "frost_guardian",
-    "name": "서리 수호병",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "cyan",
-    "color_list": [
-      "cyan"
-    ],
-    "stat_bonuses": {
-      "정신력": 70,
-      "물리내성": 55,
-      "마법내성": 55,
-      "내구력": 45,
-      "강골": 25
-    },
-    "passive": {
-      "id": "frozen_legion",
-      "name": "혹한의 군세",
-      "description": "군기가 선 자리의 적은 한기에 훨씬 빨리 잠식된다 — 파티 전원이 그 적에게서 이득을 본다"
-    },
-    "actives": [
-      {
-        "skill_id": "hoarfrost_banner",
-        "name": "서리 군기",
-        "cooldown": 26,
-        "description": "파티 전체 마법내성 +25% 10초",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 얼음 무덤",
-    "effect_type": "APPLY_ELEMENT",
-    "effect_type_ko": "일반",
-    "effect_value": 0.0,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "abyssal_watcher",
-    "name": "심연의 응시자",
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "yellow"
-    ],
-    "stat_bonuses": {
-      "감각": 99,
-      "육감": 50,
-      "행운": 11,
-      "민첩": 40,
-      "의지": 40,
-      "유연성": 6,
-      "은밀": 6
-    },
-    "passive": {
-      "name": "심연의 시선",
-      "description": "치명타 확률이 25% 증가하고 적의 약점을 노출시킵니다."
-    },
-    "active": {
-      "name": "파멸의 광선",
-      "cooldown": 20,
-      "description": "눈에서 강력한 광선을 발사하여 관통 마법 피해를 입힙니다."
-    },
-    "acquisition": "7층 - 거석 유적 (보스)",
-    "special_effects": [
-      "치명타율 증가",
-      "약점 노출"
-    ]
-  },
-  {
-    "id": "vol_herchan",
-    "name": "심연의 흑기사",
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "green"
-    ],
-    "stat_bonuses": {
-      "물리내성": 90,
-      "독내성": 60,
-      "골밀도": 50,
-      "지구력": 40,
-      "의지": 20
-    },
-    "passive": {
-      "name": "흑요석의 맹세",
-      "description": "방어 시 받는 물리 피해가 추가로 40% 감소하며 적을 밀쳐냅니다."
-    },
-    "active": {
-      "name": "심연의 일격",
-      "cooldown": 25,
-      "description": "흑검으로 전방을 강타하여 강력한 물리 피해를 입히고 적의 방어력을 5초간 감소시킵니다."
-    },
-    "acquisition": "7층 - 검총 (보스)",
-    "special_effects": [
-      "받는 피해 감소",
-      "방어력 파쇄"
-    ]
-  },
-  {
-    "id": "baion",
-    "name": "얼어붙은 구울",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "orange",
-    "color_list": [
-      "orange"
-    ],
-    "stat_bonuses": {
-      "내구력": 60,
-      "재생력": 60,
-      "근력": 50,
-      "강골": 40,
-      "약효": 30,
-      "적응력": 6,
-      "치유력": 8
-    },
-    "passive": {
-      "id": "undying_flesh",
-      "name": "불사의 육신",
-      "description": "적을 쓰러뜨릴 때마다 죽지 않는 육신이 되살아난다"
-    },
-    "actives": [
-      {
-        "skill_id": "transcendence",
-        "name": "초월",
-        "cooldown": 23,
-        "description": "초월체의 권능을 개방한다 — 육체 능력이 한계를 넘어 상승한다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 얼음 무덤",
-    "effect_type": "HEAL_ON_KILL",
-    "effect_type_ko": "🩸 타격 흡혈",
-    "effect_value": 0.04,
-    "elements": [],
-    "is_relic": false
-  },
-  {
     "id": "belarios",
     "name": "영겁의 용",
     "grade": 3,
@@ -15948,75 +15737,6 @@ const RUNES_DATA = [
     "special_effects": [
       "생명력 보호막",
       "기절"
-    ]
-  },
-  {
-    "id": "vaiterion",
-    "name": "한기의 야수",
-    "type": "normal",
-    "is_guardian": false,
-    "grade": 3,
-    "floor": 7,
-    "color": "purple",
-    "color_list": [
-      "purple"
-    ],
-    "stat_bonuses": {
-      "물리내성": 80,
-      "근력": 60,
-      "내구력": 50,
-      "강골": 40,
-      "불굴": 20
-    },
-    "passive": {
-      "id": "feral_feast",
-      "name": "야수 포식",
-      "description": "공격으로 살점을 물어뜯어 생명력을 흡수한다"
-    },
-    "actives": [
-      {
-        "skill_id": "savage_bite",
-        "name": "물어뜯기",
-        "cooldown": 22,
-        "description": "짐승처럼 적을 물어뜯어 살점을 뜯어낸다",
-        "is_ranged": false
-      }
-    ],
-    "acquisition": "7층 - 얼음 무덤",
-    "effect_type": "HEAL_ON_HIT",
-    "effect_type_ko": "🩸 타격 흡혈",
-    "effect_value": 0.04,
-    "elements": [],
-    "is_relic": false
-  },
-  {
-    "id": "bone_dragonian",
-    "name": "해골 와이번",
-    "grade": 3,
-    "floor": 7,
-    "color": [
-      "red"
-    ],
-    "stat_bonuses": {
-      "혼력": 68,
-      "마법내성": 40,
-      "암흑친화": 40,
-      "골밀도": 40,
-      "의지": 30,
-      "영기": 22
-    },
-    "passive": {
-      "name": "골격 공명",
-      "description": "마법 시전 시 주위 해골 파편이 공명하여 추가 암흑 피해를 입힙니다."
-    },
-    "active": {
-      "name": "사령의 활공",
-      "cooldown": 20,
-      "description": "공중으로 도약 후 급강하하여 광역 암흑 피해를 입힙니다."
-    },
-    "acquisition": "7층 - 검총 (보스)",
-    "special_effects": [
-      "추가 암흑 피해"
     ]
   },
   {
@@ -19246,8 +18966,7 @@ const RUNES_DATA = [
     "is_relic": false
   }
 ];
-
-const COLOR_MAP = {
+  const COLOR_MAP = {
   "yellow": { label: "노랑", cls: "cb-yellow" },
   "blue": { label: "파랑", cls: "cb-blue" },
   "orange": { label: "주황", cls: "cb-orange" },
