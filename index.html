@@ -370,7 +370,7 @@
     align-items: center;
     gap: 6px;
   }
-  .item-drop { font-size: 11px; color: var(--text-muted); }
+  .item-location { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 3px; }
   .item-tags { display: flex; gap: 4px; margin-top: 2px; flex-wrap: wrap; }
   .tag-badge {
     font-size: 10px;
@@ -562,7 +562,7 @@
 
 <div class="control-section">
   <div class="search-row">
-    <input type="text" id="search-input" class="search-input" placeholder="🔍 몬스터명, 룬 이름, 스킬명, 드랍처, 패시브 효과 검색...">
+    <input type="text" id="search-input" class="search-input" placeholder="🔍 몬스터명, 룬 이름, 스킬명, 출현지/서식지, 패시브 효과 검색...">
     <select id="sort-select" class="sort-select" onchange="handleSortChange()">
       <optgroup label="🔽 기본 및 등급/시스템 정렬">
         <option value="default">🔽 기본 정렬 (등급/층수순)</option>
@@ -19706,7 +19706,7 @@ function renderTable() {
         <td class="col-name">
           <div class="item-title-box">
             <div class="item-name">${r.name}</div>
-            ${r.acquisition ? `<div class="item-drop">${r.acquisition}</div>` : ''}
+            ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : \'\'}
             <div class="item-tags">
               ${(r.elements || []).map(e => `<span class="tag-badge elem">${e}</span>`).join('')}
               ${SAILING_DRIFT_CHANCE_RUNES.has(r.id) ? '<span class="tag-badge" style="background:#3b134e; color:#f0abfc; border:1px solid #c084fc;">🗺️ 표류확률↓</span>' : ''}
@@ -19747,7 +19747,7 @@ function openDetailModal(id) {
   const modalContent = document.getElementById('modal-content');
   modalContent.innerHTML = `
     <h2 style="font-size:18px; color:#fff; margin-bottom:12px;">${r.name} (${r.grade}등급 · ${r.floor}층)</h2>
-    <div style="font-size:13px; color:#8b949e; margin-bottom:16px;">드랍처: ${r.acquisition || '던전 획득'}</div>
+    <div style="font-size:13px; color:#8b949e; margin-bottom:16px;">📍 출현지: <span style="color:#c9d1d9;">${r.acquisition || \'던전\'}</span></div>
     
     <h3 style="font-size:14px; color:#58a6ff; margin-bottom:6px;">📊 스탯</h3>
     <div style="margin-bottom:14px; display:flex; gap:6px; flex-wrap:wrap;">
