@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📜 브리미르(Brimir) 신해 일지 — busters.kr</title>
+<style>
+  :root {
+    --bg-main: #0d1117;
+    --bg-card: #161b22;
+    --bg-header: #1f242c;
+    --border-color: #30363d;
+    --border-light: #21262d;
+    --text-main: #c9d1d9;
+    --text-bright: #ffffff;
+    --text-muted: #8b949e;
+    --accent-blue: #58a6ff;
+    --accent-gold: #f2cc60;
+    --accent-red: #ff7b72;
+    --accent-green: #3fb950;
+    --accent-purple: #bc8cff;
+    --accent-orange: #ffa657;
+    --accent-cyan: #39c5bb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 16px;
+    line-height: 1.4;
+  }
+
+  /* Header Container — busters.kr style */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .header-title h1 {
+    font-size: 20px;
+    color: var(--text-bright);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-title p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .current-day-badge {
+    background: rgba(242, 204, 96, 0.12);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Buttons — busters.kr style */
+  .btn {
+    background: #21262d;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+  }
+  .btn:hover {
+    background: #30363d;
+    border-color: var(--accent-blue);
+    color: var(--text-bright);
+  }
+
+  .btn-primary {
+    background: #1f6feb;
+    border-color: #388bfd;
+    color: #ffffff;
+  }
+  .btn-primary:hover {
+    background: #388bfd;
+    border-color: #58a6ff;
+  }
+
+  .btn-success {
+    background: rgba(35, 134, 54, 0.2);
+    border-color: #238636;
+    color: var(--accent-green);
+  }
+  .btn-success:hover {
+    background: #238636;
+    color: #ffffff;
+  }
+
+  .btn-danger {
+    background: rgba(218, 54, 51, 0.15);
+    border-color: rgba(248, 81, 73, 0.4);
+    color: var(--accent-red);
+  }
+  .btn-danger:hover {
+    background: #da3633;
+    color: #ffffff;
+    border-color: #f85149;
+  }
+
+  /* Run Tabs Bar — busters.kr nav-tab style */
+  .run-tabs-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .run-tab {
+    background: #21262d;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .run-tab:hover {
+    border-color: var(--accent-blue);
+    color: var(--text-bright);
+  }
+  .run-tab.active {
+    background: linear-gradient(135deg, #1f6feb, #238636);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .btn-add-run-tab {
+    background: transparent;
+    border: 1px dashed #484f58;
+    color: var(--text-muted);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s;
+  }
+  .btn-add-run-tab:hover {
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+    background: rgba(63, 185, 80, 0.1);
+  }
+
+  /* Table Matrix Layout — busters.kr style */
+  .table-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  thead th {
+    background: var(--bg-header);
+    color: var(--text-bright);
+    font-weight: 600;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .th-day { width: 125px; min-width: 125px; }
+  .th-floor { min-width: 120px; }
+  .th-memo { min-width: 200px; text-align: left; padding-left: 12px; }
+
+  /* Floor Colors — busters.kr palette */
+  .f-1 { color: var(--accent-blue); }
+  .f-2 { color: var(--accent-cyan); }
+  .f-3 { color: var(--accent-green); }
+  .f-4 { color: var(--accent-gold); }
+  .f-5 { color: var(--accent-purple); }
+  .f-6 { color: #79c0ff; }
+  .f-7 { color: var(--accent-red); }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.1s;
+  }
+  tbody tr:hover td {
+    background-color: rgba(88, 166, 255, 0.04);
+  }
+
+  tbody td {
+    padding: 8px 6px;
+    border-right: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  td.cell-day {
+    font-weight: 700;
+    color: var(--text-bright);
+    background: rgba(0,0,0,0.15);
+    user-select: none;
+  }
+
+  .day-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .day-tag.latest {
+    background: var(--accent-gold);
+    color: #000000;
+    font-weight: 800;
+    box-shadow: 0 0 8px rgba(242, 204, 96, 0.4);
+  }
+
+  /* Interactive Floor Cell */
+  td.cell-floor {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+    min-height: 48px;
+    padding: 6px;
+  }
+  td.cell-floor:hover {
+    background: rgba(88, 166, 255, 0.08);
+  }
+
+  .cell-badges-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+  }
+
+  .badge-clear {
+    background: rgba(35, 134, 54, 0.15);
+    border: 1px solid #238636;
+    color: var(--accent-green);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .badge-sacrifice {
+    background: rgba(188, 140, 255, 0.15);
+    border: 1px solid #8957e5;
+    color: var(--accent-purple);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .badge-regen-expected {
+    background: rgba(242, 204, 96, 0.12);
+    border: 1px dashed var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    white-space: nowrap;
+  }
+
+  .cell-empty-plus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    background: #21262d;
+    border: 1px dashed #484f58;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.15s ease-in-out;
+  }
+  td.cell-floor:hover .cell-empty-plus {
+    background: rgba(88, 166, 255, 0.15);
+    border-color: var(--accent-blue);
+    border-style: solid;
+    color: var(--text-bright);
+    transform: scale(1.1);
+  }
+
+  /* Memo Input */
+  .memo-input-cell {
+    width: 100%;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-main);
+    font-size: 12px;
+    padding: 6px 8px;
+    outline: none;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  .memo-input-cell:focus {
+    background: rgba(0,0,0,0.3);
+    border-color: var(--accent-blue);
+    color: var(--text-bright);
+  }
+
+  /* Modal Popup — busters.kr modal style */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.8);
+    overflow: hidden;
+    animation: modalIn 0.15s ease-out;
+  }
+
+  @keyframes modalIn {
+    from { transform: scale(0.96); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-header {
+    background: var(--bg-header);
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-header h3 {
+    font-size: 15px;
+    color: var(--text-bright);
+    font-weight: 600;
+  }
+  .modal-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .modal-close-btn:hover {
+    color: var(--accent-red);
+  }
+
+  .modal-body {
+    padding: 14px;
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .scar-select-card {
+    background: #0d1117;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.15s;
+  }
+  .scar-select-card:hover {
+    border-color: rgba(88, 166, 255, 0.4);
+  }
+
+  .scar-info h4 {
+    font-size: 13px;
+    color: var(--text-bright);
+    font-weight: 600;
+  }
+  .scar-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .scar-card-btns {
+    display: flex;
+    gap: 6px;
+  }
+  .btn-action-clear {
+    background: rgba(35, 134, 54, 0.2);
+    border: 1px solid #238636;
+    color: var(--accent-green);
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-action-clear:hover {
+    background: #238636;
+    color: #ffffff;
+  }
+
+  .btn-action-sac {
+    background: rgba(188, 140, 255, 0.15);
+    border: 1px solid #8957e5;
+    color: var(--accent-purple);
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-action-sac:hover {
+    background: #8957e5;
+    color: #ffffff;
+  }
+
+  .btn-remove-status {
+    background: transparent;
+    border: 1px dashed var(--accent-red);
+    color: var(--accent-red);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .btn-remove-status:hover {
+    background: rgba(218, 54, 51, 0.2);
+  }
+</style>
+</head>
+<body>
+
+<div class="header-container">
+  <div class="header-title">
+    <h1>📜 브리미르 신해 일지</h1>
+    <p>다회차 누적 기록 · 10일 단위 생존 주기 (1층~7층)</p>
+  </div>
+
+  <div class="header-controls">
+    <div style="display: flex; gap: 6px; margin-right: 8px;">
+      <a href="index.html" class="nav-tab" style="padding: 6px 12px; font-size: 12px; text-decoration: none; color: var(--text-main); background: #21262d; border: 1px solid var(--border-color); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;">💎 룬 도감</a>
+      <span class="nav-tab active" style="padding: 6px 12px; font-size: 12px; background: linear-gradient(135deg, #1f6feb, #238636); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;">📜 신해 일지</span>
+    </div>
+
+    <div class="current-day-badge" id="current-badge">
+      🔥 <span id="latest-day-display">10</span>일차 (<span id="latest-turn-display">1</span>탐험)
+    </div>
+
+    <button class="btn btn-primary" onclick="addNewDay(10)">➕ +10일 탐험 추가</button>
+    <button class="btn btn-success" onclick="startNewRun()">✨ 다음 회차 추가</button>
+    <button class="btn btn-danger" onclick="confirmResetAll()">🗑️ 전체 초기화</button>
+  </div>
+</div>
+
+<!-- Run Tabs Bar -->
+<div class="run-tabs-bar" id="run-tabs-container">
+  <!-- Injected dynamically -->
+</div>
+
+<div class="table-container">
+  <table id="matrix-table">
+    <thead>
+      <tr>
+        <th class="th-day">생존 일차</th>
+        <th class="th-floor f-1">1층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40일 이내</span></th>
+        <th class="th-floor f-2">2층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40일 이내</span></th>
+        <th class="th-floor f-3">3층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
+        <th class="th-floor f-4">4층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
+        <th class="th-floor f-5">5층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
+        <th class="th-floor f-6">6층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">60일 이내</span></th>
+        <th class="th-floor f-7">7층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">60일 이내</span></th>
+        <th class="th-memo">탐험 메모 / 룬 획득 기록</th>
+      </tr>
+    </thead>
+    <tbody id="matrix-tbody">
+      <!-- Injected dynamically -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal: Floor Scar Selection -->
+<div class="modal-overlay" id="scar-modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modal-title">🏛️ 1층 공식 상흔 목록</h3>
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modal-scar-list">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+</div>
+
+<script>
+// Official Brimir Scars Metadata (Pure In-Game Names)
+const OFFICIAL_FLOOR_SCARS = {
+  1: [
+    { id: 'glacier_cave', name: '혹한의 빙동', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+    { id: 'cursed_chapel', name: '저주의 예배당', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+    { id: 'green_mine', name: '점액의 폐광', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+    { id: 'steel_tomb', name: '불멸의 봉인묘', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+    { id: 'dread_peer', name: '공포의 신해', maxPeriod: 40, openType: '자연 스폰 / 화신 봉헌 제단' }
+  ],
+  2: [
+    { id: 'blood_citadel', name: '적야의 성채', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+    { id: 'dead_altar', name: '망자의 제단', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+    { id: 'beast_den', name: '야월의 소굴', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+    { id: 'hobgoblin_fortress', name: '홉고블린 요새', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+    { id: 'gunfire_desert', name: '무법지대', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+    { id: 'misty_megalith_ruins', name: '안개의 거석 폐허', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' }
+  ],
+  3: [
+    { id: 'white_temple', name: '석화된 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
+    { id: 'sanctum_bastion', name: '파수의 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
+    { id: 'sanctum_oracle', name: '예언의 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' }
+  ],
+  4: [
+    { id: 'doppelganger_forest', name: '거울 미로', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
+    { id: 'sky_oracle', name: '하늘 신탁소', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
+    { id: 'larcaz_labyrinth', name: '균형의 성역', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' }
+  ],
+  5: [
+    { id: 'frozen_sanctum', name: '결빙의 성소', maxPeriod: 50, openType: '자연 스폰 / 5층 서리 혼석 봉헌' },
+    { id: 'magma_crucible', name: '용광의 도가니', maxPeriod: 50, openType: '자연 스폰 / 5층 화염 혼석 봉헌' },
+    { id: 'gravity_tomb', name: '중력의 묘', maxPeriod: 50, openType: '자연 스폰 / 5층 혼석 봉헌' },
+    { id: 'burning_zone', name: '작열의 황야', maxPeriod: 50, openType: '자연 스폰 / 5층 혼석 봉헌' },
+    { id: 'penance_trial', name: '검성의 시련', maxPeriod: 50, openType: '5층 시련 제단 봉헌 전용' },
+    { id: 'dead_altar_f5', name: '망자의 제단', maxPeriod: 50, openType: '5층 제단 봉헌 소환 전용' }
+  ],
+  6: [
+    { id: 'abyssal_sanctum', name: '심연의 성소', maxPeriod: 60, openType: '항해 탐사 조우 / 대해 봉헌 제단' },
+    { id: 'harmony_maelstrom', name: '조화의 소용돌이', maxPeriod: 60, openType: '항해 소용돌이 조우 / 대해 봉헌 제단' },
+    { id: 'abyssal_deep', name: '가라앉은 심연', maxPeriod: 60, openType: '항해 낚시 / 심해 히든 조우' },
+    { id: 'treasure_island', name: '보물섬', maxPeriod: 60, openType: '항해 히든 섬 조우' },
+    { id: 'stormgush_altar', name: '거신 해일', maxPeriod: 60, openType: '6층 대해 거신 봉헌 제단 소환' }
+  ],
+  7: [
+    { id: 'golden_ruins', name: '황금의 보고', maxPeriod: 60, openType: '심연 필드 상흔 스폰 / 7층 봉헌' },
+    { id: 'end_sanctum', name: '종언의 성소', maxPeriod: 60, openType: '최심부 정규 상흔 스폰' },
+    { id: 'weeping_swamp', name: '통곡의 늪', maxPeriod: 60, openType: '심연 필드 상흔 스폰' },
+    { id: 'sword_graveyard', name: '검총', maxPeriod: 60, openType: '심연 필드 상흔 스폰' }
+  ]
+};
+
+// Storage Key
+const STORAGE_KEY = 'brimir_scar_log_perfect_v8';
+
+let runsState = {
+  activeRunId: 1,
+  runs: {
+    1: {
+      id: 1,
+      name: "1회차",
+      maxDay: 10,
+      entries: {}
+    }
+  }
+};
+
+let modalTarget = { day: null, floor: null };
+
+function getActiveRun() {
+  if (!runsState || typeof runsState !== 'object') {
+    runsState = { activeRunId: 1, runs: {} };
+  }
+  if (!runsState.runs || typeof runsState.runs !== 'object') {
+    runsState.runs = {};
+  }
+  if (Object.keys(runsState.runs).length === 0) {
+    runsState.runs[1] = { id: 1, name: "1회차", maxDay: 10, entries: {} };
+    runsState.activeRunId = 1;
+  }
+  let active = runsState.runs[runsState.activeRunId];
+  if (!active) {
+    const keys = Object.keys(runsState.runs).map(Number);
+    runsState.activeRunId = keys[0] || 1;
+    active = runsState.runs[runsState.activeRunId];
+  }
+  if (!active) {
+    active = { id: 1, name: "1회차", maxDay: 10, entries: {} };
+    runsState.runs[1] = active;
+    runsState.activeRunId = 1;
+  }
+  if (!active.entries || typeof active.entries !== 'object') {
+    active.entries = {};
+  }
+  if (!active.maxDay || typeof active.maxDay !== 'number' || active.maxDay < 10) {
+    active.maxDay = 10;
+  }
+  return active;
+}
+
+function loadState() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try {
+      runsState = JSON.parse(saved);
+    } catch(e) {}
+  }
+  getActiveRun();
+  renderAll();
+}
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(runsState));
+}
+
+function selectRun(runId) {
+  runsState.activeRunId = runId;
+  saveState();
+  renderAll();
+}
+
+function startNewRun() {
+  const currentKeys = Object.keys(runsState.runs).map(Number);
+  const nextId = (currentKeys.length > 0 ? Math.max(...currentKeys) : 0) + 1;
+  const runName = `${nextId}회차`;
+  runsState.runs[nextId] = {
+    id: nextId,
+    name: runName,
+    maxDay: 10,
+    entries: {}
+  };
+  runsState.activeRunId = nextId;
+  saveState();
+  renderAll();
+}
+
+function confirmResetAll() {
+  if (confirm('⚠️ [전체 초기화 경고]\n저장된 모든 회차(1회차, 2회차...)의 기록이 완전히 삭제됩니다.\n정말 전체 초기화하시겠습니까?')) {
+    runsState = {
+      activeRunId: 1,
+      runs: {
+        1: { id: 1, name: "1회차", maxDay: 10, entries: {} }
+      }
+    };
+    saveState();
+    renderAll();
+  }
+}
+
+function addNewDay(countDays) {
+  const run = getActiveRun();
+  run.maxDay = (run.maxDay || 10) + countDays;
+  saveState();
+  renderAll();
+}
+
+function openFloorModal(day, floor) {
+  modalTarget = { day, floor };
+  const modal = document.getElementById('scar-modal');
+  const title = document.getElementById('modal-title');
+  const list = document.getElementById('modal-scar-list');
+
+  const run = getActiveRun();
+  const floorRegenText = (floor <= 2) ? '40일 이내' : ((floor <= 5) ? '50일 이내' : '60일 이내');
+  title.innerText = `🏛️ [${run.name}] ${day}일차 — ${floor}층 상흔 (${floorRegenText} 리젠)`;
+
+  const scars = OFFICIAL_FLOOR_SCARS[floor] || [];
+  const dayKey = `floor_${floor}`;
+  const currentSelections = (run.entries && run.entries[day] && run.entries[day][dayKey]) || [];
+
+  let html = '';
+  scars.forEach(scar => {
+    const existing = currentSelections.find(s => s.scarId === scar.id);
+    let statusHtml = '';
+
+    if (existing) {
+      if (existing.type === 'CLEAR') {
+        statusHtml = `<span class="badge-clear">⚔️ 클리어됨</span> <button class="btn-remove-status" onclick="removeScarStatus('${scar.id}')">삭제</button>`;
+      } else if (existing.type === 'SACRIFICE') {
+        statusHtml = `<span class="badge-sacrifice">🔮 봉헌됨</span> <button class="btn-remove-status" onclick="removeScarStatus('${scar.id}')">삭제</button>`;
+      }
+    } else {
+      statusHtml = `
+        <button class="btn-action-clear" onclick="setScarAction('${scar.id}', '${scar.name}', 'CLEAR', ${scar.maxPeriod})">⚔️ 클리어</button>
+        <button class="btn-action-sac" onclick="setScarAction('${scar.id}', '${scar.name}', 'SACRIFICE', ${scar.maxPeriod})">🔮 봉헌</button>
+      `;
+    }
+
+    html += `
+      <div class="scar-select-card">
+        <div class="scar-info">
+          <h4>${scar.name}</h4>
+          <div class="scar-meta">📍 ${scar.openType}</div>
+        </div>
+        <div class="scar-card-btns">
+          ${statusHtml}
+        </div>
+      </div>
+    `;
+  });
+
+  list.innerHTML = html;
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('scar-modal').style.display = 'none';
+}
+
+function setScarAction(scarId, scarName, type, maxPeriod) {
+  const { day, floor } = modalTarget;
+  if (!day || !floor) return;
+
+  const run = getActiveRun();
+  if (!run.entries) run.entries = {};
+  if (!run.entries[day]) run.entries[day] = {};
+  const dayKey = `floor_${floor}`;
+  if (!run.entries[day][dayKey]) run.entries[day][dayKey] = [];
+
+  run.entries[day][dayKey] = run.entries[day][dayKey].filter(s => s.scarId !== scarId);
+  run.entries[day][dayKey].push({ scarId, scarName, type, maxPeriod });
+
+  saveState();
+  renderTable();
+  openFloorModal(day, floor);
+}
+
+function removeScarStatus(scarId) {
+  const { day, floor } = modalTarget;
+  if (!day || !floor) return;
+
+  const run = getActiveRun();
+  if (!run || !run.entries || !run.entries[day]) return;
+
+  const dayKey = `floor_${floor}`;
+  if (run.entries[day][dayKey]) {
+    run.entries[day][dayKey] = run.entries[day][dayKey].filter(s => s.scarId !== scarId);
+  }
+
+  saveState();
+  renderTable();
+  openFloorModal(day, floor);
+}
+
+function updateMemo(day, text) {
+  const run = getActiveRun();
+  if (!run.entries) run.entries = {};
+  if (!run.entries[day]) run.entries[day] = {};
+  run.entries[day].memo = text;
+  saveState();
+}
+
+function calculateExpectedRegens(run) {
+  const regens = {};
+  if (!run || !run.entries) return regens;
+  const maxD = Math.max(10, run.maxDay || 10);
+  for (let d = 10; d <= maxD; d += 10) {
+    const dayData = run.entries[d];
+    if (!dayData) continue;
+
+    for (let fl = 1; fl <= 7; fl++) {
+      const dayKey = `floor_${fl}`;
+      const items = dayData[dayKey] || [];
+      items.forEach(item => {
+        if (item.type === 'CLEAR') {
+          const nextDay = d + (item.maxPeriod || 40);
+          const regenKey = `${nextDay}_${fl}`;
+          if (!regens[regenKey]) regens[regenKey] = [];
+          regens[regenKey].push({ scarName: item.scarName, fromDay: d });
+        }
+      });
+    }
+  }
+  return regens;
+}
+
+function renderAll() {
+  renderTabs();
+  renderTable();
+}
+
+function renderTabs() {
+  const container = document.getElementById('run-tabs-container');
+  if (!container) return;
+  let html = '';
+  
+  const runKeys = Object.keys(runsState.runs).map(Number).sort((a, b) => a - b);
+  runKeys.forEach(id => {
+    const r = runsState.runs[id];
+    if (!r) return;
+    const isAct = (id === runsState.activeRunId);
+    html += `
+      <div class="run-tab ${isAct ? 'active' : ''}" onclick="selectRun(${id})">
+        📜 ${r.name} ${isAct ? '🔥' : ''}
+      </div>
+    `;
+  });
+
+  html += `
+    <button class="btn-add-run-tab" onclick="startNewRun()">
+      ➕ 새 회차 추가
+    </button>
+  `;
+
+  container.innerHTML = html;
+}
+
+function renderTable() {
+  try {
+    const run = getActiveRun();
+    const maxD = Math.max(10, (run && run.maxDay) || 10);
+    const turns = maxD / 10;
+    
+    const dayDisp = document.getElementById('latest-day-display');
+    const turnDisp = document.getElementById('latest-turn-display');
+    if (dayDisp) dayDisp.innerText = maxD;
+    if (turnDisp) turnDisp.innerText = turns;
+
+    const tbody = document.getElementById('matrix-tbody');
+    if (!tbody) return;
+
+    const regens = calculateExpectedRegens(run);
+
+    let html = '';
+
+    for (let d = maxD; d >= 10; d -= 10) {
+      const turnIndex = d / 10;
+      const dayData = (run.entries && run.entries[d]) || {};
+      const isLatest = (d === maxD);
+
+      html += `<tr>`;
+      
+      html += `
+        <td class="cell-day">
+          <span class="day-tag ${isLatest ? 'latest' : ''}">${d}일차 <span style="font-size:11px; font-weight:normal; opacity:0.8;">(${turnIndex}탐)</span></span>
+        </td>
+      `;
+
+      for (let fl = 1; fl <= 7; fl++) {
+        const dayKey = `floor_${fl}`;
+        const items = dayData[dayKey] || [];
+        const regenKey = `${d}_${fl}`;
+        const expectedList = regens[regenKey] || [];
+
+        let badgesHtml = '';
+        items.forEach(it => {
+          const shortName = it.scarName.split(' ')[0];
+          if (it.type === 'CLEAR') {
+            badgesHtml += `<span class="badge-clear">⚔️ ${shortName}</span>`;
+          } else if (it.type === 'SACRIFICE') {
+            badgesHtml += `<span class="badge-sacrifice">🔮 ${shortName}</span>`;
+          }
+        });
+
+        expectedList.forEach(exp => {
+          const shortName = exp.scarName.split(' ')[0];
+          badgesHtml += `<span class="badge-regen-expected" title="${exp.fromDay}일차 클리어 후 최대 리젠일">🟢 ${shortName} 리젠예정</span>`;
+        });
+
+        if (!badgesHtml) {
+          badgesHtml = '<span class="cell-empty-plus">+</span>';
+        }
+
+        html += `
+          <td class="cell-floor" onclick="openFloorModal(${d}, ${fl})">
+            <div class="cell-badges-wrap">
+              ${badgesHtml}
+            </div>
+          </td>
+        `;
+      }
+
+      html += `
+        <td>
+          <input type="text" class="memo-input-cell" value="${dayData.memo || ''}" placeholder="메모 / 룬 획득..." onchange="updateMemo(${d}, this.value)">
+        </td>
+      `;
+
+      html += `</tr>`;
+    }
+
+    tbody.innerHTML = html;
+  } catch(err) {
+    console.error("renderTable error:", err);
+  }
+}
+
+// Immediate execution
+loadState();
+</script>
+</body>
+</html>
