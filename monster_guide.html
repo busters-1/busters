@@ -252,6 +252,45 @@
       border-radius: 4px;
       font-size: 12px;
     }
+    
+    /* Dynamic Grade Color Hierarchy (1등급: 황금 신화 > 2등급: 진홍 보스 > 3등급: 보라 에픽 > 4등급: 사파이어 희귀) */
+    .cat-grade-4 {
+      background: rgba(56, 139, 253, 0.15);
+      color: #58a6ff;
+      border: 1px solid rgba(56, 139, 253, 0.35);
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+    .cat-grade-3 {
+      background: rgba(187, 134, 252, 0.18);
+      color: #d2a8ff;
+      border: 1px solid rgba(187, 134, 252, 0.45);
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+    .cat-grade-2 {
+      background: rgba(255, 123, 114, 0.18);
+      color: #ff7b72;
+      border: 1px solid rgba(255, 123, 114, 0.45);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+    .cat-grade-1 {
+      background: rgba(242, 204, 96, 0.2);
+      color: #f2cc60;
+      border: 1px solid rgba(242, 204, 96, 0.6);
+      box-shadow: 0 0 10px rgba(242, 204, 96, 0.25);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
     .post-category {
       display: inline-block;
       padding: 2px 8px;
@@ -4817,7 +4856,12 @@ function renderBoardList() {
     tr.className = 'board-row';
     tr.onclick = () => showPost(p.id);
 
-    const catBadge = `<span class="post-category cat-grade">${p.floor}층 ${p.grade}</span>`;
+    let gradeClass = 'cat-grade-4';
+    if (p.grade === '3등급') gradeClass = 'cat-grade-3';
+    else if (p.grade === '2등급') gradeClass = 'cat-grade-2';
+    else if (p.grade === '1등급') gradeClass = 'cat-grade-1';
+
+    const catBadge = `<span class="post-category ${gradeClass}">${p.floor}층 ${p.grade}</span>`;
 
     const views = getPostViews(p.id, p.baseViews);
     const likes = getPostLikes(p.id, p.baseLikes);
@@ -4851,7 +4895,12 @@ function showPost(postId) {
   viewElem.style.display = 'block';
 
   // Badge & Title & Stats
-  const catBadge = `<span class="post-category cat-grade" style="font-size:12px; padding:3px 10px;">${post.floor}층 ${post.grade}</span>`;
+  let gradeClass = 'cat-grade-4';
+  if (post.grade === '3등급') gradeClass = 'cat-grade-3';
+  else if (post.grade === '2등급') gradeClass = 'cat-grade-2';
+  else if (post.grade === '1등급') gradeClass = 'cat-grade-1';
+
+  const catBadge = `<span class="post-category ${gradeClass}" style="font-size:12px; padding:3px 10px;">${post.floor}층 ${post.grade}</span>`;
   
   document.getElementById('view-category-badge').innerHTML = catBadge;
   document.getElementById('view-title').innerText = post.title;
