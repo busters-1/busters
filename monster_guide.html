@@ -5787,48 +5787,63 @@ function showPost(postId) {
       </div>
 
       <div class="post-section">
-        <h4 class="post-section-heading">■ 스킬 패턴 및 실전 대처 가이드</h4>
+        <h4 class="post-section-heading">■ 페이즈별 스킬 대응 분류</h4>
         <div class="post-pattern-plain-list">
           ${post.phases.map(ph => {
-            const specialThreats = ph.patterns.filter(pat => pat.tag !== 'parry' && pat.tag !== 'guard_parry');
-            const parrySkills = ph.patterns.filter(pat => pat.tag === 'parry' || pat.tag === 'guard_parry');
-            
+            const ccSkills = ph.patterns.filter(pat => pat.tag === 'cc_cancel' || (pat.tagText && pat.tagText.includes('CC')));
+            const dodgeSkills = ph.patterns.filter(pat => (pat.tag === 'dodge' || (pat.tagText && (pat.tagText.includes('회피') || pat.tagText.includes('장판') || pat.tagText.includes('생존')))) && !pat.tagText.includes('배후'));
+            const shieldSkills = ph.patterns.filter(pat => pat.tagText && (pat.tagText.includes('배후') || pat.tagText.includes('보호막')));
+            const counterSkills = ph.patterns.filter(pat => pat.tagText && (pat.tagText.includes('반격') || pat.tagText.includes('타격 중지')));
+            const parrySkills = ph.patterns.filter(pat => pat.tag === 'parry' || pat.tag === 'guard_parry' || (!ccSkills.includes(pat) && !dodgeSkills.includes(pat) && !shieldSkills.includes(pat) && !counterSkills.includes(pat)));
+
             return `
-              <div class="phase-group-block" style="margin-top: 12px; margin-bottom: 12px;">
-                <div style="font-weight: 700; color: #58a6ff; font-size: 14.5px; margin-bottom: 8px; border-bottom: 1px dashed rgba(88, 166, 255, 0.25); padding-bottom: 4px;">
+              <div class="phase-group-block" style="margin-top: 12px; margin-bottom: 14px;">
+                <div style="font-weight: 700; color: #58a6ff; font-size: 14px; margin-bottom: 8px; border-bottom: 1px dashed rgba(88, 166, 255, 0.25); padding-bottom: 4px;">
                   ▶ ${ph.phaseTitle}
                 </div>
                 
-                <div style="display: flex; flex-direction: column; gap: 12px; padding-left: 4px;">
-                  ${specialThreats.length > 0 ? `
-                    <div class="threat-patterns-block">
-                      <div style="font-size: 13px; font-weight: 700; color: #ff7b72; margin-bottom: 6px;">
-                        🚨 주요 위험 기믹 & 필수 대처 패턴
+                <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 2px;">
+                  ${ccSkills.length > 0 ? `
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(255, 123, 114, 0.08); border-left: 3px solid #ff7b72; padding: 8px 12px; border-radius: 4px;">
+                      <span style="font-size: 12.5px; font-weight: 700; color: #ff7b72; min-width: 120px;">🚨 무조건 CC 캔슬:</span>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        ${ccSkills.map(pat => `<span style="background: rgba(255, 123, 114, 0.2); border: 1px solid rgba(255, 123, 114, 0.5); color: #ff7b72; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 4px;">${pat.name}</span>`).join('')}
                       </div>
-                      <div style="display: flex; flex-direction: column; gap: 8px;">
-                        ${specialThreats.map((pat, idx) => `
-                          <div class="post-pattern-item" style="background: rgba(255, 123, 114, 0.06); border-left: 3px solid #ff7b72; padding: 8px 12px; border-radius: 4px;">
-                            <div class="pattern-head-line" style="margin-bottom: 4px;">
-                              <strong>${pat.name}</strong> <span class="pattern-tag-badge" style="color:#ff7b72; background:rgba(255,123,114,0.15); border:1px solid rgba(255,123,114,0.4); font-size:11.5px; padding:2px 6px; border-radius:3px;">[${pat.tagText}]</span>
-                            </div>
-                            <p class="pattern-body-line" style="margin: 0; color: #c9d1d9; font-size: 13.5px; line-height: 1.5;">${pat.desc}</p>
-                          </div>
-                        `).join('')}
+                    </div>
+                  ` : ''}
+
+                  ${dodgeSkills.length > 0 ? `
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(210, 168, 255, 0.08); border-left: 3px solid #d2a8ff; padding: 8px 12px; border-radius: 4px;">
+                      <span style="font-size: 12.5px; font-weight: 700; color: #d2a8ff; min-width: 120px;">🏃 장판/범위 회피:</span>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        ${dodgeSkills.map(pat => `<span style="background: rgba(210, 168, 255, 0.2); border: 1px solid rgba(210, 168, 255, 0.5); color: #d2a8ff; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 4px;">${pat.name}</span>`).join('')}
+                      </div>
+                    </div>
+                  ` : ''}
+
+                  ${shieldSkills.length > 0 ? `
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(242, 204, 96, 0.08); border-left: 3px solid #f2cc60; padding: 8px 12px; border-radius: 4px;">
+                      <span style="font-size: 12.5px; font-weight: 700; color: #f2cc60; min-width: 120px;">🛡️ 배후 타격/실드:</span>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        ${shieldSkills.map(pat => `<span style="background: rgba(242, 204, 96, 0.2); border: 1px solid rgba(242, 204, 96, 0.5); color: #f2cc60; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 4px;">${pat.name}</span>`).join('')}
+                      </div>
+                    </div>
+                  ` : ''}
+
+                  ${counterSkills.length > 0 ? `
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(255, 166, 87, 0.08); border-left: 3px solid #ffa657; padding: 8px 12px; border-radius: 4px;">
+                      <span style="font-size: 12.5px; font-weight: 700; color: #ffa657; min-width: 120px;">⚠️ 타격 중지 (반격):</span>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        ${counterSkills.map(pat => `<span style="background: rgba(255, 166, 87, 0.2); border: 1px solid rgba(255, 166, 87, 0.5); color: #ffa657; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 4px;">${pat.name}</span>`).join('')}
                       </div>
                     </div>
                   ` : ''}
 
                   ${parrySkills.length > 0 ? `
-                    <div class="parry-patterns-block" style="background: rgba(88, 166, 255, 0.05); border-left: 3px solid #58a6ff; padding: 8px 12px; border-radius: 4px;">
-                      <div style="font-size: 13px; font-weight: 700; color: #79c0ff; margin-bottom: 6px;">
-                        🛡️ 패링 가능 기본/연격 스킬군
-                      </div>
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(88, 166, 255, 0.06); border-left: 3px solid #58a6ff; padding: 8px 12px; border-radius: 4px;">
+                      <span style="font-size: 12.5px; font-weight: 700; color: #79c0ff; min-width: 120px;">⚔️ 패링 가능 스킬:</span>
                       <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                        ${parrySkills.map(pat => `
-                          <span style="background: rgba(56, 139, 253, 0.15); border: 1px solid rgba(56, 139, 253, 0.35); color: #e6edf3; font-size: 12.5px; font-weight: 600; padding: 3px 8px; border-radius: 4px;">
-                            ${pat.name}
-                          </span>
-                        `).join('')}
+                        ${parrySkills.map(pat => `<span style="background: rgba(56, 139, 253, 0.15); border: 1px solid rgba(56, 139, 253, 0.35); color: #e6edf3; font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 4px;">${pat.name}</span>`).join('')}
                       </div>
                     </div>
                   ` : ''}
