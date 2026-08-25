@@ -627,6 +627,138 @@
     cursor: pointer;
   }
   .modal-close:hover { color: var(--text-bright); }
+
+  /* Boss Guide Video Badge & Lightbox Styles */
+  .badge-video-guide {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, rgba(248, 81, 73, 0.15), rgba(188, 140, 255, 0.15));
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    color: #ff7b72;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 6px;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  .badge-video-guide:hover {
+    background: #da3633;
+    color: #ffffff;
+    border-color: #f85149;
+    box-shadow: 0 2px 8px rgba(218, 54, 51, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .modal-video-card {
+    background: linear-gradient(135deg, #1f242c, #161b22);
+    border: 1px solid rgba(248, 81, 73, 0.35);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+  }
+  .modal-video-card:hover {
+    border-color: #ff7b72;
+    background: #21262d;
+    box-shadow: 0 4px 14px rgba(248, 81, 73, 0.2);
+  }
+  .modal-video-thumb {
+    position: relative;
+    width: 120px;
+    height: 68px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #000;
+  }
+  .modal-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+  .modal-video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    background: rgba(218, 54, 51, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  .video-modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+  .video-modal-box {
+    background: #161b22;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 850px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+    overflow: hidden;
+    animation: modalFadeIn 0.2s ease-out;
+  }
+  .video-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #1f242c;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .video-modal-header h3 {
+    font-size: 16px;
+    color: var(--text-bright);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .video-player-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    background: #000;
+  }
+  .video-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
 </style>
   <!-- Vercel Web Analytics & Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
@@ -19752,7 +19884,7 @@ function renderTable() {
         </td>
         <td class="col-name">
           <div class="item-title-box">
-            <div class="item-name">${highlightText(r.name, monsterQuery)}</div>
+            <div class="item-name">${highlightText(r.name, monsterQuery)}${getBossGuide(r.id, r.name) ? ` <span class="badge-video-guide" onclick="openVideoModal('${r.id || r.name}', event)" title="공략 영상 시청">🎬 공략</span>` : ''}</div>
             ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : ''}
             <div class="item-tags">
               ${(r.elements || []).map(e => `<span class="tag-badge elem">${e}</span>`).join('')}
@@ -19786,6 +19918,56 @@ function renderTable() {
 
   tbody.innerHTML = html;
 }
+
+
+// ── Official Boss Strategy Guides Database ──
+const BOSS_GUIDES = {
+  'belarios': { name: '영겁의 용', youtubeId: 'fSVSaiv4fSI', floor: '7층', grade: '3등급' },
+  'harmony_aurvan': { name: '조화의 아우르반', youtubeId: '-JXGVz28WqI', floor: '6층', grade: '4등급' },
+  'grudge_colossus': { name: '원귀 거상', youtubeId: 'HxIv08gAYjo', floor: '7층', grade: '3등급' },
+  'deep_giant': { name: '심연의 거신', youtubeId: 'UcbsCDQFL3s', floor: '6층', grade: '3등급' },
+  'frost_swordfiend': { name: '서리 검귀', youtubeId: 'EMb-3bGDkO0', floor: '7층', grade: '3등급' },
+  'dreadpeer': { name: '공포의 화신', youtubeId: 'kWo8t78nxYQ', floor: '1층', grade: '3등급' },
+  'frost_guardian': { name: '서리 수호병', youtubeId: 'U0KYTvrPlYo', floor: '7층', grade: '3등급' },
+  'glacier_giant': { name: '빙하 거인', youtubeId: 'uO0R18KUQHs', floor: '7층', grade: '3등급' }
+};
+
+const BOSS_GUIDES_BY_NAME = {};
+Object.entries(BOSS_GUIDES).forEach(([k, v]) => {
+  BOSS_GUIDES_BY_NAME[v.name] = { id: k, ...v };
+});
+
+function getBossGuide(id, name) {
+  if (id && BOSS_GUIDES[id]) return BOSS_GUIDES[id];
+  if (name && BOSS_GUIDES_BY_NAME[name]) return BOSS_GUIDES_BY_NAME[name];
+  return null;
+}
+
+function openVideoModal(guideKey, event) {
+  if (event) event.stopPropagation();
+  const guide = BOSS_GUIDES[guideKey] || BOSS_GUIDES_BY_NAME[guideKey];
+  if (!guide) return;
+
+  const titleElem = document.getElementById('video-modal-title');
+  const playerContainer = document.getElementById('video-player-container');
+  const backdrop = document.getElementById('video-modal-backdrop');
+
+  titleElem.innerHTML = `🎬 [${guide.floor} ${guide.grade}] ${guide.name} 핵심 공략 가이드`;
+  playerContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${guide.youtubeId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  
+  backdrop.style.display = 'flex';
+}
+
+function closeVideoModal(event) {
+  if (event && event.target !== document.getElementById('video-modal-backdrop') && !event.target.classList.contains('modal-close')) {
+    return;
+  }
+  const backdrop = document.getElementById('video-modal-backdrop');
+  const playerContainer = document.getElementById('video-player-container');
+  backdrop.style.display = 'none';
+  playerContainer.innerHTML = ''; // Immediately stop video audio
+}
+
 
 function openDetailModal(id) {
   const r = RUNES_DATA.find(x => x.id === id);
@@ -19822,7 +20004,23 @@ function openDetailModal(id) {
       `).join('') : '<div style="color:var(--text-muted); font-size:13px; font-weight:bold;">- (액티브 스킬 미보유)</div>'}
     </div>
 
-    
+    ${(() => {
+      const guide = getBossGuide(r.id, r.name);
+      if (!guide) return '';
+      return `
+        <div class="modal-video-card" onclick="openVideoModal('${r.id || r.name}', event)">
+          <div class="modal-video-thumb">
+            <img src="https://img.youtube.com/vi/${guide.youtubeId}/hqdefault.jpg" alt="${guide.name} 공략 영상">
+            <div class="modal-video-play-btn">▶</div>
+          </div>
+          <div>
+            <div style="font-size:11px; font-weight:bold; color:#ff7b72; margin-bottom:2px;">🎬 공식 보스 공략 영상</div>
+            <div style="font-size:13px; font-weight:bold; color:#fff;">${guide.name} 핵심 패턴 &amp; 파훼법 공략</div>
+            <div style="font-size:11px; color:#8b949e; margin-top:2px;">클릭하여 인게임 유튜브 공략 영상 바로보기</div>
+          </div>
+        </div>
+      `;
+    })()}
   `;
 
   document.getElementById('modal-backdrop').style.display = 'flex';
@@ -19838,5 +20036,19 @@ renderDeckTabs();
 renderDeckPanel();
 renderTable();
 </script>
+
+<!-- Video Player Modal Backdrop -->
+<div class="video-modal-backdrop" id="video-modal-backdrop" onclick="closeVideoModal(event)">
+  <div class="video-modal-box" onclick="event.stopPropagation()">
+    <div class="video-modal-header">
+      <h3 id="video-modal-title">🎬 보스 공략 가이드</h3>
+      <button class="modal-close" onclick="closeVideoModal()">×</button>
+    </div>
+    <div class="video-player-container" id="video-player-container">
+      <!-- Injected dynamically on open -->
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
