@@ -794,6 +794,216 @@
 // Posts Data Structure
 const POSTS_DATA = [
   {
+    "id": "grudge_colossus",
+    "monsterName": "원귀 거상",
+    "floor": "7",
+    "grade": "3등급",
+    "title": "[7층 3등급] 원귀 거상 실전 공략",
+    "weaponEnchant": "신성 or 화염 속성 (암흑 원귀 정화)",
+    "armorEnchant": "암흑 저항 + 물리 내성 (원한 진동 방지)",
+    "youtubeId": "HxIv08gAYjo",
+    "intro": "7층 통곡의 늪에 군림하는 3등급 거대 석상이다. 원한의 진동과 망령 소환 등 암흑 기믹을 구사하므로 망령은 CC기로 끊고 타격은 패링해라.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈 (기본 패턴)",
+        "phaseNote": "바위 휘두르기와 투사체는 패링으로 쳐내고 장막은 극딜로 깨라.",
+        "patterns": [
+          {
+            "name": "바위 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "원혼의 장막",
+            "tag": "dodge",
+            "tagText": "배후 타격 or 보호막 파괴",
+            "desc": "단단한 방어막을 전개한다. 정면 공격은 무효화되니 배후를 노리거나 속성 극딜로 실드를 부숴라."
+          },
+          {
+            "name": "돌탄",
+            "tag": "parry",
+            "tagText": "원거리 패링 or 가드",
+            "desc": "원거리 투사체 공격이다. 투사체가 몸에 닿는 순간 방패를 올려 패링 및 탄환을 무효화해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 (★ 신규 패턴 추가)",
+        "phaseNote": "망령 소환은 반드시 CC기로 즉시 차단해라.",
+        "patterns": [
+          {
+            "name": "원한의 진동",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "악의 균열",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "저주 파동",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "망령 소환",
+            "tag": "cancel",
+            "tagText": "★ 무조건 CC기 캔슬 필수",
+            "desc": "망령 소환을 시전하여 지원군을 증식시킨다. 필드가 난장판이 되기 전에 스턴/빙결 하드 CC기로 즉시 차단해라."
+          }
+        ]
+      }
+    ],
+    "date": "2026.08.25",
+    "views": 0,
+    "likes": 0
+  },
+  {
+    "id": "harmony_aurvan",
+    "monsterName": "조화의 아우르반",
+    "floor": "6",
+    "grade": "4등급",
+    "title": "[6층 4등급] 조화의 아우르반 실전 공략",
+    "weaponEnchant": "번개 or 냉기 속성 (원류 약점 타격)",
+    "armorEnchant": "화염 저항 + 물리 내성 (불바다 및 돌진 방지)",
+    "youtubeId": "-JXGVz28WqI",
+    "intro": "6층 상흔의 최강 수호자다. 불과 바람, 파도와 대지의 힘을 번갈아 다루며 부활 기믹을 보유하고 있으므로 단계별 패턴 대처가 핵심이다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈 [상류 — 불과 바람]",
+        "phaseNote": "화염 파동과 돌진은 패링하고, 불바다 장판은 즉시 이탈해라.",
+        "patterns": [
+          {
+            "name": "화염 파동",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "화염 돌진",
+            "tag": "dodge",
+            "tagText": "패링 or 측면 회피",
+            "desc": "전방을 향해 짓쳐 들어오는 돌진기다. 정면 타이밍 패링을 치거나 측면으로 굴러서 피해라."
+          },
+          {
+            "name": "폭풍의 눈",
+            "tag": "dodge",
+            "tagText": "★ 생존 (안전구역 진입)",
+            "desc": "특수 전역 결빙/폭풍 기믹이다. 안전지대로 즉시 진입해라."
+          },
+          {
+            "name": "치솟는 기류",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "불바다가 번진다",
+            "tag": "dodge",
+            "tagText": "★ 회피 (장판 밖 이탈)",
+            "desc": "바닥에 지속 피해 장판이 깔린다. 패링이 불가하므로 붉은 예고 범위 밖으로 신속히 이탈해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [중류 — 물과 흙]",
+        "phaseNote": "조수의 사슬과 조류 강타는 패링으로 받아쳐라.",
+        "patterns": [
+          {
+            "name": "조수의 사슬",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "조류 강타",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [하류 — 원류의 수렴]",
+        "phaseNote": "암반 붕락과 원류의 강습 콤보를 패링 및 가드로 버텨내라.",
+        "patterns": [
+          {
+            "name": "암반 붕락",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "원류의 강습",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          }
+        ]
+      }
+    ],
+    "date": "2026.08.25",
+    "views": 0,
+    "likes": 0
+  },
+  {
+    "id": "belarios",
+    "monsterName": "영겁의 용",
+    "floor": "7",
+    "grade": "3등급",
+    "title": "[7층 3등급] 영겁의 용 실전 공략",
+    "weaponEnchant": "번개 or 화염 속성 (부식 약점 타격)",
+    "armorEnchant": "암흑 저항 + 독 저항 (부식의 숨결 방지)",
+    "youtubeId": "fSVSaiv4fSI",
+    "intro": "7층 어둠의 대지에 서식하는 3등급 수호룡이다. 부식의 숨결과 공간 붕괴 등 치명적인 광역 기믹을 구사하므로 브레스는 후방으로 회피하고 결계는 극딜로 파괴해라.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈 (기본 패턴)",
+        "phaseNote": "정면 발톱 타격은 패링하고, 전방 부식의 숨결은 보스 뒤로 파고들어라.",
+        "patterns": [
+          {
+            "name": "발톱 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 물리/마법 타격. 무기가 내려오는 타이밍에 맞춰 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "비늘 결계",
+            "tag": "dodge",
+            "tagText": "배후 타격 or 보호막 파괴",
+            "desc": "단단한 방어막을 전개한다. 정면 공격은 무효화되니 배후를 노리거나 속성 극딜로 실드를 부숴라."
+          },
+          {
+            "name": "부식의 숨결",
+            "tag": "dodge",
+            "tagText": "★ 회피 (보스 후방 구르기)",
+            "desc": "전방 부채꼴로 뿜어내는 강력한 지속 브레스다. 패링이 불가하니 정면을 벗어나 보스 뒤로 굴러서 피해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 (★ 신규 패턴 추가)",
+        "phaseNote": "공간 붕괴 시전 시 모든 CC기를 쏟아부어 즉시 차단해라.",
+        "patterns": [
+          {
+            "name": "공간 붕괴",
+            "tag": "cancel",
+            "tagText": "★ 무조건 CC기 캔슬 필수",
+            "desc": "광역 즉사급 핵심 기술이다. 가드가 불가하므로 시전 모션이 보이면 모든 CC기를 쏟아부어 반드시 캔슬해라."
+          }
+        ]
+      }
+    ],
+    "date": "2026.08.25",
+    "views": 0,
+    "likes": 0
+  },
+  {
     "id": "glacier_giant",
     "num": 64,
     "floor": "7",
@@ -870,7 +1080,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": "uO0R18KUQHs"
+    "youtubeId": "uO0R18KUQHs",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "reaper_lord",
@@ -955,7 +1167,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frost_swordfiend",
@@ -1046,7 +1260,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": "EMb-3bGDkO0"
+    "youtubeId": "EMb-3bGDkO0",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frost_guardian",
@@ -1125,7 +1341,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": "U0KYTvrPlYo"
+    "youtubeId": "U0KYTvrPlYo",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "baion",
@@ -1204,7 +1422,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "cariadea",
@@ -1277,7 +1497,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "vaiterion",
@@ -1356,7 +1578,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "colossus_bowman",
@@ -1399,7 +1623,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "grave_knight",
@@ -1442,7 +1668,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "void_shard",
@@ -1485,7 +1713,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "unmelting_cocoon",
@@ -1540,7 +1770,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "earthquake_lord",
@@ -1583,7 +1815,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "ice_lich",
@@ -1638,7 +1872,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "fallen_swordsaint",
@@ -1681,7 +1917,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "skeleton_mermaid_queen",
@@ -1748,7 +1986,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frost_dullahan",
@@ -1815,7 +2055,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "white_wyvern",
@@ -1870,7 +2112,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frost_gargoyle",
@@ -1931,7 +2175,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "stonewinter",
@@ -1962,7 +2208,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frostflame_turtle",
@@ -2023,7 +2271,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frost_ghoul_lord",
@@ -2084,7 +2334,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "gigant_wolf",
@@ -2133,7 +2385,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "dark_crystal",
@@ -2176,7 +2430,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "frozen_corpse_giant",
@@ -2237,7 +2493,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "soul_drinker",
@@ -2280,7 +2538,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "tainted_snow_spirit",
@@ -2335,7 +2595,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "spectral_marksman",
@@ -2378,7 +2640,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "chaos_seaman",
@@ -2421,7 +2685,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "banshee_queen",
@@ -2464,7 +2730,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "azure_flame_bird",
@@ -2519,7 +2787,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "gilded_knight",
@@ -2568,7 +2838,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "deep_giant",
@@ -2647,7 +2919,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": "UcbsCDQFL3s"
+    "youtubeId": "UcbsCDQFL3s",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "ogre",
@@ -2732,7 +3006,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "stormgush",
@@ -2817,7 +3093,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "torrent_leviathan",
@@ -2860,7 +3138,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "bedrock_spiritlord",
@@ -2909,7 +3189,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "tide_spiritlord",
@@ -2958,7 +3240,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "guano_sea_serpent",
@@ -3013,7 +3297,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "raphremmik",
@@ -3062,7 +3348,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "elfrot",
@@ -3117,7 +3405,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "palpupura",
@@ -3172,7 +3462,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "siren_queen",
@@ -3239,7 +3531,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "sylvan_tyrant",
@@ -3294,7 +3588,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "abyssal_drown_lord",
@@ -3361,7 +3657,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "abyssal_kraken",
@@ -3416,7 +3714,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "abyssal_end_knight",
@@ -3561,7 +3861,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "trench_lurker",
@@ -3616,7 +3918,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "key_keeper",
@@ -3671,7 +3975,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "magma_lord",
@@ -3726,7 +4032,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "drowned_queen",
@@ -3781,7 +4089,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "drowned_azure_judge",
@@ -3836,7 +4146,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "sunken_armor_guard",
@@ -3891,7 +4203,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "flame_spiritlord",
@@ -3940,7 +4254,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "pirate_wraith_lord",
@@ -3989,7 +4305,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "gale_spiritlord",
@@ -4050,7 +4368,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "obsidian_titan",
@@ -4099,7 +4419,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "martyr_commander",
@@ -4160,7 +4482,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "ironwall_odric",
@@ -4239,7 +4563,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "sky_guardian",
@@ -4318,7 +4644,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "doppelganger",
@@ -4403,7 +4731,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "kalpion",
@@ -4482,7 +4812,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "riakis",
@@ -4573,7 +4905,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "orc_lord",
@@ -4604,7 +4938,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": ""
+    "youtubeId": "",
+    "views": 0,
+    "likes": 0
   },
   {
     "id": "dreadpeer",
@@ -4767,7 +5103,9 @@ const POSTS_DATA = [
         ]
       }
     ],
-    "youtubeId": "kWo8t78nxYQ"
+    "youtubeId": "kWo8t78nxYQ",
+    "views": 0,
+    "likes": 0
   }
 ];
 
@@ -4777,9 +5115,9 @@ let searchKeyword = '';
 let activePostId = null;
 
 // Helper: View and Like Counts in LocalStorage
-function getPostViews(id, base) {
+function getPostViews(id, base = 0) {
   const local = parseInt(localStorage.getItem('guide_views_' + id) || '0', 10);
-  return base + local;
+  return (base || 0) + local;
 }
 
 function incrementPostViews(id) {
@@ -4787,9 +5125,9 @@ function incrementPostViews(id) {
   localStorage.setItem('guide_views_' + id, cur + 1);
 }
 
-function getPostLikes(id, base) {
+function getPostLikes(id, base = 0) {
   const isLiked = localStorage.getItem('guide_liked_' + id) === 'true';
-  return base + (isLiked ? 1 : 0);
+  return (base || 0) + (isLiked ? 1 : 0);
 }
 
 function isPostLiked(id) {
