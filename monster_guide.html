@@ -5819,20 +5819,17 @@ function showPost(postId) {
                   ` : ''}
 
                   ${parrySkills.length > 0 ? `
-                    <div class="parry-patterns-block" style="background: rgba(88, 166, 255, 0.05); border-left: 3px solid #58a6ff; padding: 10px 12px; border-radius: 4px;">
+                    <div class="parry-patterns-block" style="background: rgba(88, 166, 255, 0.05); border-left: 3px solid #58a6ff; padding: 8px 12px; border-radius: 4px;">
                       <div style="font-size: 13px; font-weight: 700; color: #79c0ff; margin-bottom: 6px;">
                         🛡️ 패링 가능 기본/연격 스킬군
                       </div>
-                      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                         ${parrySkills.map(pat => `
                           <span style="background: rgba(56, 139, 253, 0.15); border: 1px solid rgba(56, 139, 253, 0.35); color: #e6edf3; font-size: 12.5px; font-weight: 600; padding: 3px 8px; border-radius: 4px;">
                             ${pat.name}
                           </span>
                         `).join('')}
                       </div>
-                      <p style="margin: 0; color: #8b949e; font-size: 13px; line-height: 1.5;">
-                        ${ph.parryGuide || '💡 위 기술들은 공격 타이밍이 정직한 패턴들이다. 쫄아서 뒤로 구르지 말고 무기 닿는 순간 칼같이 쳐내라. 보스 자세 무너지면 확실한 프리딜 타임 나온다.'}
-                      </p>
                     </div>
                   ` : ''}
                 </div>
