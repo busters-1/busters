@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브리미르 버스터즈 이용 가이드 — 룬 도감 &amp; 신해 일지 사용법</title>
+  <meta name="description" content="브리미르: 심장으로의 순례 400종 룬 도감, 빌드 덱 시뮬레이터, 신해 일지 10일 주기 탐험 플래너 완벽 사용 가이드.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-header: #1f242c;
+      --border-color: #30363d;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
+      --accent-blue: #58a6ff;
+      --accent-gold: #f2cc60;
+      --accent-red: #ff7b72;
+      --accent-green: #3fb950;
+      --accent-purple: #bc8cff;
+      --accent-cyan: #39c5bb;
+      --accent-orange: #ffa657;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 16px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Header Container — busters.kr unified layout */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .header-title h1 {
+      font-size: 20px;
+      color: var(--text-bright);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-tab {
+      background: #21262d;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-tab:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-bright);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, #1f6feb, #238636);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .nav-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+      margin: 0 4px;
+    }
+    .nav-tab.ext-link {
+      font-size: 12px;
+      padding: 7px 12px;
+      background: #161b22;
+    }
+    .nav-tab.ext-link.steam:hover {
+      border-color: #66c0f4;
+      color: #66c0f4;
+      background: rgba(102, 192, 244, 0.1);
+    }
+    .nav-tab.ext-link.stats:hover {
+      border-color: #58a6ff;
+      color: #58a6ff;
+      background: rgba(88, 166, 255, 0.1);
+    }
+    .nav-tab.ext-link.kakao:hover {
+      border-color: #fee500;
+      color: #fee500;
+      background: rgba(254, 229, 0, 0.1);
+    }
+
+    /* Layout Grid */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .guide-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar / Table of Contents */
+    .guide-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      position: sticky;
+      top: 16px;
+    }
+    .guide-sidebar h3 {
+      font-size: 14px;
+      color: var(--text-bright);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .toc-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      display: block;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .toc-item a:hover {
+      color: var(--text-bright);
+      background: rgba(88, 166, 255, 0.1);
+    }
+    .toc-sublist {
+      list-style: none;
+      padding-left: 14px;
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .toc-sublist a {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+
+    /* Content Cards */
+    .guide-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .guide-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section-header h2 {
+      font-size: 18px;
+      color: var(--text-bright);
+      font-weight: 700;
+    }
+    .section-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(88, 166, 255, 0.15);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+      color: var(--accent-blue);
+    }
+
+    .feature-card {
+      background: #1f242c;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+    .feature-card:last-child {
+      margin-bottom: 0;
+    }
+    .feature-card h3 {
+      font-size: 15px;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    /* Tip / Alert Box */
+    .alert-box {
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13px;
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .alert-box.tip {
+      background: rgba(63, 185, 80, 0.1);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+      color: #7ee787;
+    }
+    .alert-box.info {
+      background: rgba(88, 166, 255, 0.1);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+      color: #79c0ff;
+    }
+    .alert-box.warn {
+      background: rgba(242, 204, 96, 0.1);
+      border: 1px solid rgba(242, 204, 96, 0.3);
+      color: var(--accent-gold);
+    }
+
+    /* UI Badge / Tag Elements */
+    kbd {
+      background: #21262d;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+      color: var(--accent-gold);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 6px;
+      display: inline-block;
+    }
+
+    .mark-hl {
+      background: rgba(242, 204, 96, 0.25);
+      color: #fff;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .badge-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 2px;
+    }
+
+    /* Step Numbers */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-text {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+    .step-text strong {
+      color: var(--text-bright);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+  </style>
+  <meta name="google-site-verification" content="y2N4xB7RLz6-X3AV3GDWeCrG1f50ip0C1kZVhd6aJIQ" />
+  <!-- Vercel Web Analytics & Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+
+<!-- Unified Header -->
+<div class="header-container">
+  <div class="header-title">
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 룬 도감 &amp; 신해 일지 통합 사용자 가이드</p>
+  </div>
+  <nav class="nav-tabs">
+    <a href="index.html" class="nav-tab">💎 룬 도감</a>
+    <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
+    <a href="guide.html" class="nav-tab active">📖 이용 가이드</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
+    <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
+  </nav>
+</div>
+
+<!-- Main Guide Layout -->
+<div class="guide-layout">
+  
+  <!-- Left Sticky Table of Contents -->
+  <aside class="guide-sidebar">
+    <h3>📑 가이드 목차</h3>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="#intro">🌟 브리미르 버스터즈란?</a>
+      </li>
+      <li class="toc-item">
+        <a href="#rune-codex">💎 파트 1. 룬 도감 완벽 활용법</a>
+        <ul class="toc-sublist">
+          <li><a href="#search-guide">1.1 분리형 검색 &amp; 초성 검색</a></li>
+          <li><a href="#filter-guide">1.2 13종 특수효과 &amp; 속성 필터</a></li>
+          <li><a href="#deck-guide">1.3 멀티 탭 빌드 덱 시뮬레이터</a></li>
+          <li><a href="#video-guide">1.4 보스 공략 영상 라이트박스</a></li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#scar-log">📜 파트 2. 신해 일지 완벽 활용법</a>
+        <ul class="toc-sublist">
+          <li><a href="#matrix-guide">2.1 10일 주기 생존 매트릭스</a></li>
+          <li><a href="#runs-guide">2.2 다회차 탭 &amp; 진행일차 점프</a></li>
+          <li><a href="#memo-guide">2.3 셀 메모 &amp; 룬 획득 기록</a></li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#faq">❓ 파트 3. 단축키 &amp; FAQ</a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Right Guide Content -->
+  <main class="guide-content">
+
+    <!-- Intro Section -->
+    <section class="guide-section" id="intro">
+      <div class="section-header">
+        <h2>🌟 브리미르 버스터즈 소개</h2>
+        <span class="section-badge">Overview</span>
+      </div>
+      <p style="margin-bottom: 12px;">
+        <strong>브리미르 버스터즈(Brimir Busters)</strong>는 스팀 인디 RPG 걸작 <em>『브리미르: 심장으로의 순례』</em>를 플레이하는 게이머들을 위해 제작된 <strong>공식 400종 룬 도감</strong> 및 <strong>상흔 던전 생존 주기 관리 플래너(신해 일지)</strong> 웹 애플리케이션입니다.
+      </p>
+      <div class="alert-box info">
+        <span>💡</span>
+        <div>
+          별도의 회원가입이나 앱 설치 없이 PC와 모바일 브라우저 모두에서 100% 무료로 이용하실 수 있으며, 모든 빌드 덱과 탐험 일지는 여러분의 기기 로컬 스토리지에 안전하게 자동 저장됩니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1: Rune Codex -->
+    <section class="guide-section" id="rune-codex">
+      <div class="section-header">
+        <h2>💎 파트 1. 룬 도감(Rune Codex) 완벽 활용법</h2>
+        <span class="section-badge">400종 룬 분석</span>
+      </div>
+
+      <!-- Feature 1.1 -->
+      <div class="feature-card" id="search-guide">
+        <h3>🔍 1.1 몬스터 / 스탯 분리형 스마트 검색 &amp; 초성 검색</h3>
+        <p>
+          검색창이 <strong>[몬스터 명칭 검색]</strong>과 <strong>[스탯 검색]</strong>으로 깔끔하게 분리되어 있어 원하는 조건의 룬을 정확하게 교집합(AND)으로 찾아낼 수 있습니다.
+        </p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>한국 게이머 특화 초성 검색 지원:</strong> 한글 자음만 쳐도 즉시 매칭됩니다.<br>
+              예: <kbd>ㅇㄱㅇ ㅇ</kbd> ➔ <span class="mark-hl">영겁의 용</span>, <kbd>ㅅㄹㄱㅈ</kbd> ➔ <span class="mark-hl">사령군주</span>, <kbd>ㅁㄹㄴㅅ</kbd> ➔ <span class="mark-hl">물리내성</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>글로벌 검색 단축키:</strong> 페이지 어디서든 키보드 <kbd>/</kbd> 또는 <kbd>Ctrl + K</kbd>를 누르면 즉시 검색창으로 포커스됩니다. 검색어를 비울 때는 <kbd>ESC</kbd>를 누르세요.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>실시간 형광펜 하이라이팅:</strong> 검색된 단어가 포함된 텍스트와 스탯 칩에 황금색 하이라이팅이 실시간으로 적용되어 검색 근거를 한눈에 파악할 수 있습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 1.2 -->
+      <div class="feature-card" id="filter-guide">
+        <h3>🎯 1.2 13종 특수 메커니즘 &amp; 원소 속성 필터링</h3>
+        <p>
+          등급(3~9등급), 층수(1~7층), 원소 속성(화염/냉기/번개/대지/바람/물/암흑/신성/독) 및 <strong>13가지 핵심 전투 특수효과</strong>를 원클릭으로 필터링할 수 있습니다.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0;">
+          <span class="badge-demo" style="background:#4c1d95; color:#c4b5fd;">🛡️ 받는 피해 감소</span>
+          <span class="badge-demo" style="background:#78350f; color:#fde68a;">🪨 피해 반사</span>
+          <span class="badge-demo" style="background:#831843; color:#fbcfe8;">🩸 타격 흡혈</span>
+          <span class="badge-demo" style="background:#14532d; color:#bbf7d0;">🛡️ 회피/가드</span>
+          <span class="badge-demo" style="background:#701a75; color:#f5d0fe;">🗡️ 저항 관통</span>
+          <span class="badge-demo" style="background:#3b134e; color:#f0abfc;">🗺️ 표류 확률 감소</span>
+          <span class="badge-demo" style="background:#4c0519; color:#fda4af;">🛡️ 표류 피해 완화</span>
+          <span class="badge-demo" style="background:#1e3a5f; color:#93c5fd;">⚓ 배 수리비 절감</span>
+          <span class="badge-demo" style="background:#134e4a; color:#5eead4;">🧭 항해사 대체/유틸</span>
+        </div>
+        <div class="alert-box tip">
+          <span>💡</span>
+          <div>
+            <strong>스탯 퀵 정렬 기능:</strong> 근력, 민첩, 내구력, 강골, 불굴, 마력, 영력, 예리, 물리내성, 마법내성, 기력, 재생력 버튼을 클릭하면 해당 스탯이 가장 높은 순서대로 테이블이 즉시 재정렬됩니다!
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 1.3 -->
+      <div class="feature-card" id="deck-guide">
+        <h3>🗂️ 1.3 무제한 멀티 탭 빌드 덱 시뮬레이터</h3>
+        <p>
+          테이블 좌측의 체크박스(☑️)를 클릭하여 원하는 룬들을 덱에 자유롭게 등록할 수 있습니다. 장착된 룬들의 <strong>합산 스탯이 실시간으로 계산</strong>됩니다.
+        </p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>새 덱 탭 추가:</strong> <code>+ 새 덱 탭 추가</code> 버튼으로 물리 덱, 마법내성 탱커 덱, 항해 전용 덱 등 여러 빌드를 동시에 구성할 수 있습니다.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>덱 이름 커스텀:</strong> <code>✏️ 덱 이름 변경</code> 버튼을 눌러 나만의 빌드 이름을 지정할 수 있습니다.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>핀(Pin) 상단 고정:</strong> 체크된 룬들은 테이블 최상단에 황금색 테두리와 함께 자동 고정되어 빌드 구성 현황을 한눈에 비교할 수 있습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 1.4 -->
+      <div class="feature-card" id="video-guide">
+        <h3>🎬 1.4 인게임 보스 공략 영상 라이트박스</h3>
+        <p>
+          강력한 보스 룬(영겁의 용, 조화의 아우르반, 원귀 거상, 심연의 거신, 서리 검귀, 공포의 화신 등) 명칭 옆에 있는 <strong>[🎬 공략]</strong> 뱃지를 클릭하면 공식 공략 영상이 다크 글래스 라이트박스 팝업으로 즉시 재생됩니다.
+        </p>
+        <div class="alert-box info">
+          <span>🍿</span>
+          <div>
+            팝업을 닫으면 영상 오디오가 즉시 정지되며, 브라우저 성능에 부담을 주지 않도록 지연 로딩(Lazy Loading) 기술이 적용되어 있습니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2: Scar Log -->
+    <section class="guide-section" id="scar-log">
+      <div class="section-header">
+        <h2>📜 파트 2. 신해 일지(Scar Log) 완벽 활용법</h2>
+        <span class="section-badge">10일 주기 생존 플래너</span>
+      </div>
+
+      <!-- Feature 2.1 -->
+      <div class="feature-card" id="matrix-guide">
+        <h3>⏳ 2.1 10일 주기 생존 탐험 매트릭스</h3>
+        <p>
+          브리미르는 10일 단위로 상흔 던전이 리셋되고 탐험을 떠나는 독특한 생존 시스템을 가지고 있습니다. 층별(1층~7층) 쿨다운 제한 주기 내에서 어느 층을 언제 공략했는지 완벽하게 시각화합니다.
+        </p>
+        <ul style="padding-left: 20px; font-size: 13px; margin: 8px 0;">
+          <li><strong>1층 ~ 2층:</strong> 40일 이내 주기 공략</li>
+          <li><strong>3층 ~ 5층:</strong> 50일 이내 주기 공략</li>
+          <li><strong>6층 ~ 7층:</strong> 60일 이내 주기 공략</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2.2 -->
+      <div class="feature-card" id="runs-guide">
+        <h3>✨ 2.2 다회차 탭 관리 &amp; 시작일차 점프</h3>
+        <p>
+          로그라이크 다회차 플레이에 맞춰 <strong>[1회차 🔥]</strong>, <strong>[2회차]</strong> 탭을 무제한으로 전환하며 기록할 수 있습니다.
+        </p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>시작일차 설정 (점프 기능):</strong> <code>⚙️ 시작일차 설정</code> 버튼이나 <code>🔥 10일차 배지</code>를 클릭하면, 이미 120일차나 200일차를 플레이 중인 유저도 즉시 해당 일차로 행을 생성하고 동기화할 수 있습니다.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>+10일 탐험 추가:</strong> <code>➕ +10일 탐험 추가</code> 버튼을 누르면 다음 10일 주기 탐험 행이 즉시 생성됩니다.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>다음 회차 추가:</strong> <code>✨ 다음 회차 추가</code> 버튼을 누르면 새로운 회차 탭이 생기며 새로운 일지를 깨끗하게 시작할 수 있습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2.3 -->
+      <div class="feature-card" id="memo-guide">
+        <h3>📝 2.3 셀 클릭 기록 &amp; 탐험 메모 자동 저장</h3>
+        <p>
+          각 층수 셀을 클릭하여 <code>클리어 (✔️)</code>, <code>진행 중 (⏳)</code>, <code>실패 (❌)</code> 등 상태를 직관적으로 체크할 수 있으며, 우측 <strong>[탐험 메모]</strong> 칸에 해당 일차에 획득한 핵심 룬이나 빌드 메모를 적어두면 브라우저를 닫아도 안전하게 유지됩니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Part 3: FAQ & Shortcuts -->
+    <section class="guide-section" id="faq">
+      <div class="section-header">
+        <h2>❓ 파트 3. 자주 묻는 질문 &amp; 단축키 요약</h2>
+        <span class="section-badge">FAQ &amp; Shortcuts</span>
+      </div>
+
+      <div class="feature-card">
+        <h3>⌨️ 단축키 총정리</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border-color); text-align: left;">
+              <th style="padding: 8px; color: var(--text-bright);">단축키</th>
+              <th style="padding: 8px; color: var(--text-bright);">기능 설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border-light);">
+              <td style="padding: 8px;"><kbd>/</kbd> 또는 <kbd>Ctrl + K</kbd></td>
+              <td style="padding: 8px;">검색창으로 즉시 포커스 이동</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-light);">
+              <td style="padding: 8px;"><kbd>ESC</kbd></td>
+              <td style="padding: 8px;">검색창 입력 초기화 또는 열려있는 팝업 모달 닫기</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="feature-card">
+        <h3>❓ Q. 데이터가 지워지거나 초기화될 위험은 없나요?</h3>
+        <p>
+          모든 덱 구성과 신해 일지 데이터는 브라우저의 <code>localStorage</code>에 실시간으로 보관됩니다. 브라우저의 캐시/쿠키를 강제로 모두 삭제하지 않는 한 데이터가 안전하게 영구 보존됩니다.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>❓ Q. 스마트폰(모바일)에서도 정상 작동하나요?</h3>
+        <p>
+          네! 100% 반응형 웹 디자인으로 제작되어 스마트폰 및 태블릿에서도 가로 스크롤 및 터치 최적화된 화면으로 쾌적하게 이용하실 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Brimir Busters. All game contents and assets belong to the original creators of 『Brimir: Pilgrimage to the Heart』.</p>
+  <p style="margin-top: 4px; color: #58a6ff;">공식 사이트: <a href="https://busters.kr" style="color: #58a6ff; text-decoration: none;">https://busters.kr</a></p>
+</footer>
+
+</body>
+</html>
