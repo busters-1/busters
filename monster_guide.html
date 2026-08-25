@@ -498,7 +498,7 @@
           <th style="width: 70px; text-align: center;">번호</th>
           <th style="width: 110px; text-align: center;">분류 / 층수</th>
           <th>공략 게시글 제목</th>
-          <th style="width: 120px; text-align: center;">작성자</th>
+          
           <th style="width: 90px; text-align: center;">등록일</th>
         </tr>
       </thead>
@@ -515,7 +515,6 @@
       <div id="view-category-badge" style="margin-bottom: 6px;"></div>
       <h2 id="view-title" class="view-title"></h2>
       <div class="view-meta-bar">
-        <span>작성자: <strong id="view-author">고인물_버스터</strong></span>
         <span>등록일: <strong id="view-date">2026.08.25</strong></span>
         <span>공식 서식지: <strong id="view-habitat"></strong></span>
         <span>등급: <strong id="view-grade"></strong></span>
@@ -774,7 +773,6 @@ function renderBoardList() {
           ${p.youtubeId ? '<span class="badge-video-tag">🎬 영상</span>' : ''}
         </div>
       </td>
-      <td style="text-align: center; color: var(--text-muted); font-size: 12px;">${p.author}</td>
       <td style="text-align: center; color: var(--text-muted); font-size: 12px;">${p.date}</td>
     `;
     tbody.appendChild(tr);
@@ -795,7 +793,6 @@ function showPost(postId) {
     : `<span class="post-category cat-elite" style="font-size:12px; padding:3px 10px;">${post.floor}층 정예</span>`;
   document.getElementById('view-category-badge').innerHTML = catBadge;
   document.getElementById('view-title').innerText = post.title;
-  document.getElementById('view-author').innerText = post.author;
   document.getElementById('view-date').innerText = post.date;
   document.getElementById('view-habitat').innerText = post.habitat;
   document.getElementById('view-grade').innerText = post.grade;
