@@ -40,6 +40,35 @@
   }
 
   /* Header Container — busters.kr style */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+  }
+  .nav-tab {
+    background: #21262d;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    border-color: var(--accent-blue);
+    color: var(--text-bright);
+  }
+  .nav-tab.active {
+    background: linear-gradient(135deg, #1f6feb, #238636);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
   .header-container {
     display: flex;
     justify-content: space-between;
@@ -66,6 +95,27 @@
     color: var(--text-muted);
     font-size: 12px;
     margin-top: 3px;
+  }
+
+
+  .log-control-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .log-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 10px;
   }
 
   .header-controls {
@@ -521,31 +571,36 @@
 
 <div class="header-container">
   <div class="header-title">
-    <h1>📜 브리미르 신해 일지</h1>
-    <p>다회차 누적 기록 · 10일 단위 생존 주기 (1층~7층)</p>
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 신해 일지 & 상흔 던전 탐험 주기 플래너</p>
   </div>
-
-  <div class="header-controls">
-    <div style="display: flex; gap: 6px; margin-right: 8px;">
-      <a href="index.html" class="nav-tab" style="padding: 6px 12px; font-size: 12px; text-decoration: none; color: var(--text-main); background: #21262d; border: 1px solid var(--border-color); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;">💎 룬 도감</a>
-      <span class="nav-tab active" style="padding: 6px 12px; font-size: 12px; background: linear-gradient(135deg, #1f6feb, #238636); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;">📜 신해 일지</span>
-    </div>
-
-    <div class="current-day-badge" id="current-badge" onclick="openStartDayModal()" style="cursor: pointer;" title="클릭하여 시작/현재 일차 변경">
-      🔥 <span id="latest-day-display">10</span>일차 (<span id="latest-turn-display">1</span>탐험)
-      <span style="font-size: 11px; opacity: 0.7; margin-left: 2px;">✏️</span>
-    </div>
-
-    <button class="btn" onclick="openStartDayModal()" title="진행 중인 일차로 바로 점프">⚙️ 시작일차 설정</button>
-    <button class="btn btn-primary" onclick="addNewDay(10)">➕ +10일 탐험 추가</button>
-    <button class="btn btn-success" onclick="startNewRun()">✨ 다음 회차 추가</button>
-    <button class="btn btn-danger" onclick="confirmResetAll()">🗑️ 전체 초기화</button>
-  </div>
+  <nav class="nav-tabs">
+    <a href="index.html" class="nav-tab">💎 룬 도감</a>
+    <a href="scar_log.html" class="nav-tab active">📜 신해 일지</a>
+  </nav>
 </div>
 
-<!-- Run Tabs Bar -->
-<div class="run-tabs-bar" id="run-tabs-container">
-  <!-- Injected dynamically -->
+<!-- Log Control Panel -->
+<div class="log-control-panel">
+  <!-- Run Tabs Bar -->
+  <div class="run-tabs-bar" id="run-tabs-container">
+    <!-- Injected dynamically -->
+  </div>
+  <!-- Log Actions Bar -->
+  <div class="log-actions-bar">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      <div class="current-day-badge" id="current-badge" onclick="openStartDayModal()" style="cursor: pointer;" title="클릭하여 시작/현재 일차 변경">
+        🔥 <span id="latest-day-display">10</span>일차 (<span id="latest-turn-display">1</span>탐험)
+        <span style="font-size: 11px; opacity: 0.7; margin-left: 2px;">✏️</span>
+      </div>
+      <button class="btn" onclick="openStartDayModal()" title="진행 중인 일차로 바로 점프">⚙️ 시작일차 설정</button>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      <button class="btn btn-primary" onclick="addNewDay(10)">➕ +10일 탐험 추가</button>
+      <button class="btn btn-success" onclick="startNewRun()">✨ 다음 회차 추가</button>
+      <button class="btn btn-danger" onclick="confirmResetAll()">🗑️ 전체 초기화</button>
+    </div>
+  </div>
 </div>
 
 <div class="table-container">
