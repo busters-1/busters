@@ -5678,25 +5678,58 @@ function showPost(postId) {
       </div>
 
       <div class="post-section">
-        <h4 class="post-section-heading">■ 페이즈별 스킬 패턴 및 실전 대처법</h4>
+        <h4 class="post-section-heading">■ 스킬 패턴 및 실전 대처 가이드</h4>
         <div class="post-pattern-plain-list">
-          ${post.phases.map(ph => `
-            <div class="phase-group-block" style="margin-top: 10px; margin-bottom: 8px;">
-              <div style="font-weight: 700; color: #58a6ff; font-size: 14px; margin-bottom: 6px;">
-                ▶ ${ph.phaseTitle}
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 10px; padding-left: 6px;">
-                ${ph.patterns.map((pat, idx) => `
-                  <div class="post-pattern-item">
-                    <div class="pattern-head-line">
-                      <span class="pattern-idx">${idx + 1}.</span> <strong>${pat.name}</strong> <span class="pattern-tag-badge">[${pat.tagText}]</span>
+          ${post.phases.map(ph => {
+            const specialThreats = ph.patterns.filter(pat => pat.tag !== 'parry' && pat.tag !== 'guard_parry');
+            const parrySkills = ph.patterns.filter(pat => pat.tag === 'parry' || pat.tag === 'guard_parry');
+            
+            return `
+              <div class="phase-group-block" style="margin-top: 12px; margin-bottom: 12px;">
+                <div style="font-weight: 700; color: #58a6ff; font-size: 14.5px; margin-bottom: 8px; border-bottom: 1px dashed rgba(88, 166, 255, 0.25); padding-bottom: 4px;">
+                  ▶ ${ph.phaseTitle}
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px; padding-left: 4px;">
+                  ${specialThreats.length > 0 ? `
+                    <div class="threat-patterns-block">
+                      <div style="font-size: 13px; font-weight: 700; color: #ff7b72; margin-bottom: 6px;">
+                        🚨 주요 위험 기믹 & 필수 대처 패턴
+                      </div>
+                      <div style="display: flex; flex-direction: column; gap: 8px;">
+                        ${specialThreats.map((pat, idx) => `
+                          <div class="post-pattern-item" style="background: rgba(255, 123, 114, 0.06); border-left: 3px solid #ff7b72; padding: 8px 12px; border-radius: 4px;">
+                            <div class="pattern-head-line" style="margin-bottom: 4px;">
+                              <strong>${pat.name}</strong> <span class="pattern-tag-badge" style="color:#ff7b72; background:rgba(255,123,114,0.15); border:1px solid rgba(255,123,114,0.4); font-size:11.5px; padding:2px 6px; border-radius:3px;">[${pat.tagText}]</span>
+                            </div>
+                            <p class="pattern-body-line" style="margin: 0; color: #c9d1d9; font-size: 13.5px; line-height: 1.5;">${pat.desc}</p>
+                          </div>
+                        `).join('')}
+                      </div>
                     </div>
-                    <p class="pattern-body-line">${pat.desc}</p>
-                  </div>
-                `).join('')}
+                  ` : ''}
+
+                  ${parrySkills.length > 0 ? `
+                    <div class="parry-patterns-block" style="background: rgba(88, 166, 255, 0.05); border-left: 3px solid #58a6ff; padding: 10px 12px; border-radius: 4px;">
+                      <div style="font-size: 13px; font-weight: 700; color: #79c0ff; margin-bottom: 6px;">
+                        🛡️ 패링 가능 기본/연격 스킬군
+                      </div>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+                        ${parrySkills.map(pat => `
+                          <span style="background: rgba(56, 139, 253, 0.15); border: 1px solid rgba(56, 139, 253, 0.35); color: #e6edf3; font-size: 12.5px; font-weight: 600; padding: 3px 8px; border-radius: 4px;">
+                            ${pat.name}
+                          </span>
+                        `).join('')}
+                      </div>
+                      <p style="margin: 0; color: #8b949e; font-size: 13px; line-height: 1.5;">
+                        ※ 위 기술들은 모두 타이밍에 맞춰 방패 패링이 가능한 공격이다. 무기나 투사체가 몸에 닿는 순간 패링을 치면 보스의 자세가 무너지며 기력이 회복된다.
+                      </p>
+                    </div>
+                  ` : ''}
+                </div>
               </div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
 
