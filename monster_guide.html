@@ -679,6 +679,52 @@
 
     
     /* Clean Plain Post Body (게시판 텍스트 문단 전용 스타일) */
+    
+    /* Post Monster Hero Visual Banner */
+    .post-monster-visual-hero {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: radial-gradient(circle at left, rgba(56, 139, 253, 0.12) 0%, rgba(22, 27, 34, 0.8) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .post-hero-img-box {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13, 17, 23, 0.8);
+      border-radius: 8px;
+      border: 1px solid rgba(48, 54, 61, 0.8);
+      flex-shrink: 0;
+    }
+    .post-hero-monster-img {
+      max-width: 80px;
+      max-height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
+    }
+    .post-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .post-hero-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+    .post-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .plain-post-body {
       font-size: 14px;
       line-height: 1.75;
@@ -5576,17 +5622,32 @@ function showPost(postId) {
   
   document.getElementById('view-category-badge').innerHTML = catBadge;
   document.getElementById('view-title').innerText = post.title;
-  document.getElementById('view-date').innerText = post.date;
-  document.getElementById('view-views').innerText = getPostViews(post.id, post.baseViews).toLocaleString();
-  document.getElementById('view-likes').innerText = getPostLikes(post.id, post.baseLikes).toString();
+  document.getElementById('view-date').innerText = post.date || '2026.08.25';
+  document.getElementById('view-views').innerText = getPostViews(post.id, post.views || 0).toLocaleString();
+  document.getElementById('view-likes').innerText = getPostLikes(post.id, post.likes || 0).toString();
   document.getElementById('view-grade').innerText = post.grade;
 
   // Like Button State
   updateLikeButtonUI(post);
 
-  // Content: Clean text paragraph layout
+  const heroImgTag = post.image 
+    ? `<div class="post-hero-img-box"><img src="${post.image}" alt="${post.monsterName}" class="post-hero-monster-img"></div>`
+    : `<div class="post-hero-img-box"><span style="font-size:36px;">⚔️</span></div>`;
+
+  // Content: Clean text paragraph layout with visual hero banner
   let contentHtml = `
     <div class="plain-post-body">
+      <div class="post-monster-visual-hero">
+        ${heroImgTag}
+        <div class="post-hero-info">
+          <div class="post-hero-name">${post.monsterName}</div>
+          <div class="post-hero-meta">
+            ${catBadge}
+            ${post.youtubeId ? '<span class="badge-video-tag" style="padding:3px 8px; font-size:12px;">🎬 실전 공략 영상 탑재</span>' : ''}
+          </div>
+        </div>
+      </div>
+
       <p class="post-paragraph intro-text">${post.intro}</p>
 
       <div class="post-section">
