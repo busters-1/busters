@@ -732,184 +732,553 @@
 // Posts Data Structure
 const POSTS_DATA = [
   {
-    id: "eternal_dragon",
-    num: 8,
-    floor: "7",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[7층 보스] 영겁의 용 완벽 날먹 공략 (패링 타이밍, 브레스 회피, 화염 인챈트)",
-    monsterName: "영겁의 용",
-    subName: "Eternal Dragon / 벨라리오스",
-    date: "2026.08.25",
-    habitat: "7층 - 거석 유적 (보스방)",
-    weaponEnchant: "화염 속성 (용 비늘이 화염에 취약해서 딜 제일 잘 박힘)",
-    armorEnchant: "냉기 저항 + 암흑 저항 (부식 브레스 급사 방지 필수)",
-    intro: "7층 최상위 암흑 보스다. 강력한 마법 결계와 즉사급 공간 붕괴, 부식 브레스를 쓰기 때문에 패턴마다 패링과 CC 캔슬 타이밍을 정확히 지켜야 클리어 가능하다.",
-    patterns: [
-      { name: "[단일기] 전방 비늘 내려치기 / 비늘 결계", tag: "parry", tagText: "패링 가능", desc: "정면에서 내려칠 때 쫄지 말고 <strong>패링</strong> 쳐라. 타이밍 널널해서 패링 치기 쉽고, 성공하면 보스가 크게 휘청거리면서 딜타임 달달하게 나옴." },
-      { name: "[광역기] 공간 붕괴", tag: "dodge", tagText: "회피 or CC 끊기", desc: "바닥 깨지면서 광역으로 터지는 패턴임. 바닥 깔리면 <strong>뒤로 구르거나 파티원 CC기 박아서 끊어라.</strong> CC기 남아돌면 끊는 게 제일 편함." },
-      { name: "[광역 도트] 부식의 숨결 (암흑 브레스)", tag: "dodge", tagText: "후방 회피", desc: "전방 부채꼴로 암흑 틱뎀 뿜어대니까 정면에 서 있지 말고 <strong>보스 뒤통수로 굴러서 피해라.</strong> 교전 컨트롤(후퇴)로 멍청한 AI 동료들도 뒤로 빼줘야 딜로스 안 남." }
+    "id": "eternal_dragon",
+    "num": 8,
+    "floor": "7",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 보스] 영겁의 용 페이즈별 실전 공략 (공간 파쇄, 죽음의 숨결, 비늘 결계)",
+    "monsterName": "영겁의 용",
+    "subName": "Eternal Dragon / 벨라리오스",
+    "date": "2026.08.25",
+    "weaponEnchant": "화염 속성 (용 비늘이 화염에 취약하여 극딜 가능)",
+    "armorEnchant": "냉기 저항 + 암흑 저항 (죽음의 숨결 급사 방지 필수)",
+    "intro": "7층 최상위 암흑 보스다. 강력한 마법 결계와 즉사급 공간 붕괴, 부식 브레스를 쓰기 때문에 페이즈별 패턴마다 패링과 CC 캔슬 타이밍을 정확히 지켜야 클리어 가능하다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "죽음의 숨결",
+            "tag": "dodge",
+            "tagText": "후방 회피",
+            "desc": "전방 부채꼴로 뿜어내는 암흑 지속 브레스다. 정면에 서 있지 말고 보스 뒤통수로 굴러서 피해라."
+          },
+          {
+            "name": "비늘 결계",
+            "tag": "dodge",
+            "tagText": "마법 반사 대기 or 물리 집중",
+            "desc": "비늘을 곤두세워 마법을 튕겨내는 결계를 친다. 버프 동안 마법 딜이 차단되니 물리 공격을 집중하거나 패턴을 기다려라."
+          },
+          {
+            "name": "발톱 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면에서 휘두르는 묵직한 발톱 2연타. 팔을 들어 올릴 때 패링을 치면 보스가 크게 휘청거리며 딜타임이 열린다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [공간 파쇄]",
+        "patterns": [
+          {
+            "name": "공간 파쇄",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "바닥에 균열이 생기며 광역으로 공간이 무너져 내리는 핵심 패턴이다. 바닥 예고가 뜨면 뒤로 구르거나 CC기로 끊어라."
+          },
+          {
+            "name": "지면 균열",
+            "tag": "dodge",
+            "tagText": "범위 이탈",
+            "desc": "바닥이 갈라지며 암흑 파편이 솟구친다. 갈라진 틈 밖으로 신속히 이동해라."
+          }
+        ]
+      }
     ],
-    youtubeId: "fSVSaiv4fSI"
+    "youtubeId": "fSVSaiv4fSI"
   },
   {
-    id: "wraith_colossus",
-    num: 7,
-    floor: "7",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[7층 보스] 원귀 거상 소환 캔슬 및 패턴 공략 (원혼 소환 무조건 끊어라)",
-    monsterName: "원귀 거상",
-    subName: "Wraith Colossus / Grudge Colossus",
-    date: "2026.08.25",
-    habitat: "7층 - 통곡의 늪 (보스방)",
-    weaponEnchant: "번개 or 신성 속성 (원혼 껍질 벗기고 약점 찌르는 데 특효)",
-    armorEnchant: "대지 저항 + 암흑 저항 (바닥 찍기 충격파랑 저주 뎀감용)",
-    intro: "공격 하나하나가 묵직하고 파티 전멸을 부르는 강력한 대지 보스다. 광역 지진과 끊임없이 쏟아져 나오는 원혼 소환을 CC기로 제때 차단하지 못하면 파티가 순식간에 전멸한다.",
-    patterns: [
-      { name: "[소환] 원혼 부르기", tag: "cancel", tagText: "무조건 CC기 캔슬 필수", desc: "<strong>모션 보이자마자 무조건 스턴이나 빙결 같은 CC기 박아서 끊어라.</strong> 쫄몹들 필드에 깔리기 시작하면 타겟팅 꼬이고 답 안 나오니까 무조건 1순위로 캔슬해야 됨." },
-      { name: "[단일기] 바위 휘두르기", tag: "parry", tagText: "패링 가능", desc: "팔 묵직하게 들어올릴 때 타이밍 맞춰서 <strong>패링</strong> 쳐라. 거상 자세 무너지면서 기력도 다 돌려받음." },
-      { name: "[광역기] 원귀의 지진 (쿵쿵따)", tag: "dodge", tagText: "회피 or CC 끊기", desc: "땅 찍으려고 기 모을 때 <strong>CC기로 끊어주는 게 베스트.</strong> CC기 쿨 돌고 있으면 교전 컨트롤로 동료들 뒤로 빼고 범위 밖으로 굴러서 피해라." }
+    "id": "wraith_colossus",
+    "num": 7,
+    "floor": "7",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 보스] 원귀 거상 페이즈별 실전 공략 (원혼 부르기 캔슬, 원귀의 지진)",
+    "monsterName": "원귀 거상",
+    "subName": "Wraith Colossus / Grudge Colossus",
+    "date": "2026.08.25",
+    "weaponEnchant": "번개 or 신성 속성 (원혼 껍질 벗기고 약점 찌르는 데 특효)",
+    "armorEnchant": "대지 저항 + 암흑 저항 (바닥 찍기 충격파 및 저주 뎀감용)",
+    "intro": "공격 하나하나가 묵직하고 파티 전멸을 부르는 강력한 대지 보스다. 광역 지진과 끊임없이 쏟아져 나오는 원혼 소환을 CC기로 제때 차단하지 못하면 파티가 순식간에 전멸한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "바위 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "거대한 팔을 들어올려 정면을 후려친다. 팔이 내려오는 타이밍에 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "정신의 보루",
+            "tag": "dodge",
+            "tagText": "방어 버프",
+            "desc": "원혼의 힘으로 단단한 방어막을 둘러 받는 피해를 감소시킨다."
+          },
+          {
+            "name": "저주의 물결",
+            "tag": "dodge",
+            "tagText": "회피 or 거리 유지",
+            "desc": "전방으로 암흑 저주 파동이 퍼져나간다. 궤적 밖으로 구르거나 거리를 벌려라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [원혼 집결]",
+        "patterns": [
+          {
+            "name": "원혼 부르기",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "시전 모션이 보이자마자 무조건 스턴이나 빙결 등 하드 CC기를 박아 끊어라. 필드에 쫄몹이 증식하면 타겟팅이 꼬여 전멸한다."
+          },
+          {
+            "name": "원귀의 지진",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "지면을 강타해 거대한 광역 충격파를 발생시킨다. CC기로 끊거나 동료들을 후퇴시키고 범위 밖으로 굴러라."
+          }
+        ]
+      }
     ],
-    youtubeId: "HxIv08gAYjo"
+    "youtubeId": "HxIv08gAYjo"
   },
   {
-    id: "aurvan_of_harmony",
-    num: 6,
-    floor: "6",
-    type: "boss",
-    grade: "4등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[6층 보스] 조화의 아우르반 화염/물 복합 속성 파훼법",
-    monsterName: "조화의 아우르반",
-    subName: "Aurvan of Harmony",
-    date: "2026.08.25",
-    habitat: "6층 - 심연의 대해 (상흔 보스방)",
-    weaponEnchant: "대지 or 번개 속성 (원소 상성 카운터)",
-    armorEnchant: "화염 저항 + 물 저항 (화염 바다 장판이랑 조류 뎀감용)",
-    intro: "화염과 물 두 가지 속성을 번갈아 사용하는 까다로운 보스다. 지속적인 화염 장판 도트 피해와 파도 결박으로 파티 진형이 무너지기 쉬우니 속성 저항 인챈트 세팅과 신속한 장판 이탈이 필수다.",
-    patterns: [
-      { name: "[소환] 원소 수호령 소환", tag: "cancel", tagText: "무조건 CC기 캔슬 필수", desc: "<strong>소환 모션 나오면 뒤도 돌아보지 말고 CC기 때려박아서 끊어라.</strong> 잡몹 늘어나면 어그로 분산돼서 겜 피곤해짐." },
-      { name: "[단일기] 조류의 사슬 / 단일 타격", tag: "parry", tagText: "패링 가능", desc: "타겟팅 단일 공격이니까 침착하게 <strong>패링</strong> 쳐서 튕겨내면 됨." },
-      { name: "[광역 도트] 화염 바다 (장판)", tag: "dodge", tagText: "회피 or CC 끊기", desc: "바닥에 불 깔리는 도트 장판임. <strong>CC기로 시전 끊거나</strong>, 불 깔리자마자 자리 이동해서 불 밖으로 나와라." }
+    "id": "rime_swordfiend",
+    "num": 6,
+    "floor": "7",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 보스] 서리 검귀 페이즈별 실전 공략 (서리 발도술, 만천빙검 캔슬)",
+    "monsterName": "서리 검귀",
+    "subName": "Rime Swordfiend",
+    "date": "2026.08.25",
+    "weaponEnchant": "화염 속성 (결빙 검기를 녹이고 폭딜)",
+    "armorEnchant": "냉기 저항 + 물리내성 강화 (연타 짤딜 누적 방지)",
+    "intro": "공격 속도가 매우 빠르고 쉴 새 없이 몰아치는 연속 검술 보스다. 일반 가드로는 가드 브레이크가 터져 위험하므로 발도 공격을 정확히 패링하고 만천빙검 난무를 CC기로 반드시 끊어야 한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "서리 발도술",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "칼집에서 칼이 번쩍이는 순간 초고속 종베기가 날아온다. 번쩍하는 찰나에 패링을 누르면 큰 그로기 타이밍을 벌 수 있다."
+          },
+          {
+            "name": "서리 베기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 연속 베기 공격. 침착하게 패링으로 받아쳐 자세를 무너뜨려라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [서릿발]",
+        "patterns": [
+          {
+            "name": "서릿발 솟구침",
+            "tag": "dodge",
+            "tagText": "발밑 장판 회피",
+            "desc": "발밑에 붉은 예고 띠가 생기며 거대한 얼음 송곳이 솟구친다. 띠 밖으로 굴러서 피해라."
+          },
+          {
+            "name": "냉기 방출",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "주변으로 한기를 폭발시키는 광역기다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [눈보라의 눈]",
+        "patterns": [
+          {
+            "name": "만천빙검",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "검기를 사방으로 흩뿌리는 연속 난무 궁극기다. 캐스팅이 시작되는 즉시 하드 CC기로 끊어라. 방치하면 파티가 전멸한다."
+          },
+          {
+            "name": "눈보라의 눈",
+            "tag": "dodge",
+            "tagText": "안전 구역 진입",
+            "desc": "외곽 전역이 결빙되고 중앙 안전지대로 진입해야 생존할 수 있는 특수 패턴이다."
+          }
+        ]
+      }
     ],
-    youtubeId: "-JXGVz28WqI"
+    "youtubeId": "EMb-3bGDkO0"
   },
   {
-    id: "abyssal_colossus",
-    num: 5,
-    floor: "6",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[6층 보스] 심연의 거신 단단한 껍질 뚫는 법 (소용돌이 대처법)",
-    monsterName: "심연의 거신",
-    subName: "Abyssal Colossus",
-    date: "2026.08.25",
-    habitat: "6층 - 심연의 대해",
-    weaponEnchant: "번개 or 암흑 관통 (단단한 껍질 뚫는 데 필수)",
-    armorEnchant: "물 저항 + 물리내성 강화 (심해 타격 급사 방지)",
-    intro: "압도적인 물리 내구력과 광역 흡입 소용돌이를 보유한 해양 보스다. 소용돌이에 휘말리면 파티 전체가 큰 피해를 입으므로 시전 차단과 속성 관통 딜링이 핵심이다.",
-    patterns: [
-      { name: "[광역기] 심연의 소용돌이", tag: "dodge", tagText: "회피 or CC 끊기", desc: "중앙으로 빨아들이는 광역 소용돌이임. <strong>캐스팅 보이면 CC기로 끊거나</strong>, 외곽으로 달려서 빨려 들어가지 않게 피해라." },
-      { name: "[단일기] 거신의 일격 / 내려찍기", tag: "parry", tagText: "패링 가능", desc: "팔 높이 들었다가 내리칠 때 <strong>패링</strong> 쳐라. 덩치가 커서 모션이 정직하니까 패링 치기 매우 쉬움." }
+    "id": "glacier_giant",
+    "num": 5,
+    "floor": "7",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 미드보스] 빙하 거인 페이즈별 실전 공략 (빙하의 진격, 광분, 빙하 붕괴)",
+    "monsterName": "빙하 거인",
+    "subName": "Glacier Giant",
+    "date": "2026.08.25",
+    "weaponEnchant": "화염 속성 (얼음 육탄 분쇄)",
+    "armorEnchant": "냉기 저항 + 물리내성 강화 (광분 연타 버티기)",
+    "intro": "한기가 중첩된 아군을 타격할수록 광분 상태에 돌입해 위력이 폭증하는 7층 육탄 보스다. 돌진기를 측면으로 회피하고 묵직한 내려치기를 패링하여 화염 집중 딜로 제압해야 한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "빙하의 진격",
+            "tag": "dodge",
+            "tagText": "측면 회피",
+            "desc": "몸을 웅크린 뒤 앞으로 짓쳐 들어오는 육탄 돌진기다. 정면에 서 있지 말고 측면으로 굴러 피해라."
+          },
+          {
+            "name": "얼음 바위 투척",
+            "tag": "dodge",
+            "tagText": "투사체 회피",
+            "desc": "거대한 얼음 덩어리를 집어 던진다. 포물선 궤적을 확인하고 회피해라."
+          },
+          {
+            "name": "바위 내리치기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "팔을 높이 들어 내리칠 때 패링을 누르면 거인이 제자리에서 비틀거린다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [광분]",
+        "patterns": [
+          {
+            "name": "빙하의 광분",
+            "tag": "dodge",
+            "tagText": "침착 대응 & 패링",
+            "desc": "공격 속도와 이동 속도가 폭증하며 맹공을 퍼붓는다. 맞을수록 한기가 쌓이니 무리하지 말고 침착하게 패링으로 넘겨라."
+          },
+          {
+            "name": "빙결 분쇄",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "바닥을 부수며 한기 폭발을 일으키는 광역 충격파."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [붕괴]",
+        "patterns": [
+          {
+            "name": "빙하 붕괴",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "빙하 전체를 무너뜨리는 즉사급 지진 강타. 시전 모션이 보이면 파티원 전원 CC기를 쏟아부어 즉시 끊어라."
+          }
+        ]
+      }
     ],
-    youtubeId: "UcbsCDQFL3s"
+    "youtubeId": "uO0R18KUQHs"
   },
   {
-    id: "rime_swordfiend",
-    num: 4,
-    floor: "7",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[7층 보스] 서리 검귀 초고속 발도술 패링 및 만천빙검 캔슬 공략",
-    monsterName: "서리 검귀",
-    subName: "Rime Swordfiend",
-    date: "2026.08.25",
-    habitat: "7층 - 검총 (보스방)",
-    weaponEnchant: "화염 속성 (결빙 검기 녹이고 폭딜)",
-    armorEnchant: "냉기 저항 + 물리내성 (연타 짤딜 누적 방지)",
-    intro: "공격 속도가 매우 빠르고 쉴 새 없이 몰아치는 연속 검술 보스다. 일반 가드로는 가드 브레이크가 터져 위험하므로 발도 공격을 정확히 패링하고 만천빙검 난무를 CC기로 반드시 끊어야 한다.",
-    patterns: [
-      { name: "[단일 발도] 서리 발도술 / 종베기", tag: "parry", tagText: "패링 가능", desc: "칼집에서 번쩍할 때 바로 <strong>패링</strong> 쳐라. 검귀 공격 중 가장 큰 그로기 타이밍을 벌 수 있음." },
-      { name: "[광역 연타] 만천빙검 (검기 난무)", tag: "cancel", tagText: "CC기로 끊기 필수", desc: "검기를 사방으로 흩뿌리는 난무 패턴임. <strong>캐스팅 시작할 때 하드 CC기로 끊어주는 게 정답이다.</strong> 못 끊으면 아군 AI 동료들 다 갈려나감." }
+    "id": "frost_guardian",
+    "num": 4,
+    "floor": "7",
+    "type": "elite",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 정예] 서리 수호병 페이즈별 실전 공략 (방패검 연격, 서리 군기, 영구동토)",
+    "monsterName": "서리 수호병",
+    "subName": "Frost Guardian",
+    "date": "2026.08.25",
+    "weaponEnchant": "화염 속성 (결빙 갑주 녹이기)",
+    "armorEnchant": "냉기 저항 (한기 스택 방지)",
+    "intro": "단단한 방패 가드와 파티 전체 마법내성을 비약적으로 올리는 서리 군기를 사용하는 7층 정예 수호기사다. 방패 돌진을 패링으로 무너뜨리고 군기 시전을 CC기로 저지해야 한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "방패검 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "방패로 밀치고 창/검으로 찌르는 연계 공격. 패링을 치면 방패가 튕겨 나가며 가드가 깨진다."
+          },
+          {
+            "name": "서리 군기",
+            "tag": "cancel",
+            "tagText": "CC기로 끊기 추천",
+            "desc": "깃발을 꽂아 마법내성을 비약적으로 높인다. 시전할 때 스턴이나 넉백으로 끊어줘라."
+          },
+          {
+            "name": "서리 투창",
+            "tag": "parry",
+            "tagText": "패링 or 회피",
+            "desc": "원거리에서 결빙 창을 투척한다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [군세]",
+        "patterns": [
+          {
+            "name": "혹한의 병사 소환",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "결빙 갑주 병사들을 소환한다. 소환 모션이 나오는 즉시 CC기로 차단해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [영구동토]",
+        "patterns": [
+          {
+            "name": "영구동토 장벽",
+            "tag": "dodge",
+            "tagText": "배후 타격 or 보호막 파괴",
+            "desc": "전방에 절대 방어 장벽을 전개한다. 정면 공격은 무효화되니 배후로 돌아가 타격해라."
+          }
+        ]
+      }
     ],
-    youtubeId: "EMb-3bGDkO0"
+    "youtubeId": "U0KYTvrPlYo"
   },
   {
-    id: "avatar_of_dread",
-    num: 3,
-    floor: "1",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[1층 상흔] 공포의 화신 촉수 및 저주 패턴 날먹 공략",
-    monsterName: "공포의 화신",
-    subName: "Avatar of Dread",
-    date: "2026.08.25",
-    habitat: "1층 - 공포의 신해 (상흔 보스방)",
-    weaponEnchant: "신성 or 화염 (암흑 괴수 특효약)",
-    armorEnchant: "암흑 저항 + 독 저항 (저주 틱뎀 방지)",
-    intro: "1층 상흔 최심부의 난적으로, 암흑 저주 디버프와 원거리 촉수 소환으로 아군을 지속 압박한다. 촉수 소환을 신속히 캔슬하고 신성 속성 공격으로 빠르게 쓰러뜨려야 한다.",
-    patterns: [
-      { name: "[소환 / 분신] 어둠의 촉수 소환", tag: "cancel", tagText: "무조건 CC기 캔슬 필수", desc: "<strong>바닥에서 촉수 기어 나오려고 할 때 CC기로 끊어라.</strong> 촉수 남겨두면 원거리에서 계속 짤딜 날려서 짜증남." },
-      { name: "[단일기] 공포의 응시 / 촉수 강타", tag: "parry", tagText: "패링 가능", desc: "촉수로 전방 내려칠 때 <strong>패링</strong> 쳐주면 바로 경직 먹고 뒤로 물러남." },
-      { name: "[광역 도트] 잠식하는 공포 (어둠 장판)", tag: "dodge", tagText: "회피 or CC 끊기", desc: "바닥에 검은 웅덩이 깔리면 <strong>바로 밖으로 굴러라.</strong> 밟고 있으면 지속 암흑 틱뎀 들어옴." }
+    "id": "aurvan_of_harmony",
+    "num": 3,
+    "floor": "6",
+    "type": "boss",
+    "grade": "4등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[6층 보스] 조화의 아우르반 페이즈별 실전 공략 (불/바람/물/땅 4원소 파훼)",
+    "monsterName": "조화의 아우르반",
+    "subName": "Aurvan of Harmony",
+    "date": "2026.08.25",
+    "weaponEnchant": "대지 or 번개 속성 (원소 상성 카운터)",
+    "armorEnchant": "화염 저항 + 물 저항 (화염 바다 및 조류 뎀감용)",
+    "intro": "화염과 물 두 가지 속성을 번갈아 사용하는 까다로운 보스다. 지속적인 화염 장판 도트 피해와 파도 결박으로 파티 진형이 무너지기 쉬우니 속성 저항 인챈트 세팅과 신속한 장판 이탈이 필수다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈 [불과 바람]",
+        "patterns": [
+          {
+            "name": "잿불 융단",
+            "tag": "dodge",
+            "tagText": "장판 이탈",
+            "desc": "바닥에 넓은 화염 도트 장판이 깔린다. 지속 피해가 매우 크니 불 밖으로 신속히 이동해라."
+          },
+          {
+            "name": "상승 기류",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "근접한 파티원을 공중으로 띄워 흩어버리는 광역 돌풍."
+          },
+          {
+            "name": "폭풍의 눈",
+            "tag": "dodge",
+            "tagText": "거리 유지",
+            "desc": "중심부로 강하게 끌어당기는 기류."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [물과 땅]",
+        "patterns": [
+          {
+            "name": "조수의 족쇄",
+            "tag": "cancel",
+            "tagText": "무조건 CC 캔슬 or 회피",
+            "desc": "파티원 전원을 묶어버리는 광역 결박. 시전할 때 CC기로 끊어주는 게 최선이다."
+          },
+          {
+            "name": "심연의 소용돌이",
+            "tag": "dodge",
+            "tagText": "외곽 이탈",
+            "desc": "중앙으로 흡입하는 소용돌이. 빨려 들어가지 않게 외곽으로 달려라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [원류의 합일]",
+        "patterns": [
+          {
+            "name": "암반 붕락",
+            "tag": "dodge",
+            "tagText": "예고 띠 회피",
+            "desc": "천장이 무너지며 거대한 낙석이 쏟아진다. 바닥의 예고 띠를 보고 걸어서 벗어나라."
+          },
+          {
+            "name": "원류의 맹습",
+            "tag": "parry",
+            "tagText": "패링 or 회피",
+            "desc": "4원소가 하나로 융합된 맹공. (부활 3회 기믹 주의)"
+          }
+        ]
+      }
     ],
-    youtubeId: "kWo8t78nxYQ"
+    "youtubeId": "-JXGVz28WqI"
   },
   {
-    id: "frost_guardian",
-    num: 2,
-    floor: "7",
-    type: "elite",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[7층 정예] 서리 수호병 방패 패링 및 마법 군기 캔슬법",
-    monsterName: "서리 수호병",
-    subName: "Frost Guardian",
-    date: "2026.08.25",
-    habitat: "7층 - 눈보라 벌판",
-    weaponEnchant: "화염 속성 (결빙 갑주 녹이기)",
-    armorEnchant: "냉기 저항 (한기 스택 쌓임 방지)",
-    intro: "단단한 방패 가드와 파티 전체 마법내성을 비약적으로 올리는 서리 군기를 사용하는 7층 정예 수호기사다. 방패 돌진을 패링으로 무너뜨리고 군기 시전을 CC기로 저지해야 한다.",
-    patterns: [
-      { name: "[단일기] 방패 후려치기 / 찌르기", tag: "parry", tagText: "패링 가능", desc: "방패 들고 돌진하거나 창으로 찌를 때 <strong>패링</strong> 쳐라. 방패 튕겨 나가면서 가드 깨짐." },
-      { name: "[광역 버프] 서리 군기 (마법내성 강화)", tag: "cancel", tagText: "CC기로 끊기 추천", desc: "깃발 꽂으면서 버프 시전할 때 <strong>스턴이나 넉백 CC기로 끊어주면</strong> 단단해지는 거 막을 수 있음." }
+    "id": "abyssal_colossus",
+    "num": 2,
+    "floor": "6",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[6층 보스] 심연의 거신 페이즈별 실전 공략 (심연의 분쇄, 소용돌이, 거대화)",
+    "monsterName": "심연의 거신",
+    "subName": "Abyssal Colossus",
+    "date": "2026.08.25",
+    "weaponEnchant": "번개 or 암흑 관통 (단단한 껍질 뚫는 데 필수)",
+    "armorEnchant": "물 저항 + 물리내성 강화 (심해 타격 급사 방지)",
+    "intro": "압도적인 물리 내구력과 광역 흡입 소용돌이를 보유한 해양 보스다. 소용돌이에 휘말리면 파티 전체가 큰 피해를 입으므로 시전 차단과 속성 관통 딜링이 핵심이다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "심연의 분쇄",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "팔을 높이 들었다가 내리칠 때 패링을 쳐라. 덩치가 커서 모션이 정직하므로 패링 치기 매우 쉽다."
+          },
+          {
+            "name": "조류의 맹습",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "파도를 일으키며 전방을 휩쓰는 광역기."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [심해의 해일]",
+        "patterns": [
+          {
+            "name": "심연의 소용돌이",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "중앙으로 빨아들이는 광역 소용돌이다. 캐스팅이 보이면 CC기로 끊거나 외곽으로 달려라."
+          },
+          {
+            "name": "거대화",
+            "tag": "dodge",
+            "tagText": "속성 관통 극딜",
+            "desc": "몸집이 거대해지며 물리 공격력이 대폭 증가한다. 속성 관통 딜로 신속히 제압해라."
+          }
+        ]
+      }
     ],
-    youtubeId: "U0KYTvrPlYo"
+    "youtubeId": "UcbsCDQFL3s"
   },
   {
-    id: "glacier_giant",
-    num: 1,
-    floor: "7",
-    type: "boss",
-    grade: "3등급",
-    baseViews: 0,
-    baseLikes: 0,
-    title: "[7층 미드보스] 빙하 거인 돌진 피하고 패링으로 육탄 분쇄하기",
-    monsterName: "빙하 거인",
-    subName: "Glacier Giant",
-    date: "2026.08.25",
-    habitat: "7층 - 눈보라 벌판 (미드보스)",
-    weaponEnchant: "화염 속성 (얼음 육탄 분쇄)",
-    armorEnchant: "냉기 저항 + 물리내성 (광분 짤딜 버티기)",
-    intro: "한기가 중첩된 아군을 타격할수록 광분 상태에 돌입해 위력이 폭증하는 7층 육탄 보스다. 돌진기를 측면으로 회피하고 묵직한 내려치기를 패링하여 화염 집중 딜로 제압해야 한다.",
-    patterns: [
-      { name: "[돌진기] 빙하의 진격", tag: "dodge", tagText: "옆으로 구르기", desc: "몸 웅크렸다가 앞으로 짓쳐 들어오는 돌진기임. <strong>정면에 있지 말고 옆으로 굴러서 피해라.</strong> 맞으면 한기 1스택 쌓임." },
-      { name: "[단일기] 얼음 몽둥이 내리치기", tag: "parry", tagText: "패링 가능", desc: "팔 번쩍 들고 내리칠 때 <strong>패링</strong> 누르면 거인이 제자리에서 비틀거림. 이때 화염 딜 집중하면 됨." }
+    "id": "avatar_of_dread",
+    "num": 1,
+    "floor": "1",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[1층 상흔] 공포의 화신 5단계 페이즈 실전 공략 (통곡의 비명, 심연의 손길, 분신)",
+    "monsterName": "공포의 화신",
+    "subName": "Avatar of Dread",
+    "date": "2026.08.25",
+    "weaponEnchant": "신성 or 화염 (암흑 괴수 특효약)",
+    "armorEnchant": "암흑 저항 + 독 저항 (저주 틱뎀 방지)",
+    "intro": "1층 상흔 최심부의 난적으로, 암흑 저주 디버프와 원거리 촉수 소환으로 아군을 지속 압박한다. 촉수 소환을 신속히 캔슬하고 신성 속성 공격으로 빠르게 쓰러뜨려야 한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈 [잠식]",
+        "patterns": [
+          {
+            "name": "그림자 점멸",
+            "tag": "parry",
+            "tagText": "패링 or 회피",
+            "desc": "어둠 속에서 순간이동하여 급습한다."
+          },
+          {
+            "name": "공포의 늪",
+            "tag": "dodge",
+            "tagText": "장판 이탈",
+            "desc": "발밑에 깔리는 검은 웅덩이. 밟고 있으면 지속 암흑 피해가 들어오니 즉시 벗어나라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [절규]",
+        "patterns": [
+          {
+            "name": "통곡의 비명",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "광역 공포를 유발해 아군 조작을 마비시킨다. 비명 캐스팅 시 CC기로 즉시 차단해라."
+          },
+          {
+            "name": "저주의 칼날",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "암흑 칼날로 정면을 벤다. 패링 타이밍이 정직하다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [도주불가]",
+        "patterns": [
+          {
+            "name": "심연의 손길",
+            "tag": "dodge",
+            "tagText": "견인 대처",
+            "desc": "촉수로 아군을 강제로 끌어당긴다."
+          },
+          {
+            "name": "원혼 부르기",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "어둠의 망령들을 대량 소환한다. 소환 모션을 최우선으로 끊어라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "4페이즈 [실체화]",
+        "patterns": [
+          {
+            "name": "분신 복제 소환",
+            "tag": "cancel",
+            "tagText": "CC 캔슬 or 분신 일점사",
+            "desc": "아군과 동일한 형태의 공포 분신을 세운다."
+          },
+          {
+            "name": "처형 카운트다운",
+            "tag": "dodge",
+            "tagText": "폭딜로 그로기 유발",
+            "desc": "머리 위에 처형 예고가 뜬다. 카운트 종료 전에 폭딜로 그로기를 유발해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "5페이즈 [광란]",
+        "patterns": [
+          {
+            "name": "전 패턴 난사 & 자폭",
+            "tag": "dodge",
+            "tagText": "극딜 마무리",
+            "desc": "모든 공포 패턴을 쉴 새 없이 난사한다. 잔여 화력을 총동원해 빠르게 격파해라."
+          }
+        ]
+      }
     ],
-    youtubeId: "uO0R18KUQHs"
+    "youtubeId": "kWo8t78nxYQ"
   }
 ];
 
@@ -1058,14 +1427,23 @@ function showPost(postId) {
       </div>
 
       <div class="post-section">
-        <h4 class="post-section-heading">■ 스킬 패턴 및 실전 대처법</h4>
+        <h4 class="post-section-heading">■ 페이즈별 스킬 패턴 및 실전 대처법</h4>
         <div class="post-pattern-plain-list">
-          ${post.patterns.map((pat, idx) => `
-            <div class="post-pattern-item">
-              <div class="pattern-head-line">
-                <span class="pattern-idx">${idx + 1}.</span> <strong>${pat.name}</strong> <span class="pattern-tag-badge">[${pat.tagText}]</span>
+          ${post.phases.map(ph => `
+            <div class="phase-group-block" style="margin-top: 10px; margin-bottom: 8px;">
+              <div style="font-weight: 700; color: #58a6ff; font-size: 14px; margin-bottom: 6px;">
+                ▶ ${ph.phaseTitle}
               </div>
-              <p class="pattern-body-line">${pat.desc}</p>
+              <div style="display: flex; flex-direction: column; gap: 10px; padding-left: 6px;">
+                ${ph.patterns.map((pat, idx) => `
+                  <div class="post-pattern-item">
+                    <div class="pattern-head-line">
+                      <span class="pattern-idx">${idx + 1}.</span> <strong>${pat.name}</strong> <span class="pattern-tag-badge">[${pat.tagText}]</span>
+                    </div>
+                    <p class="pattern-body-line">${pat.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
             </div>
           `).join('')}
         </div>
