@@ -732,8 +732,156 @@
 // Posts Data Structure
 const POSTS_DATA = [
   {
-    "id": "eternal_dragon",
+    "id": "frost_swordfiend",
     "num": 8,
+    "floor": "7",
+    "type": "boss",
+    "grade": "3등급",
+    "baseViews": 0,
+    "baseLikes": 0,
+    "title": "[7층 보스] 서리 검귀 페이즈별 실전 공략 (서릿날 쌍참, 서릿발 기둥, 서릿발 폭풍)",
+    "monsterName": "서리 검귀",
+    "subName": "Rime Swordfiend",
+    "date": "2026.08.25",
+    "weaponEnchant": "화염 속성 (결빙 검기를 녹이고 극딜 가능)",
+    "armorEnchant": "냉기 저항 + 물리내성 강화 (연타 짤딜 누적 방지)",
+    "intro": "공격 속도가 매우 빠르고 쉴 새 없이 몰아치는 연속 검술 보스다. 일반 가드로는 가드 브레이크가 터져 위험하므로 발도 공격을 정확히 패링하고 서릿발 폭풍 난무를 CC기로 반드시 끊어야 한다.",
+    "phases": [
+      {
+        "phaseTitle": "1페이즈",
+        "patterns": [
+          {
+            "name": "서리 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면으로 서릿날을 크게 휘두른다. 칼을 들어 올릴 때 패링을 치면 자세가 무너지며 기력이 회복된다."
+          },
+          {
+            "name": "서릿날 쌍참",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "양손의 검으로 2연속 쾌속 베기를 날린다. 첫 번째 베기 타이밍에 패링을 맞받아쳐라."
+          },
+          {
+            "name": "마법 탄",
+            "tag": "dodge",
+            "tagText": "회피 or 가드",
+            "desc": "원거리에서 냉기 탄환을 연속 발사한다. 궤적 밖으로 구르거나 가드로 막아내라."
+          },
+          {
+            "name": "빙결 돌진",
+            "tag": "dodge",
+            "tagText": "측면 회피",
+            "desc": "전방을 향해 초고속으로 빙결 돌진한다. 정면에 있지 말고 측면으로 굴러서 피해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "2페이즈 [서릿발]",
+        "patterns": [
+          {
+            "name": "얼음 분쇄",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "공중으로 뛰어올라 지면을 내려찍으며 광역 한기 충격파를 터뜨린다. 착지 전 CC기로 끊거나 범위 밖으로 굴러라."
+          },
+          {
+            "name": "서릿날 쌍참",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "2페이즈에도 강화된 쌍참을 쓴다. 침착하게 패링으로 받아쳐라."
+          },
+          {
+            "name": "서리 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 광범위 휘두르기."
+          },
+          {
+            "name": "마법 탄",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "냉기 투사체 공격."
+          },
+          {
+            "name": "서릿발 기둥",
+            "tag": "dodge",
+            "tagText": "발밑 장판 회피",
+            "desc": "발밑에 붉은 예고 띠가 생기며 거대한 얼음 기둥이 솟구친다. 바닥 띠 밖으로 신속히 이동해라."
+          },
+          {
+            "name": "서릿발 빙쇄",
+            "tag": "dodge",
+            "tagText": "거리 유지",
+            "desc": "생성된 얼음 파편들이 폭발하며 사방으로 튄다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [눈보라의 눈]",
+        "patterns": [
+          {
+            "name": "얼음 분쇄",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "광역 지면 강타."
+          },
+          {
+            "name": "서리 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 연속 베기."
+          },
+          {
+            "name": "눈보라의 눈",
+            "tag": "dodge",
+            "tagText": "안전 구역 진입",
+            "desc": "외곽 전역이 혹한으로 얼어붙고 중앙 안전지대로 진입해야 생존하는 특수 패턴이다."
+          },
+          {
+            "name": "서릿발 폭풍",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "검기를 사방으로 난사하는 광역 궁극기다. 시전 캐스팅이 시작되는 즉시 하드 CC기로 끊어라. 못 끊으면 파티가 전멸한다."
+          },
+          {
+            "name": "서릿발 기둥",
+            "tag": "dodge",
+            "tagText": "발밑 회피",
+            "desc": "얼음 송곳 기둥이 솟구친다."
+          },
+          {
+            "name": "서리 휘두르기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 베기 공격."
+          },
+          {
+            "name": "서릿날 쌍참",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "쌍검 연격."
+          },
+          {
+            "name": "빙결 돌진",
+            "tag": "dodge",
+            "tagText": "측면 회피",
+            "desc": "초고속 돌진."
+          },
+          {
+            "name": "서릿발 빙쇄",
+            "tag": "dodge",
+            "tagText": "거리 유지",
+            "desc": "얼음 폭발 파편 주의."
+          }
+        ]
+      }
+    ],
+    "youtubeId": "EMb-3bGDkO0"
+  },
+  {
+    "id": "eternal_dragon",
+    "num": 7,
     "floor": "7",
     "type": "boss",
     "grade": "3등급",
@@ -751,22 +899,28 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈",
         "patterns": [
           {
+            "name": "발톱 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면에서 휘두르는 묵직한 발톱 연타. 팔을 들어 올릴 때 패링을 치면 보스가 크게 휘청거리며 딜타임이 열린다."
+          },
+          {
             "name": "죽음의 숨결",
             "tag": "dodge",
             "tagText": "후방 회피",
             "desc": "전방 부채꼴로 뿜어내는 암흑 지속 브레스다. 정면에 서 있지 말고 보스 뒤통수로 굴러서 피해라."
           },
           {
+            "name": "마법 탄",
+            "tag": "dodge",
+            "tagText": "가드 or 회피",
+            "desc": "원거리 암흑 투사체 발사."
+          },
+          {
             "name": "비늘 결계",
             "tag": "dodge",
             "tagText": "마법 반사 대기 or 물리 집중",
             "desc": "비늘을 곤두세워 마법을 튕겨내는 결계를 친다. 버프 동안 마법 딜이 차단되니 물리 공격을 집중하거나 패턴을 기다려라."
-          },
-          {
-            "name": "발톱 연격",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "정면에서 휘두르는 묵직한 발톱 2연타. 팔을 들어 올릴 때 패링을 치면 보스가 크게 휘청거리며 딜타임이 열린다."
           }
         ]
       },
@@ -774,16 +928,69 @@ const POSTS_DATA = [
         "phaseTitle": "2페이즈 [공간 파쇄]",
         "patterns": [
           {
+            "name": "발톱 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 발톱 연격."
+          },
+          {
+            "name": "죽음의 숨결",
+            "tag": "dodge",
+            "tagText": "후방 회피",
+            "desc": "암흑 브레스."
+          },
+          {
+            "name": "마법 탄",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "투사체 공격."
+          },
+          {
+            "name": "비늘 결계",
+            "tag": "dodge",
+            "tagText": "방어 버프",
+            "desc": "마법 결계 전개."
+          },
+          {
             "name": "공간 파쇄",
             "tag": "dodge",
             "tagText": "회피 or CC 끊기",
             "desc": "바닥에 균열이 생기며 광역으로 공간이 무너져 내리는 핵심 패턴이다. 바닥 예고가 뜨면 뒤로 구르거나 CC기로 끊어라."
           },
           {
-            "name": "지면 균열",
+            "name": "악의 틈새",
             "tag": "dodge",
             "tagText": "범위 이탈",
             "desc": "바닥이 갈라지며 암흑 파편이 솟구친다. 갈라진 틈 밖으로 신속히 이동해라."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [영겁]",
+        "patterns": [
+          {
+            "name": "발톱 연격",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "발톱 연타."
+          },
+          {
+            "name": "죽음의 숨결",
+            "tag": "dodge",
+            "tagText": "후방 회피",
+            "desc": "암흑 브레스."
+          },
+          {
+            "name": "공간 파쇄",
+            "tag": "cancel",
+            "tagText": "CC기 캔슬 추천",
+            "desc": "광역 공간 붕괴."
+          },
+          {
+            "name": "절망의 비",
+            "tag": "dodge",
+            "tagText": "전역 낙하 회피",
+            "desc": "사방에서 암흑 탄환이 쏟아져 내린다. 낙하 지점을 확인하며 무빙으로 피해라."
           }
         ]
       }
@@ -792,13 +999,13 @@ const POSTS_DATA = [
   },
   {
     "id": "wraith_colossus",
-    "num": 7,
+    "num": 6,
     "floor": "7",
     "type": "boss",
     "grade": "3등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[7층 보스] 원귀 거상 페이즈별 실전 공략 (원혼 부르기 캔슬, 원귀의 지진)",
+    "title": "[7층 보스] 원귀 거상 페이즈별 실전 공략 (망령 소환 캔슬, 원한의 진동)",
     "monsterName": "원귀 거상",
     "subName": "Wraith Colossus / Grudge Colossus",
     "date": "2026.08.25",
@@ -810,19 +1017,25 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈",
         "patterns": [
           {
-            "name": "바위 휘두르기",
+            "name": "석상 후려치기",
             "tag": "parry",
             "tagText": "패링 가능",
-            "desc": "거대한 팔을 들어올려 정면을 후려친다. 팔이 내려오는 타이밍에 패링을 치면 자세가 무너지며 기력이 회복된다."
+            "desc": "거대한 석상 팔을 들어올려 정면을 후려친다. 팔이 내려오는 타이밍에 패링을 치면 자세가 무너지며 기력이 회복된다."
           },
           {
-            "name": "정신의 보루",
+            "name": "원혼의 장막",
             "tag": "dodge",
             "tagText": "방어 버프",
-            "desc": "원혼의 힘으로 단단한 방어막을 둘러 받는 피해를 감소시킨다."
+            "desc": "원혼을 둘러 받는 피해를 감소시킨다."
           },
           {
-            "name": "저주의 물결",
+            "name": "석화 화살",
+            "tag": "dodge",
+            "tagText": "투사체 회피",
+            "desc": "원거리에서 석화 투사체를 발사한다."
+          },
+          {
+            "name": "저주 파동",
             "tag": "dodge",
             "tagText": "회피 or 거리 유지",
             "desc": "전방으로 암흑 저주 파동이 퍼져나간다. 궤적 밖으로 구르거나 거리를 벌려라."
@@ -830,94 +1043,47 @@ const POSTS_DATA = [
         ]
       },
       {
-        "phaseTitle": "2페이즈 [원혼 집결]",
+        "phaseTitle": "2페이즈 [소환]",
         "patterns": [
           {
-            "name": "원혼 부르기",
+            "name": "석상 후려치기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "정면 강타."
+          },
+          {
+            "name": "망령 소환",
             "tag": "cancel",
             "tagText": "무조건 CC기 캔슬 필수",
             "desc": "시전 모션이 보이자마자 무조건 스턴이나 빙결 등 하드 CC기를 박아 끊어라. 필드에 쫄몹이 증식하면 타겟팅이 꼬여 전멸한다."
           },
           {
-            "name": "원귀의 지진",
+            "name": "악의 틈새",
+            "tag": "dodge",
+            "tagText": "바닥 균열 회피",
+            "desc": "지면이 갈라지며 충격파가 터진다."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [진동]",
+        "patterns": [
+          {
+            "name": "망령 소환",
+            "tag": "cancel",
+            "tagText": "무조건 CC기 캔슬 필수",
+            "desc": "망령 소환 최우선 차단."
+          },
+          {
+            "name": "원한의 진동",
             "tag": "dodge",
             "tagText": "회피 or CC 끊기",
-            "desc": "지면을 강타해 거대한 광역 충격파를 발생시킨다. CC기로 끊거나 동료들을 후퇴시키고 범위 밖으로 굴러라."
+            "desc": "지면 전체를 뒤흔드는 대지 충격파. CC기로 끊거나 동료들을 후퇴시키고 범위 밖으로 굴러라."
           }
         ]
       }
     ],
     "youtubeId": "HxIv08gAYjo"
-  },
-  {
-    "id": "rime_swordfiend",
-    "num": 6,
-    "floor": "7",
-    "type": "boss",
-    "grade": "3등급",
-    "baseViews": 0,
-    "baseLikes": 0,
-    "title": "[7층 보스] 서리 검귀 페이즈별 실전 공략 (서리 발도술, 만천빙검 캔슬)",
-    "monsterName": "서리 검귀",
-    "subName": "Rime Swordfiend",
-    "date": "2026.08.25",
-    "weaponEnchant": "화염 속성 (결빙 검기를 녹이고 폭딜)",
-    "armorEnchant": "냉기 저항 + 물리내성 강화 (연타 짤딜 누적 방지)",
-    "intro": "공격 속도가 매우 빠르고 쉴 새 없이 몰아치는 연속 검술 보스다. 일반 가드로는 가드 브레이크가 터져 위험하므로 발도 공격을 정확히 패링하고 만천빙검 난무를 CC기로 반드시 끊어야 한다.",
-    "phases": [
-      {
-        "phaseTitle": "1페이즈",
-        "patterns": [
-          {
-            "name": "서리 발도술",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "칼집에서 칼이 번쩍이는 순간 초고속 종베기가 날아온다. 번쩍하는 찰나에 패링을 누르면 큰 그로기 타이밍을 벌 수 있다."
-          },
-          {
-            "name": "서리 베기",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "정면 연속 베기 공격. 침착하게 패링으로 받아쳐 자세를 무너뜨려라."
-          }
-        ]
-      },
-      {
-        "phaseTitle": "2페이즈 [서릿발]",
-        "patterns": [
-          {
-            "name": "서릿발 솟구침",
-            "tag": "dodge",
-            "tagText": "발밑 장판 회피",
-            "desc": "발밑에 붉은 예고 띠가 생기며 거대한 얼음 송곳이 솟구친다. 띠 밖으로 굴러서 피해라."
-          },
-          {
-            "name": "냉기 방출",
-            "tag": "dodge",
-            "tagText": "회피 or CC 끊기",
-            "desc": "주변으로 한기를 폭발시키는 광역기다."
-          }
-        ]
-      },
-      {
-        "phaseTitle": "3페이즈 [눈보라의 눈]",
-        "patterns": [
-          {
-            "name": "만천빙검",
-            "tag": "cancel",
-            "tagText": "무조건 CC기 캔슬 필수",
-            "desc": "검기를 사방으로 흩뿌리는 연속 난무 궁극기다. 캐스팅이 시작되는 즉시 하드 CC기로 끊어라. 방치하면 파티가 전멸한다."
-          },
-          {
-            "name": "눈보라의 눈",
-            "tag": "dodge",
-            "tagText": "안전 구역 진입",
-            "desc": "외곽 전역이 결빙되고 중앙 안전지대로 진입해야 생존할 수 있는 특수 패턴이다."
-          }
-        ]
-      }
-    ],
-    "youtubeId": "EMb-3bGDkO0"
   },
   {
     "id": "glacier_giant",
@@ -927,7 +1093,7 @@ const POSTS_DATA = [
     "grade": "3등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[7층 미드보스] 빙하 거인 페이즈별 실전 공략 (빙하의 진격, 광분, 빙하 붕괴)",
+    "title": "[7층 미드보스] 빙하 거인 페이즈별 실전 공략 (빙하의 진격, 절대영도, 빙하 붕괴)",
     "monsterName": "빙하 거인",
     "subName": "Glacier Giant",
     "date": "2026.08.25",
@@ -939,22 +1105,28 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈",
         "patterns": [
           {
+            "name": "석상 후려치기",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "팔을 높이 들어 내리칠 때 패링을 누르면 거인이 제자리에서 비틀거린다."
+          },
+          {
             "name": "빙하의 진격",
             "tag": "dodge",
             "tagText": "측면 회피",
             "desc": "몸을 웅크린 뒤 앞으로 짓쳐 들어오는 육탄 돌진기다. 정면에 서 있지 말고 측면으로 굴러 피해라."
           },
           {
-            "name": "얼음 바위 투척",
+            "name": "얼음덩이 투척",
             "tag": "dodge",
             "tagText": "투사체 회피",
             "desc": "거대한 얼음 덩어리를 집어 던진다. 포물선 궤적을 확인하고 회피해라."
           },
           {
-            "name": "바위 내리치기",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "팔을 높이 들어 내리칠 때 패링을 누르면 거인이 제자리에서 비틀거린다."
+            "name": "빙결 돌진",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "한기를 뿜으며 빠르게 돌진."
           }
         ]
       },
@@ -962,13 +1134,13 @@ const POSTS_DATA = [
         "phaseTitle": "2페이즈 [광분]",
         "patterns": [
           {
-            "name": "빙하의 광분",
+            "name": "절대영도",
             "tag": "dodge",
             "tagText": "침착 대응 & 패링",
-            "desc": "공격 속도와 이동 속도가 폭증하며 맹공을 퍼붓는다. 맞을수록 한기가 쌓이니 무리하지 말고 침착하게 패링으로 넘겨라."
+            "desc": "광분 상태에 돌입해 공격 속도와 이동 속도가 폭증한다. 무리하지 말고 침착하게 패링으로 넘겨라."
           },
           {
-            "name": "빙결 분쇄",
+            "name": "얼음 분쇄",
             "tag": "dodge",
             "tagText": "회피 or CC 끊기",
             "desc": "바닥을 부수며 한기 폭발을 일으키는 광역 충격파."
@@ -997,7 +1169,7 @@ const POSTS_DATA = [
     "grade": "3등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[7층 정예] 서리 수호병 페이즈별 실전 공략 (방패검 연격, 서리 군기, 영구동토)",
+    "title": "[7층 정예] 서리 수호병 페이즈별 실전 공략 (방패+검 콤보, 서리 군기, 영구동토)",
     "monsterName": "서리 수호병",
     "subName": "Frost Guardian",
     "date": "2026.08.25",
@@ -1009,7 +1181,7 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈",
         "patterns": [
           {
-            "name": "방패검 연격",
+            "name": "방패+검 콤보",
             "tag": "parry",
             "tagText": "패링 가능",
             "desc": "방패로 밀치고 창/검으로 찌르는 연계 공격. 패링을 치면 방패가 튕겨 나가며 가드가 깨진다."
@@ -1021,10 +1193,16 @@ const POSTS_DATA = [
             "desc": "깃발을 꽂아 마법내성을 비약적으로 높인다. 시전할 때 스턴이나 넉백으로 끊어줘라."
           },
           {
-            "name": "서리 투창",
+            "name": "서릿창 투척",
             "tag": "parry",
             "tagText": "패링 or 회피",
             "desc": "원거리에서 결빙 창을 투척한다."
+          },
+          {
+            "name": "방패 강타",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "방패로 전방을 강하게 밀쳐낸다."
           }
         ]
       },
@@ -1032,10 +1210,16 @@ const POSTS_DATA = [
         "phaseTitle": "2페이즈 [군세]",
         "patterns": [
           {
-            "name": "혹한의 병사 소환",
+            "name": "서리 소환",
             "tag": "cancel",
             "tagText": "무조건 CC기 캔슬 필수",
             "desc": "결빙 갑주 병사들을 소환한다. 소환 모션이 나오는 즉시 CC기로 차단해라."
+          },
+          {
+            "name": "얼음 분쇄",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "지면 얼음 충격파."
           }
         ]
       },
@@ -1061,7 +1245,7 @@ const POSTS_DATA = [
     "grade": "4등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[6층 보스] 조화의 아우르반 페이즈별 실전 공략 (불/바람/물/땅 4원소 파훼)",
+    "title": "[6층 보스] 조화의 아우르반 페이즈별 실전 공략 (불바다, 조수의 사슬, 암반 붕락)",
     "monsterName": "조화의 아우르반",
     "subName": "Aurvan of Harmony",
     "date": "2026.08.25",
@@ -1073,22 +1257,34 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈 [불과 바람]",
         "patterns": [
           {
-            "name": "잿불 융단",
+            "name": "지옥불 파동",
             "tag": "dodge",
-            "tagText": "장판 이탈",
-            "desc": "바닥에 넓은 화염 도트 장판이 깔린다. 지속 피해가 매우 크니 불 밖으로 신속히 이동해라."
+            "tagText": "회피 or 거리 유지",
+            "desc": "전방으로 밀려오는 화염 파동."
           },
           {
-            "name": "상승 기류",
+            "name": "화염 돌진",
             "tag": "dodge",
-            "tagText": "회피 or CC 끊기",
-            "desc": "근접한 파티원을 공중으로 띄워 흩어버리는 광역 돌풍."
+            "tagText": "측면 회피",
+            "desc": "불꽃을 두르고 돌진한다."
           },
           {
             "name": "폭풍의 눈",
             "tag": "dodge",
             "tagText": "거리 유지",
             "desc": "중심부로 강하게 끌어당기는 기류."
+          },
+          {
+            "name": "치솟는 기류",
+            "tag": "dodge",
+            "tagText": "회피 or CC 끊기",
+            "desc": "근접한 파티원을 공중으로 띄워 흩어버리는 광역 돌풍."
+          },
+          {
+            "name": "불바다가 번진다",
+            "tag": "dodge",
+            "tagText": "장판 이탈",
+            "desc": "바닥에 넓은 화염 도트 장판이 깔린다. 지속 피해가 매우 크니 불 밖으로 신속히 이동해라."
           }
         ]
       },
@@ -1096,7 +1292,7 @@ const POSTS_DATA = [
         "phaseTitle": "2페이즈 [물과 땅]",
         "patterns": [
           {
-            "name": "조수의 족쇄",
+            "name": "조수의 사슬",
             "tag": "cancel",
             "tagText": "무조건 CC 캔슬 or 회피",
             "desc": "파티원 전원을 묶어버리는 광역 결박. 시전할 때 CC기로 끊어주는 게 최선이다."
@@ -1119,7 +1315,7 @@ const POSTS_DATA = [
             "desc": "천장이 무너지며 거대한 낙석이 쏟아진다. 바닥의 예고 띠를 보고 걸어서 벗어나라."
           },
           {
-            "name": "원류의 맹습",
+            "name": "원류의 강습",
             "tag": "parry",
             "tagText": "패링 or 회피",
             "desc": "4원소가 하나로 융합된 맹공. (부활 3회 기믹 주의)"
@@ -1137,7 +1333,7 @@ const POSTS_DATA = [
     "grade": "3등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[6층 보스] 심연의 거신 페이즈별 실전 공략 (심연의 분쇄, 소용돌이, 거대화)",
+    "title": "[6층 보스] 심연의 거신 페이즈별 실전 공략 (심연의 소용돌이, 심연의 분쇄, 거신의 힘)",
     "monsterName": "심연의 거신",
     "subName": "Abyssal Colossus",
     "date": "2026.08.25",
@@ -1149,30 +1345,47 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈",
         "patterns": [
           {
-            "name": "심연의 분쇄",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "팔을 높이 들었다가 내리칠 때 패링을 쳐라. 덩치가 커서 모션이 정직하므로 패링 치기 매우 쉽다."
+            "name": "심연의 소용돌이",
+            "tag": "dodge",
+            "tagText": "외곽 이탈",
+            "desc": "소용돌이로 끌어모아 칼날 급류를 쏟아붓는다."
           },
           {
             "name": "조류의 맹습",
             "tag": "dodge",
             "tagText": "회피 or CC 끊기",
             "desc": "파도를 일으키며 전방을 휩쓰는 광역기."
+          },
+          {
+            "name": "생명의 원천",
+            "tag": "dodge",
+            "tagText": "방어 버프",
+            "desc": "체력 회복 및 방어력 강화."
           }
         ]
       },
       {
-        "phaseTitle": "2페이즈 [심해의 해일]",
+        "phaseTitle": "2페이즈 [심해 개방]",
         "patterns": [
           {
-            "name": "심연의 소용돌이",
-            "tag": "dodge",
-            "tagText": "회피 or CC 끊기",
-            "desc": "중앙으로 빨아들이는 광역 소용돌이다. 캐스팅이 보이면 CC기로 끊거나 외곽으로 달려라."
+            "name": "심연의 분쇄",
+            "tag": "parry",
+            "tagText": "패링 가능",
+            "desc": "팔을 높이 들었다가 내리칠 때 패링을 쳐라. 덩치가 커서 모션이 정직하므로 패링 치기 매우 쉽다."
           },
           {
-            "name": "거대화",
+            "name": "심연의 조류",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "해류로 아군을 휘감는 공격."
+          }
+        ]
+      },
+      {
+        "phaseTitle": "3페이즈 [거신의 힘]",
+        "patterns": [
+          {
+            "name": "거신의 힘",
             "tag": "dodge",
             "tagText": "속성 관통 극딜",
             "desc": "몸집이 거대해지며 물리 공격력이 대폭 증가한다. 속성 관통 딜로 신속히 제압해라."
@@ -1190,7 +1403,7 @@ const POSTS_DATA = [
     "grade": "3등급",
     "baseViews": 0,
     "baseLikes": 0,
-    "title": "[1층 상흔] 공포의 화신 5단계 페이즈 실전 공략 (통곡의 비명, 심연의 손길, 분신)",
+    "title": "[1층 상흔] 공포의 화신 5단계 페이즈 실전 공략 (절규의 파동, 망령 소환, 의태)",
     "monsterName": "공포의 화신",
     "subName": "Avatar of Dread",
     "date": "2026.08.25",
@@ -1202,16 +1415,28 @@ const POSTS_DATA = [
         "phaseTitle": "1페이즈 [잠식]",
         "patterns": [
           {
-            "name": "그림자 점멸",
+            "name": "영체 순간이동",
             "tag": "parry",
             "tagText": "패링 or 회피",
-            "desc": "어둠 속에서 순간이동하여 급습한다."
+            "desc": "순간이동으로 거리를 좁혀 기습 타격을 가한다."
           },
           {
             "name": "공포의 늪",
             "tag": "dodge",
             "tagText": "장판 이탈",
-            "desc": "발밑에 깔리는 검은 웅덩이. 밟고 있으면 지속 암흑 피해가 들어오니 즉시 벗어나라."
+            "desc": "발밑을 공포로 물들이는 암흑 장판. 즉시 벗어나라."
+          },
+          {
+            "name": "공포의 응시",
+            "tag": "dodge",
+            "tagText": "시선 회피",
+            "desc": "응시로 아군을 얼어붙게 만든다."
+          },
+          {
+            "name": "공포의 장막",
+            "tag": "dodge",
+            "tagText": "방어 버프",
+            "desc": "암흑 장막 전개."
           }
         ]
       },
@@ -1219,16 +1444,28 @@ const POSTS_DATA = [
         "phaseTitle": "2페이즈 [절규]",
         "patterns": [
           {
-            "name": "통곡의 비명",
+            "name": "절규의 파동",
             "tag": "cancel",
             "tagText": "무조건 CC기 캔슬 필수",
-            "desc": "광역 공포를 유발해 아군 조작을 마비시킨다. 비명 캐스팅 시 CC기로 즉시 차단해라."
+            "desc": "광역 공포가 전염되는 비명. 시전 시 하드 CC기로 즉시 차단해라."
           },
           {
-            "name": "저주의 칼날",
+            "name": "공포 흡입",
+            "tag": "dodge",
+            "tagText": "거리 유지",
+            "desc": "정신을 갉아먹는 흡입 공격."
+          },
+          {
+            "name": "저주 검격",
             "tag": "parry",
             "tagText": "패링 가능",
-            "desc": "암흑 칼날로 정면을 벤다. 패링 타이밍이 정직하다."
+            "desc": "정면 저주 베기."
+          },
+          {
+            "name": "저주 파동",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "파동 공격."
           }
         ]
       },
@@ -1236,16 +1473,34 @@ const POSTS_DATA = [
         "phaseTitle": "3페이즈 [도주불가]",
         "patterns": [
           {
-            "name": "심연의 손길",
+            "name": "중력 견인",
             "tag": "dodge",
-            "tagText": "견인 대처",
-            "desc": "촉수로 아군을 강제로 끌어당긴다."
+            "tagText": "강제 견인 대처",
+            "desc": "아군을 중앙으로 강제로 끌어당긴다."
           },
           {
-            "name": "원혼 부르기",
+            "name": "공포 폭발",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "중앙 광역 폭발."
+          },
+          {
+            "name": "심연의 손",
+            "tag": "dodge",
+            "tagText": "회피",
+            "desc": "바닥에서 솟아나는 암흑 손길."
+          },
+          {
+            "name": "공포의 진각",
+            "tag": "dodge",
+            "tagText": "점프 / 회피",
+            "desc": "진각으로 짓밟는 충격파."
+          },
+          {
+            "name": "망령 소환",
             "tag": "cancel",
             "tagText": "무조건 CC기 캔슬 필수",
-            "desc": "어둠의 망령들을 대량 소환한다. 소환 모션을 최우선으로 끊어라."
+            "desc": "망령으로 에워싸는 대량 소환. 무조건 차단해라."
           }
         ]
       },
@@ -1253,16 +1508,22 @@ const POSTS_DATA = [
         "phaseTitle": "4페이즈 [실체화]",
         "patterns": [
           {
-            "name": "분신 복제 소환",
+            "name": "의태 — 너희를 베껴낸다",
             "tag": "cancel",
-            "tagText": "CC 캔슬 or 분신 일점사",
-            "desc": "아군과 동일한 형태의 공포 분신을 세운다."
+            "tagText": "CC 캔슬 or 일점사",
+            "desc": "아군을 베껴 분신을 세운다."
           },
           {
-            "name": "처형 카운트다운",
+            "name": "처형 캐스팅",
             "tag": "dodge",
             "tagText": "폭딜로 그로기 유발",
-            "desc": "머리 위에 처형 예고가 뜬다. 카운트 종료 전에 폭딜로 그로기를 유발해라."
+            "desc": "처형을 예고하는 카운트다운. 끝나기 전에 폭딜로 그로기를 유발해라."
+          },
+          {
+            "name": "공포 각인",
+            "tag": "dodge",
+            "tagText": "디버프 주의",
+            "desc": "공포를 각인하는 표식 공격."
           }
         ]
       },
@@ -1270,10 +1531,22 @@ const POSTS_DATA = [
         "phaseTitle": "5페이즈 [광란]",
         "patterns": [
           {
-            "name": "전 패턴 난사 & 자폭",
+            "name": "자해 광폭",
             "tag": "dodge",
             "tagText": "극딜 마무리",
-            "desc": "모든 공포 패턴을 쉴 새 없이 난사한다. 잔여 화력을 총동원해 빠르게 격파해라."
+            "desc": "제 몸을 태워 터뜨리며 모든 공포 패턴을 난사한다. 잔여 화력으로 빠르게 마무리해라."
+          },
+          {
+            "name": "반격 자세",
+            "tag": "dodge",
+            "tagText": "타격 중지",
+            "desc": "반격 자세 중 타격하면 행동이 얼어붙으니 공격을 멈춰라."
+          },
+          {
+            "name": "광란",
+            "tag": "dodge",
+            "tagText": "총력전",
+            "desc": "전 패턴 무작위 난사."
           }
         ]
       }
