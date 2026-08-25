@@ -253,6 +253,183 @@
       font-size: 12px;
     }
     
+    
+    /* View Switcher & Card Grid Styles */
+    .view-switch-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
+    }
+    .btn-view-toggle {
+      background: #21262d;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+    .btn-view-toggle.active {
+      background: rgba(56, 139, 253, 0.15);
+      border-color: var(--accent-blue);
+      color: var(--text-bright);
+    }
+
+    /* Monster Card Grid */
+    .monster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .monster-card {
+      background: #161b22;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .monster-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      background: #1c2128;
+    }
+
+    /* Grade Borders for Cards */
+    .monster-card.card-grade-1 {
+      border-color: rgba(242, 204, 96, 0.4);
+      box-shadow: 0 0 14px rgba(242, 204, 96, 0.12);
+    }
+    .monster-card.card-grade-1:hover {
+      border-color: #f2cc60;
+      box-shadow: 0 8px 28px rgba(242, 204, 96, 0.28);
+    }
+    .monster-card.card-grade-2 {
+      border-color: rgba(255, 123, 114, 0.35);
+    }
+    .monster-card.card-grade-2:hover {
+      border-color: #ff7b72;
+      box-shadow: 0 8px 24px rgba(255, 123, 114, 0.25);
+    }
+    .monster-card.card-grade-3 {
+      border-color: rgba(187, 134, 252, 0.3);
+    }
+    .monster-card.card-grade-3:hover {
+      border-color: #d2a8ff;
+      box-shadow: 0 8px 24px rgba(187, 134, 252, 0.2);
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .card-visual-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      margin-bottom: 12px;
+      background: radial-gradient(circle, rgba(56, 139, 253, 0.08) 0%, rgba(13, 17, 23, 0.6) 70%);
+      border-radius: 8px;
+      border: 1px solid rgba(48, 54, 61, 0.6);
+      position: relative;
+    }
+    .card-monster-img {
+      max-height: 84px;
+      max-width: 84px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+      transition: transform 0.2s ease;
+    }
+    .monster-card:hover .card-monster-img {
+      transform: scale(1.08);
+    }
+    .card-placeholder-icon {
+      font-size: 38px;
+      color: #8b949e;
+      opacity: 0.7;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-desc-snippet {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .card-chips-box {
+      background: rgba(13, 17, 23, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .card-chip-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .card-chip-label {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 11.5px;
+      flex-shrink: 0;
+    }
+    .card-chip-val {
+      color: var(--text-main);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(48, 54, 61, 0.5);
+      padding-top: 8px;
+      margin-top: auto;
+    }
+    .card-meta-counts {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     /* Dynamic Grade Color Hierarchy (1등급: 황금 신화 > 2등급: 진홍 보스 > 3등급: 보라 에픽 > 4등급: 사파이어 희귀) */
     .cat-grade-4 {
       background: rgba(56, 139, 253, 0.15);
@@ -723,7 +900,22 @@
     </div>
 
     <!-- Table List -->
-    <table class="board-table">
+    
+      <!-- View Switcher & Result Count -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 10px 0;">
+        <span id="board-total-count" style="font-size: 13px; color: var(--text-muted); font-weight: 500;">공략 67건</span>
+        <div class="view-switch-container">
+          <button class="btn-view-toggle active" id="btn-view-card" onclick="switchViewMode('card')">⊞ 카드형</button>
+          <button class="btn-view-toggle" id="btn-view-list" onclick="switchViewMode('list')">☰ 리스트형</button>
+        </div>
+      </div>
+
+      <!-- Card Grid Container -->
+      <div id="monster-card-grid" class="monster-grid"></div>
+
+      <!-- Table Container -->
+      <div id="monster-table-container" style="display:none;">
+<table class="board-table">
       <thead>
         <tr>
           <th style="width: 60px; text-align: center;">번호</th>
@@ -737,7 +929,7 @@
       <tbody id="board-tbody">
         <!-- Dynamically rendered via JS -->
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <!-- Post Detail View Section -->
@@ -861,7 +1053,8 @@ const POSTS_DATA = [
     ],
     "date": "2026.08.25",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/grudge_colossus.webp"
   },
   {
     "id": "harmony_aurvan",
@@ -949,7 +1142,8 @@ const POSTS_DATA = [
     ],
     "date": "2026.08.25",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/abyssal_end_knight.webp"
   },
   {
     "id": "belarios",
@@ -1001,7 +1195,8 @@ const POSTS_DATA = [
     ],
     "date": "2026.08.25",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/belarios.webp"
   },
   {
     "id": "glacier_giant",
@@ -1082,7 +1277,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "uO0R18KUQHs",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/glacier_giant.webp"
   },
   {
     "id": "reaper_lord",
@@ -1169,7 +1365,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/death_lord.webp"
   },
   {
     "id": "frost_swordfiend",
@@ -1262,7 +1459,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "EMb-3bGDkO0",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/fallen_swordsaint.webp"
   },
   {
     "id": "frost_guardian",
@@ -1343,7 +1541,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "U0KYTvrPlYo",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frost_guardian.webp"
   },
   {
     "id": "baion",
@@ -1424,7 +1623,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/baion.webp"
   },
   {
     "id": "cariadea",
@@ -1499,7 +1699,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/cariadea.webp"
   },
   {
     "id": "vaiterion",
@@ -1580,7 +1781,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/vaiterion.webp"
   },
   {
     "id": "colossus_bowman",
@@ -1625,7 +1827,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/colossus_bowman.webp"
   },
   {
     "id": "grave_knight",
@@ -1670,7 +1873,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/grave_knight.webp"
   },
   {
     "id": "void_shard",
@@ -1715,7 +1919,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/void_shard.webp"
   },
   {
     "id": "unmelting_cocoon",
@@ -1772,7 +1977,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/unmelting_cocoon.webp"
   },
   {
     "id": "earthquake_lord",
@@ -1817,7 +2023,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/earthquake_lord.webp"
   },
   {
     "id": "ice_lich",
@@ -1874,7 +2081,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/ice_lich.webp"
   },
   {
     "id": "fallen_swordsaint",
@@ -1919,7 +2127,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/fallen_swordsaint.webp"
   },
   {
     "id": "skeleton_mermaid_queen",
@@ -1988,7 +2197,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/skeleton_mermaid_queen.webp"
   },
   {
     "id": "frost_dullahan",
@@ -2057,7 +2267,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frost_dullahan.webp"
   },
   {
     "id": "white_wyvern",
@@ -2114,7 +2325,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/white_wyvern.webp"
   },
   {
     "id": "frost_gargoyle",
@@ -2177,7 +2389,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frost_gargoyle.webp"
   },
   {
     "id": "stonewinter",
@@ -2210,7 +2423,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/stonewinter.webp"
   },
   {
     "id": "frostflame_turtle",
@@ -2273,7 +2487,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frostflame_turtle.webp"
   },
   {
     "id": "frost_ghoul_lord",
@@ -2336,7 +2551,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frost_ghoul_lord.webp"
   },
   {
     "id": "gigant_wolf",
@@ -2387,7 +2603,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/gigant_wolf.webp"
   },
   {
     "id": "dark_crystal",
@@ -2432,7 +2649,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/dark_crystal.webp"
   },
   {
     "id": "frozen_corpse_giant",
@@ -2495,7 +2713,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/frozen_corpse_giant.webp"
   },
   {
     "id": "soul_drinker",
@@ -2540,7 +2759,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/soul_drinker.webp"
   },
   {
     "id": "tainted_snow_spirit",
@@ -2597,7 +2817,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/tainted_snow_spirit.webp"
   },
   {
     "id": "spectral_marksman",
@@ -2642,7 +2863,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/spectral_marksman.webp"
   },
   {
     "id": "chaos_seaman",
@@ -2687,7 +2909,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/chaos_seaman.webp"
   },
   {
     "id": "banshee_queen",
@@ -2732,7 +2955,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/banshee_queen.webp"
   },
   {
     "id": "azure_flame_bird",
@@ -2789,7 +3013,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/azure_flame_bird.webp"
   },
   {
     "id": "gilded_knight",
@@ -2840,7 +3065,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/gilded_knight.webp"
   },
   {
     "id": "deep_giant",
@@ -2921,7 +3147,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "UcbsCDQFL3s",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/deep_giant.webp"
   },
   {
     "id": "ogre",
@@ -3008,7 +3235,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/ogre.webp"
   },
   {
     "id": "stormgush",
@@ -3095,7 +3323,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/stormgush.webp"
   },
   {
     "id": "torrent_leviathan",
@@ -3140,7 +3369,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/hooked_leviathan.webp"
   },
   {
     "id": "bedrock_spiritlord",
@@ -3191,7 +3421,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/obsidian_titan.webp"
   },
   {
     "id": "tide_spiritlord",
@@ -3242,7 +3473,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/siren_queen.webp"
   },
   {
     "id": "guano_sea_serpent",
@@ -3299,7 +3531,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/guano_sea_serpent.webp"
   },
   {
     "id": "raphremmik",
@@ -3350,7 +3583,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/raphremmik.webp"
   },
   {
     "id": "elfrot",
@@ -3407,7 +3641,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/elfrot.webp"
   },
   {
     "id": "palpupura",
@@ -3464,7 +3699,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/palpupura.webp"
   },
   {
     "id": "siren_queen",
@@ -3533,7 +3769,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/siren_queen.webp"
   },
   {
     "id": "sylvan_tyrant",
@@ -3590,7 +3827,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/sylvan_tyrant.webp"
   },
   {
     "id": "abyssal_drown_lord",
@@ -3659,7 +3897,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/drowned_azure_judge.webp"
   },
   {
     "id": "abyssal_kraken",
@@ -3716,7 +3955,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/abyssal_kraken.webp"
   },
   {
     "id": "abyssal_end_knight",
@@ -3863,7 +4103,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/abyssal_end_knight.webp"
   },
   {
     "id": "trench_lurker",
@@ -3920,7 +4161,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/trench_lurker.webp"
   },
   {
     "id": "key_keeper",
@@ -3977,7 +4219,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/key_keeper.webp"
   },
   {
     "id": "magma_lord",
@@ -4034,7 +4277,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/magma_lord.webp"
   },
   {
     "id": "drowned_queen",
@@ -4091,7 +4335,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/drowned_navigator.webp"
   },
   {
     "id": "drowned_azure_judge",
@@ -4148,7 +4393,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/drowned_azure_judge.webp"
   },
   {
     "id": "sunken_armor_guard",
@@ -4205,7 +4451,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/sunken_armor_guard.webp"
   },
   {
     "id": "flame_spiritlord",
@@ -4256,7 +4503,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/magma_lord.webp"
   },
   {
     "id": "pirate_wraith_lord",
@@ -4307,7 +4555,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/pirate_wraith_lord.webp"
   },
   {
     "id": "gale_spiritlord",
@@ -4370,7 +4619,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/fairy_queen.webp"
   },
   {
     "id": "obsidian_titan",
@@ -4421,7 +4671,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/obsidian_titan.webp"
   },
   {
     "id": "martyr_commander",
@@ -4484,7 +4735,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/death_knight.webp"
   },
   {
     "id": "ironwall_odric",
@@ -4565,7 +4817,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/bone_knight.webp"
   },
   {
     "id": "sky_guardian",
@@ -4646,7 +4899,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/sky_guardian.webp"
   },
   {
     "id": "doppelganger",
@@ -4733,7 +4987,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/doppelganger.webp"
   },
   {
     "id": "kalpion",
@@ -4814,7 +5069,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/kalpion.webp"
   },
   {
     "id": "riakis",
@@ -4907,7 +5163,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/riakis.webp"
   },
   {
     "id": "orc_lord",
@@ -4940,7 +5197,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/orc_lord.webp"
   },
   {
     "id": "dreadpeer",
@@ -5105,7 +5363,8 @@ const POSTS_DATA = [
     ],
     "youtubeId": "kWo8t78nxYQ",
     "views": 0,
-    "likes": 0
+    "likes": 0,
+    "image": "assets/monsters/dreadpeer.webp"
   }
 ];
 
@@ -5162,8 +5421,22 @@ function showToast(msg) {
   }, 2500);
 }
 
+
+let currentViewMode = 'card'; // 'card' or 'list'
+
+function switchViewMode(mode) {
+  currentViewMode = mode;
+  document.getElementById('btn-view-card').classList.toggle('active', mode === 'card');
+  document.getElementById('btn-view-list').classList.toggle('active', mode === 'list');
+  document.getElementById('monster-card-grid').style.display = (mode === 'card') ? 'grid' : 'none';
+  document.getElementById('monster-table-container').style.display = (mode === 'list') ? 'block' : 'none';
+  localStorage.setItem('guide_view_mode', mode);
+}
+
 function renderBoardList() {
+  const grid = document.getElementById('monster-card-grid');
   const tbody = document.getElementById('board-tbody');
+  grid.innerHTML = '';
   tbody.innerHTML = '';
   const kwCho = getChosung(searchKeyword);
 
@@ -5177,35 +5450,96 @@ function renderBoardList() {
 
     let matchSearch = true;
     if (searchKeyword) {
-      const fullTxt = (post.title + " " + post.monsterName + " " + post.subName).toLowerCase();
+      const fullTxt = (post.title + " " + post.monsterName + " " + (post.subName || '')).toLowerCase();
       const txtCho = getChosung(fullTxt);
       matchSearch = fullTxt.includes(searchKeyword) || txtCho.includes(kwCho);
     }
     return matchFloor && matchType && matchSearch;
   });
 
+  document.getElementById('board-total-count').innerText = `공략 ${filtered.length}건`;
+
   if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">조건에 일치하는 공략글이 없습니다.</div>';
     tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:var(--text-muted);">조건에 일치하는 공략글이 없습니다.</td></tr>';
     return;
   }
 
   filtered.forEach(p => {
+    let gradeClass = 'cat-grade-4';
+    let cardGradeClass = 'card-grade-4';
+    if (p.grade === '3등급') { gradeClass = 'cat-grade-3'; cardGradeClass = 'card-grade-3'; }
+    else if (p.grade === '2등급') { gradeClass = 'cat-grade-2'; cardGradeClass = 'card-grade-2'; }
+    else if (p.grade === '1등급') { gradeClass = 'cat-grade-1'; cardGradeClass = 'card-grade-1'; }
+
+    const catBadge = `<span class="post-category ${gradeClass}">${p.floor}층 ${p.grade}</span>`;
+    const views = getPostViews(p.id, p.views || 0);
+    const likes = getPostLikes(p.id, p.likes || 0);
+
+    // 1. Render Card
+    const card = document.createElement('div');
+    card.className = `monster-card ${cardGradeClass}`;
+    card.onclick = () => showPost(p.id);
+
+    const imgTag = p.image 
+      ? `<img src="${p.image}" alt="${p.monsterName}" class="card-monster-img" onerror="this.outerHTML='<span class=\'card-placeholder-icon\'>⚔️</span>'">`
+      : `<span class="card-placeholder-icon">⚔️</span>`;
+
+    const videoBadge = p.youtubeId ? `<span class="badge-video-tag" style="padding:2px 6px; font-size:11px;">🎬 실전 영상</span>` : '';
+
+    // Extract quick response summary
+    let firstRiskPattern = '';
+    if (p.phases && p.phases.length > 0) {
+      for (const ph of p.phases) {
+        for (const pat of ph.patterns) {
+          if (pat.tag === 'cancel' || pat.tagText.includes('CC') || pat.tagText.includes('회피')) {
+            firstRiskPattern = `${pat.name} (${pat.tagText.split(' ')[0]})`;
+            break;
+          }
+        }
+        if (firstRiskPattern) break;
+      }
+    }
+    if (!firstRiskPattern) firstRiskPattern = '정면 타격 패링 및 기력 회복';
+
+    card.innerHTML = `
+      <div class="card-top-row">
+        ${catBadge}
+        ${videoBadge}
+      </div>
+      <div class="card-visual-box">
+        ${imgTag}
+      </div>
+      <div class="card-title">
+        ${p.monsterName}
+      </div>
+      <div class="card-desc-snippet">${p.intro}</div>
+      <div class="card-chips-box">
+        <div class="card-chip-row">
+          <span class="card-chip-label">⚔️ 약점</span>
+          <span class="card-chip-val">${p.weaponEnchant ? p.weaponEnchant.split('(')[0] : '물리 타격'}</span>
+        </div>
+        <div class="card-chip-row">
+          <span class="card-chip-label">🛡️ 대응</span>
+          <span class="card-chip-val">${firstRiskPattern}</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>${p.date || '2026.08.25'}</span>
+        <div class="card-meta-counts">
+          <span>👁️ ${views}</span>
+          <span>👍 ${likes}</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+
+    // 2. Render Table Row (for List Mode)
     const tr = document.createElement('tr');
     tr.className = 'board-row';
     tr.onclick = () => showPost(p.id);
-
-    let gradeClass = 'cat-grade-4';
-    if (p.grade === '3등급') gradeClass = 'cat-grade-3';
-    else if (p.grade === '2등급') gradeClass = 'cat-grade-2';
-    else if (p.grade === '1등급') gradeClass = 'cat-grade-1';
-
-    const catBadge = `<span class="post-category ${gradeClass}">${p.floor}층 ${p.grade}</span>`;
-
-    const views = getPostViews(p.id, p.baseViews);
-    const likes = getPostLikes(p.id, p.baseLikes);
-
     tr.innerHTML = `
-      <td style="text-align: center; color: var(--text-muted);">${p.num}</td>
+      <td style="text-align: center; color: var(--text-muted);">${p.num || '-'}</td>
       <td style="text-align: center;">${catBadge}</td>
       <td>
         <div class="post-title-cell">
@@ -5213,9 +5547,9 @@ function renderBoardList() {
           ${p.youtubeId ? '<span class="badge-video-tag">🎬 영상</span>' : ''}
         </div>
       </td>
-      <td style="text-align: center; color: var(--text-muted); font-size: 12px;">${p.date}</td>
-      <td style="text-align: center; color: #8b949e; font-size: 12px;">${views.toLocaleString()}</td>
-      <td style="text-align: center; font-size: 12px;"><span class="badge-like-count">👍 ${likes}</span></td>
+      <td style="text-align: center; color: var(--text-muted); font-size: 13px;">${p.date || '2026.08.25'}</td>
+      <td style="text-align: center; color: var(--text-muted); font-size: 13px;">${views}</td>
+      <td style="text-align: center; font-weight: 600; color: var(--accent-gold); font-size: 13px;">👍 ${likes}</td>
     `;
     tbody.appendChild(tr);
   });
