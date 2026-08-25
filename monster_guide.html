@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브리미르 버스터즈 몬스터 &amp; 보스 레이드 실전 공략관</title>
+  <meta name="description" content="브리미르: 심장으로의 순례 4층 이상 상흔 보스 및 4등급 이상 정예 몬스터 실전 패링, CC 캔슬, 인챈트 세팅, 레이드 영상 완벽 공략.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <meta name="google-site-verification" content="y2N4xB7RLz6-X3AV3GDWeCrG1f50ip0C1kZVhd6aJIQ" />
+  <!-- Vercel Web Analytics & Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-inner: #1f242c;
+      --border-color: #30363d;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
+      --accent-blue: #58a6ff;
+      --accent-gold: #f2cc60;
+      --accent-red: #ff7b72;
+      --accent-green: #3fb950;
+      --accent-purple: #bc8cff;
+      --accent-orange: #ffa657;
+      --accent-cyan: #39c5bb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 16px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* Header Container */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .header-title h1 {
+      font-size: 20px;
+      color: var(--text-bright);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-tab {
+      background: #21262d;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-tab:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-bright);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, #1f6feb, #238636);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .nav-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+      margin: 0 4px;
+    }
+    .nav-tab.ext-link {
+      font-size: 12px;
+      padding: 7px 12px;
+      background: #161b22;
+    }
+    .nav-tab.ext-link.steam:hover { border-color: #66c0f4; color: #66c0f4; background: rgba(102, 192, 244, 0.1); }
+    .nav-tab.ext-link.stats:hover { border-color: #58a6ff; color: #58a6ff; background: rgba(88, 166, 255, 0.1); }
+    .nav-tab.ext-link.kakao:hover { border-color: #fee500; color: #fee500; background: rgba(254, 229, 0, 0.1); }
+
+    /* Top Notice Banner */
+    .notice-banner {
+      background: rgba(88, 166, 255, 0.08);
+      border: 1px solid rgba(88, 166, 255, 0.25);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 6px;
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #c9d1d9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .notice-banner strong { color: var(--accent-gold); }
+
+    /* Control & Filter Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 70px;
+    }
+    .filter-btn {
+      background: #21262d;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-bright);
+    }
+    .filter-btn.active {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: #fff;
+    }
+    .search-input {
+      background: #0d1117;
+      border: 1px solid var(--border-color);
+      color: var(--text-bright);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      width: 100%;
+      max-width: 400px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+    }
+
+    /* Monster Guide Cards Grid */
+    .guide-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .monster-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: border-color 0.2s;
+    }
+    .monster-card:hover {
+      border-color: rgba(88, 166, 255, 0.4);
+    }
+
+    .card-header {
+      background: var(--bg-card-inner);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+    .card-subname {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .badge-grade {
+      background: rgba(188, 140, 255, 0.15);
+      border: 1px solid rgba(188, 140, 255, 0.4);
+      color: var(--accent-purple);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .badge-floor {
+      background: rgba(88, 166, 255, 0.15);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      color: var(--accent-blue);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .badge-role {
+      background: rgba(242, 204, 96, 0.15);
+      border: 1px solid rgba(242, 204, 96, 0.4);
+      color: var(--accent-gold);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .monster-intro {
+      font-size: 14px;
+      color: #e6edf3;
+      background: #11161d;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-gold);
+      line-height: 1.5;
+    }
+
+    /* Meta Info (Habitat & Enchant) */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .meta-box {
+      background: #191f28;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .meta-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .meta-box-content {
+      font-size: 13px;
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+
+    /* Skill Patterns Section */
+    .skills-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-top: 4px;
+      margin-bottom: 2px;
+    }
+    .skill-pattern-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pattern-card {
+      background: #1a2029;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pattern-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pattern-name {
+      font-weight: 700;
+      color: var(--text-bright);
+      font-size: 13px;
+    }
+    .tag-parry {
+      background: rgba(63, 185, 80, 0.15);
+      border: 1px solid rgba(63, 185, 80, 0.4);
+      color: #7ee787;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .tag-cancel {
+      background: rgba(255, 123, 114, 0.15);
+      border: 1px solid rgba(255, 123, 114, 0.4);
+      color: #ff7b72;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .tag-dodge {
+      background: rgba(242, 204, 96, 0.15);
+      border: 1px solid rgba(242, 204, 96, 0.4);
+      color: var(--accent-gold);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .pattern-desc {
+      font-size: 13px;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .pattern-desc strong {
+      color: #fff;
+    }
+
+    /* Video Player Embed */
+    .video-section {
+      margin-top: 6px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-red);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header-container">
+  <div class="header-title">
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 몬스터 &amp; 보스 레이드 실전 공략관</p>
+  </div>
+  <nav class="nav-tabs">
+    <a href="index.html" class="nav-tab">💎 룬 도감</a>
+    <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
+    <a href="guide.html" class="nav-tab">📖 이용 가이드</a>
+    <a href="monster_guide.html" class="nav-tab active">⚔️ 몬스터 공략</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
+    <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
+  </nav>
+</div>
+
+<!-- Notice Banner -->
+<div class="notice-banner">
+  <div>
+    <strong>※ 안내:</strong> 본 공략글은 빠르고 직관적인 실전 정보 전달을 위해 간결한 반말체(구어체)로 작성되었습니다. 게이머 여러분의 너른 양해를 부탁드립니다.
+  </div>
+</div>
+
+<!-- Filter Panel -->
+<div class="filter-panel">
+  <div class="filter-row">
+    <span class="filter-label">층수 필터:</span>
+    <button class="filter-btn active" onclick="filterByFloor('all', this)">전체</button>
+    <button class="filter-btn" onclick="filterByFloor('7', this)">7층 (눈보라/빙하)</button>
+    <button class="filter-btn" onclick="filterByFloor('6', this)">6층 (심연의 대해)</button>
+    <button class="filter-btn" onclick="filterByFloor('5', this)">5층 (혹한의 협곡)</button>
+    <button class="filter-btn" onclick="filterByFloor('4', this)">4층 (균형의 성역)</button>
+    <button class="filter-btn" onclick="filterByFloor('1', this)">1층 (상흔)</button>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">유형 필터:</span>
+    <button class="filter-btn active" onclick="filterByType('all', this)">전체 보기</button>
+    <button class="filter-btn" onclick="filterByType('boss', this)">상흔 / 계층 보스</button>
+    <button class="filter-btn" onclick="filterByType('elite', this)">4등급+ 정예 필드</button>
+  </div>
+  <div class="filter-row" style="margin-top: 4px;">
+    <span class="filter-label">몬스터 검색:</span>
+    <input type="text" id="monster-search" class="search-input" placeholder="몬스터 이름 또는 스킬명 검색 (초성: ㅇㄱㅇ ㅇ)..." oninput="handleSearch(this.value)">
+  </div>
+</div>
+
+<!-- Monster Guide Cards Grid -->
+<div class="guide-grid" id="guide-grid">
+
+  <!-- Card 1: 영겁의 용 -->
+  <article class="monster-card" data-floor="7" data-type="boss" data-name="영겁의 용 Eternal Dragon 벨라리오스">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">상흔 계층 보스</span>
+        <h2 class="card-title">영겁의 용</h2>
+        <span class="card-subname">(Eternal Dragon / 벨라리오스)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        7층 올라와서 여기서 대가리 많이 깨지는데 몇 가지만 알면 날먹 가능하다. 부식 브레스 틱뎀이랑 광역 붕괴만 조심하면 됨.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 눈보라 벌판 (얼음 무덤 보스방)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #ff7b72;">화염 속성 (용 비늘이 화염에 취약해서 딜 제일 잘 박힘)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">냉기 저항 + 암흑 저항 (부식 브레스 급사 방지 필수)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 전방 비늘 내려치기 / 비늘 결계</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              정면에서 내려칠 때 쫄지 말고 <strong>패링</strong> 쳐라. 타이밍 널널해서 패링 치기 쉽고, 성공하면 보스가 크게 휘청거리면서 딜타임 달달하게 나옴.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역기] 공간 붕괴</span>
+              <span class="tag-dodge">회피 or CC 끊기</span>
+            </div>
+            <div class="pattern-desc">
+              바닥 깨지면서 광역으로 터지는 패턴임. 바닥 깔리면 <strong>뒤로 구르거나 파티원 CC기 박아서 끊어라.</strong> CC기 남아돌면 끊는 게 제일 편함.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역 도트] 부식의 숨결 (암흑 브레스)</span>
+              <span class="tag-dodge">후방 회피</span>
+            </div>
+            <div class="pattern-desc">
+              전방 부채꼴로 암흑 틱뎀 뿜어대니까 정면에 서 있지 말고 <strong>보스 뒤통수로 굴러서 피해라.</strong> 교전 컨트롤(후퇴)로 멍청한 AI 동료들도 뒤로 빼줘야 딜로스 안 남.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 영겁의 용 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/fSVSaiv4fSI" title="영겁의 용 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 2: 원귀 거상 -->
+  <article class="monster-card" data-floor="7" data-type="boss" data-name="원귀 거상 Wraith Colossus Grudge Colossus">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">상흔 계층 보스</span>
+        <h2 class="card-title">원귀 거상</h2>
+        <span class="card-subname">(Wraith Colossus / Grudge Colossus)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        덩치만 크고 느려터진 샌드백인데 소환 패턴 방치하면 겜 바로 터진다. 소환만 칼같이 끊어주면 됨.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 통곡의 늪 (보스방)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #f2cc60;">번개 or 신성 (원혼 껍질 벗기고 약점 찌르는 데 특효임)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #ffa657;">대지 저항 + 암흑 저항 (바닥 찍기 충격파랑 저주 뎀감용)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[소환] 원혼 부르기</span>
+              <span class="tag-cancel">무조건 CC기 캔슬 필수</span>
+            </div>
+            <div class="pattern-desc">
+              <strong>모션 보이자마자 무조건 스턴이나 빙결 같은 CC기 박아서 끊어라.</strong> 쫄몹들 필드에 깔리기 시작하면 타겟팅 꼬이고 답 안 나오니까 무조건 1순위로 캔슬해야 됨.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 바위 휘두르기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              팔 묵직하게 들어올릴 때 타이밍 맞춰서 <strong>패링</strong> 쳐라. 거상 자세 무너지면서 기력도 다 돌려받음.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역기] 원귀의 지진 (쿵쿵따)</span>
+              <span class="tag-dodge">회피 or CC 끊기</span>
+            </div>
+            <div class="pattern-desc">
+              땅 찍으려고 기 모을 때 <strong>CC기로 끊어주는 게 베스트.</strong> CC기 쿨 돌고 있으면 교전 컨트롤로 동료들 뒤로 빼고 범위 밖으로 굴러서 피해라.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 원귀 거상 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/HxIv08gAYjo" title="원귀 거상 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 3: 조화의 아우르반 -->
+  <article class="monster-card" data-floor="6" data-type="boss" data-name="조화의 아우르반 Aurvan of Harmony">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">6층</span>
+        <span class="badge-grade">4등급</span>
+        <span class="badge-role">상흔 계층 보스</span>
+        <h2 class="card-title">조화의 아우르반</h2>
+        <span class="card-subname">(Aurvan of Harmony)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        화염이랑 물 섞어 쓰는 놈이라 속성 세팅 안 하고 가면 피통 순삭당함. 화염 장판 깔릴 때 무빙이 핵심이다.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">6층 - 심연의 대해 (상흔 보스방)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #f2cc60;">대지 or 번개 (속성 상성 카운터)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">화염 저항 + 물 저항 (화염 바다 장판이랑 조류 뎀감용)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[소환] 원소 수호령 소환</span>
+              <span class="tag-cancel">무조건 CC기 캔슬 필수</span>
+            </div>
+            <div class="pattern-desc">
+              <strong>소환 모션 나오면 뒤도 돌아보지 말고 CC기 때려박아서 끊어라.</strong> 잡몹 늘어나면 어그로 분산돼서 겜 피곤해짐.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 조류의 사슬 / 단일 타격</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              타겟팅 단일 공격이니까 침착하게 <strong>패링</strong> 쳐서 튕겨내면 됨.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역 도트] 화염 바다 (장판)</span>
+              <span class="tag-dodge">회피 or CC 끊기</span>
+            </div>
+            <div class="pattern-desc">
+              바닥에 불 깔리는 도트 장판임. <strong>CC기로 시전 끊거나</strong>, 불 깔리자마자 자리 이동해서 불 밖으로 나와라.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 조화의 아우르반 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/-JXGVz28WqI" title="조화의 아우르반 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 4: 심연의 거신 -->
+  <article class="monster-card" data-floor="6" data-type="boss" data-name="심연의 거신 Abyssal Colossus">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">6층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">상흔 거대 보스</span>
+        <h2 class="card-title">심연의 거신</h2>
+        <span class="card-subname">(Abyssal Colossus)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        물리 방어력이 단단해서 장기전 되기 십상이다. 소용돌이 빨려 들어가지 않게 거리 조절하는 게 핵심임.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">6층 - 심연의 대해</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #f2cc60;">번개 or 암흑 관통 (단단한 껍질 뚫는 데 필수)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">물 저항 + 물리내성 강화 (심해 타격 급사 방지)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역기] 심연의 소용돌이</span>
+              <span class="tag-dodge">회피 or CC 끊기</span>
+            </div>
+            <div class="pattern-desc">
+              중앙으로 빨아들이는 광역 소용돌이임. <strong>캐스팅 보이면 CC기로 끊거나</strong>, 외곽으로 달려서 빨려 들어가지 않게 피해라.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 거신의 일격 / 내려찍기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              팔 높이 들었다가 내리칠 때 <strong>패링</strong> 쳐라. 덩치가 커서 모션이 정직하니까 패링 치기 매우 쉬움.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 심연의 거신 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/UcbsCDQFL3s" title="심연의 거신 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 5: 서리 검귀 -->
+  <article class="monster-card" data-floor="7" data-type="boss" data-name="서리 검귀 Rime Swordfiend">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">상흔 검술 보스</span>
+        <h2 class="card-title">서리 검귀</h2>
+        <span class="card-subname">(Rime Swordfiend)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        공격 속도가 미치도록 빠르고 연타가 매서움. 가드만 올리고 있으면 가드 브레이크 터지니까 패링으로 맞받아쳐야 됨.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 검총 (보스방)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #ff7b72;">화염 속성 (결빙 검기 녹이고 폭딜)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">냉기 저항 + 물리내성 (연타 짤딜 누적 방지)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일 발도] 서리 발도술 / 종베기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              칼집에서 번쩍할 때 바로 <strong>패링</strong> 쳐라. 검귀 공격 중 가장 큰 그로기 타이밍을 벌 수 있음.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역 연타] 만천빙검 (검기 난무)</span>
+              <span class="tag-cancel">CC기로 끊기 필수</span>
+            </div>
+            <div class="pattern-desc">
+              검기를 사방으로 흩뿌리는 난무 패턴임. <strong>캐스팅 시작할 때 하드 CC기로 끊어주는 게 정답이다.</strong> 못 끊으면 아군 AI 동료들 다 갈려나감.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 서리 검귀 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/EMb-3bGDkO0" title="서리 검귀 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 6: 공포의 화신 -->
+  <article class="monster-card" data-floor="1" data-type="boss" data-name="공포의 화신 Avatar of Dread 벨라리오스">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">1층 상흔</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">상흔 심층 보스</span>
+        <h2 class="card-title">공포의 화신</h2>
+        <span class="card-subname">(Avatar of Dread)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        1층 상흔 최심부 보스. 저주랑 암흑 촉수 공격이 거슬리는데 신성 인챈트 바르고 패면 살살 녹는다.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">1층 - 공포의 신해 (상흔 보스방)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #f2cc60;">신성 or 화염 (암흑 괴수 특효약)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #bc8cff;">암흑 저항 + 독 저항 (저주 틱뎀 방지)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[소환 / 분신] 어둠의 촉수 소환</span>
+              <span class="tag-cancel">무조건 CC기 캔슬 필수</span>
+            </div>
+            <div class="pattern-desc">
+              <strong>바닥에서 촉수 기어 나오려고 할 때 CC기로 끊어라.</strong> 촉수 남겨두면 원거리에서 계속 짤딜 날려서 짜증남.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 공포의 응시 / 촉수 강타</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              촉수로 전방 내려칠 때 <strong>패링</strong> 쳐주면 바로 경직 먹고 뒤로 물러남.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역 도트] 잠식하는 공포 (어둠 장판)</span>
+              <span class="tag-dodge">회피 or CC 끊기</span>
+            </div>
+            <div class="pattern-desc">
+              바닥에 검은 웅덩이 깔리면 <strong>바로 밖으로 굴러라.</strong> 밟고 있으면 지속 암흑 틱뎀 들어옴.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 공포의 화신 실전 레이드 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/kWo8t78nxYQ" title="공포의 화신 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 7: 서리 수호병 (3등급 필드 정예) -->
+  <article class="monster-card" data-floor="7" data-type="elite" data-name="서리 수호병 Frost Guardian Frost Sentinel">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">정예 필드 수호기사</span>
+        <h2 class="card-title">서리 수호병</h2>
+        <span class="card-subname">(Frost Guardian)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        7층 눈보라 벌판을 순찰하는 정예 기사. 방패 들고 마법내성 버프 켜면 딜이 안 들어가니까 버프 켜기 전에 패링으로 자세 무너뜨려야 됨.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 눈보라 벌판</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #ff7b72;">화염 속성 (결빙 갑주 녹이기)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">냉기 저항 (한기 스택 쌓임 방지)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 방패 후려치기 / 찌르기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              방패 들고 돌진하거나 창으로 찌를 때 <strong>패링</strong> 쳐라. 방패 튕겨 나가면서 가드 깨짐.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[광역 버프] 서리 군기 (마법내성 강화)</span>
+              <span class="tag-cancel">CC기로 끊기 추천</span>
+            </div>
+            <div class="pattern-desc">
+              깃발 꽂으면서 버프 시전할 때 <strong>스턴이나 넉백 CC기로 끊어주면</strong> 단단해지는 거 막을 수 있음.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 서리 수호병 실전 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/U0KYTvrPlYo" title="서리 수호병 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 8: 빙하 거인 (3등급 필드 미드보스) -->
+  <article class="monster-card" data-floor="7" data-type="boss" data-name="빙하 거인 Glacier Giant">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">3등급</span>
+        <span class="badge-role">미드보스 / 육탄 거인</span>
+        <h2 class="card-title">빙하 거인</h2>
+        <span class="card-subname">(Glacier Giant)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        한기 쌓인 상태에서 맞으면 광분 모드 켜져서 휠체어 탄다. 돌진 피하고 정면 타격만 패링 치면 쉬움.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 눈보라 벌판 (미드보스)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #ff7b72;">화염 속성 (얼음 육탄 분쇄)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #79c0ff;">냉기 저항 + 물리내성 (광분 짤딜 버티기)</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[돌진기] 빙하의 진격</span>
+              <span class="tag-dodge">옆으로 구르기</span>
+            </div>
+            <div class="pattern-desc">
+              몸 웅크렸다가 앞으로 짓쳐 들어오는 돌진기임. <strong>정면에 있지 말고 옆으로 굴러서 피해라.</strong> 맞으면 한기 1스택 쌓임.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 얼음 몽둥이 내리치기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              팔 번쩍 들고 내리칠 때 <strong>패링</strong> 누르면 거인이 제자리에서 비틀거림. 이때 화염 딜 집중하면 됨.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-section">
+        <div class="video-title">🎬 빙하 거인 실전 공략 영상</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uO0R18KUQHs" title="빙하 거인 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 9: 서리 바위거인 (4등급 필드 정예) -->
+  <article class="monster-card" data-floor="7" data-type="elite" data-name="서리 바위거인 Stonewinter">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="badge-floor">7층</span>
+        <span class="badge-grade">4등급</span>
+        <span class="badge-role">정예 방벽 골렘</span>
+        <h2 class="card-title">서리 바위거인</h2>
+        <span class="card-subname">(Stonewinter)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="monster-intro">
+        7층 암석 구역에 있는 단단한 바위 거인. 방벽 켜지면 물리 딜이 튕겨 나가니까 속성 딜이나 CC기로 조져야 됨.
+      </div>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="meta-box-title">📍 공식 서식지</div>
+          <div class="meta-box-content">7층 - 눈보라 벌판</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🗡️ 추천 무기 인챈트</div>
+          <div class="meta-box-content" style="color: #ff7b72;">화염 or 번개 (바위 껍질 분쇄용)</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-box-title">🛡️ 추천 방어구 인챈트</div>
+          <div class="meta-box-content" style="color: #ffa657;">대지 저항 + 냉기 저항</div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-section-title">⚔️ 스킬 패턴 및 실전 대처법</div>
+        <div class="skill-pattern-list">
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[자체 버프] 빙암 방벽</span>
+              <span class="tag-cancel">CC기로 방해</span>
+            </div>
+            <div class="pattern-desc">
+              몸 굳히면서 물리내성 대폭 올리는 버프임. <strong>시전할 때 스턴 걸어서 끊어주면</strong> 딜 훨씬 빨리 들어감.
+            </div>
+          </div>
+          <div class="pattern-card">
+            <div class="pattern-header">
+              <span class="pattern-name">[단일기] 바위 내리찍기</span>
+              <span class="tag-parry">패링 가능</span>
+            </div>
+            <div class="pattern-desc">
+              팔 내려칠 때 <strong>패링</strong> 쳐주면 골렘이 멈칫하면서 반격 타이밍 나옴.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Brimir Busters. All game contents and assets belong to the original creators of 『Brimir: Pilgrimage to the Heart』.</p>
+  <p style="margin-top: 4px; color: #58a6ff;">공식 사이트: <a href="https://busters.kr" style="color: #58a6ff; text-decoration: none;">https://busters.kr</a></p>
+</footer>
+
+<!-- Interactive Filter & Search Script -->
+<script>
+let currentFloor = 'all';
+let currentType = 'all';
+let searchKeyword = '';
+
+function filterByFloor(fl, btn) {
+  currentFloor = fl;
+  document.querySelectorAll('.filter-row:nth-child(1) .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterByType(tp, btn) {
+  currentType = tp;
+  document.querySelectorAll('.filter-row:nth-child(2) .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function handleSearch(val) {
+  searchKeyword = val.trim().toLowerCase();
+  applyFilters();
+}
+
+// Chosung matching helper
+const CHOSUNG = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
+function getChosung(str) {
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i) - 44032;
+    if (code >= 0 && code <= 11171) res += CHOSUNG[Math.floor(code / 588)];
+    else res += str.charAt(i);
+  }
+  return res.toLowerCase();
+}
+
+function applyFilters() {
+  const cards = document.querySelectorAll('.monster-card');
+  const kwCho = getChosung(searchKeyword);
+
+  cards.forEach(card => {
+    const fl = card.getAttribute('data-floor');
+    const tp = card.getAttribute('data-type');
+    const name = (card.getAttribute('data-name') || '').toLowerCase();
+    const cardText = card.innerText.toLowerCase();
+    const textCho = getChosung(cardText);
+
+    let matchFloor = (currentFloor === 'all' || fl === currentFloor);
+    let matchType = (currentType === 'all' || tp === currentType);
+    let matchSearch = true;
+
+    if (searchKeyword) {
+      matchSearch = cardText.includes(searchKeyword) || textCho.includes(kwCho);
+    }
+
+    if (matchFloor && matchType && matchSearch) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
