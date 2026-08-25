@@ -5788,6 +5788,19 @@ function showPost(postId) {
 
       <div class="post-section">
         <h4 class="post-section-heading">■ 페이즈별 스킬 대응 분류</h4>
+        
+        <div class="tactical-action-guide-box" style="background: rgba(22, 27, 34, 0.85); border: 1px solid #30363d; border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; font-size: 12.5px; line-height: 1.6; color: #c9d1d9;">
+          <div style="font-weight: 700; color: #58a6ff; margin-bottom: 5px; font-size: 13px;">
+            💡 분류별 실전 행동 수칙
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 16px;">
+            <div><strong style="color: #ff7b72;">🚨 무조건 CC 캔슬:</strong> 시전 중 스턴/빙결 하드 CC기로 즉시 차단</div>
+            <div><strong style="color: #d2a8ff;">🏃 장판/범위 회피:</strong> 패링 불가 공격. 바닥 예고 범위 밖 안전지대로 즉시 이탈</div>
+            <div><strong style="color: #f2cc60;">🛡️ 배후 타격/실드:</strong> 정면 가드 무시. 방패 없는 배후(후방) 공격 or 속성 극딜</div>
+            <div><strong style="color: #79c0ff;">⚔️ 패링 가능 스킬:</strong> 무기/투사체 닿는 순간 방패 패링 (피해 무효화 & 자세 붕괴)</div>
+          </div>
+        </div>
+
         <div class="post-pattern-plain-list">
           ${post.phases.map(ph => {
             const ccSkills = ph.patterns.filter(pat => pat.tag === 'cc_cancel' || (pat.tagText && pat.tagText.includes('CC')));
