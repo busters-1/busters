@@ -622,11 +622,15 @@
 <div class="control-section">
   <div class="search-row">
     <div class="search-input-wrapper">
-      <input type="text" id="search-input" class="search-input" placeholder="🔍 몬스터명, 룬 이름, 스킬명, 출현지/서식지, 패시브 효과 검색... (초성 검색 지원)">
-      <span id="search-shortcut-hint" class="search-shortcut-hint">/</span>
-      <button id="search-clear-btn" class="search-clear-btn" onclick="clearSearch()" title="검색어 지우기 (ESC)">✕</button>
+      <input type="text" id="monster-search-input" class="search-input" placeholder="🔍 몬스터 / 룬 명칭 검색 (초성: ㅇㄱㅇ ㅇ)...">
+      <span id="monster-search-shortcut-hint" class="search-shortcut-hint">/</span>
+      <button id="monster-search-clear-btn" class="search-clear-btn" onclick="clearMonsterSearch()" title="몬스터 검색 초기화 (ESC)">✕</button>
     </div>
-    <select id="sort-select" class="sort-select" onchange="handleSortChange()">
+    <div class="search-input-wrapper">
+      <input type="text" id="stat-search-input" class="search-input" placeholder="📊 스탯 검색 (예: 근력, 물리내성, 마력)...">
+      <button id="stat-search-clear-btn" class="search-clear-btn" onclick="clearStatSearch()" title="스탯 검색 초기화">✕</button>
+    </div>
+    <select id="sort-select"  class="sort-select" onchange="handleSortChange()">
       <optgroup label="🔽 기본 및 등급/시스템 정렬">
         <option value="default">🔽 기본 정렬 (등급/층수순)</option>
         <option value="sailing_first">⛵ 항해/선박 전용 룬 우선 정렬</option>
@@ -19446,50 +19450,72 @@ function highlightText(text, query) {
   return text;
 }
 
-function clearSearch() {
-  const input = document.getElementById('search-input');
+
+
+
+function clearMonsterSearch() {
+  const input = document.getElementById('monster-search-input');
   if (input) {
     input.value = '';
-    handleSearchInput();
+    handleMonsterSearchInput();
     input.focus();
   }
 }
 
-function handleSearchInput() {
-  const input = document.getElementById('search-input');
-  const clearBtn = document.getElementById('search-clear-btn');
-  const hint = document.getElementById('search-shortcut-hint');
+function clearStatSearch() {
+  const input = document.getElementById('stat-search-input');
+  if (input) {
+    input.value = '';
+    handleStatSearchInput();
+    input.focus();
+  }
+}
+
+function handleMonsterSearchInput() {
+  const input = document.getElementById('monster-search-input');
+  const clearBtn = document.getElementById('monster-search-clear-btn');
+  const hint = document.getElementById('monster-search-shortcut-hint');
   const val = input ? input.value.trim() : '';
   
-  if (clearBtn) {
-    clearBtn.style.display = val ? 'flex' : 'none';
-  }
-  if (hint) {
-    hint.style.display = val ? 'none' : 'block';
-  }
+  if (clearBtn) clearBtn.style.display = val ? 'flex' : 'none';
+  if (hint) hint.style.display = val ? 'none' : 'block';
   renderTable();
 }
 
-// Global Shortcuts: / or Ctrl+K to focus search, ESC to clear
+function handleStatSearchInput() {
+  const input = document.getElementById('stat-search-input');
+  const clearBtn = document.getElementById('stat-search-clear-btn');
+  const val = input ? input.value.trim() : '';
+  
+  if (clearBtn) clearBtn.style.display = val ? 'flex' : 'none';
+  renderTable();
+}
+
+// Global Shortcuts: / or Ctrl+K to focus monster search, ESC to clear active search
 window.addEventListener('keydown', (e) => {
-  const searchInput = document.getElementById('search-input');
-  if (!searchInput) return;
+  const monsterInput = document.getElementById('monster-search-input');
+  const statInput = document.getElementById('stat-search-input');
+  if (!monsterInput || !statInput) return;
   
   const isInputFocused = document.activeElement && ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
   
   if (e.key === '/' && !isInputFocused) {
     e.preventDefault();
-    searchInput.focus();
-    searchInput.select();
+    monsterInput.focus();
+    monsterInput.select();
   } else if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
     e.preventDefault();
-    searchInput.focus();
-    searchInput.select();
+    monsterInput.focus();
+    monsterInput.select();
   } else if (e.key === 'Escape') {
-    if (searchInput.value || document.activeElement === searchInput) {
-      searchInput.value = '';
-      handleSearchInput();
-      searchInput.blur();
+    if (document.activeElement === statInput || statInput.value) {
+      statInput.value = '';
+      handleStatSearchInput();
+      statInput.blur();
+    } else if (document.activeElement === monsterInput || monsterInput.value) {
+      monsterInput.value = '';
+      handleMonsterSearchInput();
+      monsterInput.blur();
     }
   }
 });
@@ -19497,22 +19523,28 @@ window.addEventListener('keydown', (e) => {
 
 function renderTable() {
   const active = getActiveDeck();
-  const query = document.getElementById('search-input').value.trim().toLowerCase();
+  const monsterQuery = (document.getElementById('monster-search-input')?.value || '').trim();
+  const statQuery = (document.getElementById('stat-search-input')?.value || '').trim();
   const tbody = document.getElementById('rune-table-body');
 
   let filtered = RUNES_DATA.filter(r => {
-    if (query) {
-      const matchName = matchKorean(r.name, query);
-      const matchDrop = matchKorean(r.acquisition, query);
-      const matchPass = r.passive && (
-        matchKorean(r.passive.name, query) ||
-        matchKorean(r.passive.description, query)
-      );
-      const matchAct = r.actives && r.actives.some(a => 
-        matchKorean(a.name, query) || 
-        matchKorean(a.description, query)
-      );
-      if (!matchName && !matchDrop && !matchPass && !matchAct) return false;
+    // 1. Monster / Rune Name Search (ONLY r.name)
+    if (monsterQuery) {
+      if (!matchKorean(r.name, monsterQuery)) return false;
+    }
+
+    // 2. Stat Search (ONLY r.stat_bonuses)
+    if (statQuery) {
+      const stats = r.stat_bonuses || {};
+      let hasMatch = false;
+      for (let [k, v] of Object.entries(stats)) {
+        const fullStr = `${k} +${v}`;
+        if (matchKorean(k, statQuery) || matchKorean(fullStr, statQuery) || String(v) === statQuery.replace('+', '').trim()) {
+          hasMatch = true;
+          break;
+        }
+      }
+      if (!hasMatch) return false;
     }
 
         if (selectedGrade !== 'ALL') {
@@ -19621,11 +19653,11 @@ function renderTable() {
           <div class="active-entry">
             <div class="active-header">
               <span class="color-badge ${cInfo.cls}">${cInfo.label}</span>
-              <span class="active-name">${highlightText(act.name || act.skill_id, query)}</span>${rangedBadge}
+              <span class="active-name">${act.name || act.skill_id}</span>${rangedBadge}
               <span class="active-cd">${cdText}</span>
               ${multBadge}
             </div>
-            ${act.description ? `<div class="active-desc">${highlightText(act.description, query)}</div>` : ''}
+            ${act.description ? `<div class="active-desc">${act.description}</div>` : ''}
           </div>
         `;
       });
@@ -19633,7 +19665,9 @@ function renderTable() {
 
     let statsHtml = '';
     for (let [k, v] of Object.entries(r.stat_bonuses || {})) {
-      statsHtml += `<span class="stat-chip">${k} +${v}</span>`;
+      const rawText = `${k} +${v}`;
+      const chipContent = statQuery ? highlightText(rawText, statQuery) : rawText;
+      statsHtml += `<span class="stat-chip">${chipContent}</span>`;
     }
 
     const p = r.passive || {};
@@ -19646,8 +19680,8 @@ function renderTable() {
     } else {
       passCellHtml = `
         <div class="passive-box">
-          <div class="passive-name">⚡ [패시브] ${highlightText(p.name || '없음', query)}</div>
-          <div class="passive-desc">${highlightText(p.description || '', query)}</div>
+          <div class="passive-name">⚡ [패시브] ${p.name || '없음'}</div>
+          <div class="passive-desc">${p.description || ''}</div>
           ${pDetail}
         </div>
       `;
@@ -19660,8 +19694,8 @@ function renderTable() {
         </td>
         <td class="col-name">
           <div class="item-title-box">
-            <div class="item-name">${highlightText(r.name, query)}</div>
-            ${r.acquisition ? `<div class="item-location">📍 ${highlightText(r.acquisition, query)}</div>` : ''}
+            <div class="item-name">${highlightText(r.name, monsterQuery)}</div>
+            ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : ''}
             <div class="item-tags">
               ${(r.elements || []).map(e => `<span class="tag-badge elem">${e}</span>`).join('')}
               ${SAILING_DRIFT_CHANCE_RUNES.has(r.id) ? '<span class="tag-badge" style="background:#3b134e; color:#f0abfc; border:1px solid #c084fc;">🗺️ 표류확률↓</span>' : ''}
@@ -19740,7 +19774,8 @@ function closeModal(e) {
   document.getElementById('modal-backdrop').style.display = 'none';
 }
 
-document.getElementById('search-input').addEventListener('input', handleSearchInput);
+document.getElementById('monster-search-input')?.addEventListener('input', handleMonsterSearchInput);
+  document.getElementById('stat-search-input')?.addEventListener('input', handleStatSearchInput);
 renderDeckTabs();
 renderDeckPanel();
 renderTable();
