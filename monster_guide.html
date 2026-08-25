@@ -442,6 +442,81 @@
       border: none;
     }
 
+    
+    /* Clean Plain Post Body (게시판 텍스트 문단 전용 스타일) */
+    .plain-post-body {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .intro-text {
+      font-size: 15px;
+      color: #ffffff;
+      font-weight: 500;
+      padding-bottom: 4px;
+    }
+    .post-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .post-section-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-top: 6px;
+      margin-bottom: 2px;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 4px;
+    }
+    .post-text-list {
+      list-style: none;
+      padding-left: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .post-text-list li {
+      font-size: 14px;
+    }
+    .post-pattern-plain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-left: 2px;
+    }
+    .post-pattern-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pattern-head-line {
+      font-size: 14px;
+      color: #fff;
+    }
+    .pattern-head-line strong {
+      color: #ffffff;
+    }
+    .pattern-tag-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .pattern-body-line {
+      font-size: 13.5px;
+      color: #c9d1d9;
+      padding-left: 14px;
+      line-height: 1.6;
+    }
+    .pattern-body-line strong {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.4);
+    }
+
     /* Like & Reaction Box */
     .reaction-box {
       margin-top: 24px;
@@ -969,53 +1044,43 @@ function showPost(postId) {
   // Like Button State
   updateLikeButtonUI(post);
 
-  // Content
+  // Content: Clean text paragraph layout (게시판 일반 본문 글 형식)
   let contentHtml = `
-    <div class="article-intro">
-      ${post.intro}
-    </div>
+    <div class="plain-post-body">
+      <p class="post-paragraph intro-text">${post.intro}</p>
 
-    <div class="article-meta-card">
-      
-      <div>
-        <div class="meta-item-title">🗡️ 추천 무기 인챈트</div>
-        <div class="meta-item-value" style="color: #ff7b72;">${post.weaponEnchant}</div>
+      <div class="post-section">
+        <h4 class="post-section-heading">■ 추천 인챈트</h4>
+        <ul class="post-text-list">
+          <li><strong>무기 인챈트:</strong> <span style="color:#ff7b72;">${post.weaponEnchant}</span></li>
+          <li><strong>방어구 인챈트:</strong> <span style="color:#79c0ff;">${post.armorEnchant}</span></li>
+        </ul>
       </div>
-      <div>
-        <div class="meta-item-title">🛡️ 추천 방어구 인챈트</div>
-        <div class="meta-item-value" style="color: #79c0ff;">${post.armorEnchant}</div>
-      </div>
-    </div>
 
-    <div>
-      <h3 style="font-size: 15px; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px;">⚔️ 스킬 패턴 및 실전 대처법</h3>
-      <div class="pattern-box-container">
-        ${post.patterns.map(pat => {
-          let tagClass = pat.tag === 'parry' ? 'tag-parry' : (pat.tag === 'cancel' ? 'tag-cancel' : 'tag-dodge');
-          return `
-            <div class="pattern-box">
-              <div class="pattern-box-header">
-                <span class="pattern-title">${pat.name}</span>
-                <span class="${tagClass}">${pat.tagText}</span>
+      <div class="post-section">
+        <h4 class="post-section-heading">■ 스킬 패턴 및 실전 대처법</h4>
+        <div class="post-pattern-plain-list">
+          ${post.patterns.map((pat, idx) => `
+            <div class="post-pattern-item">
+              <div class="pattern-head-line">
+                <span class="pattern-idx">${idx + 1}.</span> <strong>${pat.name}</strong> <span class="pattern-tag-badge">[${pat.tagText}]</span>
               </div>
-              <div class="pattern-text">${pat.desc}</div>
+              <p class="pattern-body-line">${pat.desc}</p>
             </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  `;
-
-  if (post.youtubeId) {
-    contentHtml += `
-      <div class="video-container">
-        <div class="video-container-title">🎬 ${post.monsterName} 실전 레이드 공략 영상</div>
-        <div class="video-iframe-wrap">
-          <iframe src="https://www.youtube.com/embed/${post.youtubeId}?autoplay=0" title="${post.monsterName} 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          `).join('')}
         </div>
       </div>
-    `;
-  }
+
+      ${post.youtubeId ? `
+        <div class="post-section" style="margin-top:20px;">
+          <h4 class="post-section-heading" style="color:#ff7b72;">■ 실전 레이드 공략 영상</h4>
+          <div class="video-iframe-wrap">
+            <iframe src="https://www.youtube.com/embed/${post.youtubeId}?autoplay=0" title="${post.monsterName} 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
 
   document.getElementById('view-content').innerHTML = contentHtml;
   window.scrollTo({top: 0, behavior: 'smooth'});
