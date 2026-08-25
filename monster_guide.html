@@ -616,7 +616,6 @@
         <span>등록일: <strong id="view-date">2026.08.25</strong></span>
         <span>조회수: <strong id="view-views">0</strong></span>
         <span>추천: <strong id="view-likes">0</strong></span>
-        <span>공식 서식지: <strong id="view-habitat"></strong></span>
         <span>등급: <strong id="view-grade"></strong></span>
       </div>
     </div>
@@ -903,7 +902,7 @@ function renderBoardList() {
     let matchSearch = true;
 
     if (searchKeyword) {
-      const fullTxt = (post.title + " " + post.monsterName + " " + post.subName + " " + post.habitat).toLowerCase();
+      const fullTxt = (post.title + " " + post.monsterName + " " + post.subName).toLowerCase();
       const txtCho = getChosung(fullTxt);
       matchSearch = fullTxt.includes(searchKeyword) || txtCho.includes(kwCho);
     }
@@ -965,7 +964,6 @@ function showPost(postId) {
   document.getElementById('view-date').innerText = post.date;
   document.getElementById('view-views').innerText = getPostViews(post.id, post.baseViews).toLocaleString();
   document.getElementById('view-likes').innerText = getPostLikes(post.id, post.baseLikes).toString();
-  document.getElementById('view-habitat').innerText = post.habitat;
   document.getElementById('view-grade').innerText = post.grade;
 
   // Like Button State
@@ -978,10 +976,7 @@ function showPost(postId) {
     </div>
 
     <div class="article-meta-card">
-      <div>
-        <div class="meta-item-title">📍 공식 서식지</div>
-        <div class="meta-item-value">${post.habitat}</div>
-      </div>
+      
       <div>
         <div class="meta-item-title">🗡️ 추천 무기 인챈트</div>
         <div class="meta-item-value" style="color: #ff7b72;">${post.weaponEnchant}</div>
