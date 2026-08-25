@@ -5701,10 +5701,22 @@ function showPost(postId) {
       </div>
 
       <div class="post-section" style="margin-top:20px;">
-        <h4 class="post-section-heading" style="color:#ff7b72;">■ 실전 레이드 공략 영상</h4>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <h4 class="post-section-heading" style="color:#ff7b72; margin-bottom: 0;">■ 실전 레이드 공략 영상</h4>
+          ${post.youtubeId ? `
+            <a href="https://youtu.be/${post.youtubeId}" target="_blank" rel="noopener noreferrer" class="btn-direct-yt" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #c00; color: #fff; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(204,0,0,0.4); transition: transform 0.15s ease;">
+              <span>▶ YouTube 원본으로 시청하기</span>
+              <span style="font-size: 11px;">↗</span>
+            </a>
+          ` : ''}
+        </div>
         ${post.youtubeId ? `
           <div class="video-iframe-wrap">
-            <iframe src="https://www.youtube.com/embed/${post.youtubeId}?autoplay=0" title="${post.monsterName} 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/${post.youtubeId}?rel=0&modestbranding=1&playsinline=1" title="${post.monsterName} 실전 공략 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+          </div>
+          <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #8b949e;">
+            <span>💡 영상 재생 시 오류(153)가 발생할 경우 상단의 <strong>[YouTube 원본으로 시청하기]</strong>를 클릭해 주세요.</span>
+            <a href="https://youtu.be/${post.youtubeId}" target="_blank" rel="noopener noreferrer" style="color: #58a6ff; text-decoration: underline;">https://youtu.be/${post.youtubeId}</a>
           </div>
         ` : `
           <div style="background: rgba(22, 27, 34, 0.8); border: 1px dashed #30363d; border-radius: 8px; padding: 28px 16px; text-align: center; color: #8b949e; font-size: 13.5px;">
