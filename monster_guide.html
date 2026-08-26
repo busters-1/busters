@@ -970,32 +970,13 @@
       <!-- View Switcher & Result Count -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 10px 0;">
         <span id="board-total-count" style="font-size: 13px; color: var(--text-muted); font-weight: 500;">공략 67건</span>
-        <div class="view-switch-container">
-          <button class="btn-view-toggle active" id="btn-view-card" onclick="switchViewMode('card')">⊞ 카드형</button>
-          <button class="btn-view-toggle" id="btn-view-list" onclick="switchViewMode('list')">☰ 리스트형</button>
-        </div>
+        
       </div>
 
       <!-- Card Grid Container -->
       <div id="monster-card-grid" class="monster-grid"></div>
 
-      <!-- Table Container -->
-      <div id="monster-table-container" style="display:none;">
-<table class="board-table">
-      <thead>
-        <tr>
-          <th style="width: 60px; text-align: center;">번호</th>
-          <th style="width: 110px; text-align: center;">분류/등급</th>
-          <th>공략 게시글 제목</th>
-          <th style="width: 90px; text-align: center;">등록일</th>
-          <th style="width: 80px; text-align: center;">조회수</th>
-          <th style="width: 70px; text-align: center;">추천</th>
-        </tr>
-      </thead>
-      <tbody id="board-tbody">
-        <!-- Dynamically rendered via JS -->
-      </tbody>
-    </table></div>
+      
   </div>
 
   <!-- Post Detail View Section -->
@@ -1008,7 +989,6 @@
       <div id="view-category-badge" style="margin-bottom: 6px;"></div>
       <h2 id="view-title" class="view-title"></h2>
       <div class="view-meta-bar">
-        <span>등록일: <strong id="view-date">2026.08.25</strong></span>
         <span>조회수: <strong id="view-views">0</strong></span>
         <span>추천: <strong id="view-likes">0</strong></span>
         <span>등급: <strong id="view-grade"></strong></span>
@@ -5403,9 +5383,7 @@ function switchViewMode(mode) {
 
 function renderBoardList() {
   const grid = document.getElementById('monster-card-grid');
-  const tbody = document.getElementById('board-tbody');
   grid.innerHTML = '';
-  tbody.innerHTML = '';
   const kwCho = getChosung(searchKeyword);
 
   const filtered = POSTS_DATA.filter(post => {
@@ -5429,7 +5407,6 @@ function renderBoardList() {
 
   if (filtered.length === 0) {
     grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">조건에 일치하는 공략글이 없습니다.</div>';
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:var(--text-muted);">조건에 일치하는 공략글이 없습니다.</td></tr>';
     return;
   }
 
@@ -5444,7 +5421,6 @@ function renderBoardList() {
     const views = getPostViews(p.id, p.views || 0);
     const likes = getPostLikes(p.id, p.likes || 0);
 
-    // 1. Render Card
     const card = document.createElement('div');
     card.className = `monster-card ${cardGradeClass}`;
     card.onclick = () => showPost(p.id);
@@ -5454,21 +5430,6 @@ function renderBoardList() {
       : `<span class="card-placeholder-icon">⚔️</span>`;
 
     const videoBadge = p.youtubeId ? `<span class="badge-video-tag" style="padding:2px 6px; font-size:11px;">🎬 실전 영상</span>` : '';
-
-    // Extract quick response summary
-    let firstRiskPattern = '';
-    if (p.phases && p.phases.length > 0) {
-      for (const ph of p.phases) {
-        for (const pat of ph.patterns) {
-          if (pat.tag === 'cancel' || pat.tagText.includes('CC') || pat.tagText.includes('회피')) {
-            firstRiskPattern = `${pat.name} (${pat.tagText.split(' ')[0]})`;
-            break;
-          }
-        }
-        if (firstRiskPattern) break;
-      }
-    }
-    if (!firstRiskPattern) firstRiskPattern = '정면 타격 패링 (자세 붕괴 유발)';
 
     card.innerHTML = `
       <div class="card-top-row">
@@ -5481,19 +5442,8 @@ function renderBoardList() {
       <div class="card-title">
         ${p.monsterName}
       </div>
-      <div class="card-desc-snippet">${p.intro}</div>
-      <div class="card-chips-box">
-        <div class="card-chip-row">
-          <span class="card-chip-label">⚔️ 약점</span>
-          <span class="card-chip-val">${p.weaponEnchant ? p.weaponEnchant.split('(')[0] : '물리 타격'}</span>
-        </div>
-        <div class="card-chip-row">
-          <span class="card-chip-label">🛡️ 대응</span>
-          <span class="card-chip-val">${firstRiskPattern}</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>${p.date || '2026.08.25'}</span>
+      <div class="card-desc-snippet">${p.intro || ''}</div>
+      <div class="card-footer" style="justify-content: flex-end;">
         <div class="card-meta-counts">
           <span>👁️ ${views}</span>
           <span>👍 ${likes}</span>
@@ -5501,25 +5451,6 @@ function renderBoardList() {
       </div>
     `;
     grid.appendChild(card);
-
-    // 2. Render Table Row (for List Mode)
-    const tr = document.createElement('tr');
-    tr.className = 'board-row';
-    tr.onclick = () => showPost(p.id);
-    tr.innerHTML = `
-      <td style="text-align: center; color: var(--text-muted);">${p.num || '-'}</td>
-      <td style="text-align: center;">${catBadge}</td>
-      <td>
-        <div class="post-title-cell">
-          <span>${p.title}</span>
-          ${p.youtubeId ? '<span class="badge-video-tag">🎬 영상</span>' : ''}
-        </div>
-      </td>
-      <td style="text-align: center; color: var(--text-muted); font-size: 13px;">${p.date || '2026.08.25'}</td>
-      <td style="text-align: center; color: var(--text-muted); font-size: 13px;">${views}</td>
-      <td style="text-align: center; font-weight: 600; color: var(--accent-gold); font-size: 13px;">👍 ${likes}</td>
-    `;
-    tbody.appendChild(tr);
   });
 }
 
@@ -5551,7 +5482,6 @@ function showPost(postId) {
   
   document.getElementById('view-category-badge').innerHTML = catBadge;
   document.getElementById('view-title').innerText = post.title;
-  document.getElementById('view-date').innerText = post.date || '2026.08.25';
   document.getElementById('view-views').innerText = getPostViews(post.id, post.views || 0).toLocaleString();
   document.getElementById('view-likes').innerText = getPostLikes(post.id, post.likes || 0).toString();
   document.getElementById('view-grade').innerText = post.grade;
