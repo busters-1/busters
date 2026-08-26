@@ -761,6 +761,7 @@
 
 
   
+  
   /* Desktop / Base Deck Pin Button */
   .btn-deck-pin {
     display: none;
@@ -797,7 +798,7 @@
   .mobile-grade-pill { display: none; }
 
   /* ═══════════════════════════════════════════════════════════════
-     📱 MOBILE ULTRA-DENSE ZERO-GUTTER RESPONSIVE ARCHITECTURE
+     📱 MOBILE ULTRA-DENSE ZERO-GUTTER RESPONSIVE ARCHITECTURE (TOP-LEFT PIN)
      ═══════════════════════════════════════════════════════════════ */
   @media (max-width: 768px) {
     body {
@@ -934,24 +935,11 @@
       border: none !important;
     }
 
-    /* Option 1: Pin Capsule Button in Header Row */
-    .pin-checkbox-desktop { display: none !important; }
-    .col-pin {
-      position: absolute !important;
-      top: 8px !important;
-      right: 8px !important;
-      width: auto !important;
-      z-index: 2 !important;
-    }
-    .btn-deck-pin {
-      display: inline-flex !important;
-      padding: 3px 9px !important;
-      font-size: 11px !important;
-      border-radius: 12px !important;
-    }
+    /* TOP-LEFT PIN INTEGRATION */
+    .table-container td.col-pin, .col-pin { display: none !important; }
+    .table-container td.col-grade, .col-grade { display: none !important; }
+    .col-name { padding-right: 0 !important; width: 100% !important; }
 
-    /* Title & Grade & Location */
-    .col-name { padding-right: 76px !important; }
     .item-title-box { display: flex !important; flex-direction: column !important; gap: 2px !important; }
     .item-name {
       font-size: 13.5px !important;
@@ -962,16 +950,28 @@
       gap: 5px !important;
       flex-wrap: wrap !important;
     }
+    .btn-deck-pin {
+      display: inline-flex !important;
+      padding: 2px 7px !important;
+      font-size: 10.5px !important;
+      border-radius: 12px !important;
+      flex-shrink: 0 !important;
+    }
     .mobile-grade-pill {
       display: inline-block !important;
       padding: 1px 6px !important;
       border-radius: 4px !important;
-      font-size: 10.5px !important;
+      font-size: 10px !important;
       font-weight: 700 !important;
       line-height: 1.4 !important;
+      flex-shrink: 0 !important;
     }
-    .table-container td.col-grade, .col-grade { display: none !important; } /* Replaced by inline pill */
-    
+    .name-text {
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+    }
+
     .item-location { font-size: 10.5px !important; color: #8b949e !important; }
     .item-tags { margin-top: 2px !important; gap: 3px !important; }
     .tag-badge { font-size: 9.5px !important; padding: 1px 4px !important; }
@@ -20188,15 +20188,19 @@ function renderTable() {
     html += `
       <tr class="${isPinned ? 'row-pinned' : ''}">
         <td class="col-pin">
-          <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" onclick="togglePin('${r.id}'); event.stopPropagation();" title="${isPinned ? '덱에서 제거' : '덱에 추가'}">
-            <span class="pin-icon">${isPinned ? '✅' : '📌'}</span>
-            <span class="pin-text">${isPinned ? '장착됨' : '덱 추가'}</span>
-          </button>
           <input type="checkbox" class="pin-checkbox-desktop" ${isPinned ? 'checked' : ''} onchange="togglePin('${r.id}')">
         </td>
         <td class="col-name">
           <div class="item-title-box">
-            <div class="item-name"><span class="mobile-grade-pill g-${r.grade || 5}">${r.grade || 5}등급 · ${r.floor || 1}층</span> <span class="name-text">${highlightText(r.name, monsterQuery)}</span>${getBossGuide(r.id, r.name) ? ` <span class="badge-video-guide" onclick="openVideoModal('${r.id || r.name}', event)" title="공략 영상 시청">🎬 공략</span>` : ''}</div>
+            <div class="item-name">
+              <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" onclick="togglePin('${r.id}'); event.stopPropagation();" title="${isPinned ? '덱에서 제거' : '덱에 추가'}">
+                <span class="pin-icon">${isPinned ? '✅' : '📌'}</span>
+                <span class="pin-text">${isPinned ? '장착됨' : '덱 추가'}</span>
+              </button>
+              <span class="mobile-grade-pill g-${r.grade || 5}">${r.grade || 5}등급 · ${r.floor || 1}층</span>
+              <span class="name-text">${highlightText(r.name, monsterQuery)}</span>
+              ${getBossGuide(r.id, r.name) ? `<span class="badge-video-guide" onclick="openVideoModal('${r.id || r.name}', event)" title="공략 영상 시청">🎬 공략</span>` : ''}
+            </div>
             ${r.acquisition ? `<div class="item-location">📍 ${r.acquisition}</div>` : ''}
             <div class="item-tags">
               ${(r.elements || []).map(e => `<span class="tag-badge elem">${e}</span>`).join('')}
