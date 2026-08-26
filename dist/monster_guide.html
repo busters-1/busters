@@ -874,21 +874,25 @@
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #1f242c;
-      color: #fff;
-      border: 1px solid var(--accent-blue);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      background: #1f6feb;
+      color: #ffffff;
       padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      z-index: 999999;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-      z-index: 9999;
-      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
     .toast.show {
       transform: translateX(-50%) translateY(0);
@@ -5525,6 +5529,13 @@ function showPost(postId) {
 
   activePostId = postId;
   incrementPostViews(postId);
+  
+  // Update URL hash seamlessly without jumping
+  if (history.pushState) {
+    history.pushState(null, null, '#' + encodeURIComponent(postId));
+  } else {
+    window.location.hash = encodeURIComponent(postId);
+  }
 
   document.getElementById('board-list-view').style.display = 'none';
   const viewElem = document.getElementById('board-post-view');
@@ -5723,18 +5734,13 @@ function toggleLikeCurrentPost() {
   }
 }
 
-function shareCurrentPost() {
+function copyCurrentPostLink() {
   if (!activePostId) return;
   const post = POSTS_DATA.find(p => p.id === activePostId);
-  const url = window.location.origin + window.location.pathname + '#' + activePostId;
+  const url = window.location.origin + window.location.pathname + '#' + encodeURIComponent(activePostId);
 
-  if (navigator.share) {
-    navigator.share({
-      title: post ? post.title : '브리미르 버스터즈 공략',
-      text: post ? `${post.monsterName} 실전 공략 가이드 (패링, CC 캔슬, 인챈트)` : '브리미르 공략',
-      url: url
-    }).catch(() => {});
-  } else if (navigator.clipboard) {
+  // 1. Always copy URL to clipboard first
+  if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(() => {
       showToast('🔗 공략글 링크가 클립보드에 복사되었습니다!');
     }).catch(() => {
@@ -5745,14 +5751,46 @@ function shareCurrentPost() {
   }
 }
 
+function shareCurrentPost() {
+  if (!activePostId) return;
+  const post = POSTS_DATA.find(p => p.id === activePostId);
+  const url = window.location.origin + window.location.pathname + '#' + encodeURIComponent(activePostId);
+
+  // If mobile Web Share is available, open share sheet
+  if (navigator.share && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    navigator.share({
+      title: post ? post.title : '브리미르 버스터즈 공략',
+      text: post ? `${post.monsterName} 실전 공략 가이드 (패링, 스킬 대응, 방어구 인챈트)` : '브리미르 공략',
+      url: url
+    }).catch(() => {
+      copyCurrentPostLink();
+    });
+  } else {
+    copyCurrentPostLink();
+  }
+}
+
 function fallbackCopy(url) {
-  const el = document.createElement('textarea');
-  el.value = url;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-  showToast('🔗 공략글 링크가 클립보드에 복사되었습니다!');
+  try {
+    const el = document.createElement('textarea');
+    el.value = url;
+    el.setAttribute('readonly', '');
+    el.style.position = 'fixed';
+    el.style.opacity = '0';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    el.setSelectionRange(0, 99999);
+    const successful = document.execCommand('copy');
+    document.body.removeChild(el);
+    if (successful) {
+      showToast('🔗 공략글 링크가 클립보드에 복사되었습니다!');
+    } else {
+      prompt('공략 링크를 복사하세요:', url);
+    }
+  } catch (err) {
+    prompt('공략 링크를 복사하세요:', url);
+  }
 }
 
 function backToList() {
