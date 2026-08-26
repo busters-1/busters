@@ -359,23 +359,31 @@
       font-size: 12px;
     }
   
+  
   /* ═══════════════════════════════════════════════════════════════
-     📱 MOBILE ULTRA-DENSE ZERO-GUTTER RESPONSIVE FOR GUIDE
+     📖 EDITORIAL MOBILE TYPOGRAPHY & LAYOUT (ENHANCED READABILITY)
      ═══════════════════════════════════════════════════════════════ */
   @media (max-width: 768px) {
     body {
-      padding: 4px 4px 40px 4px !important;
-      font-size: 12.5px !important;
+      padding: 12px 14px 60px 14px !important;
+      font-size: 13.5px !important;
+      line-height: 1.65 !important;
     }
 
+    /* Header Compact & Clean */
     .header-container {
-      padding: 6px 8px !important;
-      margin-bottom: 8px !important;
-      gap: 4px !important;
-      border-radius: 6px !important;
+      padding: 10px 12px !important;
+      margin-bottom: 14px !important;
+      border-radius: 8px !important;
+      gap: 8px !important;
     }
-    .header-title h1 { font-size: 14.5px !important; gap: 4px !important; }
-    .header-title p { display: none !important; }
+    .header-title h1 {
+      font-size: 16px !important;
+      gap: 6px !important;
+    }
+    .header-title p {
+      display: none !important;
+    }
 
     .nav-tabs {
       width: 100% !important;
@@ -389,78 +397,154 @@
     }
     .nav-tabs::-webkit-scrollbar { display: none; }
     .nav-tab {
-      padding: 4px 8px !important;
-      font-size: 11px !important;
+      padding: 5px 10px !important;
+      font-size: 11.5px !important;
       flex-shrink: 0 !important;
       border-radius: 4px !important;
     }
     .nav-divider { display: none !important; }
 
+    /* Single-Column Editorial Layout */
     .guide-layout {
       grid-template-columns: 1fr !important;
-      gap: 10px !important;
+      gap: 16px !important;
     }
 
+    /* Jump TOC Capsule Chips */
     .guide-sidebar {
-      padding: 10px !important;
+      padding: 10px 12px !important;
       position: static !important;
-      border-radius: 6px !important;
+      border-radius: 8px !important;
+      background: #161b22 !important;
+      border: 1px solid #30363d !important;
     }
     .guide-sidebar h3 {
       font-size: 13px !important;
-      margin-bottom: 6px !important;
-      padding-bottom: 4px !important;
+      margin-bottom: 8px !important;
+      padding-bottom: 6px !important;
+      color: var(--text-bright) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
     }
     .toc-list {
       display: flex !important;
-      flex-direction: row !important;
-      overflow-x: auto !important;
-      white-space: nowrap !important;
-      gap: 4px !important;
-      padding-bottom: 4px !important;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
     }
-    .toc-list::-webkit-scrollbar { display: none; }
+    .toc-item {
+      display: inline-block !important;
+    }
     .toc-item a {
-      font-size: 11.5px !important;
-      padding: 4px 8px !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      padding: 5px 10px !important;
       background: #21262d !important;
-      border-radius: 4px !important;
+      border: 1px solid #30363d !important;
+      border-radius: 16px !important;
+      color: #c9d1d9 !important;
+      transition: all 0.15s ease !important;
     }
-    .toc-sublist { display: none !important; } /* Simplify TOC on mobile */
+    .toc-item a:hover, .toc-item a:active {
+      background: #30363d !important;
+      border-color: #58a6ff !important;
+      color: #ffffff !important;
+    }
+    .toc-sublist { display: none !important; }
 
-    .guide-content { gap: 10px !important; }
+    /* Content Cards (Demolish Nested Prison) */
+    .guide-content {
+      gap: 20px !important;
+    }
     .guide-section {
-      padding: 12px 10px !important;
-      border-radius: 6px !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      margin-bottom: 20px !important;
     }
     .section-header {
-      gap: 6px !important;
-      margin-bottom: 10px !important;
-      padding-bottom: 6px !important;
+      gap: 8px !important;
+      margin-bottom: 12px !important;
+      padding-bottom: 8px !important;
+      border-bottom: 2px solid #30363d !important;
     }
-    .section-header h2 { font-size: 15px !important; }
-    .section-badge { font-size: 10px !important; padding: 1px 5px !important; }
+    .section-header h2 {
+      font-size: 16.5px !important;
+      font-weight: 700 !important;
+    }
+    .section-badge {
+      font-size: 10.5px !important;
+      padding: 2px 6px !important;
+    }
 
     .feature-card {
-      padding: 10px 10px !important;
-      margin-bottom: 8px !important;
-      border-radius: 6px !important;
+      background: #161b22 !important;
+      border: 1px solid #30363d !important;
+      border-radius: 8px !important;
+      padding: 12px 14px !important;
+      margin-bottom: 12px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
     }
-    .feature-card h3 { font-size: 13.5px !important; margin-bottom: 6px !important; }
-    .feature-card p { font-size: 12px !important; line-height: 1.45 !important; }
+    .feature-card h3 {
+      font-size: 14.5px !important;
+      font-weight: 700 !important;
+      color: var(--accent-gold) !important;
+      margin-bottom: 8px !important;
+      line-height: 1.4 !important;
+    }
+    .feature-card p {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+      color: #c9d1d9 !important;
+      margin-bottom: 10px !important;
+    }
 
-    /* Tables & Grids */
-    .feature-grid, .tips-grid {
-      grid-template-columns: 1fr !important;
+    /* Steps Layout */
+    .step-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      margin-top: 8px !important;
+    }
+    .step-item {
+      display: flex !important;
+      gap: 10px !important;
+      align-items: flex-start !important;
+      background: rgba(255,255,255,0.025) !important;
+      padding: 8px 10px !important;
+      border-radius: 6px !important;
+      border: 1px solid rgba(255,255,255,0.05) !important;
+    }
+    .step-num {
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 50% !important;
+      background: #1f6feb !important;
+      color: #ffffff !important;
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      margin-top: 1px !important;
+    }
+    .step-text {
+      font-size: 12.5px !important;
+      line-height: 1.55 !important;
+    }
+
+    /* Alert / Tip Boxes */
+    .alert-box {
+      border-radius: 6px !important;
+      padding: 10px 12px !important;
+      font-size: 12.5px !important;
+      line-height: 1.55 !important;
+      margin-top: 10px !important;
       gap: 8px !important;
     }
-    .guide-table {
+    kbd {
+      padding: 1px 5px !important;
       font-size: 11px !important;
     }
-    .guide-table th, .guide-table td {
-      padding: 5px 6px !important;
+    .badge-demo {
+      font-size: 10.5px !important;
+      padding: 2px 6px !important;
     }
   }
 
