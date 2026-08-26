@@ -358,7 +358,113 @@
       color: var(--text-muted);
       font-size: 12px;
     }
-  </style>
+  
+  /* ═══════════════════════════════════════════════════════════════
+     📱 MOBILE ULTRA-DENSE ZERO-GUTTER RESPONSIVE FOR GUIDE
+     ═══════════════════════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    body {
+      padding: 4px 4px 40px 4px !important;
+      font-size: 12.5px !important;
+    }
+
+    .header-container {
+      padding: 6px 8px !important;
+      margin-bottom: 8px !important;
+      gap: 4px !important;
+      border-radius: 6px !important;
+    }
+    .header-title h1 { font-size: 14.5px !important; gap: 4px !important; }
+    .header-title p { display: none !important; }
+
+    .nav-tabs {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tab {
+      padding: 4px 8px !important;
+      font-size: 11px !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+    }
+    .nav-divider { display: none !important; }
+
+    .guide-layout {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    .guide-sidebar {
+      padding: 10px !important;
+      position: static !important;
+      border-radius: 6px !important;
+    }
+    .guide-sidebar h3 {
+      font-size: 13px !important;
+      margin-bottom: 6px !important;
+      padding-bottom: 4px !important;
+    }
+    .toc-list {
+      display: flex !important;
+      flex-direction: row !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 4px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .toc-list::-webkit-scrollbar { display: none; }
+    .toc-item a {
+      font-size: 11.5px !important;
+      padding: 4px 8px !important;
+      background: #21262d !important;
+      border-radius: 4px !important;
+    }
+    .toc-sublist { display: none !important; } /* Simplify TOC on mobile */
+
+    .guide-content { gap: 10px !important; }
+    .guide-section {
+      padding: 12px 10px !important;
+      border-radius: 6px !important;
+    }
+    .section-header {
+      gap: 6px !important;
+      margin-bottom: 10px !important;
+      padding-bottom: 6px !important;
+    }
+    .section-header h2 { font-size: 15px !important; }
+    .section-badge { font-size: 10px !important; padding: 1px 5px !important; }
+
+    .feature-card {
+      padding: 10px 10px !important;
+      margin-bottom: 8px !important;
+      border-radius: 6px !important;
+    }
+    .feature-card h3 { font-size: 13.5px !important; margin-bottom: 6px !important; }
+    .feature-card p { font-size: 12px !important; line-height: 1.45 !important; }
+
+    /* Tables & Grids */
+    .feature-grid, .tips-grid {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+    .guide-table {
+      font-size: 11px !important;
+    }
+    .guide-table th, .guide-table td {
+      padding: 5px 6px !important;
+    }
+  }
+
+</style>
   <meta name="google-site-verification" content="y2N4xB7RLz6-X3AV3GDWeCrG1f50ip0C1kZVhd6aJIQ" />
   <!-- Vercel Web Analytics & Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
