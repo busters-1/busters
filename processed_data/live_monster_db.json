@@ -227,7 +227,7 @@
     "date": "2026.08.25",
     "views": 0,
     "likes": 0,
-    "image": "./assets/monsters/abyssal_end_knight.png"
+    "image": "./assets/monsters/chaos_guardian.png"
   },
   {
     "id": "belarios",
@@ -738,7 +738,7 @@
     "youtubeId": "EMb-3bGDkO0",
     "views": 0,
     "likes": 0,
-    "image": "./assets/monsters/fallen_swordsaint.png"
+    "image": "./assets/monsters/frost_lord.png"
   },
   {
     "id": "frost_guardian",
@@ -4281,6 +4281,6 @@
     "date": "2026-08-26",
     "views": 320,
     "likes": 24,
-    "image": "assets/sprites/monsters/grave_keeper_aleton.png"
+    "image": "./assets/monsters/grave_keeper_aleton.png"
   }
 ]
