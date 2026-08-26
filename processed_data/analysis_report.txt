@@ -1,0 +1,75 @@
+==================================================
+  [브리미르: 심장으로의 순례] 실사용 데이터 정밀 분석 보고서  
+==================================================
+
+1. 층(거인 신체 부위) 및 타임리밋 시스템
+  - 타임리밋 설명: 각 층 독립 타이머. 입장 시 시작, 만료 시 강제귀환 또는 포탈 비석 폐쇄
+  - 캠프 시 시간 감속율: 0.5x
+  - 패널티: 컨디션 손실 60 / 귀환 town
+  - 총 구현 층수: 11개 층
+    * [None층] 1층 — 여명의 석화지대 (1층 — 여명의 석화지대) - 보스: vampire_guardian
+    * [None층] 2층 — 사방의 황야 (2층 — 사방의 황야) - 보스: 없음
+    * [None층] 3층 — 얽힌 길 (3층 — 얽힌 길) - 보스: 없음
+    * [None층] 4층 — 하늘 첨탑 (4층 — 하늘 첨탑) - 보스: sky_guardian
+    * [None층] 5층 — 분열의 협곡 (5층 — 분열의 협곡) - 보스: chaos_guardian
+    * [None층] 6층 — 비취의 바다 (6층 — 비취의 바다) - 보스: 없음
+    * [None층] 7층 — 서리의 황야 (7층 — 서리의 황야) - 보스: 없음
+    * [None층] 7층 — 한기의 동굴 (7층 — 한기의 동굴) - 보스: 없음
+    * [None층] 7층 — 영겁의 빙하 (7층 — 영겁의 빙하) - 보스: 없음
+    * [None층] 7층 — 통곡의 나락 (7층 — 통곡의 나락) - 보스: 없음
+    * [None층] 7층 — 어둠의 대지 (7층 — 어둠의 대지) - 보스: 없음
+
+2. 에센스(룬) 분석 (총 380종)
+  - 색상별 분포: {'red': 39, 'orange': 21, 'yellow': 35, 'green': 41, 'blue': 27, 'purple': 42, 'rainbow': 24, 'green/purple': 3, 'cyan/blue': 1, 'blue/purple': 6, 'yellow/purple': 1, 'cyan': 6, 'red/orange': 5, 'red/orange/yellow': 2, 'blue/cyan/red': 3, 'purple/blue/red': 3, 'red/purple': 3, 'yellow/cyan/silver': 1, 'purple/red': 10, 'red/yellow': 3, 'red/blue': 3, 'yellow/red': 1, 'green/cyan': 1, 'blue/cyan': 5, 'blue/red': 2, 'red/green': 1, 'yellow/cyan': 1, 'red/cyan/brown/yellow': 1, 'red/brown': 1, 'red/brass': 1, 'brown': 2, 'blue/purple/cyan/white': 1, 'purple/gold/cyan/red': 1, 'red/orange/blue': 2, 'silver': 1, 'white': 2, 'white/cyan': 1, 'white/blue': 1, 'orange/cyan': 1, 'white/silver': 1, 'green/white': 1, 'green/brown/yellow': 1, 'red/purple/blue': 1, 'cyan/purple/white': 1, 'blue/cyan/white': 1, 'blue/white': 2, 'purple/blue': 3, 'blue/cyan/purple/red': 1, 'red/brown/purple': 1, 'blue/cyan/white/red': 1, 'yellow/orange/gold': 1, 'purple/red/blue': 4, 'yellow/blue/cyan/green/red': 1, 'brown/orange/red': 2, 'yellow/white/purple': 1, 'green/purple/red': 3, 'orange/brown/red': 2, 'purple/yellow': 1, 'green/brown': 2, 'yellow/white': 1, 'green/red': 1, 'yellow/white/blue': 1, 'white/brown/red': 1, 'cyan/brown': 1, 'cyan/white/red': 1, 'cyan/green': 1, 'purple/brown/red': 2, 'purple/orange/brown': 1, 'orange/red': 3, 'blue/purple/green': 1, 'blue/green/red': 3, 'red/purple/orange': 2, 'blue/purple/yellow': 2, 'orange/red/yellow': 1, 'green/blue/purple': 1, 'purple/blue/green': 2, 'purple/green/red': 1, 'orange/blue/red': 1, 'orange/blue/purple': 1, 'red/blue/green': 2, 'blue/red/purple': 1, 'blue/yellow/red': 1, 'purple/blue/yellow': 1, 'purple/red/green': 1, 'yellow/green': 1, 'yellow/orange': 1, 'green/yellow/purple': 1, 'yellow/brown': 1, 'orange/purple': 1, 'purple/green': 1, 'blue/cyan/purple': 1, 'blue/orange': 1, 'blue/yellow': 2}
+  - 등급별 분포: {'9': 23, '8': 62, '7': 61, '5': 104, '6': 61, '4': 40, '1': 3, '2': 1, '3': 25}
+  - 샘플 에센스:
+    * [고블린] 등급:9 | 층:1 | 스탯:{'endurance': 12, 'stamina_max': 12, 'strength': 12, 'bone_density': 12} | 사용법:첫 룬, CC 입문
+    * [고블린 궁수] 등급:9 | 층:1 | 스탯:{'dexterity': 25, 'perception': 16, 'flexibility': 5} | 사용법:원거리/유틸
+    * [슬라임] 등급:9 | 층:1 | 스탯:{'endurance': 12, 'bone_density': 9, 'stamina_max': 9, 'regeneration': 7, 'adaptability': 5, 'restoration': 7} | 사용법:순수 스탯 (인내+15)
+    * [스톤골렘] 등급:8 | 층:2 | 스탯:{'endurance': 22, 'bone_density': 22, 'physical_resist': 15} | 사용법:방어/CC
+    * [오크 주술사] 등급:8 | 층:2 | 스탯:{'magic_resist': 30, 'spirit_power': 8, 'spirit_energy': 3} | 사용법:방어 버프
+
+3. 스킬 시스템 (총 521개 액티브 스킬)
+  - 주요 아키타입: ['bolt', 'burst', 'lance', 'breath', 'chain', 'rain', 'dash', 'strike', 'self_buff', 'ally_buff_aoe', 'self_heal', 'single_cc', 'aoe_debuff', 'dot_field', 'dot_aura', 'teleport_strike', 'on_hit_buff']
+  - 공격 형태(Shapes): ['single', 'circle', 'line', 'cone', 'chain', 'drop', 'dash']
+  - 샘플 스킬:
+
+4. 몬스터 & 보스(수호자) 분석
+  - 일반 몬스터: 407종
+  - 보스(수호자): 38종
+  - 역할군(Roles): ['_doc', 'normal', 'tank', 'shield', 'brawler', 'berserker', 'archer', 'glass', 'evade', 'mage', 'spellbrute', 'warder', 'spellguard', '_boss_mult_doc']
+  - 대표 수호자(보스):
+    * [원한의 군주] HP:25000 | 공격력:None | 역할:brawler
+    * [황금의 나자로스] HP:None | 공격력:None | 역할:brawler
+    * [스베인] HP:120000 | 공격력:None | 역할:mage
+    * [작염의 도살자] HP:64000 | 공격력:None | 역할:brawler
+    * [바르케모스] HP:28000 | 공격력:None | 역할:mage
+
+5. 장비 & 내구도 메커니즘
+  - 최대 내구도: 100
+  - 전투당 무기 소모 내구도: 2
+  - 피격당 방어구 소모 내구도: 1
+  - 내구도 0일 때: 효과 50% 감소 (파괴는 안 됨)
+  - 거대화(Gigantification) 내구도 배율: 2x
+
+6. 불멸의 전설 동료 (총 13명)
+  - [라그나르] 주스탯:strength | HP:100 | 공속:1.5 | 위치:front
+  - [알바] 주스탯:dexterity | HP:140 | 공속:1.5 | 위치:back
+  - [스카디] 주스탯:strength | HP:100 | 공속:1.2 | 위치:front
+  - [라게르타] 주스탯:strength | HP:130 | 공속:1.3 | 위치:front
+  - [레나] 주스탯:spirit_power | HP:95 | 공속:1.8 | 위치:back
+  - [핀] 주스탯:perception | HP:100 | 공속:1.0 | 위치:back
+  - [펜리] 주스탯:dexterity | HP:130 | 공속:1.6 | 위치:mid
+  - [가른] 주스탯:strength | HP:3500 | 공속:1.4 | 위치:front
+  - [브린] 주스탯:dexterity | HP:140 | 공속:1.25 | 위치:front
+  - [드라우근] 주스탯:strength | HP:75 | 공속:1.3 | 위치:front
+  - [코르빈] 주스탯:spirit_power | HP:95 | 공속:1.7 | 위치:back
+  - [발두르] 주스탯:strength | HP:150 | 공속:1.2 | 위치:front
+  - [에이르] 주스탯:spirit_power | HP:95 | 공속:1.3 | 위치:back
+
+7. 제물 레시피 (총 26종)
+  - [상흔 개방 의식 — 적막의 무덤 매개] 필요조건:[{'monster_id': 'goblin', 'amount': 1}, {'monster_id': 'blade_wolf', 'amount': 1}, {'monster_id': 'kobold_shield', 'amount': 1}, {'monster_id': 'skeleton', 'amount': 1}, {'any_of_monsters': ['skeleton_warrior', 'banshee', 'deathpind'], 'amount': 1, 'label': '적막의 무덤 8등급 혼석'}] -> 효과:{'type': 'open_crack', 'crack_id': 'blood_citadel', 'floor': 1}
+  - [상흔 개방 의식 — 야수의 둥지 매개] 필요조건:[{'monster_id': 'goblin', 'amount': 1}, {'monster_id': 'blade_wolf', 'amount': 1}, {'monster_id': 'kobold_shield', 'amount': 1}, {'monster_id': 'skeleton', 'amount': 1}, {'any_of_monsters': ['frost_wolf', 'saber_tiger', 'werewolf', 'giant_blade_wolf', 'bulkar', 'wall_mole'], 'amount': 1, 'label': '야수의 둥지 8등급 혼석'}] -> 효과:{'type': 'open_crack', 'crack_id': 'glacier_cave', 'floor': 1}
+  - [상흔 개방 의식 — 속삭임의 숲 매개] 필요조건:[{'monster_id': 'goblin', 'amount': 1}, {'monster_id': 'blade_wolf', 'amount': 1}, {'monster_id': 'kobold_shield', 'amount': 1}, {'monster_id': 'skeleton', 'amount': 1}, {'any_of_monsters': ['hobgoblin'], 'amount': 1, 'label': '속삭임의 숲 8등급 혼석'}] -> 효과:{'type': 'open_crack', 'crack_id': 'green_mine', 'floor': 1}
+  - [상흔 개방 의식 — 황혼의 사막 매개] 필요조건:[{'monster_id': 'goblin', 'amount': 1}, {'monster_id': 'blade_wolf', 'amount': 1}, {'monster_id': 'kobold_shield', 'amount': 1}, {'monster_id': 'skeleton', 'amount': 1}, {'any_of_monsters': ['corrupted_noum', 'boulder_soldier', 'sandman', 'stone_golem', 'sandworm', 'kobold_gunner', 'kobold_demolisher'], 'amount': 1, 'label': '황혼의 사막 8등급 혼석'}] -> 효과:{'type': 'open_crack', 'crack_id': 'steel_tomb', 'floor': 1}
+  - [상흔 개방 의식 — 속삭임의 숲] 필요조건:[{'any_of_monsters': ['goblin', 'goblin_archer', 'goblin_swordsman'], 'amount': 4, 'label': '속삭임의 숲 혼석'}, {'any_of_monsters': ['lizardman'], 'amount': 1, 'label': '리자드맨 혼석 (매개)'}] -> 효과:{'type': 'open_crack', 'crack_id': 'hobgoblin_fortress', 'floor': 21}

@@ -1,0 +1,2529 @@
+{
+  "total_monsters": 407,
+  "total_bosses": 38,
+  "roles": [
+    "_doc",
+    "normal",
+    "tank",
+    "shield",
+    "brawler",
+    "berserker",
+    "archer",
+    "glass",
+    "evade",
+    "mage",
+    "spellbrute",
+    "warder",
+    "spellguard",
+    "_boss_mult_doc"
+  ],
+  "floor_modifiers": {
+    "_doc": "층별 베이스라인 배수. 5층 1.0 기준. 6층 이후는 협곡 위 인플레.",
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.4,
+    "7": 2.0,
+    "8": 2.8,
+    "9": 4.0
+  },
+  "bosses": [
+    {
+      "id": "death_lord",
+      "name": "원한의 군주",
+      "grade": 5,
+      "floor": 5,
+      "field": "wraith_canyon",
+      "location": "이면세계 — 망자의 제단 (봉헌 소환)",
+      "is_boss": true,
+      "pattern": "phase_through",
+      "merit_exp": 5,
+      "gold_drop": [
+        4000,
+        7000
+      ],
+      "essence_drop_chance": 0.1,
+      "stone_drop": 3,
+      "aggressive": true,
+      "elemental_resist": {
+        "dark": 0.5,
+        "holy": -0.4,
+        "physical": 0.3
+      },
+      "damage_type": "physical",
+      "attack_element": "dark",
+      "ethereal": true,
+      "role": "brawler",
+      "stats": {
+        "bone_density": 340,
+        "physical_resist": 195,
+        "endurance": 270
+      },
+      "skills": [
+        "salvation_mist",
+        "ephemeral_immortality"
+      ],
+      "passives": [
+        "ephemeral"
+      ],
+      "boss_mult": 2.5,
+      "hp": 25000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "shadow_claw",
+            "cursed_slash",
+            "curse_wave",
+            "shadow_blink"
+          ],
+          "description": "[위상의 군주] 어둠 발톱·저주파 + 영체화 순간이동 강타. 정공법 — 위상 학습 구간.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "despair_rain",
+            "dark_frenzy",
+            "one_cut_slash",
+            "shadow_blink",
+            "self_heal",
+            "execution_countdown"
+          ],
+          "description": "[잿불의 유예] 절망의 비·광폭 일도양단 + 순간이동 추격 + 자가 회복. '처형' 캐스팅은 CC로 끊어 빈틈을 노려라.",
+          "parry_window": 0.13
+        }
+      ],
+      "knightly_charges": 1,
+      "knightly_heal_pct": 0.4,
+      "knightly_damage_taken_per_charge": 0.3,
+      "revival_log_prefix": "[원한의 군주]",
+      "revival_log_text": "잿불의 유예 — 군주가 다시 일어선다"
+    },
+    {
+      "id": "kalpion",
+      "name": "황금의 나자로스",
+      "alias": "탐욕의 보고의 수호자",
+      "entry_line": "반짝이는 것에 손을 댄 값을 치러라.",
+      "grade": 4,
+      "floor": 4,
+      "field": "golden_ruins",
+      "location": "상흔 — 황금 유적",
+      "pattern": "melee",
+      "role": "brawler",
+      "damage_type": "physical",
+      "attack_element": "poison",
+      "sprite_base": "guano_sea_serpent",
+      "sprite_tint": [
+        1.0,
+        0.84,
+        0.2
+      ],
+      "boss_mult": 3.2,
+      "skills": [],
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "basic",
+            "rush",
+            "gilded_corrosion",
+            "gilded_paralysis"
+          ],
+          "description": "Phase 1 [황금 부식] — 근접 부식 강타(황금 부식) + 원거리 마비독침(황금 마비침) + 돌진. 독을 쌓으며 압박.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "basic",
+            "rush",
+            "gilded_paralysis",
+            "gilded_plague",
+            "gilded_miasma"
+          ],
+          "description": "Phase 2 [황금 역병] — 마비독침 + 독비 강하(황금 역병) + 황금 독무 장판. 독 지대가 물러설 곳을 좁히고, 머물면 독이 깊어진다.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "basic",
+            "dark_frenzy",
+            "gilded_corrosion",
+            "gilded_paralysis",
+            "gilded_plague",
+            "gilded_miasma"
+          ],
+          "description": "Phase 3 [탐욕의 종말] — 광폭화(공속↑) + 부식·마비·역병 삼중 난사 + 독무 지대 확산. 깊어진 독이 맹독 노출로 전신을 태운다.",
+          "parry_window": 0.15
+        }
+      ],
+      "essence_drop_id": "kalpion",
+      "essence_drop_chance": 0.2,
+      "merit_exp": 8,
+      "gold_drop": 120000,
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "_note": "황금 유적(4층 탑 계단 상흔) 수호자. 창작 몹 — 황금독니 뱀형(sprite_base=guano_sea_serpent g4). 명시 stats 없이 grade4×brawler×floor4×boss_mult3.2 베이스라인 → 진입 시점 탐욕 M(런타임, battle_manager._apply_greed_scaling)으로 hp+공격스탯 추가 ×M(천장 2.5). '골드 파밍 상흔' 포지션이라 메카닉 벽 아님. 물면 골드흡수 패시브는 v2. merit_exp8(창작, doppelganger9 하회)."
+    },
+    {
+      "id": "dragon_slayer",
+      "name": "스베인",
+      "entry_line": "용도 벤 칼이다. 네깟 게 몇 합이나 버틸까.",
+      "grade": 3,
+      "location": "이벤트 — 스베인의 매복",
+      "pattern": "rush",
+      "role": "mage",
+      "damage_type": "magic",
+      "attack_element": "holy",
+      "elemental_resist": {
+        "holy": 0.5,
+        "dark": 0.4,
+        "physical": 0.25,
+        "cold": -0.2
+      },
+      "hp": 120000,
+      "aggressive": true,
+      "survival_event": true,
+      "survival_time": 60.0,
+      "survival_hp_retreat": 0.4,
+      "skills": [
+        "divine_blade",
+        "draconic_spirit_silence",
+        "fear_brand",
+        "greater_acceleration",
+        "dark_veil",
+        "lava_furnace"
+      ],
+      "sprite_scale": 1.4,
+      "_note": "스베인. 순례자급 — 처치 불가 매복 생존전(survival_event). 라르카즈(4층) 클라이맥스 빌런으로 등장(아르고스 처치 후 난입). 정체성=고속 홀리 검사(원작 ep139~412): 신성한 칼날(holy 강타)+상급 가속(공속·이속 +40%)+용언:영혼의 침묵(광역 침묵+영혼력 소각)+공포각인(공포 CC)+암흑장막(피해흡수 40%/5s), 용광로는 화염 액센트 1개(용암거인 룬). damage_type=magic+role=mage라 SP 스케일 + 항마력 단일감산 루트(물리 def 우회) — 물리 옛스케일(str470) 약체 fix. hp=120000 override 유지, stats 블록 제거(g3 baseline 적용). 상급가속(speed_buff)/암흑장막(damage_absorb 메타) 작동 위해 enemy_ai buff 핸들러 meta·speed 분기 + get_speed_mult(이동/공격타이머) + damage_absorb(take_damage·_build_damage_opts) 확장 완료 — 이후 모든 보스 공용. 잔상(회피)은 손맛 이슈로 제외. 휴머노이드라 character-as-enemy 스프라이트(doom_warrior 홀리틴트, 추후 교체)."
+    },
+    {
+      "id": "rakzar",
+      "name": "작염의 도살자",
+      "alias": "변이종 미노타우로스",
+      "entry_line": "이 신해의 살점은 전부 내 것이다.",
+      "grade": 5,
+      "floor": 4,
+      "field": "larcaz_labyrinth",
+      "location": "히든 필드 — 균형의 성역",
+      "guaranteed_drop": "ascetic_wish",
+      "guaranteed_drop_chance": 1.0,
+      "pattern": "berserk",
+      "role": "brawler",
+      "damage_type": "physical",
+      "attack_element": "fire",
+      "elemental_resist": {
+        "fire": 0.7,
+        "earth": 0.3,
+        "cold": -0.4,
+        "holy": -0.3
+      },
+      "hp": 64000,
+      "boss_mult": 3.0,
+      "passives": [
+        "flame_skin"
+      ],
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "gore_charge",
+            "horn_gore",
+            "flame_wave"
+          ],
+          "description": "Phase 1 [불타는 가죽] — 이프리트의 불길을 두른 거구. 뿔 들이받기 돌진 + 뿔 연타 + 지옥불 파동(마법 견제+경직). 피격 시 화염 반사.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "gore_charge",
+            "bull_trample",
+            "flame_smash_aoe",
+            "flame_burst"
+          ],
+          "description": "Phase 2 [작열] — 광역 짓밟기 + 뿔 돌진 + 지옥불 광역(마법 광역딜) + 지옥불 작렬(마법 단일 폭발+스턴). 쇠창살 우리 안 근접전 강요.",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.25,
+          "patterns": [
+            "gore_charge",
+            "flame_smash_aoe",
+            "flame_burst",
+            "berserk_stance"
+          ],
+          "description": "Phase 3 [최후의 광란] — 쇠창살 우리 좁혀짐. 지옥불 광역 + 지옥불 작렬 연타 + 광분 가속.",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 45000,
+      "special_drop": "금단의 소원 (확정)",
+      "aggressive": true,
+      "is_field_boss": true,
+      "is_boss": true,
+      "is_layer_lord": false,
+      "_note": "잊혀진 미로 최종보스(grade 5=4.5티어, boss_mult 3.0 → flame_burst 실딜 ≈히마르 1.44×. 히든필드 최고보상). 미노타우로스 상위변이종 [불타는 가죽](flame_skin 반사). 근접 육탄 버서커 결, 3페이즈(25%서 최후광란). 명시 stats 블록 제거(str880 공격캡 버그 — ⚠explicit stats 재추가 금지) → g5 baseline×brawler×boss_mult3.0 auto. armor_break≈98(방어관통). 딜채널: 뿔 물리(gore/horn/trample, armor_break로 방어탱 관통) + 이프리트 화염 마법(flame_wave/smash/burst, magic 단일감산 관통). ⚠불의보주 등 fire저항 상대론 화염 감산되지만 물리 뿔이 관통 채널. 밸런스 검증=/autotest N rank grade=5. 2026-07-03 g4(5.5×himar 과대)→g5+bm3.0(1.44×)로 조정. [불타는 가죽]=이프리트 essence 액티브(essences_wiki) → flame_skin 패시브로 캐논 연결. 키트=미노타우로스 육탄(전용 신설 패턴 gore_charge 뿔돌진/horn_gore 뿔연타/bull_trample 짓밟기 — CC·압박) + 이프리트 화염 마법(flame_wave 1.6 파동+경직/flame_smash_aoe 1.5 광역딜/flame_burst 2.5 단일작렬+스턴, damage_type=magic 단일감산 관통 — larcaz surge 탱키 파티에 물리 2중감산 200딜 회피, 실딜은 화염이 담당) + 광란(berserk_stance). generic 오크 패턴(rush/stomp/war_cry) 전량 제거. balkaros(풀 지옥불 caster·소환·과열폭주)와 차별 = 육탄 브루저. grade4+boss_tier라 주기재생. HP override 64000. 플레이스홀더 스프라이트=minotauros 화염 틴트. 2026-07-14 수호자 아님 재분류: is_guardian→is_field_boss(히든필드 클리어 트리거)+is_boss(보스 타겟배율). 보상=금단의소원(guaranteed_drop) 단독, 신물풀/수호자정수 없음(=수호자 시늉 잔재 essence_drop_id/chance 제거). 클리어 트리거는 game_manager 상흔출구 판정에서 is_guardian OR is_field_boss로 인정."
+    },
+    {
+      "id": "baphomet",
+      "name": "바르케모스",
+      "alias": "신해의 악마가 부리는 마수",
+      "grade": 5,
+      "floor": 4,
+      "field": "larcaz_labyrinth",
+      "location": "히든 필드 — 균형의 성역 (신해의 악마 석실)",
+      "pattern": "ranged",
+      "role": "mage",
+      "damage_type": "magic",
+      "attack_element": "dark",
+      "elemental_resist": {
+        "dark": 0.5,
+        "fire": 0.4,
+        "holy": -0.4
+      },
+      "hp": 28000,
+      "boss_mult": 3.2,
+      "passives": [
+        "soul_blight"
+      ],
+      "skills": [
+        "dark_burst",
+        "curse_net",
+        "ifrit_blaze"
+      ],
+      "merit_exp": 6,
+      "gold_drop": 30000,
+      "special_drop": "혼석 다량",
+      "aggressive": true,
+      "is_guardian": false,
+      "is_layer_lord": false,
+      "is_mid_boss": true,
+      "_note": "잊혀진 미로 중간보스 1/4 (바포메트). 염소머리 오컬트 악마 — 신해의 악마 석실에서 피 감지로 소환(ep135). 암흑·화염 캐스터 + curse_net 속박. soul_blight 저주로 방깎. 상위변이종(빌린 스킬). 플레이스홀더 스프라이트=hellfire_caster 암흑틴트. 드롭=보스방 접근 보상(마석/골드). 석실 배치·드롭 배선은 후속 패스."
+    },
+    {
+      "id": "argos",
+      "name": "백안의 감시자",
+      "alias": "백 개의 눈을 지닌 거인",
+      "grade": 5,
+      "floor": 4,
+      "field": "larcaz_labyrinth",
+      "location": "히든 필드 — 균형의 성역 (신해의 악마 석실)",
+      "pattern": "ranged",
+      "role": "mage",
+      "damage_type": "magic",
+      "attack_element": "dark",
+      "elemental_resist": {
+        "holy": -0.2,
+        "cold": -0.2
+      },
+      "hp": 30000,
+      "boss_mult": 3.2,
+      "passives": [
+        "petrify_gaze"
+      ],
+      "skills": [
+        "shadow_bolt",
+        "curse_burst"
+      ],
+      "merit_exp": 6,
+      "gold_drop": 30000,
+      "aggressive": true,
+      "is_guardian": false,
+      "is_layer_lord": false,
+      "is_mid_boss": true,
+      "_note": "잊혀진 미로 중간보스 2/4 (아르고스). 백개눈 거인 — petrify_gaze 응시 경직(축을 바포메트 방깎과 분리). 금단의소원(ascetic_wish)은 최종보스 rakzar로 이전(풀클리어 보상=반복파밍 자연제한, 원작 ep138 중간보스 드롭에서 변경). 상위변이종. 플레이스홀더 스프라이트=obsidian_golem 창백틴트."
+    },
+    {
+      "id": "oracle_marksman",
+      "name": "신탁 사수",
+      "alias": "하늘 신탁소의 수호자",
+      "entry_line": "신탁은 이미 너의 최후를 읽었다.",
+      "grade": 5,
+      "floor": 4,
+      "field": "sky_oracle",
+      "essence_drop_id": "oracle_marksman",
+      "location": "상흔 — 하늘 신탁소",
+      "pattern": "ranged",
+      "role": "mage",
+      "damage_type": "magic",
+      "attack_element": "lightning",
+      "elemental_resist": {
+        "lightning": 0.5,
+        "wind": 0.2,
+        "earth": -0.4
+      },
+      "hp": 22000,
+      "boss_mult": 2.8,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "oracle_shot",
+            "thunder_volley",
+            "piercing_arrow",
+            "precise_aim",
+            "holy_burst"
+          ],
+          "description": "Phase 1 [정조준] — 거리 유지 + 단발 폭딜 + 자가 정조준 버프. 근접 시 holy_burst로 차단.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.66,
+          "patterns": [
+            "rapid_volley",
+            "arrow_storm",
+            "summon_doves",
+            "paralysis_arrow",
+            "thunder_volley"
+          ],
+          "description": "Phase 2 [예언의 시야] — 속사 + 광역 화살비 + 천공 정령 소환 + 마비 화살. 회피 어려움.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.33,
+          "patterns": [
+            "lullaby_arrow",
+            "homing_arrow",
+            "divine_barrier",
+            "arrow_storm",
+            "oracle_shot",
+            "storm_summon",
+            "oracle_frenzy"
+          ],
+          "description": "Phase 3 [신탁자의 진노] — 수면 + 추적 + 보호막 + 광역 + 폭풍 호령(정령 3) + 광폭화(공속 ×2, 8초).",
+          "parry_window": 0.15
+        }
+      ],
+      "knightly_charges": 2,
+      "knightly_heal_pct": 0.3,
+      "knightly_damage_taken_per_charge": 0.2,
+      "phase_sprites": [
+        "oracle_marksman",
+        "oracle_marksman",
+        "oracle_marksman"
+      ],
+      "merit_exp": 9,
+      "gold_drop": 40000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "stats": {
+        "strength": 320,
+        "dexterity": 480,
+        "fighting_spirit": 400,
+        "spirit_power": 580,
+        "willpower": 520,
+        "bone_density": 140,
+        "endurance": 180,
+        "magic_resist": 180,
+        "lightning_resist": 250,
+        "physical_resist": 100
+      },
+      "_note": "4층 하늘 신탁소 5급 수호자. 활잡이 보스 — 눈가리개 + 황금 의장 + 거대 백색 장궁 + 등에 신탁 두루마리. lightning 단일 컨셉. tempest_archer 결 (lance phys_heavy + lightning). phases 3 + 부활 2회 = 성백의 신전기사보다 위. 스프라이트 추후 전용 제작 (페이즈별 외형 변화 옵션)."
+    },
+    {
+      "id": "himar",
+      "name": "빙관의 히마르",
+      "alias": "결빙의 성소 수호자",
+      "entry_line": "따뜻한 피가… 오랜만이군. 얼어붙어라.",
+      "grade": 5,
+      "floor": 5,
+      "field": "frozen_sanctum",
+      "essence_drop_id": "himar",
+      "location": "상흔 — 결빙의 성소",
+      "pattern": "melee",
+      "role": "tank",
+      "damage_type": "magic",
+      "attack_element": "cold",
+      "elemental_resist": {
+        "cold": 0.5,
+        "fire": -0.3
+      },
+      "hp": 42000,
+      "boss_mult": 3.0,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "frost_swing",
+            "frost_charge",
+            "ice_smash_aoe",
+            "ice_coffin"
+          ],
+          "description": "Phase 1 [한기 응축] — 냉기 근접/돌진 + 광역 + 주기적 자멸 빙결(취약 윈도우). 윈도우에 두들겨야 진도.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "frost_lance",
+            "ice_smash_aoe",
+            "frost_summon",
+            "frost_charge",
+            "frost_shatter",
+            "ice_coffin"
+          ],
+          "description": "Phase 2 [빙관 개방] — 냉기 창 + 광역 + 서리 소환 + 자멸 빙결. 잡몹이 윈도우 활용을 방해.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "frost_frenzy",
+            "frost_lance",
+            "ice_smash_aoe",
+            "frost_summon",
+            "frost_swing",
+            "frost_shatter",
+            "ice_coffin"
+          ],
+          "description": "Phase 3 [절대영도] — 광폭화(캐스팅 가속+강화) + 광역 난사. 빙관 봉인은 드물게, 대신 절대영도 대폭발로.",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 45000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "summon_minion": "yeti_alpha_frozen_sanctum",
+      "summon_minion_count": 2,
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "stats": {
+        "strength": 360,
+        "dexterity": 300,
+        "fighting_spirit": 480,
+        "spirit_power": 590,
+        "willpower": 560,
+        "bone_density": 320,
+        "endurance": 360,
+        "magic_resist": 220,
+        "cold_resist": 400,
+        "physical_resist": 160
+      },
+      "_note": "5층 자체 서리 상흔 수호자. 메카닉 난이도(A) — raw가 아니라 자멸빙결 윈도우(ice_coffin) 운용이 핵심. 한기 흡수 = 탱키, 냉기 스킬엔 저항(0.5)이나 freeze는 자초 + 물리/윈도우 폭딜에 약점. 부활 없음(빙관에 갇힘=처치, oracle의 raw 부활2와 차별화). 스프라이트 추후 전용 제작(빙관/얼음관 모티프). 전용 빙결 연타 active는 룬쪽 추후."
+    },
+    {
+      "id": "dark_lycanthrope",
+      "name": "어둠의 늑대인간",
+      "alias": "망자의 제단 수호자",
+      "entry_line": "달도 없는 밤이다… 살점 냄새가 좋군.",
+      "grade": 5,
+      "floor": 2,
+      "location": "망자의 제단 심부",
+      "hp": 15000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "claw_combo",
+            "jump_slam",
+            "wide_swing",
+            "shadow_claw"
+          ],
+          "description": "발톱 콤보 + 도약 강타(광역) + 휘두르기 + 그림자 발톱(강타)",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.4,
+          "patterns": [
+            "dark_frenzy",
+            "claw_combo",
+            "shadow_claw",
+            "jump_slam"
+          ],
+          "description": "광폭화 — 공격 속도 2배, 암흑 오라 + 그림자 발톱 빈도 ↑",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 6000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "summon_condition": "망자의 제단 심부 도달 시 자동 조우",
+      "is_guardian": true,
+      "stats": {
+        "strength": 550,
+        "dexterity": 280,
+        "fighting_spirit": 350,
+        "bone_density": 220,
+        "endurance": 180,
+        "physical_resist": 150,
+        "regeneration": 30,
+        "stealth": 80,
+        "magic_resist": 40,
+        "willpower": 35
+      }
+    },
+    {
+      "id": "tarunbas",
+      "name": "혹한의 폭군",
+      "alias": "혹한의 빙동의 수호자",
+      "entry_line": "혹한의 빙동에 발을 들인 죗값, 뼈째로 치르게 해주마.",
+      "grade": 7,
+      "floor": 1,
+      "location": "혹한의 빙동 심부",
+      "hp": 2400,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "ice_smash",
+            "frost_swing",
+            "frost_summon"
+          ],
+          "description": "얼음몽둥이 내리치기 + 서리늑대 2마리 소환. 동상 주의",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "ice_smash_aoe",
+            "frost_charge",
+            "unyielding"
+          ],
+          "description": "얼음분쇄 광역 + 돌진 + 불굴(강골 2배). 빙결 상태에서 추가 데미지",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 7,
+      "gold_drop": 5000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "summon_condition": "혹한의 빙동 심부 도달 시 자동 조우",
+      "is_guardian": true,
+      "stats": {
+        "strength": 220,
+        "dexterity": 120,
+        "fighting_spirit": 160,
+        "bone_density": 70,
+        "endurance": 60,
+        "physical_resist": 40,
+        "cold_resist": 80,
+        "willpower": 35
+      }
+    },
+    {
+      "id": "vampire_guardian",
+      "name": "적야의 흡혈귀",
+      "entry_line": "피가 식기 전에 끝내주지.",
+      "grade": 5,
+      "floor": 1,
+      "location": "상흔 — 적야의 성채",
+      "hp": 17000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "rush",
+            "triple_slash"
+          ],
+          "description": "돌진 → 할퀴기 3연타. 할퀴기는 패링 가능",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "bat_summon",
+            "blood_rush",
+            "area_scream",
+            "bat_swarm",
+            "blood_barrier"
+          ],
+          "description": "박쥐 소환 + 흡혈 돌진 (피해 30% 회복) + 범위 비명 + 박쥐떼 다단 + 핏빛 방벽 (피해 차감)",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 8000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "stats": {
+        "strength": 700,
+        "dexterity": 320,
+        "fighting_spirit": 500,
+        "bone_density": 220,
+        "endurance": 220,
+        "physical_resist": 180,
+        "regeneration": 50,
+        "magic_resist": 60,
+        "willpower": 45,
+        "spirit_power": 40
+      }
+    },
+    {
+      "id": "orc_hero",
+      "name": "오크 전쟁군주",
+      "entry_line": "약한 놈은 짓밟힌다. 그게 이 신해의 법칙이다.",
+      "grade": 5,
+      "floor": 3,
+      "location": "부족의 소굴 제단",
+      "summon_cost": 777,
+      "hp": 14000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "greatsword_swing",
+            "jump_slam",
+            "war_cry"
+          ],
+          "description": "대검 휘두르기 → 점프 찍기 → 전투 함성 (버프). 패링 윈도우 넓음",
+          "parry_window": 0.25
+        },
+        {
+          "hp_threshold": 0.7,
+          "patterns": [
+            "gigantification",
+            "wide_swing",
+            "stomp"
+          ],
+          "description": "거신의 힘 → 범위 넓어짐, 밟기 공격 추가, 패링 윈도우 좁아짐",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "frenzy_5hit"
+          ],
+          "description": "광폭화 → 연속 공격 5연타, 마지막 타만 패링 가능. 체력 소진전",
+          "parry_window": 0.1
+        }
+      ],
+      "merit_exp": 5,
+      "gold_drop": 30000,
+      "essence_drop_chance": 0.14,
+      "is_layer_lord": false,
+      "stats": {
+        "strength": 630,
+        "dexterity": 270,
+        "fighting_spirit": 450,
+        "bone_density": 240,
+        "endurance": 225,
+        "physical_resist": 150,
+        "willpower": 45
+      }
+    },
+    {
+      "id": "white_temple_knight",
+      "name": "석화된 종언기사",
+      "entry_line": "종언이 왔다. 무릎 꿇을 시간조차 주지 않겠다.",
+      "grade": 5,
+      "floor": 3,
+      "role": "brawler",
+      "boss_mult": 2.5,
+      "hp": 18500,
+      "location": "상흔 — 석화된 성소",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "rush",
+            "final_dive",
+            "wide_swing",
+            "sword_throw"
+          ],
+          "description": "[종복] 망령 군마 탑승 — 빠른 돌진/급강하 + 광역 휩쓸기",
+          "parry_window": 0.25
+        },
+        {
+          "hp_threshold": 0.66,
+          "patterns": [
+            "shield_sword_combo",
+            "rapid_slash",
+            "triple_slash",
+            "curse_wave",
+            "shadow_claw",
+            "chaos_storm",
+            "self_heal"
+          ],
+          "description": "[하마] 지상전 — 강검 콤보 + 어둠/저주 룬급 마법. 보라 캐스팅(25% 회복)은 CC로 끊을 것",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.33,
+          "patterns": [
+            "gigantification",
+            "greatsword_triple",
+            "ground_slam",
+            "despair_rain"
+          ],
+          "description": "[기사도/거신의 힘] — 치명 피해 시 부활. 거신의 힘 지진 + 광역 비",
+          "parry_window": 0.15
+        }
+      ],
+      "knightly_charges": 3,
+      "knightly_heal_pct": 0.3,
+      "knightly_damage_taken_per_charge": 0.2,
+      "phase_sprites": [
+        "white_temple_knight_mounted",
+        "white_temple_knight",
+        "white_temple_knight"
+      ],
+      "merit_exp": 16,
+      "gold_drop": 35000,
+      "essence_drop_id": "white_temple_knight",
+      "special_drop": "신물 장비 (Quad)",
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "essence_drop_chance": 0.2
+    },
+    {
+      "id": "abyssal_end_knight",
+      "name": "심연의 종언기사",
+      "entry_line": "성소는 가라앉았어도, 종언은 물속에서도 걷는다.",
+      "grade": 4,
+      "floor": 6,
+      "role": "brawler",
+      "boss_mult": 2.0,
+      "location": "상흔 — 심연의 성소",
+      "damage_type": "physical",
+      "attack_element": "dark",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "rush",
+            "final_dive",
+            "wide_swing",
+            "sword_throw",
+            "abyssal_reckoning",
+            "abyssal_wave"
+          ],
+          "description": "[종복] 심해 망령군마 탑승 — 빠른 돌진/급강하 + 광역 휩쓸기",
+          "parry_window": 0.25
+        },
+        {
+          "hp_threshold": 0.66,
+          "patterns": [
+            "shield_sword_combo",
+            "rapid_slash",
+            "triple_slash",
+            "curse_wave",
+            "shadow_claw",
+            "chaos_storm",
+            "self_heal"
+          ],
+          "description": "[하마] 지상전 — 강검 콤보 + 심연 저주 룬급 마법. 보라 캐스팅(회복)은 CC로 끊을 것",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.33,
+          "patterns": [
+            "gigantification",
+            "greatsword_triple",
+            "ground_slam",
+            "despair_rain",
+            "undying_roar"
+          ],
+          "description": "[기사도/거신의 힘] — 치명 피해 시 부활(4회). 거신의 힘 지진 + 광역 비",
+          "parry_window": 0.15
+        }
+      ],
+      "knightly_charges": 4,
+      "knightly_heal_pct": 0.3,
+      "knightly_damage_taken_per_charge": 0.2,
+      "phase_sprites": [
+        "white_temple_knight_mounted",
+        "white_temple_knight",
+        "white_temple_knight"
+      ],
+      "merit_exp": 22,
+      "gold_drop": 60000,
+      "essence_drop_id": "abyssal_end_knight",
+      "special_drop": "신물 장비 (Quad)",
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "essence_drop_chance": 0.2,
+      "_note": "6층 상흔 심연의 성소 수호자 — white_temple_knight(석화된 종언기사, g5/3층) 상위호환/변종(캔논: 변종 균열=상위 변이종 수호자). HP=g4 baseline(22500)×floor6(1.4)×brawler(1.1)×boss_mult1.8≈62,400. 킷 계승+심연(dark) 리스킨, 부활 charge 3→4. 스프라이트=white_temple_knight 재활용(추후 청람 tint 전용시트 여지). boss_mult 명시=variant 상속함정 회피."
+    },
+    {
+      "id": "petrified_colossus",
+      "name": "석화의 수호거상",
+      "entry_line": "성소의 파수는 돌이 되어도 멈추지 않는다.",
+      "grade": 5,
+      "floor": 3,
+      "role": "brawler",
+      "boss_mult": 2.5,
+      "hp": 20000,
+      "location": "상흔 — 파수의 성소",
+      "sprite_scale": 1.4,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "stone_swing",
+            "petrify_charge",
+            "ground_slam",
+            "stone_armor"
+          ],
+          "description": "[석상 파수] 석상 후려치기 + 석화 돌진 + 대지 강타 + 석화 방벽(자기 강화).",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "gigantification",
+            "petrify_slam",
+            "shard_smash",
+            "earthquake"
+          ],
+          "description": "[각성] 거신의 힘 — 석화의 강타(석화 stun) + 석편 강타(낙석 경직) + 지진(광역 경직). 치명 피해 시 석상 재기립(부활).",
+          "parry_window": 0.15
+        }
+      ],
+      "knightly_charges": 2,
+      "knightly_heal_pct": 0.35,
+      "knightly_damage_taken_per_charge": 0.2,
+      "revival_log_prefix": "[수호거상]",
+      "revival_log_text": "석상 재기립! 부서진 파편이 다시 뭉친다",
+      "merit_exp": 14,
+      "gold_drop": 32000,
+      "essence_drop_id": "petrified_colossus",
+      "special_drop": "신물 장비 (Triple)",
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "essence_drop_chance": 0.2
+    },
+    {
+      "id": "petrified_oracle",
+      "name": "석화의 신탁상",
+      "entry_line": "석상의 눈이 네 마지막 걸음을 읽는다.",
+      "grade": 5,
+      "floor": 3,
+      "role": "mage",
+      "boss_mult": 2.4,
+      "hp": 16500,
+      "location": "상흔 — 예언의 성소",
+      "sprite_scale": 1.3,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "stone_bolt",
+            "petrify_curse",
+            "shard_rain",
+            "doom_gaze"
+          ],
+          "description": "[석상 신탁] 석화 화살 + 석화 저주(약화) + 석편 우박 + 석화 응시(발묶음). 원거리 견제.",
+          "parry_window": 0.0
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "petrify_prophecy",
+            "doom_gaze",
+            "stone_bolt",
+            "shard_rain"
+          ],
+          "description": "[예언 개방] 석화의 예언(광역 마법 + 석화 root) + 석화 응시(원거리 발묶음) + 석편 우박. 치명 피해 시 석상 재기립(부활).",
+          "parry_window": 0.0
+        }
+      ],
+      "knightly_charges": 2,
+      "knightly_heal_pct": 0.25,
+      "knightly_damage_taken_per_charge": 0.25,
+      "revival_log_prefix": "[신탁상]",
+      "revival_log_text": "석상 재기립! 예언이 아직 끝나지 않았다",
+      "merit_exp": 14,
+      "gold_drop": 32000,
+      "essence_drop_id": "petrified_oracle",
+      "special_drop": "신물 장비 (Triple)",
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "essence_drop_chance": 0.2
+    },
+    {
+      "id": "awakened_megalith",
+      "name": "깨어난 거석",
+      "entry_line": "침입자의 발소리가 잠든 바위를 깨웠다.",
+      "grade": 5,
+      "floor": 2,
+      "role": "tank",
+      "boss_mult": 2.0,
+      "hp": 18000,
+      "stats": {
+        "strength": 500,
+        "bone_density": 320,
+        "endurance": 230,
+        "physical_resist": 160,
+        "fighting_spirit": 300,
+        "willpower": 150,
+        "magic_resist": 50
+      },
+      "location": "상흔 — 안개의 거석 폐허 (잠든 거인의 안식처)",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "ground_slam",
+            "stomp",
+            "earthquake",
+            "stone_armor"
+          ],
+          "description": "[기상] 거석이 일어서며 광역 진동. 지진으로 발 묶고 자기 몸을 단단히 함."
+        },
+        {
+          "hp_threshold": 0.66,
+          "patterns": [
+            "earthquake",
+            "boulder_throw_combo",
+            "body_slam",
+            "ground_slam"
+          ],
+          "description": "[각성] 천장 거석을 3연발로 던지며 몸을 부딪침. 지진과 강타 연계."
+        },
+        {
+          "hp_threshold": 0.33,
+          "patterns": [
+            "earthquake",
+            "despair_rain",
+            "boulder_throw_combo",
+            "final_chaos"
+          ],
+          "description": "[붕괴] 자기 몸이 무너지며 광역 비와 거석 투척, 최종 붕괴 폭발."
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 25000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "is_layer_lord": false,
+      "is_guardian": true
+    },
+    {
+      "id": "stone_sentinel_archer",
+      "name": "수호 석궁상",
+      "entry_line": "석궁상의 눈이 표적을 향해 돌아간다.",
+      "grade": 6,
+      "floor": 2,
+      "field": "misty_megalith_ruins",
+      "hp": 4500,
+      "pattern": "ranged_tracking",
+      "merit_exp": 5,
+      "gold_drop": [
+        3500,
+        6000
+      ],
+      "essence_drop_chance": 0.06,
+      "aggressive": true,
+      "is_mid_boss": true,
+      "elemental_resist": {
+        "earth": 0.3,
+        "fire": -0.3,
+        "magic": 0.15
+      },
+      "damage_type": "physical",
+      "attack_element": "earth",
+      "special": "고대 거석 군주를 지키던 사수의 석상. 침입자 감지 시 깨어남.",
+      "stats": {
+        "strength": 100,
+        "dexterity": 250,
+        "fighting_spirit": 80,
+        "bone_density": 90,
+        "endurance": 60,
+        "physical_resist": 40,
+        "magic_resist": 25,
+        "willpower": 60,
+        "spirit_power": 80
+      }
+    },
+    {
+      "id": "chained_wraith",
+      "name": "사슬에 묶인 검귀",
+      "alias": "야수의 둥지 수호자",
+      "entry_line": "이 사슬이 풀리는 순간, 네가 죗값을 치른다.",
+      "grade": 5,
+      "floor": 2,
+      "hp": 14000,
+      "role": "brawler",
+      "boss_mult": 2.0,
+      "location": "상흔 — 야수의 둥지 (수호자의 굴)",
+      "sprite_tint": [
+        0.55,
+        0.3,
+        0.4
+      ],
+      "sprite_scale": 1.4,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "one_cut_slash",
+            "rapid_slash",
+            "wide_swing",
+            "rush"
+          ],
+          "description": "[추격] 묵직한 검술 콤보. 한 방이 무겁다.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "berserk_stance",
+            "claw_combo",
+            "jump_slam",
+            "one_cut_slash"
+          ],
+          "description": "[광폭] 사슬이 풀리며 광폭화. 공속+공격력 폭주, 잠시 약점 노출.",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.25,
+          "patterns": [
+            "blood_sever",
+            "self_heal",
+            "dark_frenzy",
+            "jump_slam"
+          ],
+          "description": "[혈식] 흡혈 강타로 회복. 다단 광기.",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 25000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "_note": "야수의 둥지(2층 히든 상흔) 수호자. ⚠2026-07-15: 명시 stats 블록 제거 — explicit stats가 boss_mult 2.0을 반쯤만 먹여(str480 = baseline×1.4) brawler인데 동층 탱커(megalith 500)보다 덜 때리던 저평가 상태였음(도플갱어 버그와 동류, 정도만 약함). 이제 grade5×brawler×floor2×boss_mult2.0 auto(str≈686). HP override 14000 유지(글래스캐논). ⚠explicit stats 재추가 금지. 제거된 regeneration:25는 dead stat이었음 — 적 주기재생은 _init_hp_regen에서 grade≤3 or (grade4+boss_tier)만 eligible이라 grade5인 이 몹엔 애초에 안 걸렸고, regeneration 스탯→hp_regen_per_sec 파생은 companion 전용."
+    },
+    {
+      "id": "azure_giant_soldier",
+      "name": "파수 거신상",
+      "entry_line": "이 방벽은 아직 뚫린 적이 없다.",
+      "grade": 6,
+      "floor": 3,
+      "role": "brawler",
+      "boss_mult": 2.5,
+      "location": "상흔 — 석화된 성소 (다양한 석실)",
+      "essence_drop_id": "azure_giant",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "shield_sword_combo",
+            "player_parry_counter",
+            "shield_bash",
+            "stomp"
+          ],
+          "description": "[석상 자세] 방패+검 콤보 + 패링 카운터. stomp는 거리 두기",
+          "parry_window": 0.2
+        }
+      ],
+      "merit_exp": 4,
+      "gold_drop": 12000,
+      "essence_drop_chance": 0.12,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "white_armor_guard",
+      "name": "봉인 수호상",
+      "entry_line": "맹세대로, 침입자를 벤다.",
+      "grade": 6,
+      "floor": 3,
+      "role": "tank",
+      "boss_mult": 2.5,
+      "location": "상흔 — 석화된 성소 (다양한 석실)",
+      "essence_drop_id": "white_armor",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "shield_sword_combo",
+            "player_parry_counter",
+            "triple_slash"
+          ],
+          "description": "방패+검 방어형. 빈틈 노려 패링 후 3연타",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 6,
+      "gold_drop": 10000,
+      "essence_drop_chance": 0.12,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "green_armor_scout",
+      "name": "매복 척후상",
+      "entry_line": "네 위치는 이미 본대에 보고되었다.",
+      "grade": 6,
+      "floor": 3,
+      "role": "evade",
+      "boss_mult": 2.5,
+      "location": "상흔 — 석화된 성소 (다양한 석실)",
+      "essence_drop_id": "green_armor",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "sword_throw",
+            "backstep",
+            "rush"
+          ],
+          "description": "투창과 회피 — 거리 두며 견제, 빈틈에 돌진"
+        }
+      ],
+      "merit_exp": 6,
+      "gold_drop": 10000,
+      "essence_drop_chance": 0.12,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "silver_thread_oracle",
+      "name": "주박의 신관상",
+      "entry_line": "주박이 네 마지막 걸음까지 짜두었다.",
+      "grade": 6,
+      "floor": 3,
+      "role": "mage",
+      "boss_mult": 2.5,
+      "location": "상흔 — 석화된 성소 (다양한 석실)",
+      "essence_drop_id": "silver_thread",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "curse_wave",
+            "fear_aura",
+            "frost_lance"
+          ],
+          "description": "은빛 실로 짠 마법 — 광역 저주와 공포 오라"
+        }
+      ],
+      "merit_exp": 7,
+      "gold_drop": 12000,
+      "essence_drop_chance": 0.12,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "azure_white_judge",
+      "name": "단죄의 심판상",
+      "entry_line": "심판을 시작한다. 변론은 없다.",
+      "grade": 6,
+      "floor": 3,
+      "role": "brawler",
+      "boss_mult": 2.8,
+      "location": "상흔 — 석화된 성소 (다양한 석실)",
+      "essence_drop_id": "azure_white",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "triple_slash",
+            "despair_rain",
+            "player_parry_counter"
+          ],
+          "description": "심판의 검 — 3연타 + 광역 절망의 비, 카운터 자세",
+          "parry_window": 0.18
+        }
+      ],
+      "merit_exp": 8,
+      "gold_drop": 15000,
+      "essence_drop_chance": 0.12,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "phantom_horse",
+      "name": "망령 군마",
+      "entry_line": "이랴— 망자의 군세가 너를 향해 달린다.",
+      "grade": 7,
+      "floor": 3,
+      "role": "evade",
+      "boss_mult": 2.5,
+      "location": "상흔 — 석화된 성소 (혼령의 회랑)",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "rush",
+            "dive",
+            "backstep"
+          ],
+          "description": "유령 말 — 빠른 돌격 후 사라짐. 비실체"
+        }
+      ],
+      "merit_exp": 5,
+      "gold_drop": 8000,
+      "essence_drop_id": "phantom_horse",
+      "essence_drop_chance": 0.1,
+      "is_layer_lord": false,
+      "is_guardian": false,
+      "is_mid_boss": true
+    },
+    {
+      "id": "sky_guardian",
+      "name": "오만",
+      "entry_line": "천공에 발 들인 죄, 추락으로 갚아라.",
+      "grade": 1,
+      "floor": 4,
+      "location": "4층 정상",
+      "hp": 675000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "fly",
+            "dive",
+            "wing_wind"
+          ],
+          "description": "비행 → 급강하 (패링 가능) → 날개 바람 (넉백). 급강하 패링 시 지상 전환 강제",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "greatsword_triple",
+            "wing_shield"
+          ],
+          "description": "지상: 대검 3연참 + 날개 방패 (블록). 3연참 마지막만 패링 가능",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.2,
+          "patterns": [
+            "fly",
+            "feather_rain",
+            "final_dive"
+          ],
+          "description": "비행 + 깃털 비 (범위 공격) → 최종 급강하 (즉사급, 반드시 패링)",
+          "parry_window": 0.1
+        }
+      ],
+      "merit_exp": 100,
+      "gold_drop": 50000,
+      "essence_drop_chance": 0.01,
+      "special_drop": "신물 장비 (Triple)",
+      "mvp_ending": "클리어 시 '5층 포탈이 보이지만, 아직 준비가 되지 않았다...'",
+      "is_layer_lord": true,
+      "summon_condition": "4층 정상 도달 시 자동 조우",
+      "stats": {
+        "strength": 10800,
+        "dexterity": 5400,
+        "fighting_spirit": 7200,
+        "bone_density": 3780,
+        "endurance": 3150,
+        "physical_resist": 2520,
+        "magic_resist": 1800,
+        "willpower": 1620,
+        "spirit_power": 2250
+      }
+    },
+    {
+      "id": "dreadpeer",
+      "name": "공포",
+      "alias": "공포의 군주",
+      "entry_line": "공포가 무엇인지, 지금부터 가르쳐주마.",
+      "grade": 1,
+      "floor": 1,
+      "is_layer_lord": true,
+      "location": "1층 — 5명 이상 집결 시 확률 소환",
+      "summon_condition": "3일차 이후, 5명 이상 집결, 확률적 소환",
+      "hp": 540000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "fear_aura",
+            "claw_combo"
+          ],
+          "description": "갉아먹는 공포 (정신 지속 감소) + 발톱 콤보",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.7,
+          "patterns": [
+            "plague_spread",
+            "ghoul_summon"
+          ],
+          "description": "역병 확산 (이능 감소) + 구울 소환",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.4,
+          "patterns": [
+            "betrayal_veil",
+            "fear_rush"
+          ],
+          "description": "배신의 장막 (아군 혼란) + 공포 돌진",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.15,
+          "patterns": [
+            "all_patterns_random"
+          ],
+          "description": "광폭화 — 모든 패턴 랜덤 사용",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 100,
+      "gold_drop": 80000,
+      "essence_drop_chance": 0.01,
+      "respawn_hours": 6,
+      "stats": {
+        "strength": 8550,
+        "dexterity": 4500,
+        "fighting_spirit": 6300,
+        "bone_density": 3240,
+        "endurance": 2880,
+        "physical_resist": 2250,
+        "magic_resist": 2700,
+        "willpower": 3150,
+        "spirit_power": 3600
+      }
+    },
+    {
+      "id": "riakis",
+      "name": "혼돈",
+      "alias": "혼돈의 군주",
+      "entry_line": "질서 따위, 내 앞에선 무의미하다.",
+      "grade": 1,
+      "floor": 3,
+      "is_layer_lord": true,
+      "location": "3층 몽환의 숲 심층",
+      "summon_condition": "몽환의 숲 심층 상흔 조우",
+      "hp": 810000,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "despair_rain",
+            "chaos_gate"
+          ],
+          "description": "절망의 비 (범위 혼돈 피해) + 혼돈의 문 (끌어당김)",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "evil_crack",
+            "body_corruption"
+          ],
+          "description": "악의 틈새 (즉사급 광역) + 신체 오염 (검은 연기)",
+          "parry_window": 0.12
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "corruption_spread",
+            "chaos_storm"
+          ],
+          "description": "전신 오염 확산 + 혼돈 폭풍",
+          "parry_window": 0.1
+        },
+        {
+          "hp_threshold": 0.1,
+          "patterns": [
+            "final_chaos"
+          ],
+          "description": "최종 혼돈 — 필드 전체 침식",
+          "parry_window": 0.08
+        }
+      ],
+      "merit_exp": 100,
+      "gold_drop": 200000,
+      "essence_drop_chance": 0.01,
+      "stats": {
+        "strength": 12600,
+        "dexterity": 6300,
+        "fighting_spirit": 9000,
+        "bone_density": 4500,
+        "endurance": 3600,
+        "physical_resist": 3150,
+        "magic_resist": 3150,
+        "willpower": 2700,
+        "spirit_power": 4500
+      }
+    },
+    {
+      "id": "blater",
+      "name": "저주받은 흑기사",
+      "alias": "적야의 성채의 수호자",
+      "entry_line": "이 성채의 피는 마르지 않는다. 네 것도 보태라.",
+      "grade": 6,
+      "floor": 1,
+      "location": "적야의 성채 영주성",
+      "hp": 4800,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "one_cut_slash",
+            "rapid_slash",
+            "curse_wave"
+          ],
+          "description": "일도양단 + 연속 베기 + 저주의 파동 (광역 검기). 캐스팅 시 패링 가능",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "one_cut_slash",
+            "rapid_slash",
+            "cursed_slash",
+            "curse_wave"
+          ],
+          "description": "일도양단 + 연속 베기 + 저주 검격 + 저주의 파동",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 7,
+      "gold_drop": 4500,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "summon_condition": "적야의 성채 영주성 도달 시 자동 조우",
+      "stats": {
+        "strength": 280,
+        "dexterity": 170,
+        "fighting_spirit": 220,
+        "bone_density": 95,
+        "endurance": 80,
+        "physical_resist": 55,
+        "magic_resist": 50,
+        "willpower": 40,
+        "spirit_power": 35
+      }
+    },
+    {
+      "id": "king_slime",
+      "name": "점액의 왕",
+      "alias": "점액의 폐광의 수호자",
+      "entry_line": "꿀렁— 탄광의 모든 것을 삼켜주마.",
+      "grade": 6,
+      "floor": 1,
+      "location": "점액의 폐광 최심부",
+      "hp": 4500,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "body_slam",
+            "acid_spit"
+          ],
+          "description": "거대 몸통 압사 + 산성 투사. 산성은 방어력 감소",
+          "parry_window": 0.25
+        },
+        {
+          "hp_threshold": 0.4,
+          "patterns": [
+            "split",
+            "acid_wave"
+          ],
+          "description": "분열 (미니 슬라임 소환) + 산성 파도. 본체 집중 공격 필요",
+          "parry_window": 0.2
+        }
+      ],
+      "merit_exp": 7,
+      "gold_drop": 5500,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "summon_condition": "점액의 폐광 최심부 도달 시 자동 조우",
+      "stats": {
+        "strength": 270,
+        "dexterity": 70,
+        "fighting_spirit": 200,
+        "bone_density": 120,
+        "endurance": 110,
+        "physical_resist": 60,
+        "regeneration": 70,
+        "poison_resist": 60
+      }
+    },
+    {
+      "id": "ildium",
+      "name": "불멸의 강철거상",
+      "alias": "무쇠 관의 봉인묘의 수호자",
+      "entry_line": "무쇠 관의 봉인묘엔 산 자의 자리가 없다.",
+      "grade": 6,
+      "floor": 1,
+      "location": "철관의 무덤",
+      "hp": 4200,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "iron_fist",
+            "ground_slam"
+          ],
+          "description": "강철 주먹 + 지면 강타(넉백). 패링 시 경직 큼",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "iron_storm",
+            "iron_fortress"
+          ],
+          "description": "회전 강철 폭풍 + 방어 자세(피해 70% 감소). 방어 자세 중 약점 노출",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 8,
+      "gold_drop": 6000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "is_guardian": true,
+      "summon_condition": "철관의 무덤 도달 시 자동 조우",
+      "stats": {
+        "strength": 250,
+        "dexterity": 100,
+        "fighting_spirit": 180,
+        "bone_density": 110,
+        "endurance": 100,
+        "physical_resist": 60,
+        "magic_resist": 80,
+        "willpower": 50,
+        "spirit_power": 40
+      }
+    },
+    {
+      "id": "chaos_guardian",
+      "name": "혼돈의 화신",
+      "grade": 5,
+      "floor": 5,
+      "role": "normal",
+      "boss_mult": 2.2,
+      "hp": 32000,
+      "alias": "5층 최종 보스 — 4협곡 융합체 (봉헌 소환)",
+      "entry_line": "네 개의 협곡이 하나로 무너진다. 이것이 끝이다.",
+      "pattern": "boss",
+      "gold_drop": 80000,
+      "essence_drop_chance": 0.1,
+      "aggressive": true,
+      "elemental_resist": {
+        "fire": 0.5,
+        "cold": 0.5,
+        "dark": 0.5,
+        "wind": 0.5,
+        "holy": -0.3
+      },
+      "damage_type": "magic",
+      "is_boss": true,
+      "stats": {
+        "bone_density": 260,
+        "physical_resist": 165,
+        "magic_resist": 140,
+        "willpower": 340,
+        "endurance": 215
+      },
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "fire_blaze",
+            "ranged_magic",
+            "rush"
+          ],
+          "description": "Phase 1 — 화염 페이즈. 폭발 광역 + 원거리 화염탄",
+          "parry_window": 0.18,
+          "attack_element": "fire"
+        },
+        {
+          "hp_threshold": 0.75,
+          "patterns": [
+            "frost_lance",
+            "ice_smash_aoe",
+            "wide_swing"
+          ],
+          "description": "Phase 2 — 빙결 페이즈. 다단 빙결 + 광역 빙폭",
+          "parry_window": 0.15,
+          "attack_element": "cold"
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "phase_through",
+            "evil_crack",
+            "fear_aura"
+          ],
+          "description": "Phase 3 — 어둠 페이즈. 영체 + 공포 오라. 물리 면역",
+          "parry_window": 0.12,
+          "attack_element": "dark",
+          "ethereal": true
+        },
+        {
+          "hp_threshold": 0.25,
+          "patterns": [
+            "chaos_storm",
+            "stomp",
+            "frenzy_5hit"
+          ],
+          "description": "Phase 4 — 풍압 페이즈. 회오리 + 광역 밀침 + 광폭 연타",
+          "parry_window": 0.1,
+          "attack_element": "wind"
+        }
+      ]
+    },
+    {
+      "id": "gunman_chief",
+      "name": "건맨 두목",
+      "alias": "총포 사막의 수호자",
+      "entry_line": "이 사막에선, 총알이 곧 법이다.",
+      "grade": 6,
+      "floor": 2,
+      "location": "총포 사막 심부",
+      "hp": 6500,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "ranged_combo",
+            "wide_swing"
+          ],
+          "description": "Phase 1 — 권총 견제 + 곡도 휘두르기",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "ranged_combo",
+            "wide_swing",
+            "rush",
+            "focused_shot"
+          ],
+          "description": "Phase 2 — 사막의 인내 발동. 돌진 + 집중 사격 추가",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.25,
+          "patterns": [
+            "ranged_combo",
+            "wide_swing",
+            "rush",
+            "focused_shot",
+            "dust_blast"
+          ],
+          "description": "Phase 3 — 광기. 흙먼지 폭풍 광역 폭격 추가",
+          "parry_window": 0.1
+        }
+      ],
+      "merit_exp": 10,
+      "gold_drop": 8000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "summon_condition": "총포 사막 심부 도달 시 자동 조우",
+      "is_guardian": true,
+      "damage_type": "physical",
+      "stats": {
+        "strength": 300,
+        "fighting_spirit": 130,
+        "dexterity": 130,
+        "bone_density": 110,
+        "endurance": 70,
+        "physical_resist": 40,
+        "willpower": 50
+      }
+    },
+    {
+      "id": "hobgoblin_chieftain",
+      "name": "홉고블린 대족장",
+      "alias": "홉고블린 요새의 수호자",
+      "entry_line": "요새에 기어든 쥐새끼로군. 목을 걸어두마.",
+      "grade": 6,
+      "floor": 2,
+      "field": "hobgoblin_fortress",
+      "location": "홉고블린 요새 대족장의 방",
+      "hp": 6500,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "wide_swing",
+            "rush"
+          ],
+          "description": "Phase 1 — 거대 도끼 휘두르기 + 돌진",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.5,
+          "patterns": [
+            "wide_swing",
+            "rush",
+            "ground_slam",
+            "jump_slam"
+          ],
+          "description": "Phase 2 — 분노. 지면 강타 + 도약 강타 추가",
+          "parry_window": 0.15
+        },
+        {
+          "hp_threshold": 0.25,
+          "patterns": [
+            "wide_swing",
+            "rush",
+            "ground_slam",
+            "jump_slam",
+            "frenzy_5hit",
+            "war_cry"
+          ],
+          "description": "Phase 3 — 광기. 광폭 5연타 + 군영 함성(자가 강화)",
+          "parry_window": 0.12
+        }
+      ],
+      "merit_exp": 10,
+      "gold_drop": 8000,
+      "essence_drop_chance": 0.2,
+      "is_layer_lord": false,
+      "summon_condition": "홉고블린 요새 대족장의 방 도달 시 자동 조우",
+      "is_guardian": true,
+      "damage_type": "physical",
+      "stats": {
+        "strength": 300,
+        "fighting_spirit": 130,
+        "dexterity": 130,
+        "bone_density": 110,
+        "endurance": 70,
+        "physical_resist": 40,
+        "willpower": 50
+      }
+    },
+    {
+      "id": "goliad",
+      "name": "중력의 골리아드",
+      "alias": "중력의 묘 수호자",
+      "entry_line": "무거워질 것이다. 무릎 꿇을 만큼.",
+      "grade": 5,
+      "floor": 5,
+      "field": "gravity_tomb",
+      "essence_drop_id": "goliad",
+      "location": "상흔 — 중력의 묘",
+      "pattern": "slow",
+      "role": "tank",
+      "damage_type": "physical",
+      "attack_element": "earth",
+      "elemental_resist": {
+        "earth": 0.5,
+        "physical": 0.4,
+        "wind": -0.3
+      },
+      "hp": 46000,
+      "boss_mult": 3.0,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "boulder_throw_combo",
+            "earthquake",
+            "gravity_wave",
+            "gravity_smash",
+            "gravity_crush"
+          ],
+          "description": "Phase 1 [중력 응축] — 둔중한 근접/투석 + 지진 + 중력 압괴(강타) + 주기적 석화 외피(갑주 윈도우). 외피를 깨야(풍화/방어파쇄 유리) 진도.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "earthquake",
+            "gravity_wave",
+            "boulder_throw_combo",
+            "stone_armor",
+            "gravity_crush",
+            "gravity_smash",
+            "gravity_pull"
+          ],
+          "description": "Phase 2 [석화 외피] — 지진 + 투석 + 자가 장갑화 + 중력 응축 + 중력 견인. 단단해질수록 풍화가 답.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "earth_frenzy",
+            "earthquake",
+            "gravity_wave",
+            "body_slam",
+            "boulder_throw_combo",
+            "gravity_crush",
+            "gravity_smash",
+            "gravity_pull"
+          ],
+          "description": "Phase 3 [지각 붕괴] — 광폭화(STR+공속) + 광역 난사 + 중력 응축 + 중력 견인. 압괴 대폭발 빈발.",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 46000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "stats": {
+        "strength": 600,
+        "dexterity": 180,
+        "fighting_spirit": 550,
+        "spirit_power": 250,
+        "willpower": 450,
+        "bone_density": 460,
+        "endurance": 460,
+        "magic_resist": 200,
+        "earth_resist": 400,
+        "physical_resist": 360,
+        "armor_break": 50
+      },
+      "_note": "5층 자체 중력/땅 상흔(압괴의 무덤) 수호자. himar 미러 — 메카닉 난이도(A). 석화 외피(gravity_crush)로 갑주화 윈도우, 풍화/방어파쇄 빌드가 임계 버스트로 외피를 깨는 게 핵심('이 상흔은 골렘/방어 무대'). 부활 없음. 스프라이트는 obsidian_golem 재사용(전용 제작은 추후)."
+    },
+    {
+      "id": "balkaros",
+      "name": "용광의 발카로스",
+      "alias": "용광의 도가니 수호자",
+      "entry_line": "도가니에 던져주마. 재조차 남기지 않고.",
+      "grade": 5,
+      "floor": 5,
+      "field": "magma_crucible",
+      "essence_drop_id": "balkaros",
+      "location": "상흔 — 작염의 도가니",
+      "pattern": "berserk",
+      "role": "brawler",
+      "damage_type": "physical",
+      "attack_element": "fire",
+      "elemental_resist": {
+        "fire": 0.5,
+        "cold": -0.3
+      },
+      "hp": 50000,
+      "boss_mult": 3.0,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "flame_swing",
+            "flame_charge",
+            "flame_smash_aoe",
+            "flame_wave",
+            "overload_seal"
+          ],
+          "description": "Phase 1 [용광 가열] — 화염 강타/돌진(근접 물리) + 지옥불 광역/파동(마법) + 주기적 과열 봉인(갑주 윈도우). 봉인을 깨거나 폭발을 피해야 진도.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "flame_charge",
+            "flame_smash_aoe",
+            "flame_burst",
+            "flame_wave",
+            "flame_summon",
+            "overload_seal"
+          ],
+          "description": "Phase 2 [작열 개방] — 화염 돌진 + 지옥불 광역/작렬/파동 + 작열 소환 + 과열 봉인. 잡몹이 윈도우 활용을 방해.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "flame_frenzy",
+            "flame_charge",
+            "flame_smash_aoe",
+            "flame_burst",
+            "flame_wave",
+            "flame_summon",
+            "overload_seal"
+          ],
+          "description": "Phase 3 [과열 폭주] — 광폭화(STR+공속) + 지옥불 난사(작렬/파동) + 화염 돌진 + 과열 봉인 빈발. 대폭발 후 잔류 화염장이 발판을 태운다.",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 44000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "summon_minion": "magma_brute",
+      "summon_minion_count": 1,
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "stats": {
+        "strength": 660,
+        "dexterity": 260,
+        "fighting_spirit": 620,
+        "spirit_power": 300,
+        "willpower": 440,
+        "bone_density": 450,
+        "endurance": 460,
+        "magic_resist": 200,
+        "fire_resist": 400,
+        "physical_resist": 280,
+        "armor_break": 40
+      },
+      "_note": "5층 자체 화염 상흔(작염의 도가니) 수호자. himar/goliad 미러 — 메카닉 난이도(A). 하이브리드 화염 버서커: 평타/돌진=근접 물리(flame_swing/charge), 지옥불 광역=magic 데미지(flame_smash_aoe/burst/wave, _execute_boss_pattern damage_type override → 단일감산 관통, himar식 펀치). 과열 봉인(overload_seal=self_freeze 화염판)으로 갑주화 윈도우 → 폭발 후 잔류 화염장. 회피하거나 임계 버스트로 외피 파쇄. 화염 흡수=탱키, 냉기 약점(-0.3). 부활 없음. 스프라이트는 magma_giant/ifrit 재사용(전용 제작은 추후)."
+    },
+    {
+      "id": "cariadea",
+      "name": "한기의 망령술사",
+      "entry_line": "돌아갈 길은 이미 어둠에 잠겼다.",
+      "role": "mage",
+      "grade": 3,
+      "floor": 7,
+      "field": "glacier_eye",
+      "pattern": "ranged_magic",
+      "merit_exp": 12,
+      "gold_drop": [
+        9000,
+        15000
+      ],
+      "essence_drop_chance": 0.12,
+      "aggressive": true,
+      "is_boss": true,
+      "elemental_resist": {
+        "cold": 0.7,
+        "fire": -0.3,
+        "holy": -0.3
+      },
+      "damage_type": "magic",
+      "attack_element": "cold",
+      "passives": [
+        "chill",
+        "soul_harvest"
+      ],
+      "hp": 95000,
+      "stats": {
+        "strength": 200,
+        "dexterity": 320,
+        "fighting_spirit": 520,
+        "spirit_power": 720,
+        "willpower": 680,
+        "bone_density": 300,
+        "endurance": 380,
+        "magic_resist": 260,
+        "cold_resist": 450,
+        "physical_resist": 180
+      },
+      "summon_minion": "skeleton",
+      "summon_minion_count": 3,
+      "knightly_charges": 3,
+      "knightly_heal_pct": 0.5,
+      "knightly_damage_taken_per_charge": 0.15,
+      "revival_summon": true,
+      "revival_log_prefix": "[영혼의 함]",
+      "revival_log_text": "영혼의 함이 파괴되었다 — 카리아데아 부활",
+      "essence_drop_id": "soulbinder",
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "frost_lance",
+            "ice_smash_aoe",
+            "frost_summon"
+          ],
+          "description": "Phase 1 — 빙결 마법 + 스켈레톤 소환"
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "frost_lance",
+            "ice_smash_aoe",
+            "frost_summon",
+            "frost_shatter"
+          ],
+          "description": "Phase 2 — 군단 증원 + 서리 파열"
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "frost_frenzy",
+            "frost_lance",
+            "ice_smash_aoe",
+            "frost_summon"
+          ],
+          "description": "Phase 3 [영혼 흡수] — 광폭화 + 끝없는 군단"
+        }
+      ],
+      "sprite_base": "frost_lord",
+      "death_effect": {
+        "type": "frost_nova",
+        "mult": 2.0,
+        "radius": 280,
+        "windup": 0.8,
+        "freeze": 1.2
+      },
+      "_note": "7층 영겁의 빙하 보스 — 엘더 리치 카리아데아. 영혼의 함=기사도 부활 charge 3(부활마다 스켈레톤 군단 재소환). 명시 stats(g3 baseline×floor7 폭주 회피). holy 약점(언데드). 드롭=soulbinder. 차원문 출현조건/전용 스프라이트/오브젝트형 영혼의 함은 추후 v2."
+    },
+    {
+      "id": "doppelganger",
+      "name": "도플갱어",
+      "alias": "그림자 제단의 수호자",
+      "entry_line": "네 얼굴, 잘 어울리는군. 이제 내 것이다.",
+      "grade": 4,
+      "floor": 4,
+      "field": "doppelganger_forest",
+      "essence_drop_id": "doppelganger",
+      "location": "상흔 — 거울 미로",
+      "pattern": "melee",
+      "role": "tank",
+      "damage_type": "physical",
+      "elemental_resist": {
+        "dark": 0.3,
+        "holy": -0.3
+      },
+      "hp": 120000,
+      "boss_mult": 2.04,
+      "phases": [
+        {
+          "hp_threshold": 1.0,
+          "patterns": [
+            "mirror_swing",
+            "mirror_charge",
+            "mirror_strike",
+            "mirror_bolt"
+          ],
+          "description": "Phase 1 [의태] — 대상의 외형과 기술을 베낀다. 너희를 베껴낸 분신을 흩뿌려 적으로 돌린다.",
+          "parry_window": 0.2
+        },
+        {
+          "hp_threshold": 0.6,
+          "patterns": [
+            "mirror_swing",
+            "mirror_strike",
+            "mirror_bolt",
+            "mirror_charge",
+            "mirror_thunder",
+            "crystallize",
+            "identity_rift"
+          ],
+          "description": "Phase 2 [바꿔치기] — 파티원을 그림자 복제(적)로 소환하고 결정화로 봉인한다. 네 빌드가 그대로 적이 된다.",
+          "parry_window": 0.18
+        },
+        {
+          "hp_threshold": 0.3,
+          "patterns": [
+            "doppel_frenzy",
+            "mirror_strike",
+            "mirror_swing",
+            "mirror_bolt",
+            "mirror_thunder",
+            "crystallize",
+            "identity_rift"
+          ],
+          "description": "Phase 3 [광폭화] — 그림자 복제를 앞세우고 결정화로 버틴다. 봉인 해제율이 치솟는다.",
+          "parry_window": 0.15
+        }
+      ],
+      "merit_exp": 9,
+      "gold_drop": 45000,
+      "essence_drop_chance": 0.2,
+      "special_drop": "신물 장비 (Quad)",
+      "summon_minion": "doppel_shade",
+      "summon_minion_count": 2,
+      "aggressive": true,
+      "is_guardian": true,
+      "is_layer_lord": false,
+      "_note": "분신의 숲(4층 탑 히든 상흔) 수호자. 원작 4등급 판정(ep188: base 5등급 + 의태로 대상 5등급 스탯/스킬 추가 → 4등급). ⚠2026-07-15 버그픽스: 명시 stats 블록 제거 — explicit stats가 있으면 _resolve_monster_baseline의 '명시 보존' 가드 때문에 boss_mult 2.5가 전투스탯에 안 먹혀 HP(explicit 120k)만 크고 공격·방어는 저평가되던 버그(미노타우로스 str880 공격캡 버그와 동일). 이제 grade4×tank×floor4×boss_mult2.5 auto. ⚠explicit stats 재추가 금지. HP override 120000 유지(탱키 수호자 의도). boss_mult 2.5→2.04(2026-07-20): 4급 baseline 재환산(비-hp ×1.2239)으로 override HP는 불변인데 전투스탯만 +22% 뛰는 걸 상쇄 — 2.5÷1.2239≈2.04로 변경 전 공격/방어 프로필 복원. 의태 mint 미구현이라 boss_mult가 의태 보너스 역할 겸함(2026-06-26 격상: grade5→4, bmult3.0→2.5). himar/balkaros 미러 구조 — 메카닉 난이도(A). 의태=자기복제 소환(copy_skill은 적 핸들러 부재라 분신 소환으로 표현), 바꿔치기=분신 대량+결정화(crystallize=self_freeze 미러, 받피 ×0.15 윈도우 → 깨거나 회피), 광폭화=약분신 난사. 물리 탱커 브루저(원작 라그나르 복제 모티프). 드롭=doppelganger 룬+신물 Quad. 적측 플레이어-스탯 복사 mint는 v2(현재는 고정 doppel_shade). 전용 스프라이트(2026-06-26)."
+    }
+  ],
+  "sample_monsters": [
+    {
+      "id": "gilded_phantom",
+      "variant_of": "grave_knight",
+      "sprite_base": "gilded_knight",
+      "name": "황금 분신",
+      "floor": 7,
+      "boss_mult": 0.25,
+      "skills": [
+        "gilded_crush"
+      ],
+      "essence_drop_id": "grave_knight",
+      "essence_drop_chance": 0.0,
+      "sprite_tint": [
+        1.0,
+        0.85,
+        0.4
+      ],
+      "location": "상흔 — 황금 유적",
+      "_note": "황금 기사 분신술 소환체 — 약화 에코(g4×floor7(2.0)×0.25≈13.5k hp). ⚠구 0.5는 floor7의 ×2.0을 미반영해 실제 27k=풀 g4강도였음 → 0.25로 하향. summon 스킬 없어 재귀 소환 차단. 룬/골드 드롭 없음."
+    },
+    {
+      "id": "gilded_golem",
+      "variant_of": "crystal_golem",
+      "name": "황금 골렘",
+      "floor": 4,
+      "boss_mult": 3.2,
+      "essence_drop_id": "gilded_golem",
+      "essence_drop_chance": 0.05,
+      "sprite_tint": [
+        1.0,
+        0.83,
+        0.3
+      ],
+      "location": "상흔 — 황금 유적"
+    },
+    {
+      "id": "gilded_revenant",
+      "variant_of": "blood_wraith",
+      "name": "황금 원귀",
+      "floor": 4,
+      "boss_mult": 3.2,
+      "essence_drop_id": "gilded_revenant",
+      "essence_drop_chance": 0.05,
+      "sprite_tint": [
+        1.0,
+        0.88,
+        0.38
+      ],
+      "location": "상흔 — 황금 유적"
+    },
+    {
+      "id": "gilded_knight",
+      "variant_of": "grave_knight",
+      "sprite_base": "bone_knight",
+      "name": "황금 기사",
+      "floor": 7,
+      "boss_mult": 1.0,
+      "skills": [
+        "gilded_crush",
+        "golden_shackles",
+        "gilded_phantom_call",
+        "greed_curse"
+      ],
+      "essence_drop_id": "gilded_knight",
+      "essence_drop_chance": 0.1,
+      "sprite_tint": [
+        1.0,
+        0.8,
+        0.25
+      ],
+      "location": "상흔 — 황금 유적",
+      "_note": "황금 유적 g4 엘리트 — 7층 g4급(floor7×1.0=hp39.6k/str3k)으로 칼피온(63k) 아래 미니엘리트. 검총기사 base 금틴트. 스킬은 base(fallen_slash/shadow_strike) override → 고유 gilded_crush(넉백)+golden_shackles(속박). 런타임 탐욕 ×M 추가 적용."
+    },
+    {
+      "id": "gilded_sentinel",
+      "variant_of": "golem_sentinel",
+      "name": "황금 파수병",
+      "floor": 4,
+      "boss_mult": 3.2,
+      "essence_drop_id": "golem_sentinel",
+      "essence_drop_chance": 0.0,
+      "sprite_tint": [
+        1.0,
+        0.82,
+        0.28
+      ],
+      "location": "상흔 — 황금 유적"
+    },
+    {
+      "id": "gilded_serpent",
+      "variant_of": "war_snake",
+      "name": "황금비늘 독사",
+      "floor": 4,
+      "boss_mult": 3.2,
+      "essence_drop_id": "war_snake",
+      "essence_drop_chance": 0.0,
+      "sprite_tint": [
+        1.0,
+        0.86,
+        0.3
+      ],
+      "location": "상흔 — 황금 유적"
+    },
+    {
+      "id": "gilded_wraith",
+      "variant_of": "soul_wraith",
+      "name": "황금빛 망령",
+      "floor": 4,
+      "boss_mult": 3.2,
+      "essence_drop_id": "soul_wraith",
+      "essence_drop_chance": 0.0,
+      "sprite_tint": [
+        1.0,
+        0.88,
+        0.35
+      ],
+      "location": "상흔 — 황금 유적"
+    },
+    {
+      "id": "golden_mimic",
+      "variant_of": "mimic",
+      "name": "황금 미믹",
+      "grade": 5,
+      "floor": 4,
+      "role": "brawler",
+      "boss_mult": 3.2,
+      "aggressive": true,
+      "damage_type": "physical",
+      "pattern": "rush",
+      "gold_drop": [
+        1000000,
+        2000000
+      ],
+      "skills": [
+        "rush_bite",
+        "crushing_blow"
+      ],
+      "essence_drop_id": "mimic",
+      "essence_drop_chance": 0.0,
+      "sprite_tint": [
+        1.0,
+        0.84,
+        0.2
+      ],
+      "location": "상흔 — 황금 유적",
+      "_note": "황금 유적 탐욕 미믹 — greed 스택 f(M) 확률로 상자 대신 소환. g5로 승격(mimic base + grade/role/floor override → boss_mult 3.2 재베이스라인, hp~21k). 잭팟 골드(4~7만, 상자 초과)로 '미믹=잡으면 대박'. 런타임 greed M 추가 스케일이라 하이리스크-하이리워드. 라프레미믹(보물섬 전용) 독점은 안 건드림."
+    },
+    {
+      "id": "goblin",
+      "name": "고블린",
+      "role": "normal",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "basic",
+      "damage_type": "physical",
+      "attack_element": "poison",
+      "aggressive": false,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "poison": 0.2,
+        "water": -0.2
+      }
+    },
+    {
+      "id": "goblin_archer",
+      "name": "고블린 궁수",
+      "role": "archer",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "ranged",
+      "damage_type": "physical",
+      "aggressive": true,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "poison": 0.2,
+        "water": -0.2
+      }
+    },
+    {
+      "id": "split_slime",
+      "name": "분열 슬라임",
+      "grade": 7,
+      "role": "normal",
+      "floor": 1,
+      "pattern": "basic_slow",
+      "merit_exp": 0,
+      "gold_drop": [
+        0,
+        0
+      ],
+      "essence_drop_chance": 0,
+      "is_summon": true,
+      "aggressive": true,
+      "elemental_resist": {
+        "water": 0.2,
+        "poison": -0.2
+      },
+      "damage_type": "physical",
+      "sprite_base": "king_slime",
+      "sprite_tint": [
+        0.5,
+        0.8,
+        0.4
+      ],
+      "sprite_scale": 0.5
+    },
+    {
+      "id": "slime",
+      "name": "슬라임",
+      "role": "tank",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "basic_slow",
+      "damage_type": "physical",
+      "aggressive": false,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "water": 0.2,
+        "poison": -0.2
+      }
+    },
+    {
+      "id": "blade_wolf",
+      "name": "칼날늑대",
+      "role": "brawler",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "rush",
+      "damage_type": "physical",
+      "is_beast": true,
+      "aggressive": true,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "wind": 0.2,
+        "earth": -0.2
+      }
+    },
+    {
+      "id": "frost_wolf",
+      "name": "서리늑대",
+      "grade": 8,
+      "role": "glass",
+      "floor": 1,
+      "pattern": "rush_cold",
+      "merit_exp": 1,
+      "gold_drop": [
+        150,
+        350
+      ],
+      "essence_drop_chance": 0.02,
+      "aggressive": true,
+      "elemental_resist": {
+        "cold": 0.3,
+        "fire": -0.2
+      },
+      "damage_type": "physical",
+      "attack_element": "cold",
+      "is_beast": true
+    },
+    {
+      "id": "ghoul",
+      "name": "구울",
+      "role": "normal",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "rush",
+      "damage_type": "physical",
+      "aggressive": true,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "dark": 0.2,
+        "holy": -0.2
+      }
+    },
+    {
+      "id": "goblin_swordsman",
+      "name": "고블린 검사",
+      "role": "brawler",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "basic",
+      "damage_type": "physical",
+      "aggressive": false,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1
+    },
+    {
+      "id": "noum",
+      "name": "노움",
+      "role": "evade",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "backstep_rush",
+      "damage_type": "physical",
+      "aggressive": false,
+      "merit_exp": 1,
+      "gold_drop": [
+        100,
+        240
+      ],
+      "essence_drop_chance": 0.1,
+      "elemental_resist": {
+        "earth": 0.3
+      },
+      "special": "뒤로 빠졌다가 돌진 기습"
+    },
+    {
+      "id": "skeleton",
+      "name": "스켈레톤",
+      "role": "normal",
+      "grade": 9,
+      "floor": 1,
+      "pattern": "basic",
+      "damage_type": "physical",
+      "aggressive": false,
+      "merit_exp": 1,
+      "gold_drop": [
+        10,
+        25
+      ],
+      "essence_drop_chance": 0.03,
+      "elemental_resist": {
+        "dark": 0.2,
+        "holy": -0.2
+      },
+      "special": "갈비뼈 사이 핵이 약점"
+    },
+    {
+      "id": "orc_warrior",
+      "name": "오크 전사",
+      "grade": 8,
+      "floor": 2,
+      "field": "goblin_forest",
+      "pattern": "rush",
+      "merit_exp": 2,
+      "gold_drop": [
+        300,
+        600
+      ],
+      "essence_drop_chance": 0.07,
+      "aggressive": true,
+      "damage_type": "physical",
+      "role": "brawler"
+    },
+    {
+      "id": "giant_orc",
+      "name": "거대 오크",
+      "grade": 8,
+      "floor": 2,
+      "field": "goblin_forest",
+      "pattern": "rush",
+      "merit_exp": 3,
+      "gold_drop": [
+        400,
+        800
+      ],
+      "essence_drop_chance": 0.1,
+      "special": "덩치가 크지만 느리다",
+      "aggressive": false,
+      "damage_type": "physical",
+      "role": "tank"
+    }
+  ]
+}

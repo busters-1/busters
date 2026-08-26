@@ -1,0 +1,180 @@
+{
+  "timer_config": {
+    "description": "각 층 독립 타이머. 입장 시 시작, 만료 시 강제귀환 또는 포탈 비석 폐쇄",
+    "camp_slowdown": 0.5,
+    "expire_on_floor_penalty": {
+      "condition_loss": 60,
+      "forced_return": "town"
+    },
+    "expire_from_above": "portal_closed"
+  },
+  "floors": [
+    {
+      "floor_number": null,
+      "name": "1층 — 여명의 석화지대",
+      "body_part": "1층 — 여명의 석화지대",
+      "description": "영롱한 빛이 감싸는 여명의 석화지대. 중심부 공터에서 탐험 시작. 미드가르 인근.",
+      "timer_seconds": null,
+      "monsters": [
+        "goblin",
+        "goblin_archer",
+        "slime",
+        "blade_wolf",
+        "ghoul",
+        "goblin_swordsman",
+        "noum"
+      ],
+      "boss": "vampire_guardian",
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "2층 — 사방의 황야",
+      "body_part": "2층 — 사방의 황야",
+      "description": "4개 독립 필드 (속삭임의 숲, 야수의 둥지, 황혼의 사막, 적막의 무덤)",
+      "timer_seconds": null,
+      "monsters": [
+        "orc_warrior",
+        "orc_shaman",
+        "viper",
+        "stone_golem",
+        "bone_knight",
+        "deathpind",
+        "skeleton",
+        "skeleton_warrior",
+        "gargoyle_statue"
+      ],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "3층 — 얽힌 길",
+      "body_part": "3층 — 얽힌 길",
+      "description": "아름다운 절경으로 유명한 층. 메마른 언덕에서 몽환의 숲까지 이어지는 얽힌 길. 드왈키가 특히 좋아했던 경치가 있는 곳.",
+      "timer_seconds": null,
+      "monsters": [
+        "yeti",
+        "half_troll",
+        "canibaro",
+        "steel_hill_chaser",
+        "lizardman",
+        "bykundus",
+        "spirit",
+        "orc_great_warrior",
+        "minotauros",
+        "hell_hound"
+      ],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "4층 — 하늘 첨탑",
+      "body_part": "4층 — 하늘 첨탑",
+      "description": "스테이지형 수직 탑. 시련 클리어 → 계단 선택 반복",
+      "timer_seconds": null,
+      "monsters": [
+        "death_knight",
+        "gargoyle",
+        "living_armor",
+        "iron_falcon",
+        "troll",
+        "shadow_stalker",
+        "storm_elemental",
+        "obsidian_golem",
+        "fallen_knight",
+        "wyvern",
+        "chimera",
+        "dark_mage",
+        "iron_guardian"
+      ],
+      "boss": "sky_guardian",
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "5층 — 분열의 협곡",
+      "body_part": "5층 — 분열의 협곡",
+      "description": "중심 제단 中央 허브 + 4갈래 협곡. 각 협곡마다 강한 환경 디버프.",
+      "timer_seconds": null,
+      "monsters": [
+        "ifrit",
+        "hellfire_caster",
+        "frost_lord",
+        "frostbite_ghoul",
+        "darkilion",
+        "soul_wraith",
+        "stormling",
+        "stormgiant",
+        "death_knight",
+        "yeti",
+        "hell_hound",
+        "wyvern",
+        "gargoyle"
+      ],
+      "boss": "chaos_guardian",
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "6층 — 비취의 바다",
+      "body_part": "6층 — 비취의 바다",
+      "description": "13+섬으로 구성된 오픈 항해 무대. 항해사 + 배 필요. 시간 연속 (영구사망 무게 큼).",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "7층 — 서리의 황야",
+      "body_part": "7층 — 서리의 황야",
+      "description": "",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "7층 — 한기의 동굴",
+      "body_part": "7층 — 한기의 동굴",
+      "description": "",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "7층 — 영겁의 빙하",
+      "body_part": "7층 — 영겁의 빙하",
+      "description": "",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "7층 — 통곡의 나락",
+      "body_part": "7층 — 통곡의 나락",
+      "description": "",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    },
+    {
+      "floor_number": null,
+      "name": "7층 — 어둠의 대지",
+      "body_part": "7층 — 어둠의 대지",
+      "description": "",
+      "timer_seconds": null,
+      "monsters": [],
+      "boss": null,
+      "hazards": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "archetypes": [
+    "bolt",
+    "burst",
+    "lance",
+    "breath",
+    "chain",
+    "rain",
+    "dash",
+    "strike",
+    "self_buff",
+    "ally_buff_aoe",
+    "self_heal",
+    "single_cc",
+    "aoe_debuff",
+    "dot_field",
+    "dot_aura",
+    "teleport_strike",
+    "on_hit_buff"
+  ],
+  "shapes": [
+    "single",
+    "circle",
+    "line",
+    "cone",
+    "chain",
+    "drop",
+    "dash"
+  ],
+  "total_manual_skills": 0,
+  "skills": []
+}

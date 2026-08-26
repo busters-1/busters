@@ -1,0 +1,7830 @@
+{
+  "floor_None": {
+    "category": "floor",
+    "id": "None",
+    "name": "7층 — 어둠의 대지",
+    "body_part": "",
+    "description": ""
+  },
+  "essence_goblin": {
+    "category": "essence",
+    "id": "goblin",
+    "name": "고블린",
+    "grade": 9,
+    "color": "red",
+    "usage": "첫 룬, CC 입문"
+  },
+  "essence_goblin_archer": {
+    "category": "essence",
+    "id": "goblin_archer",
+    "name": "고블린 궁수",
+    "grade": 9,
+    "color": "orange",
+    "usage": "원거리/유틸"
+  },
+  "essence_slime": {
+    "category": "essence",
+    "id": "slime",
+    "name": "슬라임",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "순수 스탯 (인내+15)"
+  },
+  "essence_stone_golem": {
+    "category": "essence",
+    "id": "stone_golem",
+    "name": "스톤골렘",
+    "grade": 8,
+    "color": "green",
+    "usage": "방어/CC"
+  },
+  "essence_orc_shaman": {
+    "category": "essence",
+    "id": "orc_shaman",
+    "name": "오크 주술사",
+    "grade": 8,
+    "color": "blue",
+    "usage": "방어 버프"
+  },
+  "essence_steel_hill_chaser": {
+    "category": "essence",
+    "id": "steel_hill_chaser",
+    "name": "강철언덕 추격자",
+    "grade": 8,
+    "color": "purple",
+    "usage": "원거리 딜러"
+  },
+  "essence_bone_knight": {
+    "category": "essence",
+    "id": "bone_knight",
+    "name": "본 나이트",
+    "grade": 7,
+    "color": "red",
+    "usage": "흡혈 브루저 — 상시 흡혈(골수 착취)로 버티며, 생기 흡수로 순간 흡혈 폭발. 적야의 흡혈귀 입문 파편"
+  },
+  "essence_yeti": {
+    "category": "essence",
+    "id": "yeti",
+    "name": "예티",
+    "grade": 7,
+    "color": "orange",
+    "usage": "원소 빌드"
+  },
+  "essence_dark_lycanthrope": {
+    "category": "essence",
+    "id": "dark_lycanthrope",
+    "name": "어둠의 늑대인간",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "암흑/물리 하이브리드 딜러, 망자의 제단 수호자"
+  },
+  "essence_tarunbas": {
+    "category": "essence",
+    "id": "tarunbas",
+    "name": "혹한의 폭군",
+    "grade": 7,
+    "color": "rainbow",
+    "usage": "혹한의 빙동 수호자 룬. 빙결 빌드 코어, 예티와 시너지"
+  },
+  "essence_himar": {
+    "category": "essence",
+    "id": "himar",
+    "name": "빙관의 히마르",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "5층 자체 서리 상흔 수호자 룬. tarunbas의 상위 호환 — 한기 스택 가속(+4, 타룬 +3 능가) + 재빙결 면역 단축으로 빙결 가동률 최상. 연격(쌓기)→작렬(광역 폭발)→분쇄(마무리) 콤보. 스카디 빙결 빌드 코어."
+  },
+  "essence_half_troll": {
+    "category": "essence",
+    "id": "half_troll",
+    "name": "하프 트롤",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "공격 특화"
+  },
+  "essence_death_knight": {
+    "category": "essence",
+    "id": "death_knight",
+    "name": "데스나이트",
+    "grade": 6,
+    "color": "green",
+    "usage": "보스전 유틸"
+  },
+  "essence_orc_hero": {
+    "category": "essence",
+    "id": "orc_hero",
+    "name": "오크 전쟁군주",
+    "grade": 5,
+    "color": "green",
+    "usage": "핵심 변신 스킬"
+  },
+  "essence_frost_wolf": {
+    "category": "essence",
+    "id": "frost_wolf",
+    "name": "서리늑대",
+    "grade": 8,
+    "color": "purple",
+    "usage": "냉기 디버프 입문, 예티/혹한의 폭군 시너지"
+  },
+  "essence_blade_wolf": {
+    "category": "essence",
+    "id": "blade_wolf",
+    "name": "칼날늑대",
+    "grade": 9,
+    "color": "red",
+    "usage": "탐색/출혈"
+  },
+  "essence_noum": {
+    "category": "essence",
+    "id": "noum",
+    "name": "노움",
+    "grade": 9,
+    "color": "orange",
+    "usage": "은신/CC, 일체화 스킬"
+  },
+  "essence_ghoul": {
+    "category": "essence",
+    "id": "ghoul",
+    "name": "구울",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "자힐 입문"
+  },
+  "essence_goblin_swordsman": {
+    "category": "essence",
+    "id": "goblin_swordsman",
+    "name": "고블린 검사",
+    "grade": 9,
+    "color": "green",
+    "usage": "근접 딜 보조"
+  },
+  "essence_orc_warrior": {
+    "category": "essence",
+    "id": "orc_warrior",
+    "name": "오크 전사",
+    "grade": 8,
+    "color": "blue",
+    "usage": "디버프/버프"
+  },
+  "essence_giant_orc": {
+    "category": "essence",
+    "id": "giant_orc",
+    "name": "거대 오크",
+    "grade": 8,
+    "color": "purple",
+    "usage": "거신의 힘 입문. 오크 전쟁군주(5등급) 열화판"
+  },
+  "essence_viper": {
+    "category": "essence",
+    "id": "viper",
+    "name": "독사",
+    "grade": 8,
+    "color": "red",
+    "usage": "독 빌드"
+  },
+  "essence_skeleton": {
+    "category": "essence",
+    "id": "skeleton",
+    "name": "스켈레톤",
+    "grade": 9,
+    "color": "orange",
+    "usage": "순수 방어 스탯"
+  },
+  "essence_skeleton_warrior": {
+    "category": "essence",
+    "id": "skeleton_warrior",
+    "name": "스켈레톤 전사",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "방어 특화"
+  },
+  "essence_canibaro": {
+    "category": "essence",
+    "id": "canibaro",
+    "name": "굶주린 야수",
+    "grade": 7,
+    "color": "green",
+    "usage": "흡혈/자힐 고급"
+  },
+  "essence_lizardman": {
+    "category": "essence",
+    "id": "lizardman",
+    "name": "리자드맨",
+    "grade": 7,
+    "color": "blue",
+    "usage": "방어/CC"
+  },
+  "essence_spirit": {
+    "category": "essence",
+    "id": "spirit",
+    "name": "영혼",
+    "grade": 7,
+    "color": "purple",
+    "usage": "마법 방어/회피"
+  },
+  "essence_bykundus": {
+    "category": "essence",
+    "id": "bykundus",
+    "name": "강철 기사",
+    "grade": 6,
+    "color": "red",
+    "usage": "고급 딜러"
+  },
+  "essence_orc_great_warrior": {
+    "category": "essence",
+    "id": "orc_great_warrior",
+    "name": "오크 대전사",
+    "grade": 7,
+    "color": "orange",
+    "usage": "범위 딜"
+  },
+  "essence_gargoyle": {
+    "category": "essence",
+    "id": "gargoyle",
+    "name": "바람의 가고일",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "방어 특화"
+  },
+  "essence_living_armor": {
+    "category": "essence",
+    "id": "living_armor",
+    "name": "리빙아머",
+    "grade": 8,
+    "color": "green",
+    "usage": "탱커 빌드"
+  },
+  "essence_iron_falcon": {
+    "category": "essence",
+    "id": "iron_falcon",
+    "name": "아이언팔콘",
+    "grade": 8,
+    "color": "blue",
+    "usage": "회피/크리티컬"
+  },
+  "essence_troll": {
+    "category": "essence",
+    "id": "troll",
+    "name": "트롤",
+    "grade": 5,
+    "color": "purple",
+    "usage": "하이리스크 딜러"
+  },
+  "essence_hell_hound": {
+    "category": "essence",
+    "id": "hell_hound",
+    "name": "헬 하운드",
+    "grade": 6,
+    "color": "red",
+    "usage": "화염 빌드"
+  },
+  "essence_gargoyle_statue": {
+    "category": "essence",
+    "id": "gargoyle_statue",
+    "name": "가고일 석상",
+    "grade": 8,
+    "color": "orange",
+    "usage": "CC 보조"
+  },
+  "essence_deathpind": {
+    "category": "essence",
+    "id": "deathpind",
+    "name": "저승의 사자",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "크리티컬 빌드"
+  },
+  "essence_vampire_guardian": {
+    "category": "essence",
+    "id": "vampire_guardian",
+    "name": "적야의 흡혈귀",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "수호자 룬. 적야의 성채 변종 보스 드롭. 흡혈 빌드 코어"
+  },
+  "essence_blater": {
+    "category": "essence",
+    "id": "blater",
+    "name": "저주받은 흑기사",
+    "grade": 6,
+    "color": "rainbow",
+    "usage": "수호자 룬. 적야의 성채 일반 보스 드롭. 대검 검사 빌드 코어 (데스나이트 계열)"
+  },
+  "essence_chained_wraith": {
+    "category": "essence",
+    "id": "chained_wraith",
+    "name": "사슬에 묶인 검귀",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "수호자 룬. 야수의 둥지 보스 드롭. 광폭/흡혈 대검 검사 빌드 (저주받은 흑기사 상위 호환)"
+  },
+  "essence_white_temple_knight": {
+    "category": "essence",
+    "id": "white_temple_knight",
+    "name": "석화된 종언기사",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "수호자 룬. 석화된 성소 보스 드롭. 탱커/성기사 빌드"
+  },
+  "essence_abyssal_end_knight": {
+    "category": "essence",
+    "id": "abyssal_end_knight",
+    "name": "심연의 종언기사",
+    "grade": 4,
+    "color": "rainbow",
+    "usage": "종언기사 룬. 심연의 성소 보스 드롭. 어둠 불굴 탱커 — 강타·광역·불멸의 함성"
+  },
+  "essence_sunken_armor": {
+    "category": "essence",
+    "id": "sunken_armor",
+    "name": "침몰한 봉인 수호상",
+    "grade": 4,
+    "color": [
+      "green",
+      "purple"
+    ],
+    "usage": "침몰 석상의 방벽 — 실드·경화 탱커 + 기절 CC (봉인 수호상 g4판)"
+  },
+  "essence_drowned_azure": {
+    "category": "essence",
+    "id": "drowned_azure",
+    "name": "익사한 단죄의 심판상",
+    "grade": 4,
+    "color": [
+      "cyan",
+      "blue"
+    ],
+    "usage": "익사 심판상의 단죄 — 냉기 근접 순딜, 제압된 적 처형 (스카디 근마투)"
+  },
+  "essence_abyssal_chorister": {
+    "category": "essence",
+    "id": "abyssal_chorister",
+    "name": "심연 성가대",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "심연 성가대의 익사가 — 냉기 마력 딜러, 마법 저항 붕괴 (스카디 근마투)"
+  },
+  "essence_abyssal_harpooner": {
+    "category": "essence",
+    "id": "abyssal_harpooner",
+    "name": "심연 작살병",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "익사한 작살잡이 — 민첩 근접 2연타 + 관통 끌기 (브린 민예마)"
+  },
+  "essence_trench_lurker": {
+    "category": "essence",
+    "id": "trench_lurker",
+    "name": "해구의 잠행자",
+    "grade": 4,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "해저의 기습자 — 순간이동 배후강타 + 2연타 누적 폭발 (브린 민예마)"
+  },
+  "essence_petrified_colossus": {
+    "category": "essence",
+    "id": "petrified_colossus",
+    "name": "석화의 수호거상",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "수호자 룬. 파수의 성소 보스 드롭. 석상 탱커/골렘 루트"
+  },
+  "essence_petrified_oracle": {
+    "category": "essence",
+    "id": "petrified_oracle",
+    "name": "석화의 신탁상",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "수호자 룬. 예언의 성소 보스 드롭. 저주/디버프 캐스터 루트"
+  },
+  "essence_mimic": {
+    "category": "essence",
+    "id": "mimic",
+    "name": "미믹",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "의태 보물상자 — 보물운·적재량 + 위장 기습. 보물 미믹(첫타 폭발) 입문판"
+  },
+  "essence_raphremmik": {
+    "category": "essence",
+    "id": "raphremmik",
+    "name": "보물 미믹",
+    "grade": 4,
+    "color": [
+      "yellow",
+      "purple"
+    ],
+    "usage": "보물/의태 라인 졸업 룬. 공격을 이어갈수록 포식이 쌓여 피해가 커지고, 정점에서 삼킨다. 빈사의 적은 통째로 — 지속 난타형 피니셔. 노출되면 마법에 약함."
+  },
+  "essence_doppelganger": {
+    "category": "essence",
+    "id": "doppelganger",
+    "name": "도플갱어",
+    "grade": 4,
+    "color": "rainbow",
+    "usage": "수호자 룬. 거울 미로 보스 드롭. 변칙/트릭 빌드"
+  },
+  "essence_minotauros": {
+    "category": "essence",
+    "id": "minotauros",
+    "name": "미노타우로스",
+    "grade": 7,
+    "color": "green",
+    "usage": "보스급 룬, 돌진/CC"
+  },
+  "essence_dreadpeer": {
+    "category": "essence",
+    "id": "dreadpeer",
+    "name": "공포의 군주",
+    "grade": 1,
+    "color": "rainbow",
+    "usage": "수호자 룬. 공포/디버프 빌드 코어"
+  },
+  "essence_riakis": {
+    "category": "essence",
+    "id": "riakis",
+    "name": "혼돈의 군주",
+    "grade": 1,
+    "color": "rainbow",
+    "usage": "수호자 룬. 혼돈/디버프 빌드 코어"
+  },
+  "essence_shadow_stalker": {
+    "category": "essence",
+    "id": "shadow_stalker",
+    "name": "그림자 추적자",
+    "grade": 7,
+    "color": "blue",
+    "usage": "은신/암살 빌드"
+  },
+  "essence_storm_elemental": {
+    "category": "essence",
+    "id": "storm_elemental",
+    "name": "폭풍 정령",
+    "grade": 7,
+    "color": "purple",
+    "usage": "범위 마법 딜러"
+  },
+  "essence_obsidian_golem": {
+    "category": "essence",
+    "id": "obsidian_golem",
+    "name": "흑요석 골렘",
+    "grade": 6,
+    "color": "red",
+    "usage": "극방어 탱커"
+  },
+  "essence_fallen_knight": {
+    "category": "essence",
+    "id": "fallen_knight",
+    "name": "타락한 기사",
+    "grade": 6,
+    "color": "orange",
+    "usage": "공격형 기사 빌드"
+  },
+  "essence_wyvern": {
+    "category": "essence",
+    "id": "wyvern",
+    "name": "와이번",
+    "grade": 6,
+    "color": "yellow",
+    "usage": "기동형 딜러"
+  },
+  "essence_chimera": {
+    "category": "essence",
+    "id": "chimera",
+    "name": "키메라",
+    "grade": 5,
+    "color": "green",
+    "usage": "복합 속성 딜러"
+  },
+  "essence_dark_mage": {
+    "category": "essence",
+    "id": "dark_mage",
+    "name": "암흑 마법사",
+    "grade": 7,
+    "color": "blue",
+    "usage": "마법 딜러/디버프"
+  },
+  "essence_iron_guardian": {
+    "category": "essence",
+    "id": "iron_guardian",
+    "name": "철의 수호자",
+    "grade": 6,
+    "color": "purple",
+    "usage": "방패 강타 + iron_stance 패시브 (블록 후 +30%) 시너지"
+  },
+  "essence_sky_guardian": {
+    "category": "essence",
+    "id": "sky_guardian",
+    "name": "천공의 군주",
+    "grade": 1,
+    "color": "rainbow",
+    "usage": "4층 최종 보스 룬. 올라운더 최상위"
+  },
+  "essence_elder_ghoul": {
+    "category": "essence",
+    "id": "elder_ghoul",
+    "name": "엘더 구울",
+    "grade": 9,
+    "color": "red",
+    "usage": "초반 공격력 보조"
+  },
+  "essence_skeleton_archer": {
+    "category": "essence",
+    "id": "skeleton_archer",
+    "name": "스켈레톤 아처",
+    "grade": 9,
+    "color": "orange",
+    "usage": "원거리 딜 보조"
+  },
+  "essence_hobgoblin": {
+    "category": "essence",
+    "id": "hobgoblin",
+    "name": "홉고블린",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "물리 탱커 보조"
+  },
+  "essence_saber_tiger": {
+    "category": "essence",
+    "id": "saber_tiger",
+    "name": "샤벨타이거",
+    "grade": 8,
+    "color": "green",
+    "usage": "민첩 빌드 핵심"
+  },
+  "essence_ice_golem": {
+    "category": "essence",
+    "id": "ice_golem",
+    "name": "아이스 골렘",
+    "grade": 8,
+    "color": "blue",
+    "usage": "냉기 탱커, 둔화 CC"
+  },
+  "essence_warmstone": {
+    "category": "essence",
+    "id": "warmstone",
+    "name": "발열 암괴",
+    "grade": 8,
+    "color": "purple",
+    "usage": "디버프 특화"
+  },
+  "essence_dullahan": {
+    "category": "essence",
+    "id": "dullahan",
+    "name": "듀라한",
+    "grade": 7,
+    "color": "red",
+    "usage": "방어형 빌드 핵심, 돌진기"
+  },
+  "essence_aiantro": {
+    "category": "essence",
+    "id": "aiantro",
+    "name": "강철 멧돼지",
+    "grade": 7,
+    "color": "orange",
+    "usage": "탱커 필수 스킬 — 넉백 면역"
+  },
+  "essence_necramia": {
+    "category": "essence",
+    "id": "necramia",
+    "name": "강령술사",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "마법 딜러 보조"
+  },
+  "essence_dark_worshipper": {
+    "category": "essence",
+    "id": "dark_worshipper",
+    "name": "어둠숭배자",
+    "grade": 7,
+    "color": "green",
+    "usage": "CC + 디버프 조합"
+  },
+  "essence_plminas": {
+    "category": "essence",
+    "id": "plminas",
+    "name": "뇌전조",
+    "grade": 7,
+    "color": "blue",
+    "usage": "번개 속성 딜러"
+  },
+  "essence_corpse_golem": {
+    "category": "essence",
+    "id": "corpse_golem",
+    "name": "송장 거상",
+    "grade": 7,
+    "color": "purple",
+    "usage": "범위 독 딜러, 자폭형 빌드"
+  },
+  "essence_lycanthrope": {
+    "category": "essence",
+    "id": "lycanthrope",
+    "name": "라이칸스로프",
+    "grade": 7,
+    "color": "red",
+    "usage": "근접 연타 딜러, 혹한의 빙동 상흔 룬"
+  },
+  "essence_cockatrice": {
+    "category": "essence",
+    "id": "cockatrice",
+    "name": "코카트리스",
+    "grade": 7,
+    "color": "orange",
+    "usage": "CC 특화, 석화 빌드"
+  },
+  "essence_ilatrek": {
+    "category": "essence",
+    "id": "ilatrek",
+    "name": "어둠 마도사",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "근접+원거리 하이브리드"
+  },
+  "essence_nameless_statue": {
+    "category": "essence",
+    "id": "nameless_statue",
+    "name": "무명 조각상",
+    "grade": 7,
+    "color": "green",
+    "usage": "방어 극대화, 랜덤 보너스"
+  },
+  "essence_werewolf": {
+    "category": "essence",
+    "id": "werewolf",
+    "name": "웨어울프",
+    "grade": 8,
+    "color": "blue",
+    "usage": "야간 딜러, CC 보조"
+  },
+  "essence_nightfla": {
+    "category": "essence",
+    "id": "nightfla",
+    "name": "어둠의 요정",
+    "grade": 8,
+    "color": "purple",
+    "usage": "반사/탱커 빌드"
+  },
+  "essence_snetri": {
+    "category": "essence",
+    "id": "snetri",
+    "name": "심연의 촉수",
+    "grade": 8,
+    "color": "red",
+    "usage": "범위 CC, 재생 탱커"
+  },
+  "essence_sandworm": {
+    "category": "essence",
+    "id": "sandworm",
+    "name": "샌드웜",
+    "grade": 8,
+    "color": "orange",
+    "usage": "기습 돌진기, 첫타 폭딜"
+  },
+  "essence_owlbear": {
+    "category": "essence",
+    "id": "owlbear",
+    "name": "아울베어",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "출혈/재생 차단, 야간 특화"
+  },
+  "essence_banshee": {
+    "category": "essence",
+    "id": "banshee",
+    "name": "벤시",
+    "grade": 8,
+    "color": "purple",
+    "usage": "공포 CC/마법 방어"
+  },
+  "essence_chimera_wolf": {
+    "category": "essence",
+    "id": "chimera_wolf",
+    "name": "키메라울프",
+    "grade": 8,
+    "color": "red",
+    "usage": "공격/돌진"
+  },
+  "essence_ghoul_lord": {
+    "category": "essence",
+    "id": "ghoul_lord",
+    "name": "구울로드",
+    "grade": 7,
+    "color": "green",
+    "usage": "체력 회복/독 내성"
+  },
+  "essence_kobold": {
+    "category": "essence",
+    "id": "kobold",
+    "name": "코볼트",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "겔드/덫"
+  },
+  "essence_kobold_shield": {
+    "category": "essence",
+    "id": "kobold_shield",
+    "name": "코볼트 방패병",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "방어/진압"
+  },
+  "essence_kobold_sword": {
+    "category": "essence",
+    "id": "kobold_sword",
+    "name": "코볼트 검사",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "근접 공격"
+  },
+  "essence_corrupted_noum": {
+    "category": "essence",
+    "id": "corrupted_noum",
+    "name": "타락한 노움",
+    "grade": 8,
+    "color": "purple",
+    "usage": "독/기습"
+  },
+  "essence_boulder_soldier": {
+    "category": "essence",
+    "id": "boulder_soldier",
+    "name": "거석병",
+    "grade": 8,
+    "color": "green",
+    "usage": "극방어/지진"
+  },
+  "essence_sandman": {
+    "category": "essence",
+    "id": "sandman",
+    "name": "샌드맨",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "CC/마법"
+  },
+  "essence_deathworm": {
+    "category": "essence",
+    "id": "deathworm",
+    "name": "심연 샌드웜",
+    "grade": 5,
+    "color": "red",
+    "usage": "극공격/CC"
+  },
+  "essence_frogman": {
+    "category": "essence",
+    "id": "frogman",
+    "name": "프로그맨",
+    "grade": 8,
+    "color": "green",
+    "usage": "도약/독 내성"
+  },
+  "essence_orc_archer": {
+    "category": "essence",
+    "id": "orc_archer",
+    "name": "오크 궁수",
+    "grade": 8,
+    "color": "green",
+    "usage": "원거리 공격"
+  },
+  "essence_orc_lord": {
+    "category": "essence",
+    "id": "orc_lord",
+    "name": "오크로드",
+    "grade": 2,
+    "color": "green",
+    "usage": "최상급 공격/CC"
+  },
+  "essence_fairy": {
+    "category": "essence",
+    "id": "fairy",
+    "name": "페어리",
+    "grade": 9,
+    "color": "cyan",
+    "usage": "SP 재생/마법"
+  },
+  "essence_wraith": {
+    "category": "essence",
+    "id": "wraith",
+    "name": "레이스",
+    "grade": 9,
+    "color": "purple",
+    "usage": "마법 방어/흡수"
+  },
+  "essence_witch_lamp": {
+    "category": "essence",
+    "id": "witch_lamp",
+    "name": "도깨비불 등롱",
+    "grade": 9,
+    "color": "orange",
+    "usage": "회피/마법"
+  },
+  "essence_woodman": {
+    "category": "essence",
+    "id": "woodman",
+    "name": "우드맨",
+    "grade": 9,
+    "color": "green",
+    "usage": "방어"
+  },
+  "essence_dailouter": {
+    "category": "essence",
+    "id": "dailouter",
+    "name": "황금 사자",
+    "grade": 8,
+    "color": "red",
+    "usage": "크리티컬/공격"
+  },
+  "essence_mutant_elemental": {
+    "category": "essence",
+    "id": "mutant_elemental",
+    "name": "돌연변이 하급정령",
+    "grade": 8,
+    "color": "cyan",
+    "usage": "마법 공격"
+  },
+  "essence_homunculus": {
+    "category": "essence",
+    "id": "homunculus",
+    "name": "호문쿨루스",
+    "grade": 8,
+    "color": "purple",
+    "usage": "기습/텔레포트"
+  },
+  "essence_dryad": {
+    "category": "essence",
+    "id": "dryad",
+    "name": "드라이어드",
+    "grade": 8,
+    "color": "green",
+    "usage": "CC/회복"
+  },
+  "essence_goblin_miner": {
+    "category": "essence",
+    "id": "goblin_miner",
+    "name": "고블린 광부",
+    "grade": 8,
+    "color": "orange",
+    "usage": "독/CC 입문. 고블린 마비독과 시너지"
+  },
+  "essence_mineral_slime": {
+    "category": "essence",
+    "id": "mineral_slime",
+    "name": "광물 슬라임",
+    "grade": 8,
+    "color": "green",
+    "usage": "방어/생존 크로스. 스톤골렘과 시너지"
+  },
+  "essence_hobgoblin_miner": {
+    "category": "essence",
+    "id": "hobgoblin_miner",
+    "name": "홉고블린 광부",
+    "grade": 7,
+    "color": "red",
+    "usage": "육체/콤보. 바위 곰 넉백 후 콤보 마무리"
+  },
+  "essence_hobgoblin_swordsman": {
+    "category": "essence",
+    "id": "hobgoblin_swordsman",
+    "name": "홉고블린 검사",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "근접 평타 입문. 육체탱커 루트 보조"
+  },
+  "essence_hobgoblin_archer": {
+    "category": "essence",
+    "id": "hobgoblin_archer",
+    "name": "홉고블린 사수",
+    "grade": 8,
+    "color": "green",
+    "usage": "원거리 입문. 사수/봄버 루트"
+  },
+  "essence_hobgoblin_bomber": {
+    "category": "essence",
+    "id": "hobgoblin_bomber",
+    "name": "홉고블린 폭탄병",
+    "grade": 7,
+    "color": "orange",
+    "usage": "화염/봄버 루트. 고블린 폭탄병의 변종"
+  },
+  "essence_hobgoblin_lieutenant": {
+    "category": "essence",
+    "id": "hobgoblin_lieutenant",
+    "name": "홉고블린 부대장",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "방패 돌진. 정공법 탱커. 라그나르 진입기"
+  },
+  "essence_hobgoblin_chieftain": {
+    "category": "essence",
+    "id": "hobgoblin_chieftain",
+    "name": "홉고블린 대족장",
+    "grade": 6,
+    "color": "rainbow",
+    "usage": "육체탱커 졸업. 파티 버퍼 + 광역 슬램. 광부/부대장과 시너지"
+  },
+  "essence_copper_golem": {
+    "category": "essence",
+    "id": "copper_golem",
+    "name": "코퍼 골렘",
+    "grade": 7,
+    "color": "green",
+    "usage": "독탱 — 두꺼운 몸으로 버티며 독무로 주변을 녹인다. 진압으로 묶고 독장으로 압살. 방어+독 하이브리드"
+  },
+  "essence_goblin_bomber": {
+    "category": "essence",
+    "id": "goblin_bomber",
+    "name": "고블린 폭탄병",
+    "grade": 6,
+    "color": [
+      "red",
+      "orange"
+    ],
+    "usage": "화염/봄버. 헬하운드 화염물기와 시너지"
+  },
+  "essence_king_slime": {
+    "category": "essence",
+    "id": "king_slime",
+    "name": "점액의 왕",
+    "grade": 6,
+    "color": "rainbow",
+    "usage": "수호자 룬. 점액의 폐광 일반 보스 드롭. 산성 빌드 코어 (방어 깎기 + 광역 압박)"
+  },
+  "essence_mummy": {
+    "category": "essence",
+    "id": "mummy",
+    "name": "머미",
+    "grade": 9,
+    "color": "purple",
+    "usage": "언데드 입문. 방어 깎아서 후속 딜 보조"
+  },
+  "essence_buried_one": {
+    "category": "essence",
+    "id": "buried_one",
+    "name": "파묻힌 시귀",
+    "grade": 8,
+    "color": "purple",
+    "usage": "언데드/기습 크로스. 머미 디버프 후 콤보로 마무리"
+  },
+  "essence_guardians_eye": {
+    "category": "essence",
+    "id": "guardians_eye",
+    "name": "수호자의 눈",
+    "grade": 8,
+    "color": "blue",
+    "usage": "이능/육탄이능 크로스. 마법 딜 증폭"
+  },
+  "essence_iron_knight": {
+    "category": "essence",
+    "id": "iron_knight",
+    "name": "철기병",
+    "grade": 7,
+    "color": "red",
+    "usage": "육체/방어 크로스. 바위 곰 넉백 + 철기병 경직 CC체인"
+  },
+  "essence_iron_lizardman": {
+    "category": "essence",
+    "id": "iron_lizardman",
+    "name": "아이언 리자드맨",
+    "grade": 7,
+    "color": "green",
+    "usage": "방어/검성 크로스. 리자드맨 비늘갑옷 강화판"
+  },
+  "essence_ildium": {
+    "category": "essence",
+    "id": "ildium",
+    "name": "불멸의 강철거상",
+    "grade": 6,
+    "color": "rainbow",
+    "usage": "수호자 룬. 골렘루트 졸업 (강철거인 대안)"
+  },
+  "essence_bulkar": {
+    "category": "essence",
+    "id": "bulkar",
+    "name": "바위 곰",
+    "grade": 8,
+    "color": "red",
+    "usage": "육체 입문. 거신의 힘 약화판, 오크히어로 전 단계"
+  },
+  "essence_wall_mole": {
+    "category": "essence",
+    "id": "wall_mole",
+    "name": "굴착 두더지",
+    "grade": 8,
+    "color": "orange",
+    "usage": "민첩/기습. 뒤잡기 + 회피, 그림자추적자 전 단계"
+  },
+  "essence_yeti_alpha": {
+    "category": "essence",
+    "id": "yeti_alpha",
+    "name": "변종 예티",
+    "grade": 7,
+    "color": "blue",
+    "usage": ""
+  },
+  "essence_ifrit": {
+    "category": "essence",
+    "id": "ifrit",
+    "name": "이프리트",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange",
+      "yellow"
+    ],
+    "usage": ""
+  },
+  "essence_frost_lord": {
+    "category": "essence",
+    "id": "frost_lord",
+    "name": "프로스트로드",
+    "grade": 5,
+    "color": [
+      "blue",
+      "cyan",
+      "red"
+    ],
+    "usage": ""
+  },
+  "essence_darkilion": {
+    "category": "essence",
+    "id": "darkilion",
+    "name": "음영의 원귀",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue",
+      "red"
+    ],
+    "usage": ""
+  },
+  "essence_bertas": {
+    "category": "essence",
+    "id": "bertas",
+    "name": "분노의 화신",
+    "grade": 5,
+    "color": [
+      "red",
+      "purple"
+    ],
+    "usage": "같은 곳을 거듭 때려 폭발을 일으키는 근접 카운터형. 보스전 폭딜에 강하다."
+  },
+  "essence_stormling": {
+    "category": "essence",
+    "id": "stormling",
+    "name": "풍령",
+    "grade": 7,
+    "color": "yellow",
+    "usage": ""
+  },
+  "essence_stormgiant": {
+    "category": "essence",
+    "id": "stormgiant",
+    "name": "폭풍거인",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "cyan",
+      "silver"
+    ],
+    "usage": ""
+  },
+  "essence_bone_mage": {
+    "category": "essence",
+    "id": "bone_mage",
+    "name": "본 메이지",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "마법 입문"
+  },
+  "essence_death_slave": {
+    "category": "essence",
+    "id": "death_slave",
+    "name": "망자 노예",
+    "grade": 9,
+    "color": "green",
+    "usage": "약체 잡몹 룬"
+  },
+  "essence_shadow_medium": {
+    "category": "essence",
+    "id": "shadow_medium",
+    "name": "그림자 영매",
+    "grade": 8,
+    "color": "purple",
+    "usage": "어둠 마법"
+  },
+  "essence_curse_mage": {
+    "category": "essence",
+    "id": "curse_mage",
+    "name": "저주 마법사",
+    "grade": 8,
+    "color": "purple",
+    "usage": "저주/암흑 폭딜"
+  },
+  "essence_death_priest": {
+    "category": "essence",
+    "id": "death_priest",
+    "name": "망자의 신관",
+    "grade": 7,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "서포터 — 약체화 디버프"
+  },
+  "essence_corpse_giant": {
+    "category": "essence",
+    "id": "corpse_giant",
+    "name": "시체 거인",
+    "grade": 6,
+    "color": [
+      "red",
+      "yellow"
+    ],
+    "usage": "탱커형 — 광폭 휘두르기 + 자기 가호"
+  },
+  "essence_chained_fang": {
+    "category": "essence",
+    "id": "chained_fang",
+    "name": "사슬 송곳니",
+    "grade": 6,
+    "color": [
+      "red",
+      "blue"
+    ],
+    "usage": "야수형 — 사슬 채찍 광역 + 광폭 돌진 단발. 검귀 빌드 보조"
+  },
+  "essence_desert_bandit": {
+    "category": "essence",
+    "id": "desert_bandit",
+    "name": "사막 강도",
+    "grade": 9,
+    "color": "red",
+    "usage": "약체 잡몹 룬"
+  },
+  "essence_kobold_apprentice": {
+    "category": "essence",
+    "id": "kobold_apprentice",
+    "name": "코볼트 견습총잡이",
+    "grade": 9,
+    "color": "yellow",
+    "usage": "원거리 입문"
+  },
+  "essence_kobold_gunner": {
+    "category": "essence",
+    "id": "kobold_gunner",
+    "name": "코볼트 총잡이",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "관통 사격"
+  },
+  "essence_kobold_demolisher": {
+    "category": "essence",
+    "id": "kobold_demolisher",
+    "name": "코볼트 폭파병",
+    "grade": 8,
+    "color": "red",
+    "usage": "광역 폭탄"
+  },
+  "essence_cannon_golem": {
+    "category": "essence",
+    "id": "cannon_golem",
+    "name": "캐논 골렘",
+    "grade": 7,
+    "color": "green",
+    "usage": "원거리 캐논 봄버 — perception/DEX 정조준 + heavy burst. 코볼트 폭파병/총잡이 빌드 시너지"
+  },
+  "essence_west_sandman": {
+    "category": "essence",
+    "id": "west_sandman",
+    "name": "황야 샌드맨",
+    "grade": 7,
+    "color": [
+      "yellow",
+      "red"
+    ],
+    "usage": "사막 보안관 — 권총(yellow) + 곡도(red) 양손 운용. 흡수 색에 따라 다른 액티브 슬롯 활성화"
+  },
+  "essence_gunman_chief": {
+    "category": "essence",
+    "id": "gunman_chief",
+    "name": "건맨 두목",
+    "grade": 6,
+    "color": "rainbow",
+    "usage": "총포 사막 수호자 — 사막의 인내 + 집중 사격"
+  },
+  "essence_azure_giant": {
+    "category": "essence",
+    "id": "azure_giant",
+    "name": "파수 거신상",
+    "grade": 6,
+    "color": "blue",
+    "usage": "파수 거신상 — 골렘/방어 루트. 불멸의 강철거상 전 단계"
+  },
+  "essence_white_armor": {
+    "category": "essence",
+    "id": "white_armor",
+    "name": "봉인 수호상",
+    "grade": 6,
+    "color": "green",
+    "usage": "봉인 수호상 — 방어/패링 루트. 본나이트 전 단계"
+  },
+  "essence_green_armor": {
+    "category": "essence",
+    "id": "green_armor",
+    "name": "척후상의 자취",
+    "grade": 6,
+    "color": [
+      "green",
+      "cyan"
+    ],
+    "usage": "매복 척후상 — 원거리 딜링 루트. 알바 빌드 (활/석궁/지팡이)"
+  },
+  "essence_silver_thread": {
+    "category": "essence",
+    "id": "silver_thread",
+    "name": "주박의 신관상",
+    "grade": 6,
+    "color": "purple",
+    "usage": "주박의 신관상 — 이능/원소 루트. 조화의 룬 전 단계"
+  },
+  "essence_azure_white": {
+    "category": "essence",
+    "id": "azure_white",
+    "name": "단죄의 심판상",
+    "grade": 6,
+    "color": "cyan",
+    "usage": "단죄의 심판상 — 검성/카운터 루트. 분노의 화신 전 단계"
+  },
+  "essence_phantom_horse": {
+    "category": "essence",
+    "id": "phantom_horse",
+    "name": "망령 군마",
+    "grade": 7,
+    "color": "purple",
+    "usage": "망령 군마 — 언데드/민첩 루트. 원한의 군주 전 단계"
+  },
+  "essence_stone_burn": {
+    "category": "essence",
+    "id": "stone_burn",
+    "name": "겔드번",
+    "grade": 6,
+    "color": "red",
+    "usage": "겔드번 — 용암 골렘. 화염 + 방어 빌드. 이프리트 전 단계"
+  },
+  "essence_red_mud": {
+    "category": "essence",
+    "id": "red_mud",
+    "name": "용암 슬라임",
+    "grade": 7,
+    "color": "red",
+    "usage": "용암 슬라임 — 화염 점액. 화염 데미지 + 적 디버프"
+  },
+  "essence_fire_zombie": {
+    "category": "essence",
+    "id": "fire_zombie",
+    "name": "불의 망자",
+    "grade": 8,
+    "color": "red",
+    "usage": "불의 망자 — 화염 자폭. 화염 빌드 입문"
+  },
+  "essence_curse_stone": {
+    "category": "essence",
+    "id": "curse_stone",
+    "name": "커스겔드",
+    "grade": 6,
+    "color": "purple",
+    "usage": "커스겔드 — 저주 석상. 어둠 빌드 + 단단함. 음영의 원귀 전 단계"
+  },
+  "essence_blood_wraith": {
+    "category": "essence",
+    "id": "blood_wraith",
+    "name": "혈원귀",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "5층 망령 협곡 군주급 룬. 흡혈 망령 — 입힌 피해 흡혈(상시) + 관통 흡혈/근접 어둠 폭발. dexterity 근접 흡혈 딜러(브린 등) 또는 매직 원딜이 생존용으로."
+  },
+  "essence_soul_wraith": {
+    "category": "essence",
+    "id": "soul_wraith",
+    "name": "영혼의 망령",
+    "grade": 7,
+    "color": "purple",
+    "usage": "영혼 망령 — 회피 + 영혼 흡수. 망령 빌드의 코어 회피축. 원한의 군주 전 단계"
+  },
+  "essence_hellfire_caster": {
+    "category": "essence",
+    "id": "hellfire_caster",
+    "name": "지옥불 시전자",
+    "grade": 6,
+    "color": "red",
+    "usage": "지옥불 시전자 — 화염 부여 + 광역 폭발. 화염 버서커 빌드 보강. 화염 상위 룬 전 단계"
+  },
+  "essence_frostbite_ghoul": {
+    "category": "essence",
+    "id": "frostbite_ghoul",
+    "name": "동상의 구울",
+    "grade": 7,
+    "color": "blue",
+    "usage": "서리 구울 — 냉기 디버프 오라 + 광역 울음. 스카디 빙결 빌드의 잡몹 청소축"
+  },
+  "essence_fallen_creation": {
+    "category": "essence",
+    "id": "fallen_creation",
+    "name": "타락한 피조물",
+    "grade": 8,
+    "color": "purple",
+    "usage": "타락한 피조물 — 어둠 광전사. 잡몹 청소 + 누적 버프"
+  },
+  "essence_shadow_bat": {
+    "category": "essence",
+    "id": "shadow_bat",
+    "name": "그림자 박쥐",
+    "grade": 7,
+    "color": "purple",
+    "usage": "그림자 박쥐 — 비행 잡몹. 회피 + 급강하"
+  },
+  "essence_frost_thaumaturge": {
+    "category": "essence",
+    "id": "frost_thaumaturge",
+    "name": "서리 빙주술사",
+    "grade": 6,
+    "color": "blue",
+    "usage": "서리 빙주술사 — 광역 빙결 캐스터. 스카디 빙결 빌드 보강"
+  },
+  "essence_frozen_soul": {
+    "category": "essence",
+    "id": "frozen_soul",
+    "name": "얼어붙은 영혼",
+    "grade": 6,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "usage": "냉기 영혼술사 — 처치할 때마다 혼령을 흡수해 회복. 언데드 흡혈 × 냉기 교차 빌드. 7층 영겁의 빙하 선행 룬."
+  },
+  "essence_frost_weaver": {
+    "category": "essence",
+    "id": "frost_weaver",
+    "name": "결빙의 거미",
+    "grade": 5,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "usage": "CC 셋업 코어 — 속박으로 적을 묶어 냉기 스택을 쌓고 빙결 버스트로 연결. 독/CC × 냉기 하이브리드. 스카디 빙결 빌드 보강."
+  },
+  "essence_merran": {
+    "category": "essence",
+    "id": "merran",
+    "name": "결빙의 거상",
+    "grade": 5,
+    "color": [
+      "blue",
+      "red"
+    ],
+    "usage": "거대 탱 + 갑옷깨기 조각. 골렘/방어 × 육체탱커 루트. 거신의 힘(오크히어로)와 끼면 광역 넉백 탱커. 7층 한기의 동굴 선행 룬."
+  },
+  "essence_ice_wyvern": {
+    "category": "essence",
+    "id": "ice_wyvern",
+    "name": "얼음 와이번",
+    "grade": 6,
+    "color": "blue",
+    "usage": "얼음 와이번 — 비행 빙결. 공중 + 광역 디버프"
+  },
+  "essence_frost_lancer": {
+    "category": "essence",
+    "id": "frost_lancer",
+    "name": "빙창병",
+    "grade": 8,
+    "color": "blue",
+    "usage": "빙창병 — 원거리 빙결. 단일 표적 폭딜"
+  },
+  "essence_snow_leopard": {
+    "category": "essence",
+    "id": "snow_leopard",
+    "name": "설표",
+    "grade": 8,
+    "color": "blue",
+    "usage": "설표 — 빙결 잡몹. 약한 적 처형 + 도약"
+  },
+  "essence_storm_caster": {
+    "category": "essence",
+    "id": "storm_caster",
+    "name": "폭풍 술사",
+    "grade": 6,
+    "color": "yellow",
+    "usage": "폭풍 술사 — 광역 번개 캐스터. 알바 원거리 빌드 보강"
+  },
+  "essence_wind_serpent": {
+    "category": "essence",
+    "id": "wind_serpent",
+    "name": "풍사",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "풍사 — 기습 관통. 첫타 폭딜 빌드"
+  },
+  "essence_thunder_wyvern": {
+    "category": "essence",
+    "id": "thunder_wyvern",
+    "name": "천둥 와이번",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "천둥 와이번 — 비행 강타. 처형 빌드 + 공중 우세"
+  },
+  "essence_hellframe": {
+    "category": "essence",
+    "id": "hellframe",
+    "name": "헬프레임",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange"
+    ],
+    "usage": "헬프레임 — 5층 작염의 협곡 등장. 화염 버서커 빌드 강화 (화염 자해버프 + 화염 면역)"
+  },
+  "essence_hellsmith": {
+    "category": "essence",
+    "id": "hellsmith",
+    "name": "헬스미스",
+    "grade": 3,
+    "color": [
+      "red",
+      "green"
+    ],
+    "usage": "졸업 룬 (8층 적룡의 심처 영역, 위키 '졸업 룬 성능'). 화염 버서커 빌드 졸업"
+  },
+  "essence_vitol": {
+    "category": "essence",
+    "id": "vitol",
+    "name": "한기의 주술사",
+    "grade": 5,
+    "color": [
+      "blue",
+      "red"
+    ],
+    "usage": "5층 혹한의 협곡 일반 룬. 스카디 빌드 입문 — 액티브 효과 증폭 패시브 (스카디 획득)"
+  },
+  "essence_death_lord": {
+    "category": "essence",
+    "id": "death_lord",
+    "name": "원한의 군주",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "망령의 군주에게서 뽑아낸 사령의 원한 — 맞으며 버티다 한 번에 되갚는 카운터 검사의 룬."
+  },
+  "essence_tempest_archer": {
+    "category": "essence",
+    "id": "tempest_archer",
+    "name": "폭풍의 궁수",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "cyan"
+    ],
+    "usage": "5층 풍압 협곡 정예 룬. 알바 빌드 1차 코어 — 원거리 + 정령 시너지(정령 사원에서 활성 정령 선택). 6층 조화의 룬 강화, 졸업은 6~7층 혼돈의 룬"
+  },
+  "essence_evan": {
+    "category": "essence",
+    "id": "evan",
+    "name": "정령술사",
+    "grade": 5,
+    "color": [
+      "red",
+      "cyan",
+      "brown",
+      "yellow"
+    ],
+    "usage": "알바 전용. 정령화 토글 → 라그나르 정령 폼. 영혼력 4/sec 지속 소모. 룬창에서 활성 정령 1개 선택. 6~7층 혼돈의 룬/조화의 룬으로 졸업."
+  },
+  "essence_awakened_megalith": {
+    "category": "essence",
+    "id": "awakened_megalith",
+    "name": "깨어난 거석",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "2층 안개의 거석 폐허 수호자. 골렘/방어 루트 졸업급. 광역 stagger + 자가 phys_resist 버프 — 라그나르 탱커 빌드와 시너지. 매직/속성 피해까지 감소하는 유일한 stone_skin 류 (가디언 등급 가치)."
+  },
+  "essence_stone_sentinel_archer": {
+    "category": "essence",
+    "id": "stone_sentinel_archer",
+    "name": "수호 석궁상",
+    "grade": 6,
+    "color": "green",
+    "usage": "2층 안개의 거석 폐허 중간보스. 궁수+골렘 하이브리드 — 단단한 원거리 빌드 보조."
+  },
+  "essence_mutant": {
+    "category": "essence",
+    "id": "mutant",
+    "name": "결빙의 변이체",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "5층 혹한의 협곡 일반 룬 (위키 essences_wiki:235 명시). 스카디 핵심 빌드 — 쌍수검사 DEX 빌드의 정점, 근력 폭증으로 데미지 전환"
+  },
+  "essence_frost_thrall": {
+    "category": "essence",
+    "id": "frost_thrall",
+    "name": "결빙의 권속",
+    "grade": 5,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "usage": "5층 혹한의 협곡 일반 룬. 스카디 빌드 1차 코어 — frost_lord 약화 사도 → 8층 서리군주 궁전에서 frost_lord 풀 룬으로 졸업"
+  },
+  "essence_gigant_wolf": {
+    "category": "essence",
+    "id": "gigant_wolf",
+    "name": "스콜",
+    "grade": 4,
+    "color": "red",
+    "usage": "원귀의 협곡 봉헌 미드보스 '스콜' 처치 룬. 민첩/기습 빌드 졸업 — 첫 공격 크리티컬 + 처치 시 사냥 가속. 야수 사냥꾼(펜리) 정합"
+  },
+  "essence_giant_blade_wolf": {
+    "category": "essence",
+    "id": "giant_blade_wolf",
+    "name": "거대 칼날늑대",
+    "grade": 8,
+    "color": "red",
+    "usage": "거신의 힘 입문 — scent_tracking(탐험·약점감지) + beast_gigantification(15초 거신의 힘). 8등급 동급 bulkar와 함께 거신의 힘 빌드 시작점, 5층 orc_hero로 졸업(gigantification 30초)"
+  },
+  "essence_blood_blade_wolf": {
+    "category": "essence",
+    "id": "blood_blade_wolf",
+    "name": "핏빛 칼날늑대",
+    "grade": 6,
+    "color": "red",
+    "usage": "칼날늑대 출혈 강화판 — scent_tracking 계승, 액티브 blood_dash로 적에게 5초 취약 (받는 데미지 +20%) 부여"
+  },
+  "essence_doom_warrior": {
+    "category": "essence",
+    "id": "doom_warrior",
+    "name": "둠워리어",
+    "grade": 5,
+    "color": "red",
+    "usage": "이면세계 황야 — 흑갑 검사. 거듭베기 + 흑갑 반사, 분노의 화신/헬프레임 빌드 전조"
+  },
+  "essence_redwood": {
+    "category": "essence",
+    "id": "redwood",
+    "name": "작염의 고목",
+    "grade": 5,
+    "color": [
+      "red",
+      "brown"
+    ],
+    "usage": "이면세계 황야 — 살아 움직이는 화염나무. 골렘/방어 루트 + 채찍 스턴. 불멸의 강철거상/강철거인 빌드 전조. brown/red 양 색상 모두 ember_whip 동일 액티브."
+  },
+  "essence_flame_wolf": {
+    "category": "essence",
+    "id": "flame_wolf",
+    "name": "플레임울프",
+    "grade": 7,
+    "color": "orange",
+    "usage": "이면세계 황야 — 빠른 화염 늑대. 민첩+화염 입문, 헬하운드 약화판"
+  },
+  "essence_headhunter": {
+    "category": "essence",
+    "id": "headhunter",
+    "name": "헤드헌터",
+    "grade": 7,
+    "color": "red",
+    "usage": "이면세계 황야 — 화염 사냥꾼. 원거리+화염 입문, 쌍원소 궁수 약화판"
+  },
+  "essence_hellguard": {
+    "category": "essence",
+    "id": "hellguard",
+    "name": "지옥수호병",
+    "grade": 6,
+    "color": [
+      "red",
+      "brass"
+    ],
+    "usage": "이면세계 황야 — 화염 가디언. 방어+화염, 아이언가디언 약화판"
+  },
+  "essence_gremlin": {
+    "category": "essence",
+    "id": "gremlin",
+    "name": "그렘린",
+    "grade": 8,
+    "color": "red",
+    "usage": "입문 화염 글래스 — 작은 jab"
+  },
+  "essence_chaos_swarm": {
+    "category": "essence",
+    "id": "chaos_swarm",
+    "name": "혼돈충",
+    "grade": 8,
+    "color": "purple",
+    "usage": "광역 화염 chain — 곤충떼 연쇄"
+  },
+  "essence_salamander": {
+    "category": "essence",
+    "id": "salamander",
+    "name": "셀러맨더",
+    "grade": 6,
+    "color": "red",
+    "usage": "근접 화염 brawler — 평타에 화염 스택 자동"
+  },
+  "essence_doom_flame_fairy": {
+    "category": "essence",
+    "id": "doom_flame_fairy",
+    "name": "파멸불꽃 요정",
+    "grade": 6,
+    "color": "blue",
+    "usage": "화염 마법 mage — 광역 마법 시전"
+  },
+  "essence_flame_elemental": {
+    "category": "essence",
+    "id": "flame_elemental",
+    "name": "화염 정령",
+    "grade": 6,
+    "color": "blue",
+    "usage": "원거리 화염 mage — 직선 관통 광선"
+  },
+  "essence_lava_slime": {
+    "category": "essence",
+    "id": "lava_slime",
+    "name": "용암 슬라임",
+    "grade": 7,
+    "color": "red",
+    "usage": "광역 화염 burst — 주변 폭발"
+  },
+  "essence_magma_giant": {
+    "category": "essence",
+    "id": "magma_giant",
+    "name": "마그마 거인",
+    "grade": 6,
+    "color": "brown",
+    "usage": "화염 탱커 — 받피감 + brawler 광역"
+  },
+  "essence_altar_priest": {
+    "category": "essence",
+    "id": "altar_priest",
+    "name": "망자 사제",
+    "grade": 6,
+    "color": "purple",
+    "usage": "어둠 마법 mage — 흡혈 회전"
+  },
+  "essence_altar_guardian": {
+    "category": "essence",
+    "id": "altar_guardian",
+    "name": "제단 수호자",
+    "grade": 6,
+    "color": "purple",
+    "usage": "어둠 탱커 — 받피감 + dash 일격"
+  },
+  "essence_siren": {
+    "category": "essence",
+    "id": "siren",
+    "name": "세이렌",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple",
+      "cyan",
+      "white"
+    ],
+    "usage": "매혹 메이지 — 노래로 적 묶고 water 빌드로 회복 봉인 + 둔화"
+  },
+  "essence_siren_queen": {
+    "category": "essence",
+    "id": "siren_queen",
+    "name": "세이렌 여왕",
+    "grade": 4,
+    "color": [
+      "purple",
+      "gold",
+      "cyan",
+      "red"
+    ],
+    "usage": "원거리 폭딜 메이지 — 심해의 진노로 단일 폭딜, 소용돌이로 끌어모아 생기 흡수, 바다의 노래로 적 전체 약화, 충성의 합창 도트 장판. siren의 졸업 룬 (water 폭딜+회복봉인 압축)"
+  },
+  "essence_obsidian_sentinel": {
+    "category": "essence",
+    "id": "obsidian_sentinel",
+    "name": "흑요석 순찰병",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange",
+      "blue"
+    ],
+    "usage": "흑요석 보스급 — 위기 모드 받피감 + 분쇄/용암 광역"
+  },
+  "essence_sterep": {
+    "category": "essence",
+    "id": "sterep",
+    "name": "심해의 집게",
+    "grade": 9,
+    "color": "green",
+    "usage": "약체 잡몹 룬 — 가재 룬, 노-항해사 유지비(수리비 -5%)"
+  },
+  "essence_krungbi": {
+    "category": "essence",
+    "id": "krungbi",
+    "name": "강철 갑충",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "약독 곤충 — 평타에 poison 누적"
+  },
+  "essence_ranemut_warrior": {
+    "category": "essence",
+    "id": "ranemut_warrior",
+    "name": "삼지창 전사",
+    "grade": 7,
+    "color": "blue",
+    "usage": "해양 근접 — 돌진 물기"
+  },
+  "essence_sorago": {
+    "category": "essence",
+    "id": "sorago",
+    "name": "소라고동뿔",
+    "grade": 7,
+    "color": "cyan",
+    "usage": "해양 마법 — 원거리 마력탄"
+  },
+  "essence_garbel": {
+    "category": "essence",
+    "id": "garbel",
+    "name": "심해의 진주",
+    "grade": 7,
+    "color": "blue",
+    "usage": "해양 글래스 — 진주탄 + 노-항해사 유지비(수리비 -12%)"
+  },
+  "essence_rapple_monkey": {
+    "category": "essence",
+    "id": "rapple_monkey",
+    "name": "투척 원숭이",
+    "grade": 7,
+    "color": "green",
+    "usage": "정글 회피 — 과일 던지기"
+  },
+  "essence_war_snake": {
+    "category": "essence",
+    "id": "war_snake",
+    "name": "워 스네이크",
+    "grade": 6,
+    "color": "yellow",
+    "usage": "독 러시 — 돌진 + 약독"
+  },
+  "essence_nigel_fencer": {
+    "category": "essence",
+    "id": "nigel_fencer",
+    "name": "비취의 검투사",
+    "grade": 6,
+    "color": "silver",
+    "usage": "다단 펜서 — 정밀 찌르기"
+  },
+  "essence_jungle_beetle": {
+    "category": "essence",
+    "id": "jungle_beetle",
+    "name": "정글 풍뎅이",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "정글 약독 곤충"
+  },
+  "essence_jungle_toad": {
+    "category": "essence",
+    "id": "jungle_toad",
+    "name": "정글 가시 두꺼비",
+    "grade": 8,
+    "color": "green",
+    "usage": "독 두꺼비 — 표류 방어 (배 보호)"
+  },
+  "essence_fairy_witch": {
+    "category": "essence",
+    "id": "fairy_witch",
+    "name": "요정 마녀",
+    "grade": 6,
+    "color": "purple",
+    "usage": "요정 마녀 — 매혹 + 경직 CC"
+  },
+  "essence_golem_sentinel": {
+    "category": "essence",
+    "id": "golem_sentinel",
+    "name": "골렘 순찰병",
+    "grade": 6,
+    "color": "green",
+    "usage": "골렘 컨셉 — earth 빌드 진입 + 광역"
+  },
+  "essence_ghost_sailor": {
+    "category": "essence",
+    "id": "ghost_sailor",
+    "name": "유령 선원",
+    "grade": 8,
+    "color": "white",
+    "usage": "유령섬 잡몹 — 노-항해사 유지비(표류손상 -8%)"
+  },
+  "essence_drowned_navigator": {
+    "category": "essence",
+    "id": "drowned_navigator",
+    "name": "항해사 망령",
+    "grade": 7,
+    "color": "blue",
+    "usage": "유령섬 — 항해 안정성 + 마법 보조"
+  },
+  "essence_skull_bosun": {
+    "category": "essence",
+    "id": "skull_bosun",
+    "name": "해골 갑판장",
+    "grade": 6,
+    "color": "white",
+    "usage": "유령섬 — 항해 비용 절감 + 근접"
+  },
+  "essence_wreck_guardian": {
+    "category": "essence",
+    "id": "wreck_guardian",
+    "name": "난파선 수호자",
+    "grade": 5,
+    "color": [
+      "red",
+      "purple"
+    ],
+    "usage": "유령섬 보스 — 노-항해사 앵커(표류확률 -15%) + 어둠 근접"
+  },
+  "essence_labganus": {
+    "category": "essence",
+    "id": "labganus",
+    "name": "비취의 신조",
+    "grade": 5,
+    "color": [
+      "white",
+      "cyan"
+    ],
+    "usage": "요정의 섬 히든 — 비전투요원 슬롯 전용 항해 보조 (풍향 방향 표시)"
+  },
+  "essence_zenith_petrel": {
+    "category": "essence",
+    "id": "zenith_petrel",
+    "name": "자오성 슴새",
+    "grade": 5,
+    "color": [
+      "white",
+      "blue"
+    ],
+    "usage": "유령섬 히든 (항해사 망령 12마리 누적 처치 시 여명의 섬 강림) — 비전투요원 슬롯 전용. 표류 확률 -20% (drowned_compass와 stack)"
+  },
+  "essence_coral_carapace": {
+    "category": "essence",
+    "id": "coral_carapace",
+    "name": "산호 갑각수",
+    "grade": 5,
+    "color": [
+      "orange",
+      "cyan"
+    ],
+    "usage": "유령섬 히든 (난파선 수호자 3마리 누적 처치 시 출현) — ship 카테고리 항해 보조 룬. 표류 시 배 손상 -25% + 외피 stat 보너스. active 없음 (항해 컨셉 일관)"
+  },
+  "essence_ghost_helmsman": {
+    "category": "essence",
+    "id": "ghost_helmsman",
+    "name": "유령 조타수",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "유령섬 5급 — 옛 여명의 섬 키잡이 망령. 항해사 미고용 시 배 속도 페널티 해제 (numeros 6363과 동일 효과, ship 카테고리 슬롯)."
+  },
+  "essence_mist_petrel": {
+    "category": "essence",
+    "id": "mist_petrel",
+    "name": "해무 슴새",
+    "grade": 5,
+    "color": [
+      "white",
+      "silver"
+    ],
+    "usage": "유령섬 5급 — 자오성 슴새의 자매 새. 해무를 가르며 비행. 항해사 미고용 시 시야 페널티 해제 (numeros 7272와 동일 효과, ship 카테고리 슬롯)."
+  },
+  "essence_breeze_dancer": {
+    "category": "essence",
+    "id": "breeze_dancer",
+    "name": "바람 무용수",
+    "grade": 5,
+    "color": [
+      "green",
+      "white"
+    ],
+    "usage": "요정의 섬 5급 — 바람을 다루는 정령 무용수. 직선 바람으로 견제하고 풍압으로 적을 밀쳐 거리를 둔다(비선공). 항해사 미고용 시 풍향 비대칭 해제 (numeros 5353과 동일 효과, ship 카테고리 슬롯)."
+  },
+  "essence_oracle_marksman": {
+    "category": "essence",
+    "id": "oracle_marksman",
+    "name": "신탁 사수",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "4층 하늘 신탁소 수호자. 알바 빌드 — 원거리 +10% + 평타 lightning 자동 누적 + 번개 화살 2종 (tempest_archer와 시너지: 자가 강화 + 빠른 burst 트리거)"
+  },
+  "essence_black_tree": {
+    "category": "essence",
+    "id": "black_tree",
+    "name": "블랙 트리",
+    "grade": 5,
+    "color": [
+      "green",
+      "brown",
+      "yellow"
+    ],
+    "usage": "정글 보스급 — 자가재생 식물형 탱커"
+  },
+  "essence_bone_lich": {
+    "category": "essence",
+    "id": "bone_lich",
+    "name": "본 리치",
+    "grade": 5,
+    "color": [
+      "red",
+      "purple",
+      "blue"
+    ],
+    "usage": "어둠 메이지 보스급 — 광역 폭발 + 어둠 스택"
+  },
+  "essence_fairy_queen": {
+    "category": "essence",
+    "id": "fairy_queen",
+    "name": "요정 여왕",
+    "grade": 5,
+    "color": [
+      "cyan",
+      "purple",
+      "white"
+    ],
+    "usage": "요정 메이지 보스급 — 번개 + 수면 + 광역 경직"
+  },
+  "essence_pirate_captain": {
+    "category": "essence",
+    "id": "pirate_captain",
+    "name": "해적 선장",
+    "grade": 5,
+    "color": [
+      "red",
+      "yellow"
+    ],
+    "usage": "해적 보스급 — 처치 흡혈로 지속전 강함"
+  },
+  "essence_inferno_captain": {
+    "category": "essence",
+    "id": "inferno_captain",
+    "name": "지옥불 선봉장",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange",
+      "yellow"
+    ],
+    "usage": "화염 보스급 — 광역 폭발 + 화염 스택 가속"
+  },
+  "essence_frost_admiral": {
+    "category": "essence",
+    "id": "frost_admiral",
+    "name": "빙해 제독",
+    "grade": 5,
+    "color": [
+      "blue",
+      "cyan",
+      "white"
+    ],
+    "usage": "냉기 보스급 — 광역 폭풍 + 한기 스택 가속"
+  },
+  "essence_frostbite_warrior": {
+    "category": "essence",
+    "id": "frostbite_warrior",
+    "name": "동상 전사",
+    "grade": 6,
+    "color": [
+      "blue",
+      "white"
+    ],
+    "usage": "6층 서리의 섬 근접 전사 — 한기 응축 brawler. 스카디 근접 빙결 빌드 보강"
+  },
+  "essence_frost_acolyte": {
+    "category": "essence",
+    "id": "frost_acolyte",
+    "name": "서리 시도",
+    "grade": 7,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "usage": "6층 서리의 섬 광역 캐스터 — 서리 군주를 섬기는 시도. blue=frost_bolt(단발) / cyan=glacial_storm(광역)"
+  },
+  "essence_icebound_lancer": {
+    "category": "essence",
+    "id": "icebound_lancer",
+    "name": "결빙 창병",
+    "grade": 7,
+    "color": [
+      "blue",
+      "cyan"
+    ],
+    "usage": "6층 서리의 섬 돌격 창병 — 결빙 강타. blue=icebound_lance(강타) / cyan=frost_thrust(돌진)"
+  },
+  "essence_naga_archer": {
+    "category": "essence",
+    "id": "naga_archer",
+    "name": "나가 궁수",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue"
+    ],
+    "usage": "해양 원거리 보스급 — 속박 + 물 빌드"
+  },
+  "essence_pirate_archer": {
+    "category": "essence",
+    "id": "pirate_archer",
+    "name": "해적 명사수",
+    "grade": 5,
+    "color": [
+      "red",
+      "yellow"
+    ],
+    "usage": "물리 원거리 보스급 — 더블샷 + 폭발 콤보"
+  },
+  "essence_ember_archer": {
+    "category": "essence",
+    "id": "ember_archer",
+    "name": "잿불 궁수",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange"
+    ],
+    "usage": "화염 원거리 보스급 — 약점 노출 + 화염 저항 무시"
+  },
+  "essence_pirate_swordsman": {
+    "category": "essence",
+    "id": "pirate_swordsman",
+    "name": "해적 검사",
+    "grade": 6,
+    "color": "red",
+    "usage": "해적 근접 — pirate_captain 빌드 시드"
+  },
+  "essence_pirate_gunner": {
+    "category": "essence",
+    "id": "pirate_gunner",
+    "name": "해적 총잡이",
+    "grade": 7,
+    "color": "red",
+    "usage": "해적 원거리 — pirate_archer 빌드 시드"
+  },
+  "essence_katacoma_skeleton": {
+    "category": "essence",
+    "id": "katacoma_skeleton",
+    "name": "백골의 섬 해골",
+    "grade": 8,
+    "color": "purple",
+    "usage": "백골의 섬 입문 — 어둠/언데드 진입"
+  },
+  "essence_katacoma_skeleton_warrior": {
+    "category": "essence",
+    "id": "katacoma_skeleton_warrior",
+    "name": "백골의 섬 해골 전사",
+    "grade": 7,
+    "color": "purple",
+    "usage": "백골의 섬 근접 — 어둠 흡혈"
+  },
+  "essence_katacoma_skeleton_archer": {
+    "category": "essence",
+    "id": "katacoma_skeleton_archer",
+    "name": "백골의 섬 해골 궁수",
+    "grade": 7,
+    "color": "purple",
+    "usage": "백골의 섬 원거리 — 어둠 흡혈"
+  },
+  "essence_skeleton_ghost": {
+    "category": "essence",
+    "id": "skeleton_ghost",
+    "name": "해골 귀신",
+    "grade": 6,
+    "color": "purple",
+    "usage": "회피/어둠 — darkilion 빌드 시드"
+  },
+  "essence_katacoma_bone_knight": {
+    "category": "essence",
+    "id": "katacoma_bone_knight",
+    "name": "백골의 섬 본 나이트",
+    "grade": 6,
+    "color": "purple",
+    "usage": "어둠 탱커 — bone_knight 강화판"
+  },
+  "essence_katacoma_ghoul_lord": {
+    "category": "essence",
+    "id": "katacoma_ghoul_lord",
+    "name": "백골의 섬 구울 군주",
+    "grade": 6,
+    "color": "purple",
+    "usage": "어둠 흡혈 — death_lord 빌드 시드"
+  },
+  "essence_lava_warrior": {
+    "category": "essence",
+    "id": "lava_warrior",
+    "name": "용암 전사",
+    "grade": 6,
+    "color": "red",
+    "usage": "화염 근접 — inferno_captain 빌드 시드"
+  },
+  "essence_magma_hound": {
+    "category": "essence",
+    "id": "magma_hound",
+    "name": "마그마 하운드",
+    "grade": 7,
+    "color": "red",
+    "usage": "화염 돌격 — hellsmith 빌드 시드"
+  },
+  "essence_moss_golem": {
+    "category": "essence",
+    "id": "moss_golem",
+    "name": "이끼 골렘",
+    "grade": 7,
+    "color": "green",
+    "usage": "재생 탱커 — copper_golem 빌드 시드"
+  },
+  "essence_mist_fairy": {
+    "category": "essence",
+    "id": "mist_fairy",
+    "name": "안개 요정",
+    "grade": 8,
+    "color": "cyan",
+    "usage": "마법 입문 — fairy_queen 빌드 시드"
+  },
+  "essence_guano_sea_serpent": {
+    "category": "essence",
+    "id": "guano_sea_serpent",
+    "name": "대양 이무기",
+    "grade": 4,
+    "color": [
+      "blue",
+      "cyan",
+      "purple",
+      "red"
+    ],
+    "usage": "4급 심해 메이지 — 원거리 dot/디버프 중첩 + 회피. 알바 빌드 매칭 (spirit peak + dex sub). 강골 -50 = 메이지 연약"
+  },
+  "essence_elfrot": {
+    "category": "essence",
+    "id": "elfrot",
+    "name": "부패한 시귀",
+    "grade": 4,
+    "color": [
+      "red",
+      "brown",
+      "purple"
+    ],
+    "usage": "4급 부패 광폭 — str peak + 자해 폭발 + 단일 끌어당기기 + 광역 dot. 라게르타 빌드 매칭 (검성 패링 카운터로 phys_resist 손실 보완). 살이 문드러진 컨셉 = 외피 무름"
+  },
+  "essence_palpupura": {
+    "category": "essence",
+    "id": "palpupura",
+    "name": "서리의 거인",
+    "grade": 4,
+    "color": [
+      "blue",
+      "cyan",
+      "white",
+      "red"
+    ],
+    "usage": "4급 해상 탱커 — 광역 통제 + 단일 강타 + 단일 그랩"
+  },
+  "essence_key_keeper": {
+    "category": "essence",
+    "id": "key_keeper",
+    "name": "열쇠지기",
+    "grade": 4,
+    "color": [
+      "yellow",
+      "orange",
+      "gold"
+    ],
+    "usage": "4급 백골의 섬 가드 — dex peak + str hybrid 힘민 빌드. 스카디 빌드 매칭 (쌍검 근접이라 magic_resist -50 부담 X). 광역 속박 + 단일 침묵 + 광역 폭발"
+  },
+  "essence_grave_keeper_aleton": {
+    "category": "essence",
+    "id": "grave_keeper_aleton",
+    "name": "무덤지기",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red",
+      "blue"
+    ],
+    "usage": "4급 백골의 섬 망령 탱커 — endurance HP탱에 근력 약간 (순수 탱은 적을 못 깎아 진행이 더디다). willpower -80 = 정신력 거의 0, CC 무방비. 광역 속박 + 단일 어둠 폭딜"
+  },
+  "essence_ogre": {
+    "category": "essence",
+    "id": "ogre",
+    "name": "오우거",
+    "grade": 3,
+    "color": "red",
+    "usage": "3급 졸업 룬 (적색) — 라그나르 빌드 메인. 오크히어로 거신의 힘 → 휘두르기 광역 한방. 물리탱커 정점 (무쇠가죽으로 phys_resist 2배). 군청 슬라이스(웅크리기)=ogre_guard."
+  },
+  "essence_stormgursh": {
+    "category": "essence",
+    "id": "stormgursh",
+    "name": "해일",
+    "grade": 3,
+    "color": [
+      "yellow",
+      "blue",
+      "cyan",
+      "green",
+      "red"
+    ],
+    "usage": "3급 졸업 룬 — 라그나르 빌드. 색마다 다른 폭풍 권능: 번개 끌어당김(노랑)·소용돌이 둔화(파랑)·광역 기절 포효(회색)·광역 폭우(청록)·영력 회복(초록). 거신의 힘→도약→휘두르기 콤보의 진입·제압·자원. 6층 항해 시너지"
+  },
+  "essence_deep_giant": {
+    "category": "essence",
+    "id": "deep_giant",
+    "name": "심해 거인",
+    "grade": 3,
+    "color": "green",
+    "usage": "3급 졸업 룬 (녹색) — 라그나르 빌드 자원/생존. 영혼 잠수로 SP 50% 즉시 회복 → 거신의 힘/휘두르기 재사이클. 적색(칼날급류)=deep_giant_torrent, 파란색(생명의근원/거인의피)=deep_giant_blood 슬라이스 별도."
+  },
+  "essence_ogre_guard": {
+    "category": "essence",
+    "id": "ogre_guard",
+    "name": "오우거 (군청)",
+    "grade": 3,
+    "color": "blue",
+    "usage": "3급 졸업 룬 (군청색 슬라이스) — 오우거의 방어 색. 웅크리기로 내성·재생 급증. 적색(휘두르기)=ogre 룬, 같은 몬스터 색 분할."
+  },
+  "essence_deep_giant_torrent": {
+    "category": "essence",
+    "id": "deep_giant_torrent",
+    "name": "심해 거인 (적)",
+    "grade": 3,
+    "color": "red",
+    "usage": "3급 졸업 룬 (적색 슬라이스) — 심해 거인의 공격 색. 칼날급류로 전방 물 폭격. 녹색(영혼잠수)=deep_giant, 파란(생명의근원)=deep_giant_blood, 변신(거인의피)=deep_giant_transform 분할."
+  },
+  "essence_deep_giant_blood": {
+    "category": "essence",
+    "id": "deep_giant_blood",
+    "name": "심해 거인 (파랑)",
+    "grade": 3,
+    "color": "blue",
+    "usage": "3급 졸업 룬 (파란색 슬라이스) — 심해 거인의 재생 색. 생명의 근원으로 강재생. 라그나르 빌드 생존축. 변신(거인의피)=deep_giant_transform 별도."
+  },
+  "essence_deep_giant_transform": {
+    "category": "essence",
+    "id": "deep_giant_transform",
+    "name": "심해 거인 (변신)",
+    "grade": 3,
+    "color": "purple",
+    "usage": "3급 졸업 룬 (변신 슬라이스) — 심해 거인의 변신 색. 거인의 피로 육체·이능 급증. 라그나르 거신의 힘 빌드 강화축."
+  },
+  "essence_ogre_slam_e": {
+    "category": "essence",
+    "id": "ogre_slam_e",
+    "name": "오우거 (내려찍기)",
+    "grade": 3,
+    "color": "orange",
+    "usage": "3급 졸업 룬 (주황 슬라이스) — 오우거의 단일 강타 색. 내려찍기로 한 점을 박살낸다."
+  },
+  "essence_ogre_quake_e": {
+    "category": "essence",
+    "id": "ogre_quake_e",
+    "name": "오우거 (대지가르기)",
+    "grade": 3,
+    "color": "green",
+    "usage": "3급 졸업 룬 (회색 슬라이스) — 오우거의 광역 색. 대지가르기로 땅을 갈라 충격파."
+  },
+  "essence_ogre_charge_e": {
+    "category": "essence",
+    "id": "ogre_charge_e",
+    "name": "오우거 (돌진)",
+    "grade": 3,
+    "color": "yellow",
+    "usage": "3급 졸업 룬 (노랑 슬라이스) — 오우거의 진입 색. 돌진으로 들이받아 거리를 좁힌다."
+  },
+  "essence_ogre_grab_e": {
+    "category": "essence",
+    "id": "ogre_grab_e",
+    "name": "오우거 (붙잡기)",
+    "grade": 3,
+    "color": "purple",
+    "usage": "3급 졸업 룬 (보라 슬라이스) — 오우거의 제어 색. 붙잡아 자신에게 끌어당긴다."
+  },
+  "essence_deep_giant_crush": {
+    "category": "essence",
+    "id": "deep_giant_crush",
+    "name": "심해 거인 (심연강타)",
+    "grade": 3,
+    "color": "orange",
+    "usage": "3급 졸업 룬 (주황 슬라이스) — 심해 거인의 근접 색. 심연의 강타로 물주먹 광역."
+  },
+  "essence_deep_giant_current": {
+    "category": "essence",
+    "id": "deep_giant_current",
+    "name": "심해 거인 (해류)",
+    "grade": 3,
+    "color": "cyan",
+    "usage": "3급 졸업 룬 (청록 슬라이스) — 심해 거인의 둔화 색. 심해 해류로 광역 둔화."
+  },
+  "essence_deep_giant_vortex": {
+    "category": "essence",
+    "id": "deep_giant_vortex",
+    "name": "심해 거인 (소용돌이)",
+    "grade": 3,
+    "color": "green",
+    "usage": "3급 졸업 룬 (회색 슬라이스) — 심해 거인의 끌어모으기 색. 심연의 소용돌이로 적을 끌어당긴다."
+  },
+  "essence_earthquake_lord": {
+    "category": "essence",
+    "id": "earthquake_lord",
+    "name": "지진 군주",
+    "grade": 4,
+    "color": [
+      "brown",
+      "orange",
+      "red"
+    ],
+    "usage": "earth 캡스톤 — 풍화(누적→갑옷파쇄) 브루저. 같은 적 반복 타격 시 강골 깎고 짓눌러 부순다(디버프라 파티 공유). 지각 붕괴/단층 파열/진앙 강타 삼종세트"
+  },
+  "essence_storm_lord": {
+    "category": "essence",
+    "id": "storm_lord",
+    "name": "뇌신",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "white",
+      "purple"
+    ],
+    "usage": "lightning 캡스톤 — 과충전(팰수록 공속↑) 폭주 캐스터. 알바류 원거리. 뇌격/과부하방전/연쇄번개"
+  },
+  "essence_plague_serpent": {
+    "category": "essence",
+    "id": "plague_serpent",
+    "name": "역병 독사",
+    "grade": 5,
+    "color": [
+      "green",
+      "purple",
+      "red"
+    ],
+    "usage": "poison 캡스톤 — 발병(독스택 40+→독폭발) 딜러. 독 쌓다 터뜨림. 포자구름/맹독송곳니/마비독침"
+  },
+  "essence_pebble_golem": {
+    "category": "essence",
+    "id": "pebble_golem",
+    "name": "자갈 골렘",
+    "grade": 8,
+    "color": "green",
+    "usage": "earth 입문 — earth 스택커 진입로. 지진 군주로 졸업"
+  },
+  "essence_clay_sprite": {
+    "category": "essence",
+    "id": "clay_sprite",
+    "name": "흙 정령",
+    "grade": 8,
+    "color": "brown",
+    "usage": "earth 입문 — 속박 CC + earth 스택커"
+  },
+  "essence_gravel_gunner": {
+    "category": "essence",
+    "id": "gravel_gunner",
+    "name": "자갈 포격수",
+    "grade": 7,
+    "color": "green",
+    "usage": "earth 원거리 딜 — 자갈 사격으로 earth 스택 누적"
+  },
+  "essence_obsidian_breaker": {
+    "category": "essence",
+    "id": "obsidian_breaker",
+    "name": "흑요 파쇄자",
+    "grade": 6,
+    "color": [
+      "orange",
+      "brown",
+      "red"
+    ],
+    "usage": "earth 브루저 핵심 — 압사+지진. 풍화 캡스톤 전 단계"
+  },
+  "essence_spark_sprite": {
+    "category": "essence",
+    "id": "spark_sprite",
+    "name": "스파크 정령",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "lightning 입문 — lightning 스택커 진입로. 뇌신으로 졸업"
+  },
+  "essence_charge_bat": {
+    "category": "essence",
+    "id": "charge_bat",
+    "name": "전하 박쥐",
+    "grade": 8,
+    "color": "yellow",
+    "usage": "lightning 입문(근접) — 빠른 타격으로 lightning 스택"
+  },
+  "essence_thundercloud": {
+    "category": "essence",
+    "id": "thundercloud",
+    "name": "전운",
+    "grade": 6,
+    "color": [
+      "purple",
+      "yellow"
+    ],
+    "usage": "lightning 핵심 — 감전 장판 + 점멸 기동. 뇌신 전 단계"
+  },
+  "essence_sandstone_sentinel": {
+    "category": "essence",
+    "id": "sandstone_sentinel",
+    "name": "사암 파수병",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "earth 원거리 탱 — 석궁 일제사격 + earth 스택"
+  },
+  "essence_thornstone": {
+    "category": "essence",
+    "id": "thornstone",
+    "name": "가시 석상",
+    "grade": 6,
+    "color": [
+      "green",
+      "brown"
+    ],
+    "usage": "earth 장판딜 — 돌가시 가시밭. earth(가시)+poison 하이브리드 가능"
+  },
+  "essence_gorgon_statue": {
+    "category": "essence",
+    "id": "gorgon_statue",
+    "name": "석화 석상",
+    "grade": 6,
+    "color": [
+      "green",
+      "brown"
+    ],
+    "usage": "earth CC — 석화(하드CC)로 적 봉쇄. earth 스택 + 컨트롤"
+  },
+  "essence_seismic_archer": {
+    "category": "essence",
+    "id": "seismic_archer",
+    "name": "지진 궁수",
+    "grade": 5,
+    "color": [
+      "brown",
+      "orange",
+      "red"
+    ],
+    "usage": "earth 원거리 — 상흔 관통 + 쇄암 사격. earthquake_lord(풍화)의 원거리 대안"
+  },
+  "essence_titan_breaker": {
+    "category": "essence",
+    "id": "titan_breaker",
+    "name": "거석 파쇄자",
+    "grade": 5,
+    "color": [
+      "orange",
+      "brown",
+      "red"
+    ],
+    "usage": "earth 단일 극딜 브루저 — 압사+상흔. 풍화 캡스톤 전 핵심 딜"
+  },
+  "essence_charged_lizard": {
+    "category": "essence",
+    "id": "charged_lizard",
+    "name": "전류 도마뱀",
+    "grade": 7,
+    "color": "yellow",
+    "usage": "lightning 근접 딜 — 전격 일격 + lightning 스택"
+  },
+  "essence_storm_mage": {
+    "category": "essence",
+    "id": "storm_mage",
+    "name": "뇌광 마도사",
+    "grade": 6,
+    "color": "purple",
+    "usage": "lightning 광역 — 연쇄 번개. 뇌신(과충전) 전 단계"
+  },
+  "essence_thunderbolt_caster": {
+    "category": "essence",
+    "id": "thunderbolt_caster",
+    "name": "뇌격술사",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "white"
+    ],
+    "usage": "lightning 극딜 캡스톤 — 뇌격+과부하방전. 뇌신(과충전)의 순수 딜 대안"
+  },
+  "essence_venom_stalker": {
+    "category": "essence",
+    "id": "venom_stalker",
+    "name": "맹독 추적자",
+    "grade": 7,
+    "color": "green",
+    "usage": "poison 기습 딜 — 마비독침. poison 스택 누적, 발병 셋업"
+  },
+  "essence_miasma_sprite": {
+    "category": "essence",
+    "id": "miasma_sprite",
+    "name": "독무 정령",
+    "grade": 6,
+    "color": "green",
+    "usage": "poison 장판딜 — 독 포자 구름. poison 스택 누적"
+  },
+  "essence_acid_slime": {
+    "category": "essence",
+    "id": "acid_slime",
+    "name": "부식 슬라임",
+    "grade": 6,
+    "color": "green",
+    "usage": "poison 원거리 탱딜 — 산성 침. 생존+독 스택"
+  },
+  "essence_venom_lord": {
+    "category": "essence",
+    "id": "venom_lord",
+    "name": "맹독 군주",
+    "grade": 5,
+    "color": [
+      "green",
+      "red"
+    ],
+    "usage": "poison 극딜 — 맹독 송곳니 고스택 + 포자. 역병 독사(발병)의 순수 딜 대안"
+  },
+  "essence_goliad": {
+    "category": "essence",
+    "id": "goliad",
+    "name": "중력의 골리아드",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "5층 중력의 묘 수호자 룬 — 풍화(방어파쇄) 빌드 졸업판. 중력 특이점(광역 기절) + 풍화 연격(연타로 파쇄 가속) + 압사. 근접 라그나르/라게르타용 골렘·방어 캡스톤."
+  },
+  "essence_abyssal_kraken": {
+    "category": "essence",
+    "id": "abyssal_kraken",
+    "name": "심연의 크라켄",
+    "grade": 4,
+    "color": [
+      "blue",
+      "cyan",
+      "red"
+    ],
+    "usage": "4급 심해 냉기 — 소용돌이로 끌어모아(견인) 광역 속박(포박)하고 냉기 촉수로 연타한다. 속박된 적에 추가 피해. 냉기 마법 딜러. 강골 = 연약."
+  },
+  "essence_magma_lord": {
+    "category": "essence",
+    "id": "magma_lord",
+    "name": "마그마 군주",
+    "grade": 4,
+    "color": [
+      "red",
+      "orange",
+      "blue"
+    ],
+    "usage": "4급 화염 딜탱 — 근력으로 두들기며 같은 적을 과열시켜 지옥불로 터뜨린다. 용암 장판으로 지역 장악 + 용암각질로 버틴다. 화염 루트(이프리트·헬프레임 상위). 냉기 약점."
+  },
+  "essence_pirate_wraith_lord": {
+    "category": "essence",
+    "id": "pirate_wraith_lord",
+    "name": "해적왕의 망령",
+    "grade": 4,
+    "color": [
+      "yellow",
+      "white",
+      "blue"
+    ],
+    "usage": "4급 원거리 번개 딜러 — 뇌격 일제포격(광역 다단)으로 번개를 쌓고, 같은 적을 거듭 때리면 폭풍 과부하로 터뜨린다. 게임 내 희소한 번개 마법딜. 원소/원거리 루트. 몸이 약해 근접에 취약."
+  },
+  "essence_obsidian_titan": {
+    "category": "essence",
+    "id": "obsidian_titan",
+    "name": "흑요석 거신",
+    "grade": 4,
+    "color": [
+      "white",
+      "brown",
+      "red"
+    ],
+    "usage": "4급 항마 탱커 — 평소엔 마법에 평범하지만 두들겨 맞을수록 외피가 굳어 점점 단단해진다(전투를 끌수록 강해지는 램프). 흑요석 중압으로 발을 묶어 가두며 강타로 마무리. 골렘/방어 루트. 민첩 = 느림."
+  },
+  "essence_sylvan_tyrant": {
+    "category": "essence",
+    "id": "sylvan_tyrant",
+    "name": "수림의 폭군",
+    "grade": 4,
+    "color": [
+      "green",
+      "purple",
+      "red"
+    ],
+    "usage": "4급 광분 버서커 — 포식 광분으로 공격력 폭증. 독에 감염된 적이 죽으면 역병이 옆 적으로 번지며(도미노), 무리에 독이 집중돼 연쇄로 곪아터진다. 근력/재생 버서커 × 독. 영혼력이 비어 마법엔 약하다."
+  },
+  "essence_mire_shaman": {
+    "category": "essence",
+    "id": "mire_shaman",
+    "name": "수림의 독무녀",
+    "grade": 5,
+    "color": [
+      "green",
+      "purple",
+      "red"
+    ],
+    "usage": "독 × CC 빌드 — 포자 장판으로 묶고, 시들음으로 증폭해 녹인다. 독/CC 루트."
+  },
+  "essence_crystal_golem": {
+    "category": "essence",
+    "id": "crystal_golem",
+    "name": "수정 골렘",
+    "grade": 5,
+    "color": [
+      "cyan",
+      "brown"
+    ],
+    "usage": "반사 탱커 — 수정 가시로 적을 둔화시키고 외피를 굳혀 반사로 갉는다. 골렘/방어 루트."
+  },
+  "essence_glacier_berserker": {
+    "category": "essence",
+    "id": "glacier_berserker",
+    "name": "빙하 광전사",
+    "grade": 5,
+    "color": [
+      "cyan",
+      "white",
+      "red"
+    ],
+    "usage": "냉기 × 버서커 — 광폭 자세로 공속을 올려 냉기를 빠르게 쌓아 적을 얼리며 몰아친다. 냉기/버서커 루트."
+  },
+  "essence_bone_dullahan": {
+    "category": "essence",
+    "id": "bone_dullahan",
+    "name": "본 둘라한",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red",
+      "blue"
+    ],
+    "usage": "흡혈 근접 — 저주 강타로 깎으며 빨아들여 버틴다. 언데드 루트."
+  },
+  "essence_gale_bladedancer": {
+    "category": "essence",
+    "id": "gale_bladedancer",
+    "name": "질풍 검무가",
+    "grade": 5,
+    "color": [
+      "cyan",
+      "green"
+    ],
+    "usage": "관통 글래스 딜러 — 직선 바람칼(단일)과 풍압 폭발(광역)로 방어를 꿰뚫는 속공형. 민첩/원소 루트."
+  },
+  "essence_graviton_golem": {
+    "category": "essence",
+    "id": "graviton_golem",
+    "name": "중력추 골렘",
+    "grade": 5,
+    "color": [
+      "purple",
+      "brown",
+      "red"
+    ],
+    "usage": "골렘/방어 입구 — 적을 속박해 묶고 땅 기운을 적립. 압괴로 꽂고 goliad로 졸업하는 콤보의 시작."
+  },
+  "essence_crusher_colossus": {
+    "category": "essence",
+    "id": "crusher_colossus",
+    "name": "압괴 거병",
+    "grade": 5,
+    "color": [
+      "purple",
+      "orange",
+      "brown"
+    ],
+    "usage": "골렘/방어 페이오프 — 제압된 적에 추가타로 꽂는다. 자가 경직으로 단독도 되고, 중력추 속박과 겹치면 폭발."
+  },
+  "essence_levistone_idol": {
+    "category": "essence",
+    "id": "levistone_idol",
+    "name": "부유석상",
+    "grade": 5,
+    "color": [
+      "purple",
+      "brown",
+      "red"
+    ],
+    "usage": "골렘/방어 후방 — 사거리 밖에서 안전하게 땅 기운을 적립. goliad의 외피 분쇄를 멀리서 가속한다."
+  },
+  "essence_forge_sentinel": {
+    "category": "essence",
+    "id": "forge_sentinel",
+    "name": "용광 파수병",
+    "grade": 5,
+    "color": [
+      "orange",
+      "red"
+    ],
+    "usage": "화염 입구 — 둔중하게 버티며 적에게 화염 기운을 적립. 작열로 증폭하고 발카로스로 졸업하는 콤보의 시작."
+  },
+  "essence_magma_brute": {
+    "category": "essence",
+    "id": "magma_brute",
+    "name": "작열 거병",
+    "grade": 5,
+    "color": [
+      "red",
+      "orange"
+    ],
+    "usage": "화염 페이오프 — 불붙은 적을 증폭타로 꽂는다. 용광 낙인의 적립과 겹치면 폭발적. 발카로스 대폭발을 가속."
+  },
+  "essence_cinder_oracle": {
+    "category": "essence",
+    "id": "cinder_oracle",
+    "name": "잿불 신관",
+    "grade": 5,
+    "color": [
+      "orange",
+      "red"
+    ],
+    "usage": "화염 후방 — 사거리 밖에서 안전하게 화염 기운을 적립. 발카로스의 과열 폭발을 멀리서 가속한다."
+  },
+  "essence_balkaros": {
+    "category": "essence",
+    "id": "balkaros",
+    "name": "용광의 발카로스",
+    "grade": 5,
+    "color": "rainbow",
+    "usage": "5층 자체 화염 상흔 수호자 룬. 화염 스킬을 연달아 쓸수록 공격력이 누적 상승(캡)하는 버서커 룬. 용광 강타로 열기를 유지하고, 과부하 점화로 가열을 폭주시키고 용광 도가니로 체력을 연료 삼아 터뜨리는 자해 버서커 졸업 빌드. 화염 스킬을 쉴 새 없이 돌려야 진가."
+  },
+  "essence_weakpoint_hunter": {
+    "category": "essence",
+    "id": "weakpoint_hunter",
+    "name": "급소 사냥꾼",
+    "grade": 5,
+    "color": "yellow",
+    "usage": "CC 빌드의 마무리. 빙결·기절·속박으로 묶인 적의 급소를 꿰뚫는다. 동료가 묶고 본체가 꽂는 파티 콤보에도."
+  },
+  "essence_soulbinder": {
+    "category": "essence",
+    "id": "soulbinder",
+    "name": "영혼술사",
+    "grade": 3,
+    "color": "rainbow",
+    "usage": "엘더 리치의 권능. 해골 군단을 일으켜 싸우게 하고 영혼을 거둬 버틴다. 영혼력 기반 캐스터·소환 빌드(알바 등 마법 아키타입). 소환수 강화 룬과 조합."
+  },
+  "essence_frostbreaker": {
+    "category": "essence",
+    "id": "frostbreaker",
+    "name": "빙정 작렬",
+    "grade": 5,
+    "color": [
+      "blue",
+      "white"
+    ],
+    "usage": "냉기 빌드의 마무리. 한기가 짙게 쌓인 적일수록 내가 주는 피해가 크게 늘어난다. 스카디 등 냉기 근접(한기 부여 룬)과 조합해 한기를 쌓을수록 강해진다."
+  },
+  "essence_frost_gargoyle": {
+    "category": "essence",
+    "id": "frost_gargoyle",
+    "name": "서리 가고일",
+    "grade": 4,
+    "color": [
+      "blue",
+      "purple",
+      "green"
+    ],
+    "usage": "냉기 석상 방벽 — 위장 기습 후 석화·경화. 냉기+골렘방어 졸업급"
+  },
+  "essence_white_wyvern": {
+    "category": "essence",
+    "id": "white_wyvern",
+    "name": "화이트 와이번",
+    "grade": 4,
+    "color": [
+      "blue",
+      "green",
+      "red"
+    ],
+    "usage": "공중 빙결 포식자 — 강하 폭격 + 냉기 브레스. 냉기+민첩"
+  },
+  "essence_frost_dullahan": {
+    "category": "essence",
+    "id": "frost_dullahan",
+    "name": "빙결 수확자",
+    "grade": 4,
+    "color": [
+      "red",
+      "purple",
+      "orange"
+    ],
+    "usage": "표식 처형 광전사 — 머리 투척 표식 → 처형. 언데드+버서커"
+  },
+  "essence_ice_lich": {
+    "category": "essence",
+    "id": "ice_lich",
+    "name": "리치",
+    "grade": 4,
+    "color": [
+      "blue",
+      "purple",
+      "yellow"
+    ],
+    "usage": "빙주술 강령술사 — 해골 소환 + 영혼 흡수. 언데드+냉기+이능"
+  },
+  "essence_frozen_corpse_giant": {
+    "category": "essence",
+    "id": "frozen_corpse_giant",
+    "name": "빙장 거신",
+    "grade": 4,
+    "color": [
+      "purple",
+      "blue",
+      "red"
+    ],
+    "usage": "느린 거구 시귀 탱 — 시체 방어 + 강타·끌어당김. 육체탱+언데드"
+  },
+  "essence_azure_flame_bird": {
+    "category": "essence",
+    "id": "azure_flame_bird",
+    "name": "청염조",
+    "grade": 4,
+    "color": [
+      "orange",
+      "red",
+      "yellow"
+    ],
+    "usage": "청염 저격수 — 낙인 누적 → 자동 폭발. 화염+민첩"
+  },
+  "essence_unmelting_cocoon": {
+    "category": "essence",
+    "id": "unmelting_cocoon",
+    "name": "녹지 않는 고치",
+    "grade": 4,
+    "color": [
+      "green",
+      "blue",
+      "purple"
+    ],
+    "usage": "안 죽는 동면 벽 — 폭딜 1타 무효 + 물리·마법 양면. 골렘방어+생존"
+  },
+  "essence_tainted_snow_spirit": {
+    "category": "essence",
+    "id": "tainted_snow_spirit",
+    "name": "오염된 눈의 정령",
+    "grade": 4,
+    "color": [
+      "purple",
+      "blue",
+      "green"
+    ],
+    "usage": "오염 눈보라 약화 캐스터 — 냉기+오염 디버프. 냉기+독/CC"
+  },
+  "essence_frost_ghoul_lord": {
+    "category": "essence",
+    "id": "frost_ghoul_lord",
+    "name": "설원 아귀",
+    "grade": 4,
+    "color": [
+      "purple",
+      "green",
+      "red"
+    ],
+    "usage": "흡혈 군주 — 포식 + 구울 소환으로 버팀. 언데드+흡혈"
+  },
+  "essence_frostflame_turtle": {
+    "category": "essence",
+    "id": "frostflame_turtle",
+    "name": "서리불꽃 거북",
+    "grade": 4,
+    "color": [
+      "orange",
+      "blue",
+      "red"
+    ],
+    "usage": "지속 방벽 초탱 — 싸우는 동안 방벽 유지, 대마법 단단. 골렘방어+육체탱커"
+  },
+  "essence_frostflame_goblin": {
+    "category": "essence",
+    "id": "frostflame_goblin",
+    "name": "서리불꽃 고블린",
+    "grade": 5,
+    "color": [
+      "orange",
+      "blue",
+      "purple"
+    ],
+    "usage": "빙염 봄버 — 서리불꽃 폭탄 + 냉기 캐스팅. 화염+냉기"
+  },
+  "essence_glacier_stalker": {
+    "category": "essence",
+    "id": "glacier_stalker",
+    "name": "빙하 추적자",
+    "grade": 5,
+    "color": [
+      "blue",
+      "green",
+      "red"
+    ],
+    "usage": "빙하 암살자 — 기습 방어무시 + 돌진. 민첩/기습+냉기"
+  },
+  "essence_frost_lycan": {
+    "category": "essence",
+    "id": "frost_lycan",
+    "name": "서리 광랑",
+    "grade": 5,
+    "color": [
+      "red",
+      "blue",
+      "green"
+    ],
+    "usage": "서리 늑대인간 — 야수화 광폭 근접. 버서커+냉기"
+  },
+  "essence_tundra_brute": {
+    "category": "essence",
+    "id": "tundra_brute",
+    "name": "툰드라 거구",
+    "grade": 5,
+    "color": [
+      "blue",
+      "red",
+      "purple"
+    ],
+    "usage": "냉기 거구 탱 — 대지 강타 광역 경직. 육체탱+냉기"
+  },
+  "essence_ice_crystal_golem": {
+    "category": "essence",
+    "id": "ice_crystal_golem",
+    "name": "빙정 골렘",
+    "grade": 5,
+    "color": [
+      "blue",
+      "yellow",
+      "red"
+    ],
+    "usage": "수정 외피 탱 — 받피감소 + 수정 폭발. 골렘방어+냉기"
+  },
+  "essence_frost_chimera": {
+    "category": "essence",
+    "id": "frost_chimera",
+    "name": "서리 키메라",
+    "grade": 5,
+    "color": [
+      "red",
+      "blue",
+      "green"
+    ],
+    "usage": "삼두 키메라 — 삼중 물기 다단 + 브레스. 냉기+민첩"
+  },
+  "essence_permafrost_sentinel": {
+    "category": "essence",
+    "id": "permafrost_sentinel",
+    "name": "영구동토 파수꾼",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple",
+      "yellow"
+    ],
+    "usage": "동토 파수꾼 — 아군 방벽 + 빙벽. 골렘방어+냉기"
+  },
+  "essence_glacier_harpy": {
+    "category": "essence",
+    "id": "glacier_harpy",
+    "name": "빙하 하르피",
+    "grade": 5,
+    "color": [
+      "blue",
+      "green",
+      "red"
+    ],
+    "usage": "빙하 하르피 — 공중 회피 + 급강하. 민첩+냉기"
+  },
+  "essence_frost_wraith": {
+    "category": "essence",
+    "id": "frost_wraith",
+    "name": "서리 망령",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue",
+      "green"
+    ],
+    "usage": "서리 망령 — 영혼 흡수 + 냉기 비명. 언데드+이능"
+  },
+  "essence_glacial_wraith": {
+    "category": "essence",
+    "id": "glacial_wraith",
+    "name": "빙하 망령",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue",
+      "yellow"
+    ],
+    "usage": "빙하 저주술사 — 서리 저주 + 공허 탄. 언데드+냉기+저주"
+  },
+  "essence_wight_archer": {
+    "category": "essence",
+    "id": "wight_archer",
+    "name": "시귀 궁수",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red",
+      "green"
+    ],
+    "usage": "시귀 저격수 — 급소 치명 + 뼈 일제사격. 민첩+언데드"
+  },
+  "essence_frostbound_revenant": {
+    "category": "essence",
+    "id": "frostbound_revenant",
+    "name": "빙박 망자",
+    "grade": 5,
+    "color": [
+      "red",
+      "purple",
+      "orange"
+    ],
+    "usage": "불사 망자 광전사 — 저체력 광란 + 즉사 버팀. 언데드+버서커"
+  },
+  "essence_hungry_claw": {
+    "category": "essence",
+    "id": "hungry_claw",
+    "name": "혈조 마수",
+    "grade": 5,
+    "color": [
+      "red",
+      "purple"
+    ],
+    "usage": "펜리 시그니처. 흡혈→소환수 전이로 탱커라인 자가유지. 포식 도약으로 진입 후 갈고리 화살·강타로 물어뜯는다."
+  },
+  "essence_barbed_arrow": {
+    "category": "essence",
+    "id": "barbed_arrow",
+    "name": "쇠가시 사수",
+    "grade": 6,
+    "color": "orange",
+    "usage": "적 고정 enabler. 굶주린 발톱·위험물질과 콤보 (박힌 적 지속 타격)"
+  },
+  "essence_hazard_payload": {
+    "category": "essence",
+    "id": "hazard_payload",
+    "name": "역병 투척귀",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "green"
+    ],
+    "usage": "원거리 역병 딜러 — 독 화살로 표적을 저격해 독을 박고, 포자 장판으로 무리에 지속 부여. 감염된 적이 죽으면 역병이 번진다. 독을 쌓는 아군(부패한 거수 등)과 함께 끼면 도미노로 무너뜨린다."
+  },
+  "essence_armor_pierce": {
+    "category": "essence",
+    "id": "armor_pierce",
+    "name": "원귀 사수",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "원거리 크리 저격수 — 관통 화살 다수 관통 + 근접 시 원한 폭발(버스트). 방깎(관통) 지속 + 예리·행운 크리."
+  },
+  "essence_giant_arrow": {
+    "category": "essence",
+    "id": "giant_arrow",
+    "name": "거인 궁수",
+    "grade": 4,
+    "color": [
+      "red",
+      "orange"
+    ],
+    "usage": "원거리 크리 저격수 — 거인 화살 단일 극딜 + 근접 시 거궁 강타(버스트). 예리·행운 크리 시너지, 첫 저격 폭딜."
+  },
+  "essence_frost_owlbear": {
+    "category": "essence",
+    "id": "frost_owlbear",
+    "name": "설원 아울베어",
+    "grade": 6,
+    "color": "orange",
+    "usage": "야수 입문 — 곰의 완력. brute_sense 딜탱"
+  },
+  "essence_frost_saber": {
+    "category": "essence",
+    "id": "frost_saber",
+    "name": "설원 검치호",
+    "grade": 6,
+    "color": "red",
+    "usage": "야수 입문 — 검치호 속공/기습. brute_sense"
+  },
+  "essence_ice_sniper": {
+    "category": "essence",
+    "id": "ice_sniper",
+    "name": "빙결 저격수",
+    "grade": 6,
+    "color": "green",
+    "usage": "사냥 입문 — 저격/감각축. brute_sense perception"
+  },
+  "essence_phantom_steed": {
+    "category": "essence",
+    "id": "phantom_steed",
+    "name": "유령마",
+    "grade": 6,
+    "color": "blue",
+    "usage": "회피 입문 — 민첩/회피 빌드"
+  },
+  "essence_blizzard_sprite": {
+    "category": "essence",
+    "id": "blizzard_sprite",
+    "name": "눈보라 정령",
+    "grade": 6,
+    "color": "blue",
+    "usage": "회피 입문 — 민첩 × 냉기 교차"
+  },
+  "essence_frost_bat": {
+    "category": "essence",
+    "id": "frost_bat",
+    "name": "서리 박쥐",
+    "grade": 6,
+    "color": "purple",
+    "usage": "회피/흡혈 입문 — 민첩 생존"
+  },
+  "essence_manticore": {
+    "category": "essence",
+    "id": "manticore",
+    "name": "가시망수",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "orange"
+    ],
+    "usage": "혼석으로 능력치를 키우는 성장형 — 지운 뒤에 진가"
+  },
+  "essence_bicorn": {
+    "category": "essence",
+    "id": "bicorn",
+    "name": "흑우",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "돌진·넉백으로 전열을 흩뜨리는 탱커"
+  },
+  "essence_culbes": {
+    "category": "essence",
+    "id": "culbes",
+    "name": "서릿발 이리",
+    "grade": 5,
+    "color": [
+      "green",
+      "purple"
+    ],
+    "usage": "독 단계가 깊을수록 강해지는 맹독 — 황금의 나자로스(상위판)와 겹쳐 끼면 합산"
+  },
+  "essence_reaper_lord": {
+    "category": "essence",
+    "id": "reaper_lord",
+    "name": "데스로드",
+    "grade": 3,
+    "color": "purple",
+    "usage": "언데드 졸업 — 잿불의 유예 버스트(정신·이능을 육체로 전환)"
+  },
+  "essence_belarios": {
+    "category": "essence",
+    "id": "belarios",
+    "name": "영겁의 용",
+    "grade": 3,
+    "color": [
+      "green",
+      "yellow",
+      "purple"
+    ],
+    "usage": "처치 누적으로 성장하는 항마 스케일러"
+  },
+  "essence_vol_herchan": {
+    "category": "essence",
+    "id": "vol_herchan",
+    "name": "서리의 흑기사",
+    "grade": 3,
+    "color": "green",
+    "usage": "방벽 탱커 — 피격 램프 + 외피 증폭"
+  },
+  "essence_baion": {
+    "category": "essence",
+    "id": "baion",
+    "name": "얼어붙은 시귀",
+    "grade": 3,
+    "color": "orange",
+    "usage": "재생/버서커 — 처치 회복 + 초월 자버프"
+  },
+  "essence_vaiterion": {
+    "category": "essence",
+    "id": "vaiterion",
+    "name": "한기의 야수",
+    "grade": 3,
+    "color": "purple",
+    "usage": "야수 물리탱커 — 흡혈 브루저"
+  },
+  "essence_bone_dragonian": {
+    "category": "essence",
+    "id": "bone_dragonian",
+    "name": "본 드래고니안",
+    "grade": 3,
+    "color": "red",
+    "usage": "뼈용 브레스 딜러 — 어둠 스택 공급"
+  },
+  "essence_grudge_colossus": {
+    "category": "essence",
+    "id": "grudge_colossus",
+    "name": "원혼 거상",
+    "grade": 3,
+    "color": "blue",
+    "usage": "정신 방벽 탱커 — 파티 보호 + 정신력 자버프"
+  },
+  "essence_wailing_wraith": {
+    "category": "essence",
+    "id": "wailing_wraith",
+    "name": "비탄의 망령",
+    "grade": 3,
+    "color": "purple",
+    "usage": "정신 CC 공급 — 광역 공포"
+  },
+  "essence_abyssal_watcher": {
+    "category": "essence",
+    "id": "abyssal_watcher",
+    "name": "심연의 응시자",
+    "grade": 3,
+    "color": "yellow",
+    "usage": "감각 유틸 — 약점노출 + 응시 CC"
+  },
+  "essence_kalpion": {
+    "category": "essence",
+    "id": "kalpion",
+    "name": "황금의 나자로스",
+    "grade": 4,
+    "color": "rainbow",
+    "usage": "독을 깊게 쌓아 폭딜 — 독사·맹독군주로 깔고 독 단계로 증폭"
+  },
+  "essence_gilded_golem": {
+    "category": "essence",
+    "id": "gilded_golem",
+    "name": "황금 골렘",
+    "grade": 5,
+    "color": [
+      "yellow",
+      "brown"
+    ],
+    "usage": "방어 탱커 — 진압으로 가두고 반사로 갉는다"
+  },
+  "essence_gilded_revenant": {
+    "category": "essence",
+    "id": "gilded_revenant",
+    "name": "황금 원귀",
+    "grade": 5,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "흡혈 캐스터 — 딜하며 크게 자힐"
+  },
+  "essence_grave_knight": {
+    "category": "essence",
+    "id": "grave_knight",
+    "name": "검총 기사",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "근접 딜러 — 몰락 쌍연격 + 그림자 기습, 검총 폭딜"
+  },
+  "essence_gilded_knight": {
+    "category": "essence",
+    "id": "gilded_knight",
+    "name": "황금 기사",
+    "grade": 4,
+    "color": [
+      "orange",
+      "purple"
+    ],
+    "usage": "근접 어그로 탱커 — 위협을 끌어모아 적을 붙잡고, 넉백 강타 + 속박으로 통제. 검총 기사(딜)의 어그로형 미러."
+  },
+  "essence_malder_elephant": {
+    "category": "essence",
+    "id": "malder_elephant",
+    "name": "부패한 거수",
+    "grade": 5,
+    "color": [
+      "purple",
+      "green"
+    ],
+    "usage": "독 브루저 전열 — 공격마다 독을 옮겨 쌓고, 부패의 짓밟기로 광역에 역병과 물리 약화를 퍼뜨린다. 독이 임계에 다다르면 적이 지속 피해로 무너진다. 독 딜러·바다의 저주 계열과 함께 끼면 독 축이 폭발한다."
+  },
+  "essence_banshee_queen": {
+    "category": "essence",
+    "id": "banshee_queen",
+    "name": "벤시 퀸",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red",
+      "blue"
+    ],
+    "usage": "언데드·저주 서포터 — 통곡으로 광역을 무너뜨리고 물리저항을 저주해 파티 물리딜을 증폭한다."
+  },
+  "essence_skeleton_mermaid_queen": {
+    "category": "essence",
+    "id": "skeleton_mermaid_queen",
+    "name": "스켈레톤 머메이드 퀸",
+    "grade": 4,
+    "color": [
+      "blue",
+      "cyan",
+      "purple"
+    ],
+    "usage": "매혹 캐스터 — 노래로 적을 홀려 묶고, 붙잡힌 적의 영혼을 파고들어 큰 피해를 준다. CC로 셋업하고 파고드는 여왕."
+  },
+  "essence_soul_drinker": {
+    "category": "essence",
+    "id": "soul_drinker",
+    "name": "영혼을 마시는 자",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red",
+      "blue"
+    ],
+    "usage": "언데드·방벽 sustain — 공격으로 영혼 방벽을 쌓아 피해를 흡수한다. 회복이 봉인된 지역에서도 막히지 않는다. 계속 공격해야 방벽이 유지된다."
+  },
+  "essence_chaos_seaman": {
+    "category": "essence",
+    "id": "chaos_seaman",
+    "name": "저주받은 선장",
+    "grade": 4,
+    "color": [
+      "blue",
+      "cyan",
+      "red"
+    ],
+    "usage": "이능·물 스택 빌드 — 검은 물결과 평타로 물 스택을 쌓아 적 방어를 무너뜨려 파티 전체 딜을 키운다. 물 스택을 소비하는 페이오프 룬과 시너지."
+  },
+  "essence_soul_overcharge": {
+    "category": "essence",
+    "id": "soul_overcharge",
+    "name": "영혼 과충전",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "영혼력 몰빵 캐스터 룬. 과충전으로 영혼력을 태워 다음 공격 스킬을 폭발적으로 강화한다. 영혼력을 회복시키는 룬과 끼면 계속 모아 지를 수 있다."
+  },
+  "essence_feral_regression": {
+    "category": "essence",
+    "id": "feral_regression",
+    "name": "야성회귀",
+    "grade": 5,
+    "color": [
+      "green",
+      "purple"
+    ],
+    "usage": "근력을 야수의 민첩으로 되돌린다. 근력 장비로 회피·기습 빌드를 굴리고 싶을 때."
+  },
+  "essence_soul_smelting": {
+    "category": "essence",
+    "id": "soul_smelting",
+    "name": "영혼 제련",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "전사의 근력을 영혼력으로 녹여 캐스터로 전향한다. 근력 장비로 마법을 쓰고 싶을 때."
+  },
+  "essence_marrow_conduit": {
+    "category": "essence",
+    "id": "marrow_conduit",
+    "name": "골수 도관",
+    "grade": 5,
+    "color": [
+      "blue",
+      "orange"
+    ],
+    "usage": "단단한 뼈를 영혼력으로 흘려보낸다. 방어 스탯으로 캐스팅 자원을 확보하는 방어형 캐스터."
+  },
+  "essence_mind_overflow": {
+    "category": "essence",
+    "id": "mind_overflow",
+    "name": "정신 과류",
+    "grade": 5,
+    "color": [
+      "blue",
+      "yellow"
+    ],
+    "usage": "넘치는 정신력을 영혼력으로 흘린다. 정신력 위주 캐스터의 마력을 극대화한다."
+  },
+  "essence_soul_incarnate": {
+    "category": "essence",
+    "id": "soul_incarnate",
+    "name": "영혼 육화",
+    "grade": 5,
+    "color": [
+      "red",
+      "blue"
+    ],
+    "usage": "영혼력을 육신의 힘으로 구현한다. 캐스터 장비로 근접 마검전사를 굴릴 때."
+  },
+  "essence_clear_mirror": {
+    "category": "essence",
+    "id": "clear_mirror",
+    "name": "명경지수",
+    "grade": 5,
+    "color": [
+      "blue",
+      "yellow"
+    ],
+    "usage": "흔들리지 않는 정신이 마법을 튕겨낸다. 정신력으로 마법 방어를 세우는 정신형 마법탱."
+  },
+  "essence_mana_carapace": {
+    "category": "essence",
+    "id": "mana_carapace",
+    "name": "마갑",
+    "grade": 5,
+    "color": [
+      "blue",
+      "purple"
+    ],
+    "usage": "마력을 응결시켜 갑주로 두른다. 캐스터가 단단해지고 싶을 때. 정신 과류 등과 엮어 마력탱을 만든다."
+  },
+  "essence_iron_sinew": {
+    "category": "essence",
+    "id": "iron_sinew",
+    "name": "강골",
+    "grade": 5,
+    "color": [
+      "red",
+      "blue"
+    ],
+    "usage": "몸에 새긴 모든 단련이 곧 파괴력이 된다. 방어 스탯까지 딜로 환산하는 순수 근육형."
+  },
+  "essence_overclock_core": {
+    "category": "essence",
+    "id": "overclock_core",
+    "name": "과부하 회로",
+    "grade": 5,
+    "color": [
+      "orange",
+      "red"
+    ],
+    "usage": "영혼력을 태워 공속·공격력을 끌어올리는 폭주형. 과열 영창을 켜고 적을 때려 영혼력을 되찾아 폭주를 유지한다."
+  },
+  "essence_chaos_guardian": {
+    "category": "essence",
+    "id": "chaos_guardian",
+    "name": "혼돈의 화신",
+    "grade": 5,
+    "color": "purple",
+    "usage": "속성 무관 저항 관통형 증폭. 어떤 속성 룬과 껴도 적 저항을 뚫어 딜을 끌어올린다."
+  },
+  "essence_dark_crystal": {
+    "category": "essence",
+    "id": "dark_crystal",
+    "name": "다크 크리스탈",
+    "grade": 4,
+    "color": [
+      "purple",
+      "blue",
+      "red"
+    ],
+    "usage": "속성 무관 저항 관통형 증폭. 원소 딜러가 여러 개 껴 쌓을수록 적의 저항이 녹는다."
+  },
+  "essence_fallen_swordsaint": {
+    "category": "essence",
+    "id": "fallen_swordsaint",
+    "name": "몰락 검성",
+    "grade": 4,
+    "color": [
+      "purple",
+      "red"
+    ],
+    "usage": "근접 버서커 — 연격을 이어갈수록 위력이 쌓인다. 피가 낮을수록 강해지는 원한의 검격과 상성."
+  },
+  "essence_myriad_blade_wraith": {
+    "category": "essence",
+    "id": "myriad_blade_wraith",
+    "name": "수천검 망령",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue"
+    ],
+    "usage": "dark 광역 캐스터 — 수만 자루 검을 흩뿌려 사방을 저미고 물리내성을 깎는다."
+  },
+  "essence_mainum": {
+    "category": "essence",
+    "id": "mainum",
+    "name": "역병 마도사",
+    "grade": 5,
+    "color": [
+      "purple",
+      "blue"
+    ],
+    "usage": "dark 마법 증폭 캐스터 — 적 마법저항을 깎아 파티 마법딜러 전체의 딜을 끌어올린다."
+  },
+  "monster_gilded_phantom": {
+    "category": "monster",
+    "id": "gilded_phantom",
+    "name": "황금 분신",
+    "role": ""
+  },
+  "monster_gilded_golem": {
+    "category": "monster",
+    "id": "gilded_golem",
+    "name": "황금 골렘",
+    "role": ""
+  },
+  "monster_gilded_revenant": {
+    "category": "monster",
+    "id": "gilded_revenant",
+    "name": "황금 원귀",
+    "role": ""
+  },
+  "monster_gilded_knight": {
+    "category": "monster",
+    "id": "gilded_knight",
+    "name": "황금 기사",
+    "role": ""
+  },
+  "monster_gilded_sentinel": {
+    "category": "monster",
+    "id": "gilded_sentinel",
+    "name": "황금 파수병",
+    "role": ""
+  },
+  "monster_gilded_serpent": {
+    "category": "monster",
+    "id": "gilded_serpent",
+    "name": "황금비늘 독사",
+    "role": ""
+  },
+  "monster_gilded_wraith": {
+    "category": "monster",
+    "id": "gilded_wraith",
+    "name": "황금빛 망령",
+    "role": ""
+  },
+  "monster_golden_mimic": {
+    "category": "monster",
+    "id": "golden_mimic",
+    "name": "황금 미믹",
+    "role": "brawler"
+  },
+  "monster_goblin": {
+    "category": "monster",
+    "id": "goblin",
+    "name": "고블린",
+    "role": "normal"
+  },
+  "monster_goblin_archer": {
+    "category": "monster",
+    "id": "goblin_archer",
+    "name": "고블린 궁수",
+    "role": "archer"
+  },
+  "monster_split_slime": {
+    "category": "monster",
+    "id": "split_slime",
+    "name": "분열 슬라임",
+    "role": "normal"
+  },
+  "monster_slime": {
+    "category": "monster",
+    "id": "slime",
+    "name": "슬라임",
+    "role": "tank"
+  },
+  "monster_blade_wolf": {
+    "category": "monster",
+    "id": "blade_wolf",
+    "name": "칼날늑대",
+    "role": "brawler"
+  },
+  "monster_frost_wolf": {
+    "category": "monster",
+    "id": "frost_wolf",
+    "name": "서리늑대",
+    "role": "glass"
+  },
+  "monster_ghoul": {
+    "category": "monster",
+    "id": "ghoul",
+    "name": "구울",
+    "role": "normal"
+  },
+  "monster_goblin_swordsman": {
+    "category": "monster",
+    "id": "goblin_swordsman",
+    "name": "고블린 검사",
+    "role": "brawler"
+  },
+  "monster_noum": {
+    "category": "monster",
+    "id": "noum",
+    "name": "노움",
+    "role": "evade"
+  },
+  "monster_skeleton": {
+    "category": "monster",
+    "id": "skeleton",
+    "name": "스켈레톤",
+    "role": "normal"
+  },
+  "monster_orc_warrior": {
+    "category": "monster",
+    "id": "orc_warrior",
+    "name": "오크 전사",
+    "role": "brawler"
+  },
+  "monster_giant_orc": {
+    "category": "monster",
+    "id": "giant_orc",
+    "name": "거대 오크",
+    "role": "tank"
+  },
+  "monster_orc_shaman": {
+    "category": "monster",
+    "id": "orc_shaman",
+    "name": "오크 주술사",
+    "role": "mage"
+  },
+  "monster_viper": {
+    "category": "monster",
+    "id": "viper",
+    "name": "독사",
+    "role": "evade"
+  },
+  "monster_stone_golem": {
+    "category": "monster",
+    "id": "stone_golem",
+    "name": "스톤골렘",
+    "role": "shield"
+  },
+  "monster_deathpind": {
+    "category": "monster",
+    "id": "deathpind",
+    "name": "저승의 사자",
+    "role": "glass"
+  },
+  "monster_skeleton_warrior": {
+    "category": "monster",
+    "id": "skeleton_warrior",
+    "name": "스켈레톤 전사",
+    "role": "shield"
+  },
+  "monster_gargoyle_statue": {
+    "category": "monster",
+    "id": "gargoyle_statue",
+    "name": "가고일 석상",
+    "role": "shield"
+  },
+  "monster_steel_hill_chaser": {
+    "category": "monster",
+    "id": "steel_hill_chaser",
+    "name": "강철언덕 추격자",
+    "role": "archer"
+  },
+  "monster_bone_knight": {
+    "category": "monster",
+    "id": "bone_knight",
+    "name": "본 나이트",
+    "role": "normal"
+  },
+  "monster_yeti": {
+    "category": "monster",
+    "id": "yeti",
+    "name": "예티",
+    "role": "normal"
+  },
+  "monster_yeti_alpha": {
+    "category": "monster",
+    "id": "yeti_alpha",
+    "name": "변종 예티",
+    "role": "tank"
+  },
+  "monster_half_troll": {
+    "category": "monster",
+    "id": "half_troll",
+    "name": "하프 트롤",
+    "role": "berserker"
+  },
+  "monster_canibaro": {
+    "category": "monster",
+    "id": "canibaro",
+    "name": "굶주린 야수",
+    "role": "glass"
+  },
+  "monster_lizardman": {
+    "category": "monster",
+    "id": "lizardman",
+    "name": "리자드맨",
+    "role": "normal"
+  },
+  "monster_orc_great_warrior": {
+    "category": "monster",
+    "id": "orc_great_warrior",
+    "name": "오크 대전사",
+    "role": "normal"
+  },
+  "monster_minotauros": {
+    "category": "monster",
+    "id": "minotauros",
+    "name": "미노타우로스",
+    "role": "brawler"
+  },
+  "monster_spirit": {
+    "category": "monster",
+    "id": "spirit",
+    "name": "영혼",
+    "role": "mage"
+  },
+  "monster_death_knight": {
+    "category": "monster",
+    "id": "death_knight",
+    "name": "데스나이트",
+    "role": "brawler"
+  },
+  "monster_gargoyle": {
+    "category": "monster",
+    "id": "gargoyle",
+    "name": "바람의 가고일",
+    "role": "brawler"
+  },
+  "monster_living_armor": {
+    "category": "monster",
+    "id": "living_armor",
+    "name": "리빙아머",
+    "role": "normal"
+  },
+  "monster_iron_falcon": {
+    "category": "monster",
+    "id": "iron_falcon",
+    "name": "아이언팔콘",
+    "role": "archer"
+  },
+  "monster_shadow_stalker": {
+    "category": "monster",
+    "id": "shadow_stalker",
+    "name": "그림자 추적자",
+    "role": "glass"
+  },
+  "monster_storm_elemental": {
+    "category": "monster",
+    "id": "storm_elemental",
+    "name": "폭풍 정령",
+    "role": "mage"
+  },
+  "monster_bykundus": {
+    "category": "monster",
+    "id": "bykundus",
+    "name": "강철 기사",
+    "role": "brawler"
+  },
+  "monster_hell_hound": {
+    "category": "monster",
+    "id": "hell_hound",
+    "name": "헬 하운드",
+    "role": "brawler"
+  },
+  "monster_obsidian_golem": {
+    "category": "monster",
+    "id": "obsidian_golem",
+    "name": "흑요석 골렘",
+    "role": "shield"
+  },
+  "monster_fallen_knight": {
+    "category": "monster",
+    "id": "fallen_knight",
+    "name": "타락한 기사",
+    "role": "brawler"
+  },
+  "monster_wyvern": {
+    "category": "monster",
+    "id": "wyvern",
+    "name": "와이번",
+    "role": "brawler"
+  },
+  "monster_iron_guardian": {
+    "category": "monster",
+    "id": "iron_guardian",
+    "name": "철의 수호자",
+    "role": "tank"
+  },
+  "monster_troll": {
+    "category": "monster",
+    "id": "troll",
+    "name": "트롤",
+    "role": "tank"
+  },
+  "monster_chimera": {
+    "category": "monster",
+    "id": "chimera",
+    "name": "키메라",
+    "role": "brawler"
+  },
+  "monster_dark_mage": {
+    "category": "monster",
+    "id": "dark_mage",
+    "name": "암흑 마법사",
+    "role": "mage"
+  },
+  "monster_elder_ghoul": {
+    "category": "monster",
+    "id": "elder_ghoul",
+    "name": "엘더 구울",
+    "role": "tank"
+  },
+  "monster_skeleton_archer": {
+    "category": "monster",
+    "id": "skeleton_archer",
+    "name": "스켈레톤 아처",
+    "role": "archer"
+  },
+  "monster_hobgoblin": {
+    "category": "monster",
+    "id": "hobgoblin",
+    "name": "홉고블린",
+    "role": "brawler"
+  },
+  "monster_saber_tiger": {
+    "category": "monster",
+    "id": "saber_tiger",
+    "name": "샤벨타이거",
+    "role": "brawler"
+  },
+  "monster_ice_golem": {
+    "category": "monster",
+    "id": "ice_golem",
+    "name": "아이스 골렘",
+    "role": "shield"
+  },
+  "monster_warmstone": {
+    "category": "monster",
+    "id": "warmstone",
+    "name": "발열 암괴",
+    "role": "shield"
+  },
+  "monster_dullahan": {
+    "category": "monster",
+    "id": "dullahan",
+    "name": "듀라한",
+    "role": "normal"
+  },
+  "monster_aiantro": {
+    "category": "monster",
+    "id": "aiantro",
+    "name": "강철 멧돼지",
+    "role": "normal"
+  },
+  "monster_necramia": {
+    "category": "monster",
+    "id": "necramia",
+    "name": "강령술사",
+    "role": "mage"
+  },
+  "monster_dark_worshipper": {
+    "category": "monster",
+    "id": "dark_worshipper",
+    "name": "어둠숭배자",
+    "role": "mage"
+  },
+  "monster_plminas": {
+    "category": "monster",
+    "id": "plminas",
+    "name": "뇌전조",
+    "role": "archer"
+  },
+  "monster_corpse_golem": {
+    "category": "monster",
+    "id": "corpse_golem",
+    "name": "송장 거상",
+    "role": "tank"
+  },
+  "monster_lycanthrope": {
+    "category": "monster",
+    "id": "lycanthrope",
+    "name": "라이칸스로프",
+    "role": "glass"
+  },
+  "monster_cockatrice": {
+    "category": "monster",
+    "id": "cockatrice",
+    "name": "코카트리스",
+    "role": "archer"
+  },
+  "monster_ilatrek": {
+    "category": "monster",
+    "id": "ilatrek",
+    "name": "어둠 마도사",
+    "role": "normal"
+  },
+  "monster_nameless_statue": {
+    "category": "monster",
+    "id": "nameless_statue",
+    "name": "무명 조각상",
+    "role": "normal"
+  },
+  "monster_werewolf": {
+    "category": "monster",
+    "id": "werewolf",
+    "name": "웨어울프",
+    "role": "brawler"
+  },
+  "monster_nightfla": {
+    "category": "monster",
+    "id": "nightfla",
+    "name": "어둠의 요정",
+    "role": "mage"
+  },
+  "monster_snetri": {
+    "category": "monster",
+    "id": "snetri",
+    "name": "심연의 촉수",
+    "role": "normal"
+  },
+  "monster_sandworm": {
+    "category": "monster",
+    "id": "sandworm",
+    "name": "샌드웜",
+    "role": "brawler"
+  },
+  "monster_owlbear": {
+    "category": "monster",
+    "id": "owlbear",
+    "name": "아울베어",
+    "role": "brawler"
+  },
+  "monster_sandbag": {
+    "category": "monster",
+    "id": "sandbag",
+    "name": "허수아비",
+    "role": ""
+  },
+  "monster_banshee": {
+    "category": "monster",
+    "id": "banshee",
+    "name": "벤시",
+    "role": "mage"
+  },
+  "monster_chimera_wolf": {
+    "category": "monster",
+    "id": "chimera_wolf",
+    "name": "키메라울프",
+    "role": "brawler"
+  },
+  "monster_ghoul_lord": {
+    "category": "monster",
+    "id": "ghoul_lord",
+    "name": "구울로드",
+    "role": "normal"
+  },
+  "monster_kobold": {
+    "category": "monster",
+    "id": "kobold",
+    "name": "코볼트",
+    "role": "brawler"
+  },
+  "monster_kobold_shield": {
+    "category": "monster",
+    "id": "kobold_shield",
+    "name": "코볼트 방패병",
+    "role": "shield"
+  },
+  "monster_kobold_sword": {
+    "category": "monster",
+    "id": "kobold_sword",
+    "name": "코볼트 검사",
+    "role": "brawler"
+  },
+  "monster_corrupted_noum": {
+    "category": "monster",
+    "id": "corrupted_noum",
+    "name": "타락한 노움",
+    "role": "evade"
+  },
+  "monster_boulder_soldier": {
+    "category": "monster",
+    "id": "boulder_soldier",
+    "name": "거석병",
+    "role": "shield"
+  },
+  "monster_sandman": {
+    "category": "monster",
+    "id": "sandman",
+    "name": "샌드맨",
+    "role": "mage"
+  },
+  "monster_deathworm": {
+    "category": "monster",
+    "id": "deathworm",
+    "name": "심연 샌드웜",
+    "role": "glass"
+  },
+  "monster_frogman": {
+    "category": "monster",
+    "id": "frogman",
+    "name": "프로그맨",
+    "role": "glass"
+  },
+  "monster_orc_archer": {
+    "category": "monster",
+    "id": "orc_archer",
+    "name": "오크 궁수",
+    "role": "archer"
+  },
+  "monster_orc_lord": {
+    "category": "monster",
+    "id": "orc_lord",
+    "name": "오크로드",
+    "role": ""
+  },
+  "monster_fairy": {
+    "category": "monster",
+    "id": "fairy",
+    "name": "페어리",
+    "role": "mage"
+  },
+  "monster_wraith": {
+    "category": "monster",
+    "id": "wraith",
+    "name": "레이스",
+    "role": "mage"
+  },
+  "monster_witch_lamp": {
+    "category": "monster",
+    "id": "witch_lamp",
+    "name": "도깨비불 등롱",
+    "role": "mage"
+  },
+  "monster_woodman": {
+    "category": "monster",
+    "id": "woodman",
+    "name": "우드맨",
+    "role": "tank"
+  },
+  "monster_dailouter": {
+    "category": "monster",
+    "id": "dailouter",
+    "name": "황금 사자",
+    "role": "archer"
+  },
+  "monster_mutant_elemental": {
+    "category": "monster",
+    "id": "mutant_elemental",
+    "name": "돌연변이 하급정령",
+    "role": "mage"
+  },
+  "monster_homunculus": {
+    "category": "monster",
+    "id": "homunculus",
+    "name": "호문쿨루스",
+    "role": "glass"
+  },
+  "monster_dryad": {
+    "category": "monster",
+    "id": "dryad",
+    "name": "드라이어드",
+    "role": "mage"
+  },
+  "monster_goblin_miner": {
+    "category": "monster",
+    "id": "goblin_miner",
+    "name": "고블린 광부",
+    "role": "glass"
+  },
+  "monster_mineral_slime": {
+    "category": "monster",
+    "id": "mineral_slime",
+    "name": "광물 슬라임",
+    "role": "shield"
+  },
+  "monster_hobgoblin_miner": {
+    "category": "monster",
+    "id": "hobgoblin_miner",
+    "name": "홉고블린 광부",
+    "role": "normal"
+  },
+  "monster_copper_golem": {
+    "category": "monster",
+    "id": "copper_golem",
+    "name": "코퍼 골렘",
+    "role": "shield"
+  },
+  "monster_goblin_bomber": {
+    "category": "monster",
+    "id": "goblin_bomber",
+    "name": "고블린 폭탄병",
+    "role": "tank"
+  },
+  "monster_mummy": {
+    "category": "monster",
+    "id": "mummy",
+    "name": "머미",
+    "role": "tank"
+  },
+  "monster_buried_one": {
+    "category": "monster",
+    "id": "buried_one",
+    "name": "파묻힌 시귀",
+    "role": "normal"
+  },
+  "monster_guardians_eye": {
+    "category": "monster",
+    "id": "guardians_eye",
+    "name": "수호자의 눈",
+    "role": "mage"
+  },
+  "monster_iron_knight": {
+    "category": "monster",
+    "id": "iron_knight",
+    "name": "철기병",
+    "role": "normal"
+  },
+  "monster_iron_lizardman": {
+    "category": "monster",
+    "id": "iron_lizardman",
+    "name": "아이언 리자드맨",
+    "role": "normal"
+  },
+  "monster_bulkar": {
+    "category": "monster",
+    "id": "bulkar",
+    "name": "바위 곰",
+    "role": "tank"
+  },
+  "monster_wall_mole": {
+    "category": "monster",
+    "id": "wall_mole",
+    "name": "굴착 두더지",
+    "role": "glass"
+  },
+  "monster_bone_mage": {
+    "category": "monster",
+    "id": "bone_mage",
+    "name": "본 메이지",
+    "role": "mage"
+  },
+  "monster_death_slave": {
+    "category": "monster",
+    "id": "death_slave",
+    "name": "망자 노예",
+    "role": "normal"
+  },
+  "monster_shadow_medium": {
+    "category": "monster",
+    "id": "shadow_medium",
+    "name": "그림자 영매",
+    "role": "mage"
+  },
+  "monster_curse_mage": {
+    "category": "monster",
+    "id": "curse_mage",
+    "name": "저주 마법사",
+    "role": "mage"
+  },
+  "monster_death_priest": {
+    "category": "monster",
+    "id": "death_priest",
+    "name": "망자의 신관",
+    "role": "mage"
+  },
+  "monster_corpse_giant": {
+    "category": "monster",
+    "id": "corpse_giant",
+    "name": "시체 거인",
+    "role": "tank"
+  },
+  "monster_desert_bandit": {
+    "category": "monster",
+    "id": "desert_bandit",
+    "name": "사막 강도",
+    "role": "normal"
+  },
+  "monster_kobold_apprentice": {
+    "category": "monster",
+    "id": "kobold_apprentice",
+    "name": "코볼트 견습총잡이",
+    "role": "archer"
+  },
+  "monster_kobold_gunner": {
+    "category": "monster",
+    "id": "kobold_gunner",
+    "name": "코볼트 총잡이",
+    "role": "archer"
+  },
+  "monster_kobold_demolisher": {
+    "category": "monster",
+    "id": "kobold_demolisher",
+    "name": "코볼트 폭파병",
+    "role": "archer"
+  },
+  "monster_cannon_golem": {
+    "category": "monster",
+    "id": "cannon_golem",
+    "name": "캐논 골렘",
+    "role": "archer"
+  },
+  "monster_west_sandman": {
+    "category": "monster",
+    "id": "west_sandman",
+    "name": "황야 샌드맨",
+    "role": "tank"
+  },
+  "monster_hobgoblin_swordsman": {
+    "category": "monster",
+    "id": "hobgoblin_swordsman",
+    "name": "홉고블린 검사",
+    "role": "brawler"
+  },
+  "monster_hobgoblin_archer": {
+    "category": "monster",
+    "id": "hobgoblin_archer",
+    "name": "홉고블린 사수",
+    "role": "archer"
+  },
+  "monster_hobgoblin_bomber": {
+    "category": "monster",
+    "id": "hobgoblin_bomber",
+    "name": "홉고블린 폭탄병",
+    "role": "tank"
+  },
+  "monster_hobgoblin_lieutenant": {
+    "category": "monster",
+    "id": "hobgoblin_lieutenant",
+    "name": "홉고블린 부대장",
+    "role": "shield"
+  },
+  "monster_hellfire_caster": {
+    "category": "monster",
+    "id": "hellfire_caster",
+    "name": "지옥불 시전자",
+    "role": "mage"
+  },
+  "monster_frostbite_ghoul": {
+    "category": "monster",
+    "id": "frostbite_ghoul",
+    "name": "동상의 구울",
+    "role": "brawler"
+  },
+  "monster_soul_wraith": {
+    "category": "monster",
+    "id": "soul_wraith",
+    "name": "영혼의 망령",
+    "role": "mage"
+  },
+  "monster_stormling": {
+    "category": "monster",
+    "id": "stormling",
+    "name": "풍령",
+    "role": "evade"
+  },
+  "monster_stone_burn": {
+    "category": "monster",
+    "id": "stone_burn",
+    "name": "겔드번",
+    "role": "tank"
+  },
+  "monster_red_mud": {
+    "category": "monster",
+    "id": "red_mud",
+    "name": "용암 슬라임",
+    "role": "brawler"
+  },
+  "monster_fire_zombie": {
+    "category": "monster",
+    "id": "fire_zombie",
+    "name": "불의 망자",
+    "role": "brawler"
+  },
+  "monster_curse_stone": {
+    "category": "monster",
+    "id": "curse_stone",
+    "name": "커스겔드",
+    "role": "tank"
+  },
+  "monster_blood_wraith": {
+    "category": "monster",
+    "id": "blood_wraith",
+    "name": "혈원귀",
+    "role": "mage"
+  },
+  "monster_fallen_creation": {
+    "category": "monster",
+    "id": "fallen_creation",
+    "name": "타락한 피조물",
+    "role": "brawler"
+  },
+  "monster_shadow_bat": {
+    "category": "monster",
+    "id": "shadow_bat",
+    "name": "그림자 박쥐",
+    "role": "evade"
+  },
+  "monster_frost_thaumaturge": {
+    "category": "monster",
+    "id": "frost_thaumaturge",
+    "name": "서리 빙주술사",
+    "role": "mage"
+  },
+  "monster_ice_wyvern": {
+    "category": "monster",
+    "id": "ice_wyvern",
+    "name": "얼음 와이번",
+    "role": "brawler"
+  },
+  "monster_frost_lancer": {
+    "category": "monster",
+    "id": "frost_lancer",
+    "name": "빙창병",
+    "role": "brawler"
+  },
+  "monster_snow_leopard": {
+    "category": "monster",
+    "id": "snow_leopard",
+    "name": "설표",
+    "role": "evade"
+  },
+  "monster_frozen_soul": {
+    "category": "monster",
+    "id": "frozen_soul",
+    "name": "얼어붙은 영혼",
+    "role": "mage"
+  },
+  "monster_frost_weaver": {
+    "category": "monster",
+    "id": "frost_weaver",
+    "name": "서리 방적충",
+    "role": "mage"
+  },
+  "monster_merran": {
+    "category": "monster",
+    "id": "merran",
+    "name": "서리의 거상",
+    "role": "tank"
+  },
+  "monster_storm_caster": {
+    "category": "monster",
+    "id": "storm_caster",
+    "name": "폭풍 술사",
+    "role": "mage"
+  },
+  "monster_wind_serpent": {
+    "category": "monster",
+    "id": "wind_serpent",
+    "name": "풍사",
+    "role": "brawler"
+  },
+  "monster_thunder_wyvern": {
+    "category": "monster",
+    "id": "thunder_wyvern",
+    "name": "천둥 와이번",
+    "role": "glass"
+  },
+  "monster_hellframe": {
+    "category": "monster",
+    "id": "hellframe",
+    "name": "헬프레임",
+    "role": "brawler"
+  },
+  "monster_vitol": {
+    "category": "monster",
+    "id": "vitol",
+    "name": "한기의 주술사",
+    "role": "mage"
+  },
+  "monster_evan": {
+    "category": "monster",
+    "id": "evan",
+    "name": "정령술사",
+    "role": "mage"
+  },
+  "monster_tempest_archer": {
+    "category": "monster",
+    "id": "tempest_archer",
+    "name": "폭풍의 궁수",
+    "role": "glass"
+  },
+  "monster_mutant": {
+    "category": "monster",
+    "id": "mutant",
+    "name": "돌연변이",
+    "role": "brawler"
+  },
+  "monster_frost_thrall": {
+    "category": "monster",
+    "id": "frost_thrall",
+    "name": "한기의 권속",
+    "role": "mage"
+  },
+  "monster_ifrit": {
+    "category": "monster",
+    "id": "ifrit",
+    "name": "이프리트",
+    "role": "mage"
+  },
+  "monster_frost_lord": {
+    "category": "monster",
+    "id": "frost_lord",
+    "name": "프로스트로드",
+    "role": "mage"
+  },
+  "monster_darkilion": {
+    "category": "monster",
+    "id": "darkilion",
+    "name": "음영의 원귀",
+    "role": "glass"
+  },
+  "monster_stormgiant": {
+    "category": "monster",
+    "id": "stormgiant",
+    "name": "폭풍거인",
+    "role": "tank"
+  },
+  "monster_giant_blade_wolf": {
+    "category": "monster",
+    "id": "giant_blade_wolf",
+    "name": "거대 칼날늑대",
+    "role": "tank"
+  },
+  "monster_blood_blade_wolf": {
+    "category": "monster",
+    "id": "blood_blade_wolf",
+    "name": "핏빛 칼날늑대",
+    "role": "brawler"
+  },
+  "monster_cursed_blade_wolf": {
+    "category": "monster",
+    "id": "cursed_blade_wolf",
+    "name": "저주받은 칼날늑대",
+    "role": ""
+  },
+  "monster_mad_werewolf": {
+    "category": "monster",
+    "id": "mad_werewolf",
+    "name": "광기의 웨어울프",
+    "role": ""
+  },
+  "monster_shadow_saber_tiger": {
+    "category": "monster",
+    "id": "shadow_saber_tiger",
+    "name": "그림자 샤벨타이거",
+    "role": ""
+  },
+  "monster_cursed_giant_blade_wolf": {
+    "category": "monster",
+    "id": "cursed_giant_blade_wolf",
+    "name": "저주받은 거대 칼날늑대",
+    "role": ""
+  },
+  "monster_shadow_alpha_tiger": {
+    "category": "monster",
+    "id": "shadow_alpha_tiger",
+    "name": "그림자 알파 타이거",
+    "role": "brawler"
+  },
+  "monster_chained_fang": {
+    "category": "monster",
+    "id": "chained_fang",
+    "name": "사슬 송곳니",
+    "role": "brawler"
+  },
+  "monster_milarodon": {
+    "category": "monster",
+    "id": "milarodon",
+    "name": "거울 도깨비",
+    "role": "mage"
+  },
+  "monster_bertas": {
+    "category": "monster",
+    "id": "bertas",
+    "name": "분노의 화신",
+    "role": "spellguard"
+  },
+  "monster_soul_eater": {
+    "category": "monster",
+    "id": "soul_eater",
+    "name": "영혼을 삼키는 자",
+    "role": "mage"
+  },
+  "monster_ghoul_white_temple": {
+    "category": "monster",
+    "id": "ghoul_white_temple",
+    "name": "백색 구울",
+    "role": ""
+  },
+  "monster_skeleton_white_temple": {
+    "category": "monster",
+    "id": "skeleton_white_temple",
+    "name": "백색 스켈레톤",
+    "role": ""
+  },
+  "monster_noum_white_temple": {
+    "category": "monster",
+    "id": "noum_white_temple",
+    "name": "백색 노움",
+    "role": ""
+  },
+  "monster_skeleton_warrior_white_temple": {
+    "category": "monster",
+    "id": "skeleton_warrior_white_temple",
+    "name": "백색 스켈레톤 전사",
+    "role": ""
+  },
+  "monster_gargoyle_statue_white_temple": {
+    "category": "monster",
+    "id": "gargoyle_statue_white_temple",
+    "name": "백색 가고일 석상",
+    "role": ""
+  },
+  "monster_goblin_archer_white_temple": {
+    "category": "monster",
+    "id": "goblin_archer_white_temple",
+    "name": "백색 고블린 궁수",
+    "role": ""
+  },
+  "monster_deathpind_white_temple": {
+    "category": "monster",
+    "id": "deathpind_white_temple",
+    "name": "백색 데스핀드",
+    "role": ""
+  },
+  "monster_viper_white_temple": {
+    "category": "monster",
+    "id": "viper_white_temple",
+    "name": "백색 독사",
+    "role": ""
+  },
+  "monster_mummy_white_temple": {
+    "category": "monster",
+    "id": "mummy_white_temple",
+    "name": "백색 머미",
+    "role": ""
+  },
+  "monster_elder_ghoul_white_temple": {
+    "category": "monster",
+    "id": "elder_ghoul_white_temple",
+    "name": "백색 엘더 구울",
+    "role": ""
+  },
+  "monster_skeleton_archer_white_temple": {
+    "category": "monster",
+    "id": "skeleton_archer_white_temple",
+    "name": "백색 스켈레톤 궁수",
+    "role": ""
+  },
+  "monster_bone_knight_white_temple": {
+    "category": "monster",
+    "id": "bone_knight_white_temple",
+    "name": "백색 본 나이트",
+    "role": ""
+  },
+  "monster_stone_golem_white_temple": {
+    "category": "monster",
+    "id": "stone_golem_white_temple",
+    "name": "백색 석상",
+    "role": ""
+  },
+  "monster_banshee_white_temple": {
+    "category": "monster",
+    "id": "banshee_white_temple",
+    "name": "백색 벤시",
+    "role": ""
+  },
+  "monster_spirit_white_temple": {
+    "category": "monster",
+    "id": "spirit_white_temple",
+    "name": "백색 영혼",
+    "role": ""
+  },
+  "monster_homunculus_white_temple": {
+    "category": "monster",
+    "id": "homunculus_white_temple",
+    "name": "백색 호문쿨루스",
+    "role": ""
+  },
+  "monster_frost_thrall_frozen_sanctum": {
+    "category": "monster",
+    "id": "frost_thrall_frozen_sanctum",
+    "name": "결빙의 권속",
+    "role": ""
+  },
+  "monster_mutant_frozen_sanctum": {
+    "category": "monster",
+    "id": "mutant_frozen_sanctum",
+    "name": "결빙의 변이체",
+    "role": ""
+  },
+  "monster_frostbite_warrior_frozen_sanctum": {
+    "category": "monster",
+    "id": "frostbite_warrior_frozen_sanctum",
+    "name": "결빙의 전사",
+    "role": ""
+  },
+  "monster_frost_thaumaturge_frozen_sanctum": {
+    "category": "monster",
+    "id": "frost_thaumaturge_frozen_sanctum",
+    "name": "결빙의 주술사",
+    "role": ""
+  },
+  "monster_ice_wyvern_frozen_sanctum": {
+    "category": "monster",
+    "id": "ice_wyvern_frozen_sanctum",
+    "name": "결빙의 비룡",
+    "role": ""
+  },
+  "monster_yeti_alpha_frozen_sanctum": {
+    "category": "monster",
+    "id": "yeti_alpha_frozen_sanctum",
+    "name": "결빙의 변종예티",
+    "role": ""
+  },
+  "monster_frozen_soul_frozen_sanctum": {
+    "category": "monster",
+    "id": "frozen_soul_frozen_sanctum",
+    "name": "결빙의 영혼",
+    "role": ""
+  },
+  "monster_frost_weaver_frozen_sanctum": {
+    "category": "monster",
+    "id": "frost_weaver_frozen_sanctum",
+    "name": "결빙의 거미",
+    "role": ""
+  },
+  "monster_merran_frozen_sanctum": {
+    "category": "monster",
+    "id": "merran_frozen_sanctum",
+    "name": "결빙의 거상",
+    "role": ""
+  },
+  "monster_snow_leopard_frozen_sanctum": {
+    "category": "monster",
+    "id": "snow_leopard_frozen_sanctum",
+    "name": "결빙의 설표",
+    "role": ""
+  },
+  "monster_ifrit_magma_crucible": {
+    "category": "monster",
+    "id": "ifrit_magma_crucible",
+    "name": "용광의 이프리트",
+    "role": ""
+  },
+  "monster_salamander_magma_crucible": {
+    "category": "monster",
+    "id": "salamander_magma_crucible",
+    "name": "용광의 셀러맨더",
+    "role": ""
+  },
+  "monster_doom_flame_fairy_magma_crucible": {
+    "category": "monster",
+    "id": "doom_flame_fairy_magma_crucible",
+    "name": "용광의 파멸불꽃 요정",
+    "role": ""
+  },
+  "monster_redwood_magma_crucible": {
+    "category": "monster",
+    "id": "redwood_magma_crucible",
+    "name": "용광의 레드우드",
+    "role": ""
+  },
+  "monster_sterep": {
+    "category": "monster",
+    "id": "sterep",
+    "name": "심해의 집게",
+    "role": "glass"
+  },
+  "monster_krungbi": {
+    "category": "monster",
+    "id": "krungbi",
+    "name": "강철 갑충",
+    "role": "brawler"
+  },
+  "monster_ranemut_warrior": {
+    "category": "monster",
+    "id": "ranemut_warrior",
+    "name": "삼지창 전사",
+    "role": "brawler"
+  },
+  "monster_sorago": {
+    "category": "monster",
+    "id": "sorago",
+    "name": "비취의 고동술사",
+    "role": "mage"
+  },
+  "monster_garbel": {
+    "category": "monster",
+    "id": "garbel",
+    "name": "심해의 진주",
+    "role": "mage"
+  },
+  "monster_rapple_monkey": {
+    "category": "monster",
+    "id": "rapple_monkey",
+    "name": "투척 원숭이",
+    "role": "evade"
+  },
+  "monster_war_snake": {
+    "category": "monster",
+    "id": "war_snake",
+    "name": "워 스네이크",
+    "role": "brawler"
+  },
+  "monster_nigel_fencer": {
+    "category": "monster",
+    "id": "nigel_fencer",
+    "name": "비취의 검투사",
+    "role": "brawler"
+  },
+  "monster_siren": {
+    "category": "monster",
+    "id": "siren",
+    "name": "세이렌",
+    "role": "mage"
+  },
+  "monster_siren_queen": {
+    "category": "monster",
+    "id": "siren_queen",
+    "name": "세이렌 여왕",
+    "role": "spellguard"
+  },
+  "monster_abyssal_chorister": {
+    "category": "monster",
+    "id": "abyssal_chorister",
+    "name": "심연 성가대",
+    "role": "spellguard"
+  },
+  "monster_sunken_armor_guard": {
+    "category": "monster",
+    "id": "sunken_armor_guard",
+    "name": "침몰한 봉인 수호상",
+    "role": ""
+  },
+  "monster_drowned_azure_judge": {
+    "category": "monster",
+    "id": "drowned_azure_judge",
+    "name": "익사한 단죄의 심판상",
+    "role": ""
+  },
+  "monster_abyssal_harpooner": {
+    "category": "monster",
+    "id": "abyssal_harpooner",
+    "name": "심연 작살병",
+    "role": "brawler"
+  },
+  "monster_trench_lurker": {
+    "category": "monster",
+    "id": "trench_lurker",
+    "name": "해구의 잠행자",
+    "role": "brawler"
+  },
+  "monster_drowned_navigator_abyssal": {
+    "category": "monster",
+    "id": "drowned_navigator_abyssal",
+    "name": "심연의 항해사망령",
+    "role": ""
+  },
+  "monster_skull_bosun_abyssal": {
+    "category": "monster",
+    "id": "skull_bosun_abyssal",
+    "name": "심연의 갑판장",
+    "role": ""
+  },
+  "monster_wreck_guardian_abyssal": {
+    "category": "monster",
+    "id": "wreck_guardian_abyssal",
+    "name": "심연의 난파선 수호자",
+    "role": ""
+  },
+  "monster_skeleton_ghost": {
+    "category": "monster",
+    "id": "skeleton_ghost",
+    "name": "해골 귀신",
+    "role": "brawler"
+  },
+  "monster_jungle_beetle": {
+    "category": "monster",
+    "id": "jungle_beetle",
+    "name": "정글 풍뎅이",
+    "role": "brawler"
+  },
+  "monster_jungle_toad": {
+    "category": "monster",
+    "id": "jungle_toad",
+    "name": "정글 가시 두꺼비",
+    "role": "tank"
+  },
+  "monster_jungle_thief_rat": {
+    "category": "monster",
+    "id": "jungle_thief_rat",
+    "name": "정글 도둑쥐",
+    "role": "evade"
+  },
+  "monster_fairy_witch": {
+    "category": "monster",
+    "id": "fairy_witch",
+    "name": "요정 마녀",
+    "role": "mage"
+  },
+  "monster_golem_sentinel": {
+    "category": "monster",
+    "id": "golem_sentinel",
+    "name": "골렘 순찰병",
+    "role": "tank"
+  },
+  "monster_ghost_sailor": {
+    "category": "monster",
+    "id": "ghost_sailor",
+    "name": "유령 선원",
+    "role": "evade"
+  },
+  "monster_drowned_navigator": {
+    "category": "monster",
+    "id": "drowned_navigator",
+    "name": "항해사 망령",
+    "role": "mage"
+  },
+  "monster_skull_bosun": {
+    "category": "monster",
+    "id": "skull_bosun",
+    "name": "해골 갑판장",
+    "role": "brawler"
+  },
+  "monster_wreck_guardian": {
+    "category": "monster",
+    "id": "wreck_guardian",
+    "name": "난파선 수호자",
+    "role": "tank"
+  },
+  "monster_zenith_petrel": {
+    "category": "monster",
+    "id": "zenith_petrel",
+    "name": "비취의 슴새",
+    "role": "evade"
+  },
+  "monster_coral_carapace": {
+    "category": "monster",
+    "id": "coral_carapace",
+    "name": "산호 갑각수",
+    "role": "tank"
+  },
+  "monster_ghost_helmsman": {
+    "category": "monster",
+    "id": "ghost_helmsman",
+    "name": "유령 조타수",
+    "role": "brawler"
+  },
+  "monster_mist_petrel": {
+    "category": "monster",
+    "id": "mist_petrel",
+    "name": "해무 슴새",
+    "role": "evade"
+  },
+  "monster_breeze_dancer": {
+    "category": "monster",
+    "id": "breeze_dancer",
+    "name": "바람 무용수",
+    "role": "evade"
+  },
+  "monster_katacoma_skeleton": {
+    "category": "monster",
+    "id": "katacoma_skeleton",
+    "name": "백골의 섬 해골",
+    "role": "evade"
+  },
+  "monster_katacoma_skeleton_warrior": {
+    "category": "monster",
+    "id": "katacoma_skeleton_warrior",
+    "name": "백골의 섬 해골 전사",
+    "role": "brawler"
+  },
+  "monster_katacoma_skeleton_archer": {
+    "category": "monster",
+    "id": "katacoma_skeleton_archer",
+    "name": "백골의 섬 해골 궁수",
+    "role": "glass"
+  },
+  "monster_katacoma_bone_knight": {
+    "category": "monster",
+    "id": "katacoma_bone_knight",
+    "name": "백골의 섬 본 나이트",
+    "role": "tank"
+  },
+  "monster_katacoma_ghoul_lord": {
+    "category": "monster",
+    "id": "katacoma_ghoul_lord",
+    "name": "백골의 섬 구울 군주",
+    "role": "brawler"
+  },
+  "monster_black_tree": {
+    "category": "monster",
+    "id": "black_tree",
+    "name": "블랙 트리",
+    "role": "tank"
+  },
+  "monster_bone_lich": {
+    "category": "monster",
+    "id": "bone_lich",
+    "name": "본 리치",
+    "role": "mage"
+  },
+  "monster_fairy_queen": {
+    "category": "monster",
+    "id": "fairy_queen",
+    "name": "요정 여왕",
+    "role": "mage"
+  },
+  "monster_naga_archer": {
+    "category": "monster",
+    "id": "naga_archer",
+    "name": "나가 궁수",
+    "role": "mage"
+  },
+  "monster_pirate_archer": {
+    "category": "monster",
+    "id": "pirate_archer",
+    "name": "해적 명사수",
+    "role": "glass"
+  },
+  "monster_ember_archer": {
+    "category": "monster",
+    "id": "ember_archer",
+    "name": "잿불 궁수",
+    "role": "glass"
+  },
+  "monster_obsidian_sentinel": {
+    "category": "monster",
+    "id": "obsidian_sentinel",
+    "name": "흑요석 순찰병",
+    "role": "brawler"
+  },
+  "monster_mist_fairy": {
+    "category": "monster",
+    "id": "mist_fairy",
+    "name": "안개 요정",
+    "role": "evade"
+  },
+  "monster_moss_golem": {
+    "category": "monster",
+    "id": "moss_golem",
+    "name": "이끼 골렘",
+    "role": "tank"
+  },
+  "monster_pirate_recruit": {
+    "category": "monster",
+    "id": "pirate_recruit",
+    "name": "해적 신참",
+    "role": "brawler"
+  },
+  "monster_pirate_gunner": {
+    "category": "monster",
+    "id": "pirate_gunner",
+    "name": "해적 총잡이",
+    "role": "glass"
+  },
+  "monster_pirate_swordsman": {
+    "category": "monster",
+    "id": "pirate_swordsman",
+    "name": "해적 검사",
+    "role": "brawler"
+  },
+  "monster_pirate_captain": {
+    "category": "monster",
+    "id": "pirate_captain",
+    "name": "해적 선장",
+    "role": "brawler"
+  },
+  "monster_magma_hound": {
+    "category": "monster",
+    "id": "magma_hound",
+    "name": "마그마 하운드",
+    "role": "brawler"
+  },
+  "monster_ember_caster": {
+    "category": "monster",
+    "id": "ember_caster",
+    "name": "잿불 시전자",
+    "role": "mage"
+  },
+  "monster_lava_warrior": {
+    "category": "monster",
+    "id": "lava_warrior",
+    "name": "용암 전사",
+    "role": "brawler"
+  },
+  "monster_inferno_captain": {
+    "category": "monster",
+    "id": "inferno_captain",
+    "name": "지옥불 선봉장",
+    "role": "brawler"
+  },
+  "monster_frost_acolyte": {
+    "category": "monster",
+    "id": "frost_acolyte",
+    "name": "서리 시도",
+    "role": "mage"
+  },
+  "monster_icebound_lancer": {
+    "category": "monster",
+    "id": "icebound_lancer",
+    "name": "결빙 창병",
+    "role": "glass"
+  },
+  "monster_frostbite_warrior": {
+    "category": "monster",
+    "id": "frostbite_warrior",
+    "name": "동상 전사",
+    "role": "brawler"
+  },
+  "monster_frost_admiral": {
+    "category": "monster",
+    "id": "frost_admiral",
+    "name": "빙해 제독",
+    "role": "mage"
+  },
+  "monster_guano_sea_serpent": {
+    "category": "monster",
+    "id": "guano_sea_serpent",
+    "name": "대양 이무기",
+    "role": "spellguard"
+  },
+  "monster_elfrot": {
+    "category": "monster",
+    "id": "elfrot",
+    "name": "부패한 시귀",
+    "role": "spellbrute"
+  },
+  "monster_palpupura": {
+    "category": "monster",
+    "id": "palpupura",
+    "name": "서리의 거인",
+    "role": "tank"
+  },
+  "monster_stormgush": {
+    "category": "monster",
+    "id": "stormgush",
+    "name": "해일",
+    "role": "tank"
+  },
+  "monster_raphremmik": {
+    "category": "monster",
+    "id": "raphremmik",
+    "name": "보물 미믹",
+    "role": "brawler"
+  },
+  "monster_ogre": {
+    "category": "monster",
+    "id": "ogre",
+    "name": "오우거",
+    "role": "tank"
+  },
+  "monster_deep_giant": {
+    "category": "monster",
+    "id": "deep_giant",
+    "name": "심해 거인",
+    "role": "tank"
+  },
+  "monster_kraken_tentacle": {
+    "category": "monster",
+    "id": "kraken_tentacle",
+    "name": "새끼 바다뱀",
+    "role": "brawler"
+  },
+  "monster_katacoma_seal_guard": {
+    "category": "monster",
+    "id": "katacoma_seal_guard",
+    "name": "봉인 파수병",
+    "role": "brawler"
+  },
+  "monster_key_keeper": {
+    "category": "monster",
+    "id": "key_keeper",
+    "name": "열쇠지기",
+    "role": "brawler"
+  },
+  "monster_grave_keeper_aleton": {
+    "category": "monster",
+    "id": "grave_keeper_aleton",
+    "name": "무덤지기",
+    "role": "tank"
+  },
+  "monster_doom_warrior": {
+    "category": "monster",
+    "id": "doom_warrior",
+    "name": "둠워리어",
+    "role": "brawler"
+  },
+  "monster_redwood": {
+    "category": "monster",
+    "id": "redwood",
+    "name": "작염의 고목",
+    "role": "tank"
+  },
+  "monster_flame_wolf": {
+    "category": "monster",
+    "id": "flame_wolf",
+    "name": "플레임울프",
+    "role": "glass"
+  },
+  "monster_headhunter": {
+    "category": "monster",
+    "id": "headhunter",
+    "name": "헤드헌터",
+    "role": "glass"
+  },
+  "monster_hellguard": {
+    "category": "monster",
+    "id": "hellguard",
+    "name": "지옥수호병",
+    "role": "tank"
+  },
+  "monster_gremlin": {
+    "category": "monster",
+    "id": "gremlin",
+    "name": "그렘린",
+    "role": "glass"
+  },
+  "monster_chaos_swarm": {
+    "category": "monster",
+    "id": "chaos_swarm",
+    "name": "혼돈충",
+    "role": "glass"
+  },
+  "monster_salamander": {
+    "category": "monster",
+    "id": "salamander",
+    "name": "셀러맨더",
+    "role": "brawler"
+  },
+  "monster_doom_flame_fairy": {
+    "category": "monster",
+    "id": "doom_flame_fairy",
+    "name": "파멸불꽃 요정",
+    "role": "mage"
+  },
+  "monster_flame_elemental": {
+    "category": "monster",
+    "id": "flame_elemental",
+    "name": "화염 정령",
+    "role": "mage"
+  },
+  "monster_lava_slime": {
+    "category": "monster",
+    "id": "lava_slime",
+    "name": "용암 슬라임",
+    "role": "glass"
+  },
+  "monster_magma_giant": {
+    "category": "monster",
+    "id": "magma_giant",
+    "name": "마그마 거인",
+    "role": "tank"
+  },
+  "monster_altar_priest": {
+    "category": "monster",
+    "id": "altar_priest",
+    "name": "망자 사제",
+    "role": "mage"
+  },
+  "monster_altar_guardian": {
+    "category": "monster",
+    "id": "altar_guardian",
+    "name": "제단 수호자",
+    "role": "tank"
+  },
+  "monster_stone_golem_misty_megalith": {
+    "category": "monster",
+    "id": "stone_golem_misty_megalith",
+    "name": "안개의 스톤골렘",
+    "role": ""
+  },
+  "monster_gargoyle_statue_misty_megalith": {
+    "category": "monster",
+    "id": "gargoyle_statue_misty_megalith",
+    "name": "안개의 가고일 석상",
+    "role": ""
+  },
+  "monster_gargoyle_misty_megalith": {
+    "category": "monster",
+    "id": "gargoyle_misty_megalith",
+    "name": "안개의 가고일",
+    "role": ""
+  },
+  "monster_living_armor_misty_megalith": {
+    "category": "monster",
+    "id": "living_armor_misty_megalith",
+    "name": "안개의 리빙아머",
+    "role": ""
+  },
+  "monster_boulder_soldier_misty_megalith": {
+    "category": "monster",
+    "id": "boulder_soldier_misty_megalith",
+    "name": "안개의 거석병",
+    "role": ""
+  },
+  "monster_wall_mole_misty_megalith": {
+    "category": "monster",
+    "id": "wall_mole_misty_megalith",
+    "name": "안개의 굴착 두더지",
+    "role": ""
+  },
+  "monster_mimic": {
+    "category": "monster",
+    "id": "mimic",
+    "name": "미믹",
+    "role": "brawler"
+  },
+  "monster_sky_gargoyle": {
+    "category": "monster",
+    "id": "sky_gargoyle",
+    "name": "천공 가고일",
+    "role": ""
+  },
+  "monster_sky_living_armor": {
+    "category": "monster",
+    "id": "sky_living_armor",
+    "name": "천공 갑주",
+    "role": ""
+  },
+  "monster_sky_iron_falcon": {
+    "category": "monster",
+    "id": "sky_iron_falcon",
+    "name": "천공 매",
+    "role": ""
+  },
+  "monster_sky_shadow_stalker": {
+    "category": "monster",
+    "id": "sky_shadow_stalker",
+    "name": "신탁의 추격자",
+    "role": ""
+  },
+  "monster_sky_death_knight": {
+    "category": "monster",
+    "id": "sky_death_knight",
+    "name": "천공 기사",
+    "role": ""
+  },
+  "monster_sky_fallen_knight": {
+    "category": "monster",
+    "id": "sky_fallen_knight",
+    "name": "신탁의 수호 기사",
+    "role": ""
+  },
+  "monster_labganus": {
+    "category": "monster",
+    "id": "labganus",
+    "name": "비취의 신조",
+    "role": "evade"
+  },
+  "monster_golem_sentinel_gravity_tomb": {
+    "category": "monster",
+    "id": "golem_sentinel_gravity_tomb",
+    "name": "중력의 순찰병",
+    "role": ""
+  },
+  "monster_obsidian_sentinel_gravity_tomb": {
+    "category": "monster",
+    "id": "obsidian_sentinel_gravity_tomb",
+    "name": "중력의 흑요석상",
+    "role": ""
+  },
+  "monster_boulder_soldier_gravity_tomb": {
+    "category": "monster",
+    "id": "boulder_soldier_gravity_tomb",
+    "name": "중력의 거석병",
+    "role": ""
+  },
+  "monster_stone_golem_gravity_tomb": {
+    "category": "monster",
+    "id": "stone_golem_gravity_tomb",
+    "name": "중력의 석상",
+    "role": ""
+  },
+  "monster_nameless_statue_gravity_tomb": {
+    "category": "monster",
+    "id": "nameless_statue_gravity_tomb",
+    "name": "중력의 무명상",
+    "role": ""
+  },
+  "monster_iron_guardian_gravity_tomb": {
+    "category": "monster",
+    "id": "iron_guardian_gravity_tomb",
+    "name": "중력의 강철수호자",
+    "role": ""
+  },
+  "monster_ice_lich": {
+    "category": "monster",
+    "id": "ice_lich",
+    "name": "리치",
+    "role": "spellguard"
+  },
+  "monster_tainted_snow_spirit": {
+    "category": "monster",
+    "id": "tainted_snow_spirit",
+    "name": "오염된 눈의 정령",
+    "role": "spellguard"
+  },
+  "monster_stonewinter": {
+    "category": "monster",
+    "id": "stonewinter",
+    "name": "빙암 거상",
+    "role": "shield"
+  },
+  "monster_frost_guardian": {
+    "category": "monster",
+    "id": "frost_guardian",
+    "name": "프로스트 가디언",
+    "role": "shield"
+  },
+  "monster_glacier_giant": {
+    "category": "monster",
+    "id": "glacier_giant",
+    "name": "빙하 거인",
+    "role": "brawler"
+  },
+  "monster_frostflame_goblin": {
+    "category": "monster",
+    "id": "frostflame_goblin",
+    "name": "서리불꽃 고블린",
+    "role": "mage"
+  },
+  "monster_unmelting_cocoon": {
+    "category": "monster",
+    "id": "unmelting_cocoon",
+    "name": "녹지 않는 고치",
+    "role": "shield"
+  },
+  "monster_phantom_steed": {
+    "category": "monster",
+    "id": "phantom_steed",
+    "name": "유령마",
+    "role": "evade"
+  },
+  "monster_frost_gargoyle": {
+    "category": "monster",
+    "id": "frost_gargoyle",
+    "name": "서리 가고일",
+    "role": "spellbrute"
+  },
+  "monster_white_wyvern": {
+    "category": "monster",
+    "id": "white_wyvern",
+    "name": "화이트 와이번",
+    "role": "spellbrute"
+  },
+  "monster_abyssal_kraken": {
+    "category": "monster",
+    "id": "abyssal_kraken",
+    "name": "심연의 크라켄",
+    "role": "spellbrute"
+  },
+  "monster_magma_lord": {
+    "category": "monster",
+    "id": "magma_lord",
+    "name": "마그마 군주",
+    "role": "spellbrute"
+  },
+  "monster_pirate_wraith_lord": {
+    "category": "monster",
+    "id": "pirate_wraith_lord",
+    "name": "해적왕의 망령",
+    "role": "spellguard"
+  },
+  "monster_obsidian_titan": {
+    "category": "monster",
+    "id": "obsidian_titan",
+    "name": "흑요석 거신",
+    "role": "shield"
+  },
+  "monster_sylvan_tyrant": {
+    "category": "monster",
+    "id": "sylvan_tyrant",
+    "name": "수림의 폭군",
+    "role": "brawler"
+  },
+  "monster_graviton_golem": {
+    "category": "monster",
+    "id": "graviton_golem",
+    "name": "중력추 골렘",
+    "role": "tank"
+  },
+  "monster_crusher_colossus": {
+    "category": "monster",
+    "id": "crusher_colossus",
+    "name": "압괴 거병",
+    "role": "brawler"
+  },
+  "monster_levistone_idol": {
+    "category": "monster",
+    "id": "levistone_idol",
+    "name": "부유 석상",
+    "role": "archer"
+  },
+  "monster_graviton_warden": {
+    "category": "monster",
+    "id": "graviton_warden",
+    "name": "거대 중력추 골렘",
+    "role": "tank"
+  },
+  "monster_forge_sentinel": {
+    "category": "monster",
+    "id": "forge_sentinel",
+    "name": "용광 파수병",
+    "role": "tank"
+  },
+  "monster_magma_brute": {
+    "category": "monster",
+    "id": "magma_brute",
+    "name": "작열 거병",
+    "role": "brawler"
+  },
+  "monster_cinder_oracle": {
+    "category": "monster",
+    "id": "cinder_oracle",
+    "name": "잿불 신관",
+    "role": "mage"
+  },
+  "monster_magma_warden": {
+    "category": "monster",
+    "id": "magma_warden",
+    "name": "거대 작열 거병",
+    "role": "brawler"
+  },
+  "monster_mire_shaman": {
+    "category": "monster",
+    "id": "mire_shaman",
+    "name": "수림의 독무녀",
+    "role": "mage"
+  },
+  "monster_crystal_golem": {
+    "category": "monster",
+    "id": "crystal_golem",
+    "name": "수정 골렘",
+    "role": "tank"
+  },
+  "monster_glacier_berserker": {
+    "category": "monster",
+    "id": "glacier_berserker",
+    "name": "빙하 광전사",
+    "role": "brawler"
+  },
+  "monster_bone_dullahan": {
+    "category": "monster",
+    "id": "bone_dullahan",
+    "name": "본 둘라한",
+    "role": "brawler"
+  },
+  "monster_gale_bladedancer": {
+    "category": "monster",
+    "id": "gale_bladedancer",
+    "name": "질풍 검무가",
+    "role": "glass"
+  },
+  "monster_snow_hunter": {
+    "category": "monster",
+    "id": "snow_hunter",
+    "name": "설원 사냥꾼",
+    "role": "archer"
+  },
+  "monster_glacier_stalker": {
+    "category": "monster",
+    "id": "glacier_stalker",
+    "name": "빙하 추적자",
+    "role": "glass"
+  },
+  "monster_frost_wraith": {
+    "category": "monster",
+    "id": "frost_wraith",
+    "name": "서리 망령",
+    "role": "mage"
+  },
+  "monster_frostbound_revenant": {
+    "category": "monster",
+    "id": "frostbound_revenant",
+    "name": "빙박 망자",
+    "role": "berserker"
+  },
+  "monster_frost_saber": {
+    "category": "monster",
+    "id": "frost_saber",
+    "name": "설원 검치호",
+    "role": "brawler"
+  },
+  "monster_frost_lycan": {
+    "category": "monster",
+    "id": "frost_lycan",
+    "name": "서리 광랑",
+    "role": "berserker"
+  },
+  "monster_tundra_brute": {
+    "category": "monster",
+    "id": "tundra_brute",
+    "name": "툰드라 거구",
+    "role": "tank"
+  },
+  "monster_blizzard_sprite": {
+    "category": "monster",
+    "id": "blizzard_sprite",
+    "name": "눈보라 정령",
+    "role": "evade"
+  },
+  "monster_ice_crystal_golem": {
+    "category": "monster",
+    "id": "ice_crystal_golem",
+    "name": "빙정 골렘",
+    "role": "tank"
+  },
+  "monster_frost_bat": {
+    "category": "monster",
+    "id": "frost_bat",
+    "name": "서리 박쥐",
+    "role": "evade"
+  },
+  "monster_frost_chimera": {
+    "category": "monster",
+    "id": "frost_chimera",
+    "name": "서리 키메라",
+    "role": "brawler"
+  },
+  "monster_ice_sniper": {
+    "category": "monster",
+    "id": "ice_sniper",
+    "name": "빙결 저격수",
+    "role": "archer"
+  },
+  "monster_frozen_corpse_giant": {
+    "category": "monster",
+    "id": "frozen_corpse_giant",
+    "name": "빙장 거신",
+    "role": "tank"
+  },
+  "monster_frost_ghoul_lord": {
+    "category": "monster",
+    "id": "frost_ghoul_lord",
+    "name": "설원 아귀",
+    "role": "brawler"
+  },
+  "monster_glacial_wraith": {
+    "category": "monster",
+    "id": "glacial_wraith",
+    "name": "빙하 망령",
+    "role": "mage"
+  },
+  "monster_frost_dullahan": {
+    "category": "monster",
+    "id": "frost_dullahan",
+    "name": "빙결 수확자",
+    "role": "berserker"
+  },
+  "monster_lesser_lich": {
+    "category": "monster",
+    "id": "lesser_lich",
+    "name": "리치의 잔영",
+    "role": "mage"
+  },
+  "monster_lesser_snow_spirit": {
+    "category": "monster",
+    "id": "lesser_snow_spirit",
+    "name": "작은 눈정령",
+    "role": "mage"
+  },
+  "monster_cocoon_spawnling": {
+    "category": "monster",
+    "id": "cocoon_spawnling",
+    "name": "부화체",
+    "role": "spellbrute"
+  },
+  "monster_gargoyle_shard": {
+    "category": "monster",
+    "id": "gargoyle_shard",
+    "name": "작은 석상",
+    "role": "spellbrute"
+  },
+  "monster_corpse_giant_shard": {
+    "category": "monster",
+    "id": "corpse_giant_shard",
+    "name": "빙괴 파편",
+    "role": "brawler"
+  },
+  "monster_lesser_frost_ghoul": {
+    "category": "monster",
+    "id": "lesser_frost_ghoul",
+    "name": "아귀 새끼",
+    "role": "brawler"
+  },
+  "monster_lesser_dullahan": {
+    "category": "monster",
+    "id": "lesser_dullahan",
+    "name": "작은 수확자",
+    "role": "brawler"
+  },
+  "monster_frostflame_turtle": {
+    "category": "monster",
+    "id": "frostflame_turtle",
+    "name": "서리불꽃 거북",
+    "role": "tank"
+  },
+  "monster_azure_flame_bird": {
+    "category": "monster",
+    "id": "azure_flame_bird",
+    "name": "청염조",
+    "role": "spellguard"
+  },
+  "monster_frost_owlbear": {
+    "category": "monster",
+    "id": "frost_owlbear",
+    "name": "설원 아울베어",
+    "role": "brawler"
+  },
+  "monster_permafrost_sentinel": {
+    "category": "monster",
+    "id": "permafrost_sentinel",
+    "name": "영구동토 파수꾼",
+    "role": "tank"
+  },
+  "monster_glacier_harpy": {
+    "category": "monster",
+    "id": "glacier_harpy",
+    "name": "빙하 하르피",
+    "role": "glass"
+  },
+  "monster_wight_archer": {
+    "category": "monster",
+    "id": "wight_archer",
+    "name": "시귀 궁수",
+    "role": "mage"
+  },
+  "monster_doppel_shade": {
+    "category": "monster",
+    "id": "doppel_shade",
+    "name": "분신",
+    "role": "brawler"
+  },
+  "monster_manticore": {
+    "category": "monster",
+    "id": "manticore",
+    "name": "가시망수",
+    "role": "archer"
+  },
+  "monster_bicorn": {
+    "category": "monster",
+    "id": "bicorn",
+    "name": "흑우",
+    "role": "brawler"
+  },
+  "monster_culbes": {
+    "category": "monster",
+    "id": "culbes",
+    "name": "서릿발 이리",
+    "role": "archer"
+  },
+  "monster_deadburn": {
+    "category": "monster",
+    "id": "deadburn",
+    "name": "데드번",
+    "role": ""
+  },
+  "monster_canyon_wraith": {
+    "category": "monster",
+    "id": "canyon_wraith",
+    "name": "협곡 망령",
+    "role": ""
+  },
+  "monster_dead_eye": {
+    "category": "monster",
+    "id": "dead_eye",
+    "name": "데드아이",
+    "role": ""
+  },
+  "monster_teeth_skeleton": {
+    "category": "monster",
+    "id": "teeth_skeleton",
+    "name": "티쓰 스켈레톤",
+    "role": ""
+  },
+  "monster_ghosteeth": {
+    "category": "monster",
+    "id": "ghosteeth",
+    "name": "울부짖는 원귀",
+    "role": ""
+  },
+  "monster_cliff_specter": {
+    "category": "monster",
+    "id": "cliff_specter",
+    "name": "절벽귀",
+    "role": ""
+  },
+  "monster_soul_drinker": {
+    "category": "monster",
+    "id": "soul_drinker",
+    "name": "영혼을 마시는 자",
+    "role": ""
+  },
+  "monster_chaos_seaman": {
+    "category": "monster",
+    "id": "chaos_seaman",
+    "name": "저주받은 선장",
+    "role": "spellguard"
+  },
+  "monster_banshee_queen": {
+    "category": "monster",
+    "id": "banshee_queen",
+    "name": "벤시 퀸",
+    "role": "spellguard"
+  },
+  "monster_malder_elephant": {
+    "category": "monster",
+    "id": "malder_elephant",
+    "name": "부패한 거수",
+    "role": "brawler"
+  },
+  "monster_skeleton_mermaid_queen": {
+    "category": "monster",
+    "id": "skeleton_mermaid_queen",
+    "name": "스켈레톤 머메이드 퀸",
+    "role": "spellguard"
+  },
+  "monster_spectral_marksman": {
+    "category": "monster",
+    "id": "spectral_marksman",
+    "name": "원귀 사수",
+    "role": "archer"
+  },
+  "monster_soul_overcharger": {
+    "category": "monster",
+    "id": "soul_overcharger",
+    "name": "혼백 과충전술사",
+    "role": "mage"
+  },
+  "monster_colossus_bowman": {
+    "category": "monster",
+    "id": "colossus_bowman",
+    "name": "거인 궁수",
+    "role": "archer"
+  },
+  "monster_void_ant": {
+    "category": "monster",
+    "id": "void_ant",
+    "name": "검총 잔령",
+    "role": "glass"
+  },
+  "monster_hell_ghoul": {
+    "category": "monster",
+    "id": "hell_ghoul",
+    "name": "부패 구울",
+    "role": "brawler"
+  },
+  "monster_zambet": {
+    "category": "monster",
+    "id": "zambet",
+    "name": "검총 뼈기사",
+    "role": "tank"
+  },
+  "monster_mainum": {
+    "category": "monster",
+    "id": "mainum",
+    "name": "역병 마도사",
+    "role": "mage"
+  },
+  "monster_dark_crystal": {
+    "category": "monster",
+    "id": "dark_crystal",
+    "name": "다크 크리스탈",
+    "role": "warder"
+  },
+  "monster_gigant_wolf": {
+    "category": "monster",
+    "id": "gigant_wolf",
+    "name": "스콜",
+    "role": "brawler"
+  },
+  "monster_earthquake_lord": {
+    "category": "monster",
+    "id": "earthquake_lord",
+    "name": "지진 군주",
+    "role": "berserker"
+  },
+  "monster_titan_breaker": {
+    "category": "monster",
+    "id": "titan_breaker",
+    "name": "거석 파쇄자",
+    "role": "brawler"
+  },
+  "monster_seismic_archer": {
+    "category": "monster",
+    "id": "seismic_archer",
+    "name": "지진 궁수",
+    "role": "archer"
+  },
+  "monster_venom_lord": {
+    "category": "monster",
+    "id": "venom_lord",
+    "name": "맹독 군주",
+    "role": "mage"
+  },
+  "monster_hazard_payload": {
+    "category": "monster",
+    "id": "hazard_payload",
+    "name": "역병 투척귀",
+    "role": "mage"
+  },
+  "monster_fallen_swordsaint": {
+    "category": "monster",
+    "id": "fallen_swordsaint",
+    "name": "몰락 검성",
+    "role": "berserker"
+  },
+  "monster_grave_knight": {
+    "category": "monster",
+    "id": "grave_knight",
+    "name": "검총 기사",
+    "role": "brawler"
+  },
+  "monster_myriad_blade_wraith": {
+    "category": "monster",
+    "id": "myriad_blade_wraith",
+    "name": "수천검 망령",
+    "role": "mage"
+  },
+  "monster_void_shard": {
+    "category": "monster",
+    "id": "void_shard",
+    "name": "공허 결정",
+    "role": "spellguard"
+  },
+  "monster_plague_serpent": {
+    "category": "monster",
+    "id": "plague_serpent",
+    "name": "역병 독사",
+    "role": "mage"
+  },
+  "monster_hungry_claw": {
+    "category": "monster",
+    "id": "hungry_claw",
+    "name": "혈조 마수",
+    "role": "brawler"
+  },
+  "monster_vol_herchan": {
+    "category": "monster",
+    "id": "vol_herchan",
+    "name": "서리의 흑기사",
+    "role": "tank"
+  },
+  "monster_vaiterion": {
+    "category": "monster",
+    "id": "vaiterion",
+    "name": "한기의 야수",
+    "role": "brawler"
+  },
+  "monster_belarios": {
+    "category": "monster",
+    "id": "belarios",
+    "name": "영겁의 용",
+    "role": "spellguard"
+  },
+  "monster_bone_dragonian": {
+    "category": "monster",
+    "id": "bone_dragonian",
+    "name": "본 드래고니안",
+    "role": "spellguard"
+  },
+  "monster_baion": {
+    "category": "monster",
+    "id": "baion",
+    "name": "얼어붙은 시귀",
+    "role": "berserker"
+  },
+  "monster_reaper_lord": {
+    "category": "monster",
+    "id": "reaper_lord",
+    "name": "데스로드",
+    "role": "spellguard"
+  },
+  "monster_grudge_colossus": {
+    "category": "monster",
+    "id": "grudge_colossus",
+    "name": "원혼 거상",
+    "role": "warder"
+  },
+  "monster_wailing_wraith": {
+    "category": "monster",
+    "id": "wailing_wraith",
+    "name": "비탄의 망령",
+    "role": "spellguard"
+  },
+  "monster_abyssal_watcher": {
+    "category": "monster",
+    "id": "abyssal_watcher",
+    "name": "심연의 응시자",
+    "role": "spellguard"
+  },
+  "monster_hooked_gulper": {
+    "category": "monster",
+    "id": "hooked_gulper",
+    "name": "심연 먹장어",
+    "role": "brawler"
+  },
+  "monster_hooked_lurker": {
+    "category": "monster",
+    "id": "hooked_lurker",
+    "name": "갯벌의 잠복자",
+    "role": "brawler"
+  },
+  "monster_hooked_serpent": {
+    "category": "monster",
+    "id": "hooked_serpent",
+    "name": "낚싯줄의 해사",
+    "role": "brawler"
+  },
+  "monster_hooked_maw": {
+    "category": "monster",
+    "id": "hooked_maw",
+    "name": "심해의 아가리",
+    "role": "spellbrute"
+  },
+  "monster_hooked_leviathan": {
+    "category": "monster",
+    "id": "hooked_leviathan",
+    "name": "리바이어던 유생",
+    "role": "spellbrute"
+  },
+  "monster_hooked_shellclaw": {
+    "category": "monster",
+    "id": "hooked_shellclaw",
+    "name": "심해 집게게",
+    "role": "tank"
+  },
+  "monster_hooked_eel": {
+    "category": "monster",
+    "id": "hooked_eel",
+    "name": "감전 심해장어",
+    "role": "evade"
+  },
+  "monster_hooked_storm_drake": {
+    "category": "monster",
+    "id": "hooked_storm_drake",
+    "name": "폭풍 해룡",
+    "role": "spellbrute"
+  },
+  "boss_death_lord": {
+    "category": "boss",
+    "id": "death_lord",
+    "name": "원한의 군주",
+    "role": "brawler"
+  },
+  "boss_kalpion": {
+    "category": "boss",
+    "id": "kalpion",
+    "name": "황금의 나자로스",
+    "role": "brawler"
+  },
+  "boss_dragon_slayer": {
+    "category": "boss",
+    "id": "dragon_slayer",
+    "name": "스베인",
+    "role": "mage"
+  },
+  "boss_rakzar": {
+    "category": "boss",
+    "id": "rakzar",
+    "name": "작염의 도살자",
+    "role": "brawler"
+  },
+  "boss_baphomet": {
+    "category": "boss",
+    "id": "baphomet",
+    "name": "바르케모스",
+    "role": "mage"
+  },
+  "boss_argos": {
+    "category": "boss",
+    "id": "argos",
+    "name": "백안의 감시자",
+    "role": "mage"
+  },
+  "boss_oracle_marksman": {
+    "category": "boss",
+    "id": "oracle_marksman",
+    "name": "신탁 사수",
+    "role": "mage"
+  },
+  "boss_himar": {
+    "category": "boss",
+    "id": "himar",
+    "name": "빙관의 히마르",
+    "role": "tank"
+  },
+  "boss_dark_lycanthrope": {
+    "category": "boss",
+    "id": "dark_lycanthrope",
+    "name": "어둠의 늑대인간",
+    "role": ""
+  },
+  "boss_tarunbas": {
+    "category": "boss",
+    "id": "tarunbas",
+    "name": "혹한의 폭군",
+    "role": ""
+  },
+  "boss_vampire_guardian": {
+    "category": "boss",
+    "id": "vampire_guardian",
+    "name": "적야의 흡혈귀",
+    "role": ""
+  },
+  "boss_orc_hero": {
+    "category": "boss",
+    "id": "orc_hero",
+    "name": "오크 전쟁군주",
+    "role": ""
+  },
+  "boss_white_temple_knight": {
+    "category": "boss",
+    "id": "white_temple_knight",
+    "name": "석화된 종언기사",
+    "role": "brawler"
+  },
+  "boss_abyssal_end_knight": {
+    "category": "boss",
+    "id": "abyssal_end_knight",
+    "name": "심연의 종언기사",
+    "role": "brawler"
+  },
+  "boss_petrified_colossus": {
+    "category": "boss",
+    "id": "petrified_colossus",
+    "name": "석화의 수호거상",
+    "role": "brawler"
+  },
+  "boss_petrified_oracle": {
+    "category": "boss",
+    "id": "petrified_oracle",
+    "name": "석화의 신탁상",
+    "role": "mage"
+  },
+  "boss_awakened_megalith": {
+    "category": "boss",
+    "id": "awakened_megalith",
+    "name": "깨어난 거석",
+    "role": "tank"
+  },
+  "boss_stone_sentinel_archer": {
+    "category": "boss",
+    "id": "stone_sentinel_archer",
+    "name": "수호 석궁상",
+    "role": ""
+  },
+  "boss_chained_wraith": {
+    "category": "boss",
+    "id": "chained_wraith",
+    "name": "사슬에 묶인 검귀",
+    "role": "brawler"
+  },
+  "boss_azure_giant_soldier": {
+    "category": "boss",
+    "id": "azure_giant_soldier",
+    "name": "파수 거신상",
+    "role": "brawler"
+  },
+  "boss_white_armor_guard": {
+    "category": "boss",
+    "id": "white_armor_guard",
+    "name": "봉인 수호상",
+    "role": "tank"
+  },
+  "boss_green_armor_scout": {
+    "category": "boss",
+    "id": "green_armor_scout",
+    "name": "매복 척후상",
+    "role": "evade"
+  },
+  "boss_silver_thread_oracle": {
+    "category": "boss",
+    "id": "silver_thread_oracle",
+    "name": "주박의 신관상",
+    "role": "mage"
+  },
+  "boss_azure_white_judge": {
+    "category": "boss",
+    "id": "azure_white_judge",
+    "name": "단죄의 심판상",
+    "role": "brawler"
+  },
+  "boss_phantom_horse": {
+    "category": "boss",
+    "id": "phantom_horse",
+    "name": "망령 군마",
+    "role": "evade"
+  },
+  "boss_sky_guardian": {
+    "category": "boss",
+    "id": "sky_guardian",
+    "name": "오만",
+    "role": ""
+  },
+  "boss_dreadpeer": {
+    "category": "boss",
+    "id": "dreadpeer",
+    "name": "공포",
+    "role": ""
+  },
+  "boss_riakis": {
+    "category": "boss",
+    "id": "riakis",
+    "name": "혼돈",
+    "role": ""
+  },
+  "boss_blater": {
+    "category": "boss",
+    "id": "blater",
+    "name": "저주받은 흑기사",
+    "role": ""
+  },
+  "boss_king_slime": {
+    "category": "boss",
+    "id": "king_slime",
+    "name": "점액의 왕",
+    "role": ""
+  },
+  "boss_ildium": {
+    "category": "boss",
+    "id": "ildium",
+    "name": "불멸의 강철거상",
+    "role": ""
+  },
+  "boss_chaos_guardian": {
+    "category": "boss",
+    "id": "chaos_guardian",
+    "name": "혼돈의 화신",
+    "role": "normal"
+  },
+  "boss_gunman_chief": {
+    "category": "boss",
+    "id": "gunman_chief",
+    "name": "건맨 두목",
+    "role": ""
+  },
+  "boss_hobgoblin_chieftain": {
+    "category": "boss",
+    "id": "hobgoblin_chieftain",
+    "name": "홉고블린 대족장",
+    "role": ""
+  },
+  "boss_goliad": {
+    "category": "boss",
+    "id": "goliad",
+    "name": "중력의 골리아드",
+    "role": "tank"
+  },
+  "boss_balkaros": {
+    "category": "boss",
+    "id": "balkaros",
+    "name": "용광의 발카로스",
+    "role": "brawler"
+  },
+  "boss_cariadea": {
+    "category": "boss",
+    "id": "cariadea",
+    "name": "한기의 망령술사",
+    "role": "mage"
+  },
+  "boss_doppelganger": {
+    "category": "boss",
+    "id": "doppelganger",
+    "name": "도플갱어",
+    "role": "tank"
+  },
+  "equipment_steel_sword": {
+    "category": "equipment",
+    "id": "steel_sword",
+    "name": "강철 검",
+    "type": "weapon"
+  },
+  "equipment_steel_axe": {
+    "category": "equipment",
+    "id": "steel_axe",
+    "name": "강철 도끼",
+    "type": "weapon"
+  },
+  "equipment_goblin_bow": {
+    "category": "equipment",
+    "id": "goblin_bow",
+    "name": "고블린 활",
+    "type": "weapon"
+  },
+  "equipment_wooden_staff": {
+    "category": "equipment",
+    "id": "wooden_staff",
+    "name": "나무 지팡이",
+    "type": "weapon"
+  },
+  "equipment_steel_dagger": {
+    "category": "equipment",
+    "id": "steel_dagger",
+    "name": "강철 단검",
+    "type": "weapon"
+  },
+  "equipment_steel_dual_sword": {
+    "category": "equipment",
+    "id": "steel_dual_sword",
+    "name": "강철 쌍검",
+    "type": "weapon"
+  },
+  "equipment_steel_greatsword": {
+    "category": "equipment",
+    "id": "steel_greatsword",
+    "name": "강철 대검",
+    "type": "weapon"
+  },
+  "equipment_steel_shield": {
+    "category": "equipment",
+    "id": "steel_shield",
+    "name": "강철 방패",
+    "type": "shield"
+  },
+  "equipment_steel_heavy_chest": {
+    "category": "equipment",
+    "id": "steel_heavy_chest",
+    "name": "강철 중갑",
+    "type": "armor"
+  },
+  "equipment_goblin_light_chest": {
+    "category": "equipment",
+    "id": "goblin_light_chest",
+    "name": "고블린 가죽 경갑",
+    "type": "armor"
+  },
+  "equipment_apprentice_robe": {
+    "category": "equipment",
+    "id": "apprentice_robe",
+    "name": "견습 마법사 로브",
+    "type": "armor"
+  },
+  "equipment_steel_helmet": {
+    "category": "equipment",
+    "id": "steel_helmet",
+    "name": "강철 투구",
+    "type": "armor"
+  },
+  "equipment_goblin_helmet": {
+    "category": "equipment",
+    "id": "goblin_helmet",
+    "name": "고블린 가죽 투구",
+    "type": "armor"
+  },
+  "equipment_steel_legs": {
+    "category": "equipment",
+    "id": "steel_legs",
+    "name": "강철 하의",
+    "type": "armor"
+  },
+  "equipment_goblin_legs": {
+    "category": "equipment",
+    "id": "goblin_legs",
+    "name": "고블린 가죽 하의",
+    "type": "armor"
+  },
+  "equipment_goblin_boots": {
+    "category": "equipment",
+    "id": "goblin_boots",
+    "name": "고블린 가죽 부츠",
+    "type": "armor"
+  },
+  "equipment_numeros_7099": {
+    "category": "equipment",
+    "id": "numeros_7099",
+    "name": "마지막 뼈",
+    "type": "accessory"
+  },
+  "equipment_numeros_2727": {
+    "category": "equipment",
+    "id": "numeros_2727",
+    "name": "전사의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_1010": {
+    "category": "equipment",
+    "id": "numeros_1010",
+    "name": "한기의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_911": {
+    "category": "equipment",
+    "id": "numeros_911",
+    "name": "한기의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_2020": {
+    "category": "equipment",
+    "id": "numeros_2020",
+    "name": "작열의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_922": {
+    "category": "equipment",
+    "id": "numeros_922",
+    "name": "작열의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_3131": {
+    "category": "equipment",
+    "id": "numeros_3131",
+    "name": "부식의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_933": {
+    "category": "equipment",
+    "id": "numeros_933",
+    "name": "부식의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_4141": {
+    "category": "equipment",
+    "id": "numeros_4141",
+    "name": "그림자 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_944": {
+    "category": "equipment",
+    "id": "numeros_944",
+    "name": "그림자 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_5252": {
+    "category": "equipment",
+    "id": "numeros_5252",
+    "name": "질풍의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_955": {
+    "category": "equipment",
+    "id": "numeros_955",
+    "name": "질풍의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_6060": {
+    "category": "equipment",
+    "id": "numeros_6060",
+    "name": "굳건한 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_966": {
+    "category": "equipment",
+    "id": "numeros_966",
+    "name": "굳건한 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_7070": {
+    "category": "equipment",
+    "id": "numeros_7070",
+    "name": "파도의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_977": {
+    "category": "equipment",
+    "id": "numeros_977",
+    "name": "파도의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_8181": {
+    "category": "equipment",
+    "id": "numeros_8181",
+    "name": "광휘의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_988": {
+    "category": "equipment",
+    "id": "numeros_988",
+    "name": "광휘의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_9090": {
+    "category": "equipment",
+    "id": "numeros_9090",
+    "name": "뇌격의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_999": {
+    "category": "equipment",
+    "id": "numeros_999",
+    "name": "뇌격의 대인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_77": {
+    "category": "equipment",
+    "id": "numeros_77",
+    "name": "망향의 부적",
+    "type": "accessory"
+  },
+  "equipment_fire_orb": {
+    "category": "equipment",
+    "id": "fire_orb",
+    "name": "작열의 보주",
+    "type": "accessory"
+  },
+  "equipment_numeros_8080": {
+    "category": "equipment",
+    "id": "numeros_8080",
+    "name": "신성한 호의",
+    "type": "consumable"
+  },
+  "equipment_numeros_8888": {
+    "category": "equipment",
+    "id": "numeros_8888",
+    "name": "참회의 향",
+    "type": "consumable"
+  },
+  "equipment_numeros_777": {
+    "category": "equipment",
+    "id": "numeros_777",
+    "name": "세례반",
+    "type": "consumable"
+  },
+  "equipment_numeros_5944": {
+    "category": "equipment",
+    "id": "numeros_5944",
+    "name": "재사용 야영 키트",
+    "type": "accessory"
+  },
+  "equipment_numeros_4040": {
+    "category": "equipment",
+    "id": "numeros_4040",
+    "name": "휴대용 모닥불",
+    "type": "consumable"
+  },
+  "equipment_numeros_1051": {
+    "category": "equipment",
+    "id": "numeros_1051",
+    "name": "상흔의 열쇠",
+    "type": "consumable"
+  },
+  "equipment_numeros_1103": {
+    "category": "equipment",
+    "id": "numeros_1103",
+    "name": "상흔의 정제된 열쇠",
+    "type": "consumable"
+  },
+  "equipment_numeros_2103": {
+    "category": "equipment",
+    "id": "numeros_2103",
+    "name": "심층 상흔의 열쇠",
+    "type": "consumable"
+  },
+  "equipment_numeros_3103": {
+    "category": "equipment",
+    "id": "numeros_3103",
+    "name": "석화된 성소의 열쇠",
+    "type": "consumable"
+  },
+  "equipment_numeros_3030": {
+    "category": "equipment",
+    "id": "numeros_3030",
+    "name": "광인의 송곳니",
+    "type": "accessory"
+  },
+  "equipment_numeros_1530": {
+    "category": "equipment",
+    "id": "numeros_1530",
+    "name": "기지의 모래시계",
+    "type": "accessory"
+  },
+  "equipment_numeros_5151": {
+    "category": "equipment",
+    "id": "numeros_5151",
+    "name": "심판자의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_5050": {
+    "category": "equipment",
+    "id": "numeros_5050",
+    "name": "총잡이의 단안경",
+    "type": "accessory"
+  },
+  "equipment_numeros_8989": {
+    "category": "equipment",
+    "id": "numeros_8989",
+    "name": "자동 응급키트",
+    "type": "accessory"
+  },
+  "equipment_numeros_2424": {
+    "category": "equipment",
+    "id": "numeros_2424",
+    "name": "검귀의 방패",
+    "type": "shield"
+  },
+  "equipment_numeros_242": {
+    "category": "equipment",
+    "id": "numeros_242",
+    "name": "검성의 방벽",
+    "type": "shield"
+  },
+  "equipment_numeros_244": {
+    "category": "equipment",
+    "id": "numeros_244",
+    "name": "엄호의 방패",
+    "type": "shield"
+  },
+  "equipment_numeros_1313": {
+    "category": "equipment",
+    "id": "numeros_1313",
+    "name": "차원 자루",
+    "type": "bag"
+  },
+  "equipment_numeros_447": {
+    "category": "equipment",
+    "id": "numeros_447",
+    "name": "도망자의 봇짐",
+    "type": "bag"
+  },
+  "equipment_numeros_7373": {
+    "category": "equipment",
+    "id": "numeros_7373",
+    "name": "짐꾼의 거대 자루",
+    "type": "bag"
+  },
+  "equipment_numeros_6262": {
+    "category": "equipment",
+    "id": "numeros_6262",
+    "name": "여행자의 배낭",
+    "type": "bag"
+  },
+  "equipment_numeros_2828": {
+    "category": "equipment",
+    "id": "numeros_2828",
+    "name": "행상의 봇짐",
+    "type": "bag"
+  },
+  "equipment_numeros_530": {
+    "category": "equipment",
+    "id": "numeros_530",
+    "name": "구원자의 성배",
+    "type": "accessory"
+  },
+  "equipment_numeros_1717": {
+    "category": "equipment",
+    "id": "numeros_1717",
+    "name": "불굴의 징표",
+    "type": "accessory"
+  },
+  "equipment_numeros_9595": {
+    "category": "equipment",
+    "id": "numeros_9595",
+    "name": "연금술 꾸러미",
+    "type": "consumable"
+  },
+  "equipment_potion_supreme": {
+    "category": "equipment",
+    "id": "potion_supreme",
+    "name": "최상급 물약",
+    "type": "consumable"
+  },
+  "equipment_emergency_kit": {
+    "category": "equipment",
+    "id": "emergency_kit",
+    "name": "구급상자",
+    "type": "consumable"
+  },
+  "equipment_numeros_4747": {
+    "category": "equipment",
+    "id": "numeros_4747",
+    "name": "빠른 발걸음",
+    "type": "accessory"
+  },
+  "equipment_numeros_6666": {
+    "category": "equipment",
+    "id": "numeros_6666",
+    "name": "그릇된 도끼",
+    "type": "weapon"
+  },
+  "equipment_numeros_135": {
+    "category": "equipment",
+    "id": "numeros_135",
+    "name": "지혜의 지팡이",
+    "type": "weapon"
+  },
+  "equipment_numeros_250": {
+    "category": "equipment",
+    "id": "numeros_250",
+    "name": "영원의 도끼",
+    "type": "weapon"
+  },
+  "equipment_numeros_273": {
+    "category": "equipment",
+    "id": "numeros_273",
+    "name": "한기의 쌍검",
+    "type": "weapon"
+  },
+  "equipment_numeros_358": {
+    "category": "equipment",
+    "id": "numeros_358",
+    "name": "폭풍의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_2055": {
+    "category": "equipment",
+    "id": "numeros_2055",
+    "name": "신탁의 후각",
+    "type": "accessory"
+  },
+  "equipment_numeros_205": {
+    "category": "equipment",
+    "id": "numeros_205",
+    "name": "예언의 통찰",
+    "type": "accessory"
+  },
+  "equipment_numeros_3700": {
+    "category": "equipment",
+    "id": "numeros_3700",
+    "name": "천공의 시야",
+    "type": "accessory"
+  },
+  "equipment_numeros_370": {
+    "category": "equipment",
+    "id": "numeros_370",
+    "name": "신성한 직관",
+    "type": "accessory"
+  },
+  "equipment_numeros_372": {
+    "category": "equipment",
+    "id": "numeros_372",
+    "name": "진홍의 대검",
+    "type": "weapon"
+  },
+  "equipment_numeros_384": {
+    "category": "equipment",
+    "id": "numeros_384",
+    "name": "어둠의 지팡이",
+    "type": "weapon"
+  },
+  "equipment_numeros_458": {
+    "category": "equipment",
+    "id": "numeros_458",
+    "name": "빙룡의 도끼",
+    "type": "weapon"
+  },
+  "equipment_numeros_500": {
+    "category": "equipment",
+    "id": "numeros_500",
+    "name": "사신의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_524": {
+    "category": "equipment",
+    "id": "numeros_524",
+    "name": "처형자의 대검",
+    "type": "weapon"
+  },
+  "equipment_numeros_547": {
+    "category": "equipment",
+    "id": "numeros_547",
+    "name": "신성의 활",
+    "type": "weapon"
+  },
+  "equipment_numeros_615": {
+    "category": "equipment",
+    "id": "numeros_615",
+    "name": "뇌신의 활",
+    "type": "weapon"
+  },
+  "equipment_numeros_617": {
+    "category": "equipment",
+    "id": "numeros_617",
+    "name": "절대방어 부적",
+    "type": "accessory"
+  },
+  "equipment_numeros_687": {
+    "category": "equipment",
+    "id": "numeros_687",
+    "name": "공성 살육자",
+    "type": "weapon"
+  },
+  "equipment_numeros_696": {
+    "category": "equipment",
+    "id": "numeros_696",
+    "name": "폐황의 장궁",
+    "type": "weapon"
+  },
+  "equipment_numeros_726": {
+    "category": "equipment",
+    "id": "numeros_726",
+    "name": "대지의 흉갑",
+    "type": "armor"
+  },
+  "equipment_numeros_761": {
+    "category": "equipment",
+    "id": "numeros_761",
+    "name": "명공의 용광로 망치",
+    "type": "weapon"
+  },
+  "equipment_numeros_829": {
+    "category": "equipment",
+    "id": "numeros_829",
+    "name": "부패의 대검",
+    "type": "weapon"
+  },
+  "equipment_numeros_830": {
+    "category": "equipment",
+    "id": "numeros_830",
+    "name": "맹독의 활",
+    "type": "weapon"
+  },
+  "equipment_numeros_831": {
+    "category": "equipment",
+    "id": "numeros_831",
+    "name": "부식의 쌍검",
+    "type": "weapon"
+  },
+  "equipment_numeros_832": {
+    "category": "equipment",
+    "id": "numeros_832",
+    "name": "스베인의 성검",
+    "type": "weapon"
+  },
+  "equipment_numeros_1001": {
+    "category": "equipment",
+    "id": "numeros_1001",
+    "name": "떠돌이의 여행 가방",
+    "type": "bag"
+  },
+  "equipment_numeros_2578": {
+    "category": "equipment",
+    "id": "numeros_2578",
+    "name": "창천갑주",
+    "type": "armor"
+  },
+  "equipment_numeros_8484": {
+    "category": "equipment",
+    "id": "numeros_8484",
+    "name": "무쇠심장 흉갑",
+    "type": "armor"
+  },
+  "equipment_numeros_8585": {
+    "category": "equipment",
+    "id": "numeros_8585",
+    "name": "투혼의 투구",
+    "type": "armor"
+  },
+  "equipment_numeros_8383": {
+    "category": "equipment",
+    "id": "numeros_8383",
+    "name": "거산의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_8686": {
+    "category": "equipment",
+    "id": "numeros_8686",
+    "name": "거인의 군화",
+    "type": "armor"
+  },
+  "equipment_numeros_7474": {
+    "category": "equipment",
+    "id": "numeros_7474",
+    "name": "그림자추적자 가죽갑",
+    "type": "armor"
+  },
+  "equipment_numeros_7575": {
+    "category": "equipment",
+    "id": "numeros_7575",
+    "name": "매눈 면갑",
+    "type": "armor"
+  },
+  "equipment_numeros_4646": {
+    "category": "equipment",
+    "id": "numeros_4646",
+    "name": "날렵한 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_1818": {
+    "category": "equipment",
+    "id": "numeros_1818",
+    "name": "표범걸음 장화",
+    "type": "armor"
+  },
+  "equipment_numeros_5656": {
+    "category": "equipment",
+    "id": "numeros_5656",
+    "name": "현자의 법의",
+    "type": "armor"
+  },
+  "equipment_numeros_5757": {
+    "category": "equipment",
+    "id": "numeros_5757",
+    "name": "현자의 두건",
+    "type": "armor"
+  },
+  "equipment_numeros_5959": {
+    "category": "equipment",
+    "id": "numeros_5959",
+    "name": "현자의 법의 하의",
+    "type": "armor"
+  },
+  "equipment_numeros_3535": {
+    "category": "equipment",
+    "id": "numeros_3535",
+    "name": "현자의 신",
+    "type": "armor"
+  },
+  "equipment_numeros_848": {
+    "category": "equipment",
+    "id": "numeros_848",
+    "name": "불멸심장 흉갑",
+    "type": "armor"
+  },
+  "equipment_numeros_858": {
+    "category": "equipment",
+    "id": "numeros_858",
+    "name": "불굴의 투구",
+    "type": "armor"
+  },
+  "equipment_numeros_838": {
+    "category": "equipment",
+    "id": "numeros_838",
+    "name": "태산의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_868": {
+    "category": "equipment",
+    "id": "numeros_868",
+    "name": "거신의 군화",
+    "type": "armor"
+  },
+  "equipment_numeros_747": {
+    "category": "equipment",
+    "id": "numeros_747",
+    "name": "심연추적자 가죽갑",
+    "type": "armor"
+  },
+  "equipment_numeros_757": {
+    "category": "equipment",
+    "id": "numeros_757",
+    "name": "천리안 면갑",
+    "type": "armor"
+  },
+  "equipment_numeros_464": {
+    "category": "equipment",
+    "id": "numeros_464",
+    "name": "잔영의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_181": {
+    "category": "equipment",
+    "id": "numeros_181",
+    "name": "설표의 장화",
+    "type": "armor"
+  },
+  "equipment_numeros_565": {
+    "category": "equipment",
+    "id": "numeros_565",
+    "name": "대마도사의 법의",
+    "type": "armor"
+  },
+  "equipment_numeros_575": {
+    "category": "equipment",
+    "id": "numeros_575",
+    "name": "대마도사의 두건",
+    "type": "armor"
+  },
+  "equipment_numeros_595": {
+    "category": "equipment",
+    "id": "numeros_595",
+    "name": "대마도사의 하의",
+    "type": "armor"
+  },
+  "equipment_numeros_353": {
+    "category": "equipment",
+    "id": "numeros_353",
+    "name": "대마도사의 신",
+    "type": "armor"
+  },
+  "equipment_numeros_878": {
+    "category": "equipment",
+    "id": "numeros_878",
+    "name": "반석의 투구",
+    "type": "armor"
+  },
+  "equipment_numeros_929": {
+    "category": "equipment",
+    "id": "numeros_929",
+    "name": "불굴의 흉갑",
+    "type": "armor"
+  },
+  "equipment_numeros_939": {
+    "category": "equipment",
+    "id": "numeros_939",
+    "name": "불굴의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_828": {
+    "category": "equipment",
+    "id": "numeros_828",
+    "name": "불굴의 전투화",
+    "type": "armor"
+  },
+  "equipment_numeros_383": {
+    "category": "equipment",
+    "id": "numeros_383",
+    "name": "정령왕의 갑옷",
+    "type": "armor"
+  },
+  "equipment_numeros_343": {
+    "category": "equipment",
+    "id": "numeros_343",
+    "name": "정령왕의 두건",
+    "type": "armor"
+  },
+  "equipment_numeros_232": {
+    "category": "equipment",
+    "id": "numeros_232",
+    "name": "정령왕의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_252": {
+    "category": "equipment",
+    "id": "numeros_252",
+    "name": "정령왕의 신",
+    "type": "armor"
+  },
+  "equipment_numeros_8787": {
+    "category": "equipment",
+    "id": "numeros_8787",
+    "name": "거암의 투구",
+    "type": "armor"
+  },
+  "equipment_numeros_9292": {
+    "category": "equipment",
+    "id": "numeros_9292",
+    "name": "투혼의 흉갑",
+    "type": "armor"
+  },
+  "equipment_numeros_9393": {
+    "category": "equipment",
+    "id": "numeros_9393",
+    "name": "투혼의 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_8282": {
+    "category": "equipment",
+    "id": "numeros_8282",
+    "name": "투혼의 전투화",
+    "type": "armor"
+  },
+  "equipment_numeros_3838": {
+    "category": "equipment",
+    "id": "numeros_3838",
+    "name": "정령가죽 갑옷",
+    "type": "armor"
+  },
+  "equipment_numeros_3434": {
+    "category": "equipment",
+    "id": "numeros_3434",
+    "name": "정령가죽 두건",
+    "type": "armor"
+  },
+  "equipment_numeros_2323": {
+    "category": "equipment",
+    "id": "numeros_2323",
+    "name": "정령가죽 각반",
+    "type": "armor"
+  },
+  "equipment_numeros_2525": {
+    "category": "equipment",
+    "id": "numeros_2525",
+    "name": "정령가죽 신",
+    "type": "armor"
+  },
+  "equipment_numeros_2988": {
+    "category": "equipment",
+    "id": "numeros_2988",
+    "name": "수호의 인장",
+    "type": "accessory"
+  },
+  "equipment_numeros_3120": {
+    "category": "equipment",
+    "id": "numeros_3120",
+    "name": "예비의 심장",
+    "type": "accessory"
+  },
+  "equipment_numeros_5991": {
+    "category": "equipment",
+    "id": "numeros_5991",
+    "name": "맹독의 송곳니",
+    "type": "weapon"
+  },
+  "equipment_numeros_8820": {
+    "category": "equipment",
+    "id": "numeros_8820",
+    "name": "철옹성",
+    "type": "accessory"
+  },
+  "equipment_numeros_6363": {
+    "category": "equipment",
+    "id": "numeros_6363",
+    "name": "조타수의 손",
+    "type": "accessory"
+  },
+  "equipment_numeros_7272": {
+    "category": "equipment",
+    "id": "numeros_7272",
+    "name": "해무관통의 눈",
+    "type": "accessory"
+  },
+  "equipment_numeros_5353": {
+    "category": "equipment",
+    "id": "numeros_5353",
+    "name": "바람타기 비술",
+    "type": "accessory"
+  },
+  "equipment_numeros_6464": {
+    "category": "equipment",
+    "id": "numeros_6464",
+    "name": "여명의 섬 풍향계",
+    "type": "accessory"
+  },
+  "equipment_numeros_663": {
+    "category": "equipment",
+    "id": "numeros_663",
+    "name": "여명의 섬 항해사의 유서",
+    "type": "accessory"
+  },
+  "equipment_numeros_555": {
+    "category": "equipment",
+    "id": "numeros_555",
+    "name": "여명의 섬 풍향 두루마리",
+    "type": "accessory"
+  },
+  "equipment_steel_ring": {
+    "category": "equipment",
+    "id": "steel_ring",
+    "name": "강철 반지",
+    "type": "accessory"
+  },
+  "equipment_goblin_necklace": {
+    "category": "equipment",
+    "id": "goblin_necklace",
+    "name": "고블린 이빨 목걸이",
+    "type": "accessory"
+  },
+  "equipment_laitinium_sword": {
+    "category": "equipment",
+    "id": "laitinium_sword",
+    "name": "비취강 검",
+    "type": "weapon"
+  },
+  "equipment_laitinium_axe": {
+    "category": "equipment",
+    "id": "laitinium_axe",
+    "name": "비취강 도끼",
+    "type": "weapon"
+  },
+  "equipment_redwood_bow": {
+    "category": "equipment",
+    "id": "redwood_bow",
+    "name": "레드우드 활",
+    "type": "weapon"
+  },
+  "equipment_redwood_staff": {
+    "category": "equipment",
+    "id": "redwood_staff",
+    "name": "레드우드 지팡이",
+    "type": "weapon"
+  },
+  "equipment_laitinium_dagger": {
+    "category": "equipment",
+    "id": "laitinium_dagger",
+    "name": "비취강 단검",
+    "type": "weapon"
+  },
+  "equipment_laitinium_dual_sword": {
+    "category": "equipment",
+    "id": "laitinium_dual_sword",
+    "name": "비취강 쌍검",
+    "type": "weapon"
+  },
+  "equipment_laitinium_greatsword": {
+    "category": "equipment",
+    "id": "laitinium_greatsword",
+    "name": "비취강 대검",
+    "type": "weapon"
+  },
+  "equipment_laitinium_shield": {
+    "category": "equipment",
+    "id": "laitinium_shield",
+    "name": "비취강 방패",
+    "type": "shield"
+  },
+  "equipment_laitinium_heavy_chest": {
+    "category": "equipment",
+    "id": "laitinium_heavy_chest",
+    "name": "비취강 중갑",
+    "type": "armor"
+  },
+  "equipment_mage_robe": {
+    "category": "equipment",
+    "id": "mage_robe",
+    "name": "마법사 로브",
+    "type": "armor"
+  },
+  "equipment_wyvern_light_chest": {
+    "category": "equipment",
+    "id": "wyvern_light_chest",
+    "name": "와이번 가죽 경갑",
+    "type": "armor"
+  },
+  "equipment_laitinium_helmet": {
+    "category": "equipment",
+    "id": "laitinium_helmet",
+    "name": "비취강 투구",
+    "type": "armor"
+  },
+  "equipment_wyvern_helmet": {
+    "category": "equipment",
+    "id": "wyvern_helmet",
+    "name": "와이번 가죽 투구",
+    "type": "armor"
+  },
+  "equipment_laitinium_legs": {
+    "category": "equipment",
+    "id": "laitinium_legs",
+    "name": "비취강 하의",
+    "type": "armor"
+  },
+  "equipment_wyvern_legs": {
+    "category": "equipment",
+    "id": "wyvern_legs",
+    "name": "와이번 가죽 하의",
+    "type": "armor"
+  },
+  "equipment_wyvern_boots": {
+    "category": "equipment",
+    "id": "wyvern_boots",
+    "name": "와이번 가죽 부츠",
+    "type": "armor"
+  },
+  "equipment_laitinium_ring": {
+    "category": "equipment",
+    "id": "laitinium_ring",
+    "name": "비취강 반지",
+    "type": "accessory"
+  },
+  "equipment_wyvern_necklace": {
+    "category": "equipment",
+    "id": "wyvern_necklace",
+    "name": "와이번 이빨 목걸이",
+    "type": "accessory"
+  },
+  "equipment_airilze_sword": {
+    "category": "equipment",
+    "id": "airilze_sword",
+    "name": "청강 검",
+    "type": "weapon"
+  },
+  "equipment_airilze_axe": {
+    "category": "equipment",
+    "id": "airilze_axe",
+    "name": "청강 도끼",
+    "type": "weapon"
+  },
+  "equipment_troll_bow": {
+    "category": "equipment",
+    "id": "troll_bow",
+    "name": "트롤 뼈 활",
+    "type": "weapon"
+  },
+  "equipment_troll_staff": {
+    "category": "equipment",
+    "id": "troll_staff",
+    "name": "트롤 뼈 지팡이",
+    "type": "weapon"
+  },
+  "equipment_airilze_dagger": {
+    "category": "equipment",
+    "id": "airilze_dagger",
+    "name": "청강 단검",
+    "type": "weapon"
+  },
+  "equipment_airilze_dual_sword": {
+    "category": "equipment",
+    "id": "airilze_dual_sword",
+    "name": "청강 쌍검",
+    "type": "weapon"
+  },
+  "equipment_airilze_greatsword": {
+    "category": "equipment",
+    "id": "airilze_greatsword",
+    "name": "청강 대검",
+    "type": "weapon"
+  },
+  "equipment_airilze_shield": {
+    "category": "equipment",
+    "id": "airilze_shield",
+    "name": "청강 방패",
+    "type": "shield"
+  },
+  "equipment_airilze_heavy_chest": {
+    "category": "equipment",
+    "id": "airilze_heavy_chest",
+    "name": "청강 중갑",
+    "type": "armor"
+  },
+  "equipment_archmage_robe": {
+    "category": "equipment",
+    "id": "archmage_robe",
+    "name": "대마법사 로브",
+    "type": "armor"
+  },
+  "equipment_troll_light_chest": {
+    "category": "equipment",
+    "id": "troll_light_chest",
+    "name": "트롤 가죽 경갑",
+    "type": "armor"
+  },
+  "equipment_airilze_helmet": {
+    "category": "equipment",
+    "id": "airilze_helmet",
+    "name": "청강 투구",
+    "type": "armor"
+  },
+  "equipment_troll_helmet": {
+    "category": "equipment",
+    "id": "troll_helmet",
+    "name": "트롤 가죽 투구",
+    "type": "armor"
+  },
+  "equipment_airilze_legs": {
+    "category": "equipment",
+    "id": "airilze_legs",
+    "name": "청강 하의",
+    "type": "armor"
+  },
+  "equipment_troll_legs": {
+    "category": "equipment",
+    "id": "troll_legs",
+    "name": "트롤 가죽 하의",
+    "type": "armor"
+  },
+  "equipment_troll_boots": {
+    "category": "equipment",
+    "id": "troll_boots",
+    "name": "트롤 가죽 부츠",
+    "type": "armor"
+  },
+  "equipment_airilze_ring": {
+    "category": "equipment",
+    "id": "airilze_ring",
+    "name": "청강 반지",
+    "type": "accessory"
+  },
+  "equipment_troll_necklace": {
+    "category": "equipment",
+    "id": "troll_necklace",
+    "name": "트롤 뼈 목걸이",
+    "type": "accessory"
+  },
+  "equipment_leather_bag": {
+    "category": "equipment",
+    "id": "leather_bag",
+    "name": "가죽 배낭",
+    "type": "bag"
+  },
+  "equipment_reinforced_bag": {
+    "category": "equipment",
+    "id": "reinforced_bag",
+    "name": "강화 배낭",
+    "type": "bag"
+  },
+  "equipment_large_bag": {
+    "category": "equipment",
+    "id": "large_bag",
+    "name": "대형 배낭",
+    "type": "bag"
+  },
+  "equipment_moonsteel_sword": {
+    "category": "equipment",
+    "id": "moonsteel_sword",
+    "name": "백은 검",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_axe": {
+    "category": "equipment",
+    "id": "moonsteel_axe",
+    "name": "백은 도끼",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_dagger": {
+    "category": "equipment",
+    "id": "moonsteel_dagger",
+    "name": "백은 단검",
+    "type": "weapon"
+  },
+  "equipment_steel_claw": {
+    "category": "equipment",
+    "id": "steel_claw",
+    "name": "강철 발톱",
+    "type": "weapon"
+  },
+  "equipment_laitinium_claw": {
+    "category": "equipment",
+    "id": "laitinium_claw",
+    "name": "비취강 발톱",
+    "type": "weapon"
+  },
+  "equipment_airilze_claw": {
+    "category": "equipment",
+    "id": "airilze_claw",
+    "name": "청강 발톱",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_claw": {
+    "category": "equipment",
+    "id": "moonsteel_claw",
+    "name": "백은 발톱",
+    "type": "weapon"
+  },
+  "equipment_numeros_9449": {
+    "category": "equipment",
+    "id": "numeros_9449",
+    "name": "야수왕의 발톱",
+    "type": "weapon"
+  },
+  "equipment_steel_warhammer": {
+    "category": "equipment",
+    "id": "steel_warhammer",
+    "name": "강철 워해머",
+    "type": "weapon"
+  },
+  "equipment_laitinium_warhammer": {
+    "category": "equipment",
+    "id": "laitinium_warhammer",
+    "name": "비취강 워해머",
+    "type": "weapon"
+  },
+  "equipment_airilze_warhammer": {
+    "category": "equipment",
+    "id": "airilze_warhammer",
+    "name": "청강 워해머",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_warhammer": {
+    "category": "equipment",
+    "id": "moonsteel_warhammer",
+    "name": "백은 워해머",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_dual_sword": {
+    "category": "equipment",
+    "id": "moonsteel_dual_sword",
+    "name": "백은 쌍검",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_greatsword": {
+    "category": "equipment",
+    "id": "moonsteel_greatsword",
+    "name": "백은 대검",
+    "type": "weapon"
+  },
+  "equipment_ebony_bow": {
+    "category": "equipment",
+    "id": "ebony_bow",
+    "name": "흑단목 활",
+    "type": "weapon"
+  },
+  "equipment_ebony_staff": {
+    "category": "equipment",
+    "id": "ebony_staff",
+    "name": "흑단목 지팡이",
+    "type": "weapon"
+  },
+  "equipment_moonsteel_shield": {
+    "category": "equipment",
+    "id": "moonsteel_shield",
+    "name": "백은 방패",
+    "type": "shield"
+  },
+  "equipment_moonsteel_heavy_chest": {
+    "category": "equipment",
+    "id": "moonsteel_heavy_chest",
+    "name": "백은 중갑",
+    "type": "armor"
+  },
+  "equipment_shadow_light_chest": {
+    "category": "equipment",
+    "id": "shadow_light_chest",
+    "name": "그림자 경갑",
+    "type": "armor"
+  },
+  "equipment_shadow_robe": {
+    "category": "equipment",
+    "id": "shadow_robe",
+    "name": "그림자 로브",
+    "type": "armor"
+  },
+  "equipment_moonsteel_helmet": {
+    "category": "equipment",
+    "id": "moonsteel_helmet",
+    "name": "백은 투구",
+    "type": "armor"
+  },
+  "equipment_shadow_helmet": {
+    "category": "equipment",
+    "id": "shadow_helmet",
+    "name": "그림자 두건",
+    "type": "armor"
+  },
+  "equipment_moonsteel_legs": {
+    "category": "equipment",
+    "id": "moonsteel_legs",
+    "name": "백은 하의",
+    "type": "armor"
+  },
+  "equipment_shadow_legs": {
+    "category": "equipment",
+    "id": "shadow_legs",
+    "name": "그림자 하의",
+    "type": "armor"
+  },
+  "equipment_shadow_boots": {
+    "category": "equipment",
+    "id": "shadow_boots",
+    "name": "그림자 부츠",
+    "type": "armor"
+  },
+  "equipment_moonsteel_ring": {
+    "category": "equipment",
+    "id": "moonsteel_ring",
+    "name": "백은 반지",
+    "type": "accessory"
+  },
+  "equipment_ebony_necklace": {
+    "category": "equipment",
+    "id": "ebony_necklace",
+    "name": "흑단목 목걸이",
+    "type": "accessory"
+  },
+  "equipment_premium_bag": {
+    "category": "equipment",
+    "id": "premium_bag",
+    "name": "백은 가죽 가방",
+    "type": "bag"
+  },
+  "equipment_steel_boots": {
+    "category": "equipment",
+    "id": "steel_boots",
+    "name": "강철 전투화",
+    "type": "armor"
+  },
+  "equipment_laitinium_boots": {
+    "category": "equipment",
+    "id": "laitinium_boots",
+    "name": "비취강 전투화",
+    "type": "armor"
+  },
+  "equipment_airilze_boots": {
+    "category": "equipment",
+    "id": "airilze_boots",
+    "name": "청강 전투화",
+    "type": "armor"
+  },
+  "equipment_moonsteel_boots": {
+    "category": "equipment",
+    "id": "moonsteel_boots",
+    "name": "백은 전투화",
+    "type": "armor"
+  },
+  "equipment_apprentice_hat": {
+    "category": "equipment",
+    "id": "apprentice_hat",
+    "name": "견습 마법사 모자",
+    "type": "armor"
+  },
+  "equipment_mage_hat": {
+    "category": "equipment",
+    "id": "mage_hat",
+    "name": "마법사 모자",
+    "type": "armor"
+  },
+  "equipment_archmage_hat": {
+    "category": "equipment",
+    "id": "archmage_hat",
+    "name": "대마법사 모자",
+    "type": "armor"
+  },
+  "equipment_shadow_hat": {
+    "category": "equipment",
+    "id": "shadow_hat",
+    "name": "그림자 마도 두건",
+    "type": "armor"
+  },
+  "equipment_apprentice_robe_legs": {
+    "category": "equipment",
+    "id": "apprentice_robe_legs",
+    "name": "견습 마법사 로브 하의",
+    "type": "armor"
+  },
+  "equipment_mage_robe_legs": {
+    "category": "equipment",
+    "id": "mage_robe_legs",
+    "name": "마법사 로브 하의",
+    "type": "armor"
+  },
+  "equipment_archmage_robe_legs": {
+    "category": "equipment",
+    "id": "archmage_robe_legs",
+    "name": "대마법사 로브 하의",
+    "type": "armor"
+  },
+  "equipment_shadow_robe_legs": {
+    "category": "equipment",
+    "id": "shadow_robe_legs",
+    "name": "그림자 로브 하의",
+    "type": "armor"
+  },
+  "equipment_apprentice_shoes": {
+    "category": "equipment",
+    "id": "apprentice_shoes",
+    "name": "견습 마법사 신발",
+    "type": "armor"
+  },
+  "equipment_mage_shoes": {
+    "category": "equipment",
+    "id": "mage_shoes",
+    "name": "마법사 신발",
+    "type": "armor"
+  },
+  "equipment_archmage_shoes": {
+    "category": "equipment",
+    "id": "archmage_shoes",
+    "name": "대마법사 신발",
+    "type": "armor"
+  },
+  "equipment_shadow_shoes": {
+    "category": "equipment",
+    "id": "shadow_shoes",
+    "name": "그림자 마도 신발",
+    "type": "armor"
+  },
+  "equipment_ascetic_wish": {
+    "category": "equipment",
+    "id": "ascetic_wish",
+    "name": "금단의 소원",
+    "type": "special"
+  },
+  "equipment_truth_stone": {
+    "category": "equipment",
+    "id": "truth_stone",
+    "name": "진실의 돌",
+    "type": "consumable"
+  },
+  "equipment_ward_elixir": {
+    "category": "equipment",
+    "id": "ward_elixir",
+    "name": "항마력 영약",
+    "type": "consumable"
+  },
+  "companion_ragnar": {
+    "category": "companion",
+    "id": "ragnar",
+    "name": "라그나르",
+    "primary_stat": "strength"
+  },
+  "companion_alba": {
+    "category": "companion",
+    "id": "alba",
+    "name": "알바",
+    "primary_stat": "dexterity"
+  },
+  "companion_skadi": {
+    "category": "companion",
+    "id": "skadi",
+    "name": "스카디",
+    "primary_stat": "strength"
+  },
+  "companion_lagertha": {
+    "category": "companion",
+    "id": "lagertha",
+    "name": "라게르타",
+    "primary_stat": "strength"
+  },
+  "companion_lena": {
+    "category": "companion",
+    "id": "lena",
+    "name": "레나",
+    "primary_stat": "spirit_power"
+  },
+  "companion_finn": {
+    "category": "companion",
+    "id": "finn",
+    "name": "핀",
+    "primary_stat": "perception"
+  },
+  "companion_fenri": {
+    "category": "companion",
+    "id": "fenri",
+    "name": "펜리",
+    "primary_stat": "dexterity"
+  },
+  "companion_garn": {
+    "category": "companion",
+    "id": "garn",
+    "name": "가른",
+    "primary_stat": "strength"
+  },
+  "companion_brin": {
+    "category": "companion",
+    "id": "brin",
+    "name": "브린",
+    "primary_stat": "dexterity"
+  },
+  "companion_draugr": {
+    "category": "companion",
+    "id": "draugr",
+    "name": "드라우근",
+    "primary_stat": "strength"
+  },
+  "companion_korbin": {
+    "category": "companion",
+    "id": "korbin",
+    "name": "코르빈",
+    "primary_stat": "spirit_power"
+  },
+  "companion_baldr": {
+    "category": "companion",
+    "id": "baldr",
+    "name": "발두르",
+    "primary_stat": "strength"
+  },
+  "companion_eir": {
+    "category": "companion",
+    "id": "eir",
+    "name": "에이르",
+    "primary_stat": "spirit_power"
+  },
+  "sacrifice_open_blood_citadel": {
+    "category": "sacrifice",
+    "id": "open_blood_citadel",
+    "name": "상흔 개방 의식 — 적막의 무덤 매개",
+    "description": "네 방위의 혼에 적막의 무덤의 매개를 더해 잠든 상흔을 연다."
+  },
+  "sacrifice_open_glacier_cave": {
+    "category": "sacrifice",
+    "id": "open_glacier_cave",
+    "name": "상흔 개방 의식 — 야수의 둥지 매개",
+    "description": "네 방위의 혼에 야수의 둥지의 매개를 더해 잠든 상흔을 연다."
+  },
+  "sacrifice_open_green_mine": {
+    "category": "sacrifice",
+    "id": "open_green_mine",
+    "name": "상흔 개방 의식 — 속삭임의 숲 매개",
+    "description": "네 방위의 혼에 속삭임의 숲의 매개를 더해 잠든 상흔을 연다."
+  },
+  "sacrifice_open_steel_tomb": {
+    "category": "sacrifice",
+    "id": "open_steel_tomb",
+    "name": "상흔 개방 의식 — 황혼의 사막 매개",
+    "description": "네 방위의 혼에 황혼의 사막의 매개를 더해 잠든 상흔을 연다."
+  },
+  "sacrifice_open_hobgoblin_fortress": {
+    "category": "sacrifice",
+    "id": "open_hobgoblin_fortress",
+    "name": "상흔 개방 의식 — 속삭임의 숲",
+    "description": "얽힌 길의 혼에 속삭이는 수풀의 매개를 더해 홉고블린 요새의 상흔을 연다."
+  },
+  "sacrifice_open_beast_den": {
+    "category": "sacrifice",
+    "id": "open_beast_den",
+    "name": "상흔 개방 의식 — 야수의 둥지",
+    "description": "얽힌 길의 혼에 석상의 뜰의 매개를 더해 검귀의 동굴 상흔을 연다."
+  },
+  "sacrifice_open_gunfire_desert": {
+    "category": "sacrifice",
+    "id": "open_gunfire_desert",
+    "name": "상흔 개방 의식 — 총포 사막",
+    "description": "얽힌 길의 혼에 석상의 뜰의 매개를 더해 총포 사막의 상흔을 연다."
+  },
+  "sacrifice_open_misty_megalith": {
+    "category": "sacrifice",
+    "id": "open_misty_megalith",
+    "name": "상흔 개방 의식 — 안개의 거석 폐허",
+    "description": "얽힌 길의 혼에 석상의 뜰의 매개를 더해 안개의 거석 폐허 상흔을 연다."
+  },
+  "sacrifice_open_dead_altar": {
+    "category": "sacrifice",
+    "id": "open_dead_altar",
+    "name": "상흔 개방 의식 — 적막의 무덤",
+    "description": "얽힌 길의 혼에 망령의 그늘의 매개를 더해 망자의 제단 상흔을 연다."
+  },
+  "sacrifice_open_white_temple": {
+    "category": "sacrifice",
+    "id": "open_white_temple",
+    "name": "순례의 의식 — 석화된 성소",
+    "description": "얽힌 길 곳곳의 마물 혼을 두루 모아 석화된 성소의 상흔을 연다."
+  },
+  "sacrifice_open_sanctum_bastion": {
+    "category": "sacrifice",
+    "id": "open_sanctum_bastion",
+    "name": "파수의 봉헌 — 파수의 성소",
+    "description": "얽힌 길 곳곳의 마물 혼을 두루 모아 파수의 성소 조각을 연다."
+  },
+  "sacrifice_open_sanctum_oracle": {
+    "category": "sacrifice",
+    "id": "open_sanctum_oracle",
+    "name": "예언의 봉헌 — 예언의 성소",
+    "description": "얽힌 길 곳곳의 마물 혼을 두루 모아 예언의 성소 조각을 연다."
+  },
+  "sacrifice_summon_orc_hero": {
+    "category": "sacrifice",
+    "id": "summon_orc_hero",
+    "name": "???",
+    "description": ""
+  },
+  "sacrifice_summon_death_lord": {
+    "category": "sacrifice",
+    "id": "summon_death_lord",
+    "name": "검은 봉헌",
+    "description": "???의 혼석을 바쳐 잠든 무언가를 깨운다."
+  },
+  "sacrifice_summon_deathworm": {
+    "category": "sacrifice",
+    "id": "summon_deathworm",
+    "name": "???",
+    "description": ""
+  },
+  "sacrifice_summon_death_knight": {
+    "category": "sacrifice",
+    "id": "summon_death_knight",
+    "name": "잠든 기사의 봉헌",
+    "description": "혼석을 바쳐 잠든 죽음의 기사를 깨운다."
+  },
+  "sacrifice_summon_parune_wrath": {
+    "category": "sacrifice",
+    "id": "summon_parune_wrath",
+    "name": "바다의 분노",
+    "description": "산호의 섬의 봉인을 풀어 바다의 분노를 부른다 — 5웨이브 끝에 세이렌 여왕과 그 군세가 섬을 덮친다."
+  },
+  "sacrifice_summon_stormgush": {
+    "category": "sacrifice",
+    "id": "summon_stormgush",
+    "name": "심연의 봉헌 — 바다의 거신",
+    "description": "바다를 지배하던 정예들의 혼석을 제단에 바쳐, 파도 아래 잠든 거신 해일을 깨운다."
+  },
+  "sacrifice_summon_chaos_avatar": {
+    "category": "sacrifice",
+    "id": "summon_chaos_avatar",
+    "name": "혼돈의 봉헌 — 네 협곡의 융합",
+    "description": "네 협곡 군주 각각의 혼석을 중앙 봉헌석에 바쳐 협곡의 힘을 하나로 뒤엉키게 한다. 네 협곡을 모두 정복한 자만이 열등한 혼돈, 혼돈의 화신을 강림시킬 수 있다."
+  },
+  "sacrifice_summon_ghost_isle_wraith": {
+    "category": "sacrifice",
+    "id": "summon_ghost_isle_wraith",
+    "name": "원혼의 습격",
+    "description": "유령섬의 봉인을 풀어 잠든 원혼을 부른다 — 5웨이브 끝에 해적왕의 망령과 그 유령 군세가 섬을 덮친다."
+  },
+  "sacrifice_summon_skoll": {
+    "category": "sacrifice",
+    "id": "summon_skoll",
+    "name": "원귀의 봉헌 — 칠흑의 거랑",
+    "description": "협곡의 원혼들과 그 우두머리의 혼석을 바쳐, 어둠 속을 내달리는 거랑 스콜을 불러낸다."
+  },
+  "sacrifice_open_magma_crucible": {
+    "category": "sacrifice",
+    "id": "open_magma_crucible",
+    "name": "상흔 개방 의식 — 용광의 도가니",
+    "description": "작염의 협곡에서 거둔 혼에 그 열기의 매개를 더해 용광의 도가니 상흔을 연다."
+  },
+  "sacrifice_open_frozen_sanctum": {
+    "category": "sacrifice",
+    "id": "open_frozen_sanctum",
+    "name": "상흔 개방 의식 — 결빙의 성소",
+    "description": "혹한의 협곡에서 거둔 혼에 그 한기의 매개를 더해 결빙의 성소 상흔을 연다."
+  },
+  "sacrifice_open_gravity_tomb": {
+    "category": "sacrifice",
+    "id": "open_gravity_tomb",
+    "name": "상흔 개방 의식 — 중력의 묘",
+    "description": "음영의 협곡에서 거둔 혼에 그 무게의 매개를 더해 중력의 묘 상흔을 연다."
+  },
+  "sacrifice_open_doppelganger_forest": {
+    "category": "sacrifice",
+    "id": "open_doppelganger_forest",
+    "name": "상흔 개방 의식 — 거울 미로",
+    "description": "천공 깊은 곳에서 거둔 마물의 혼에 최심층 야수의 매개를 더해 거울 미로 상흔을 연다."
+  },
+  "sacrifice_open_sky_oracle": {
+    "category": "sacrifice",
+    "id": "open_sky_oracle",
+    "name": "상흔 개방 의식 — 하늘 신탁소",
+    "description": "천공을 오르며 거둔 마물의 혼에 상급 마물의 매개를 더해 하늘 신탁소 상흔을 연다."
+  }
+}

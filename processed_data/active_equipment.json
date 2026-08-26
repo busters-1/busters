@@ -1,0 +1,4098 @@
+{
+  "materials": [
+    {
+      "tier": 1,
+      "metal": "강철",
+      "leather": "고블린 가죽",
+      "wood": "나무",
+      "item_level_range": [
+        15,
+        50
+      ],
+      "floor": 1,
+      "repair_cost": 250
+    },
+    {
+      "tier": 2,
+      "metal": "비취강",
+      "leather": "와이번 가죽",
+      "wood": "레드우드",
+      "item_level_range": [
+        55,
+        150
+      ],
+      "floor": 2,
+      "repair_cost": 800
+    },
+    {
+      "tier": 3,
+      "metal": "청강",
+      "leather": "트롤 가죽",
+      "wood": "트롤 뼈",
+      "item_level_range": [
+        160,
+        300
+      ],
+      "floor": 3,
+      "repair_cost": 2000
+    },
+    {
+      "tier": 4,
+      "metal": "백은",
+      "leather": "그림자 가죽",
+      "wood": "흑단목",
+      "item_level_range": [
+        310,
+        500
+      ],
+      "floor": 4,
+      "repair_cost": 5000
+    }
+  ],
+  "durability_rules": {
+    "max": 100,
+    "weapon_cost_per_battle": 2,
+    "armor_cost_per_hit": 1,
+    "at_zero": "효과 50% 감소 (파괴는 안 됨)",
+    "gigantification_multiplier": 2,
+    "gigantification_with_unity": 0,
+    "repair_location": "마을 상점"
+  },
+  "total_items": 231,
+  "items": [
+    {
+      "id": "steel_sword",
+      "name": "강철 검",
+      "type": "weapon",
+      "subtype": "sword",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 12,
+      "speed_mod": 0.0,
+      "item_level": 30,
+      "price": 5000,
+      "description": "균형 잡힌 강철 검. 한손으로 방패와 함께 사용 가능"
+    },
+    {
+      "id": "steel_axe",
+      "name": "강철 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 15,
+      "speed_mod": -0.15,
+      "item_level": 35,
+      "price": 6000,
+      "description": "무겁지만 강력한 강철 도끼"
+    },
+    {
+      "id": "goblin_bow",
+      "name": "고블린 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "나무",
+      "atk": 10,
+      "range_mod": 3.0,
+      "item_level": 30,
+      "price": 4400,
+      "description": "고블린들이 쓰던 나무 활. 의외로 쓸만하다"
+    },
+    {
+      "id": "wooden_staff",
+      "name": "나무 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "나무",
+      "atk": 10,
+      "range_mod": 3.0,
+      "item_level": 30,
+      "price": 4400,
+      "description": "마력을 흘려보내는 평범한 나무 지팡이"
+    },
+    {
+      "id": "steel_dagger",
+      "name": "강철 단검",
+      "type": "weapon",
+      "subtype": "dagger",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 8,
+      "speed_mod": 0.2,
+      "item_level": 20,
+      "price": 3600,
+      "description": "빠른 공격이 가능한 강철 단검"
+    },
+    {
+      "id": "steel_dual_sword",
+      "name": "강철 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 12,
+      "speed_mod": 0.1,
+      "item_level": 30,
+      "price": 5600,
+      "description": "양손에 쥐는 강철 쌍검. 빠른 연격"
+    },
+    {
+      "id": "steel_greatsword",
+      "name": "강철 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 18,
+      "speed_mod": -0.25,
+      "item_level": 40,
+      "price": 7000,
+      "description": "양손으로 휘두르는 강철 대검. 한 방의 무게가 묵직하다"
+    },
+    {
+      "id": "steel_shield",
+      "name": "강철 방패",
+      "type": "shield",
+      "subtype": "medium",
+      "slot": "shield",
+      "grade": 1,
+      "material": "강철",
+      "def": 8,
+      "speed_mod": -0.1,
+      "item_level": 30,
+      "price": 4200,
+      "description": "튼튼한 강철 방패"
+    },
+    {
+      "id": "steel_heavy_chest",
+      "name": "강철 중갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 1,
+      "material": "강철",
+      "def": 8,
+      "item_level": 25,
+      "price": 3400,
+      "description": "강철로 만든 중갑"
+    },
+    {
+      "id": "goblin_light_chest",
+      "name": "고블린 가죽 경갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 5,
+      "stat_bonuses": {
+        "dexterity": 3
+      },
+      "item_level": 20,
+      "price": 2400,
+      "description": "고블린 가죽으로 만든 경갑. 가볍고 유연하다"
+    },
+    {
+      "id": "apprentice_robe",
+      "mag_def": 8,
+      "name": "견습 마법사 로브",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 4,
+      "stat_bonuses": {
+        "spirit_power": 3,
+        "magic_resist": 2
+      },
+      "item_level": 22,
+      "price": 2200,
+      "description": "룬 서고 견습생이 입는 로브. 천 위에 가벼운 가죽을 덧댔다"
+    },
+    {
+      "id": "steel_helmet",
+      "name": "강철 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 1,
+      "material": "강철",
+      "def": 7,
+      "item_level": 25,
+      "price": 2800,
+      "description": "강철 투구"
+    },
+    {
+      "id": "goblin_helmet",
+      "name": "고블린 가죽 투구",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 4,
+      "stat_bonuses": {
+        "dexterity": 2
+      },
+      "item_level": 20,
+      "price": 2000,
+      "description": "고블린 가죽 투구"
+    },
+    {
+      "id": "steel_legs",
+      "name": "강철 하의",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 1,
+      "material": "강철",
+      "def": 8,
+      "item_level": 25,
+      "price": 3000,
+      "description": "강철 하의"
+    },
+    {
+      "id": "goblin_legs",
+      "name": "고블린 가죽 하의",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 4,
+      "stat_bonuses": {
+        "dexterity": 2
+      },
+      "item_level": 20,
+      "price": 2200,
+      "description": "고블린 가죽 하의"
+    },
+    {
+      "id": "goblin_boots",
+      "name": "고블린 가죽 부츠",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 3,
+      "stat_bonuses": {
+        "dexterity": 2
+      },
+      "item_level": 15,
+      "price": 2000,
+      "description": "고블린 가죽 부츠"
+    },
+    {
+      "id": "numeros_7099",
+      "number": 7099,
+      "name": "마지막 뼈",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.",
+      "death_save": {
+        "type": "vital_intercept",
+        "leave_hp": 1,
+        "invuln_seconds": 5.0,
+        "charges": 1,
+        "consume_on_use": true
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2727",
+      "number": 2727,
+      "name": "전사의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "근접 공격 데미지 +15%.",
+      "passive_id": [
+        "warrior_sigil_melee"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1010",
+      "number": 1010,
+      "name": "한기의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 빙결 스택 +1.",
+      "passive_id": [
+        "sigil_cold"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_911",
+      "number": 911,
+      "name": "한기의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 빙결 스택 +1. 빙결 데미지 +10%.",
+      "passive_id": [
+        "sigil_cold_greater"
+      ],
+      "stat_bonuses": {
+        "cold_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2020",
+      "number": 2020,
+      "name": "작열의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 화염 스택 +1.",
+      "passive_id": [
+        "sigil_fire"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_922",
+      "number": 922,
+      "name": "작열의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 화염 스택 +1. 화염 데미지 +10%.",
+      "passive_id": [
+        "sigil_fire_greater"
+      ],
+      "stat_bonuses": {
+        "fire_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3131",
+      "number": 3131,
+      "name": "부식의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 독 스택 +1.",
+      "passive_id": [
+        "sigil_poison"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_933",
+      "number": 933,
+      "name": "부식의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 독 스택 +1. 독 데미지 +10%.",
+      "passive_id": [
+        "sigil_poison_greater"
+      ],
+      "stat_bonuses": {
+        "poison_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_4141",
+      "number": 4141,
+      "name": "그림자 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 암흑 스택 +1.",
+      "passive_id": [
+        "sigil_dark"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_944",
+      "number": 944,
+      "name": "그림자 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 암흑 스택 +1. 암흑 데미지 +10%.",
+      "passive_id": [
+        "sigil_dark_greater"
+      ],
+      "stat_bonuses": {
+        "dark_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5252",
+      "unreleased": true,
+      "number": 5252,
+      "name": "질풍의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 바람 스택 +1.",
+      "passive_id": [
+        "sigil_wind"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_955",
+      "unreleased": true,
+      "number": 955,
+      "name": "질풍의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 바람 스택 +1. 바람 데미지 +10%.",
+      "passive_id": [
+        "sigil_wind_greater"
+      ],
+      "stat_bonuses": {
+        "wind_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_6060",
+      "number": 6060,
+      "name": "굳건한 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 땅 스택 +1.",
+      "passive_id": [
+        "sigil_earth"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_966",
+      "number": 966,
+      "name": "굳건한 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 땅 스택 +1. 땅 데미지 +10%.",
+      "passive_id": [
+        "sigil_earth_greater"
+      ],
+      "stat_bonuses": {
+        "earth_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_7070",
+      "unreleased": true,
+      "number": 7070,
+      "name": "파도의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 물 스택 +1.",
+      "passive_id": [
+        "sigil_water"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_977",
+      "unreleased": true,
+      "number": 977,
+      "name": "파도의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 물 스택 +1. 물 데미지 +10%.",
+      "passive_id": [
+        "sigil_water_greater"
+      ],
+      "stat_bonuses": {
+        "water_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8181",
+      "unreleased": true,
+      "number": 8181,
+      "name": "광휘의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 빛 스택 +1.",
+      "passive_id": [
+        "sigil_holy"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_988",
+      "unreleased": true,
+      "number": 988,
+      "name": "광휘의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 빛 스택 +1. 빛 데미지 +10%.",
+      "passive_id": [
+        "sigil_holy_greater"
+      ],
+      "stat_bonuses": {
+        "holy_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_9090",
+      "unreleased": true,
+      "number": 9090,
+      "name": "뇌격의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "공격 시 번개 스택 +1.",
+      "passive_id": [
+        "sigil_lightning"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_999",
+      "unreleased": true,
+      "number": 999,
+      "name": "뇌격의 대인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "공격 시 번개 스택 +1. 번개 데미지 +10%.",
+      "passive_id": [
+        "sigil_lightning_greater"
+      ],
+      "stat_bonuses": {
+        "lightning_affinity": 12
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_77",
+      "number": 77,
+      "name": "망향의 부적",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 7,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "치명적 피해 시 마을로 강제 귀환. 1회 사용.",
+      "death_save": {
+        "type": "town_return",
+        "leave_hp": 1,
+        "charges": 1,
+        "consume_on_use": true
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "fire_orb",
+      "name": "작열의 보주",
+      "type": "accessory",
+      "subtype": "hidden_piece",
+      "slot": "accessory",
+      "grade": 1,
+      "material": "경계세계의 보주",
+      "item_level": 500,
+      "price": 0,
+      "description": "이면세계의 마력이 깃든 보주. 보유자와 파티원의 화염 피해를 20% 줄인다.",
+      "passive_effect": {
+        "type": "fire_resist_aura",
+        "resist_pct": 20.0
+      },
+      "is_hidden_piece": true
+    },
+    {
+      "id": "numeros_8080",
+      "number": 8080,
+      "name": "신성한 호의",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "essence_remove_free",
+      "description": "신전 — 룬 1개를 비용 없이 제거. 신전 화면에서 직접 사용. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8888",
+      "number": 8888,
+      "name": "참회의 향",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "essence_remove_count_down",
+      "max_owned": 1,
+      "description": "신전 — 룬 제거 비용을 한 단계 낮춥니다. 룬은 그대로. 신전 화면에서 직접 사용. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_777",
+      "number": 777,
+      "name": "세례반",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "essence_baptism",
+      "max_owned": 1,
+      "description": "신전 — 한 인물의 룬을 모두 씻어냅니다. 제거 비용은 오르지 않습니다. 신전 화면에서 직접 사용. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5944",
+      "context": "explore",
+      "number": 5944,
+      "name": "재사용 야영 키트",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.",
+      "passive_effect": {
+        "type": "camp_kit"
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_4040",
+      "number": 4040,
+      "name": "휴대용 모닥불",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 5,
+      "charges": 50,
+      "use_effect": "bonfire_kit",
+      "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1051",
+      "number": 1051,
+      "name": "상흔의 열쇠",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "crack_key",
+      "crack_floor": 1,
+      "crack_stone_cost": 0,
+      "description": "신해의 발치에서 상흔을 연다. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1103",
+      "unreleased": true,
+      "number": 1103,
+      "name": "상흔의 정제된 열쇠",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 3,
+      "use_effect": "crack_key",
+      "crack_floor": 1,
+      "crack_stone_cost": 0,
+      "description": "신해의 발치에서 상흔을 연다. 최대 3회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2103",
+      "unreleased": true,
+      "number": 2103,
+      "name": "심층 상흔의 열쇠",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "crack_key",
+      "crack_floor": 2,
+      "crack_stone_cost": 0,
+      "description": "신해의 정강이에서 지금 있는 지역의 상흔을 연다. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3103",
+      "unreleased": true,
+      "number": 3103,
+      "name": "석화된 성소의 열쇠",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "use_effect": "crack_key",
+      "crack_floor": 3,
+      "crack_stone_cost": 0,
+      "description": "신해의 허리에서 석화된 성소의 상흔을 연다. 1회 사용.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3030",
+      "number": 3030,
+      "name": "광인의 송곳니",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "HP 60% 이하부터 잃은 체력에 비례해 공격 속도 상승 (최대 +30%).",
+      "passive_effect": {
+        "type": "berserk_attack_speed",
+        "hp_threshold": 0.6,
+        "full_threshold": 0.3,
+        "bonus_min": 0.1,
+        "bonus_max": 0.3
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1530",
+      "context": "explore",
+      "number": 1530,
+      "name": "기지의 모래시계",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 1,
+      "material": "신물",
+      "item_level": 400,
+      "price": 0,
+      "description": "기지의 계단 미로 제한시간 +15초.",
+      "passive_effect": {
+        "type": "wisdom_time_bonus",
+        "seconds": 15.0
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5151",
+      "number": 5151,
+      "name": "심판자의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "패링 성공 시 다음 타격 데미지 +25%.",
+      "passive_effect": {
+        "type": "parry_next_hit_bonus",
+        "damage_mult": 1.25
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5050",
+      "number": 5050,
+      "name": "총잡이의 단안경",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "원거리 공격 데미지 +15%.",
+      "passive_id": [
+        "monocle_ranged"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8989",
+      "number": 8989,
+      "name": "자동 응급키트",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "HP 10% 이하 시 자동 발동 — 즉발 60% 회복. 1회 사용 후 부서짐.",
+      "auto_heal": {
+        "type": "auto_heal_low_hp",
+        "hp_threshold_pct": 0.1,
+        "heal_pct": 0.6,
+        "charges": 1,
+        "consume_on_use": true
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2424",
+      "number": 2424,
+      "name": "검귀의 방패",
+      "type": "shield",
+      "subtype": "numeros",
+      "slot": "shield",
+      "grade": 5,
+      "material": "신물",
+      "def": 55,
+      "item_level": 450,
+      "price": 0,
+      "description": "패링 윈도우 +0.05초, 패링 시 스태미나 소모 -50%.",
+      "passive_effect": {
+        "type": "parry_master",
+        "window_bonus": 0.05,
+        "stamina_mult": 0.5
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_242",
+      "number": 242,
+      "name": "검성의 방벽",
+      "type": "shield",
+      "subtype": "numeros",
+      "slot": "shield",
+      "grade": 6,
+      "material": "신물",
+      "def": 70,
+      "item_level": 600,
+      "price": 0,
+      "description": "패링 윈도우 +0.08초, 패링 시 스태미나 소모 -60%.",
+      "passive_effect": {
+        "type": "parry_master",
+        "window_bonus": 0.08,
+        "stamina_mult": 0.4
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_244",
+      "number": 244,
+      "name": "엄호의 방패",
+      "type": "shield",
+      "subtype": "numeros",
+      "slot": "shield",
+      "grade": 4,
+      "material": "신물",
+      "def": 95,
+      "item_level": 700,
+      "price": 0,
+      "description": "블록 중, 250px 내 동료가 받는 피해를 대신 막아낸다.",
+      "passive_effect": {
+        "type": "guard_cover",
+        "range": 250.0
+      },
+      "is_numeros": true,
+      "unreleased": true
+    },
+    {
+      "id": "numeros_1313",
+      "number": 1313,
+      "name": "차원 자루",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 5,
+      "material": "신물",
+      "weight_bonus": 30,
+      "item_level": 150,
+      "price": 0,
+      "description": "안이 밖보다 크다. 무게 한도 +30.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_447",
+      "number": 447,
+      "name": "도망자의 봇짐",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 6,
+      "material": "신물",
+      "weight_bonus": 25,
+      "item_level": 150,
+      "price": 0,
+      "passive_id": [
+        "swift_bag_steps"
+      ],
+      "description": "쫓기던 자가 메고 달아나던 봇짐. 무게 한도 +25, 신해 이동속도 +12%.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_7373",
+      "unreleased": true,
+      "context": "explore",
+      "number": 7373,
+      "name": "짐꾼의 거대 자루",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 5,
+      "material": "신물",
+      "weight_bonus": 32,
+      "item_level": 150,
+      "price": 0,
+      "description": "끝없이 들어가는 거대한 자루. 무게 한도 +32.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_6262",
+      "unreleased": true,
+      "context": "explore",
+      "number": 6262,
+      "name": "여행자의 배낭",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 5,
+      "material": "신물",
+      "weight_bonus": 31,
+      "item_level": 150,
+      "price": 0,
+      "description": "오래 길을 걷는 자를 위한 넉넉한 배낭. 무게 한도 +31.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2828",
+      "context": "explore",
+      "number": 2828,
+      "name": "행상의 봇짐",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 5,
+      "material": "신물",
+      "weight_bonus": 30,
+      "item_level": 150,
+      "price": 0,
+      "description": "행상이 짊어지던 큼직한 봇짐. 무게 한도 +30.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_530",
+      "unreleased": true,
+      "number": 530,
+      "name": "구원자의 성배",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "치유력 +10.",
+      "stat_bonuses": {
+        "restoration": 10
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1717",
+      "context": "explore",
+      "number": 1717,
+      "name": "불굴의 징표",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "비전투 시 HP 회복 속도 2배.",
+      "passive_id": [
+        "vigil_regen"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_9595",
+      "unreleased": false,
+      "number": 9595,
+      "name": "연금술 꾸러미",
+      "type": "consumable",
+      "subtype": "numeros",
+      "slot": "",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "weight": 1,
+      "charges": 1,
+      "max_owned": 1,
+      "use_effect": "alchemy_pouch",
+      "description": "신해에서 개봉하면 중급 스크롤 3장(보호·회복·약화)을 얻는다. 스크롤은 이번 탐험에만 쓸 수 있다.",
+      "is_numeros": true
+    },
+    {
+      "id": "potion_supreme",
+      "name": "최상급 물약",
+      "type": "consumable",
+      "subtype": "consumable",
+      "grade": 1,
+      "material": "유리병",
+      "item_level": 100,
+      "price": 0,
+      "sell_price": 1,
+      "weight": 10,
+      "max_owned": 5,
+      "description": "HP를 2000 회복한다. 묵직해서 여러 개 들고 다니긴 어렵다."
+    },
+    {
+      "id": "emergency_kit",
+      "name": "구급상자",
+      "type": "consumable",
+      "subtype": "consumable",
+      "grade": 3,
+      "material": "철제 상자",
+      "item_level": 200,
+      "price": 0,
+      "weight": 10,
+      "use_effect": "emergency_kit",
+      "description": "개봉하면 최상급 물약 10개와 육포 5개가 들어 있다. 들고 다니기엔 무겁다."
+    },
+    {
+      "id": "numeros_4747",
+      "context": "explore",
+      "number": 4747,
+      "name": "빠른 발걸음",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "신해 이동속도 +15%.",
+      "passive_id": [
+        "swift_labyrinth_steps"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_6666",
+      "number": 6666,
+      "name": "그릇된 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 5,
+      "material": "신물",
+      "atk": 72,
+      "item_level": 450,
+      "price": 0,
+      "description": "처치한 영혼이 흘러든 저주받은 도끼. 처치 시 HP +5%.",
+      "passive_id": [
+        "cursed_kill_heal"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_135",
+      "number": 135,
+      "name": "지혜의 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 70,
+      "item_level": 600,
+      "price": 0,
+      "description": "마법 데미지 +15%, SP 회복 속도 +20%.",
+      "passive_id": [
+        "sage_staff_magic",
+        "sage_sp_regen"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_250",
+      "unreleased": true,
+      "number": 250,
+      "name": "영원의 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 95,
+      "item_level": 600,
+      "price": 0,
+      "description": "처치 시 HP +10%. 처치 시 다음 공격 +20% (3초).",
+      "passive_id": [
+        "eternal_kill_heal",
+        "eternal_temp_buff"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_273",
+      "number": 273,
+      "name": "한기의 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 80,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 빙결 스택 +1.",
+      "passive_id": [
+        "frost_strike_dual"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_358",
+      "unreleased": true,
+      "context": "explore",
+      "number": 358,
+      "name": "폭풍의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "신해 이동속도 +25%, 시야 +1 타일.",
+      "passive_id": [
+        "storm_speed",
+        "storm_vision"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2055",
+      "context": "explore",
+      "number": 2055,
+      "name": "신탁의 후각",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "후각 +10.",
+      "stat_bonuses": {
+        "smell": 10
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_205",
+      "context": "explore",
+      "number": 205,
+      "name": "예언의 통찰",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "후각 +20.",
+      "stat_bonuses": {
+        "smell": 20
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3700",
+      "context": "explore",
+      "number": 3700,
+      "name": "천공의 시야",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "신해 시야 +1 타일.",
+      "passive_id": [
+        "oracle_vision_mid"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_370",
+      "context": "explore",
+      "number": 370,
+      "name": "신성한 직관",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "신해 시야 +2 타일.",
+      "passive_id": [
+        "oracle_vision_high"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_372",
+      "number": 372,
+      "name": "진홍의 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 100,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 화염 스택 +1.",
+      "passive_id": [
+        "crimson_burn"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_384",
+      "number": 384,
+      "name": "어둠의 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 70,
+      "item_level": 600,
+      "price": 0,
+      "description": "마법 데미지 +15%, 흡혈 5%.",
+      "passive_id": [
+        "shadow_staff_magic",
+        "shadow_lifesteal"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_458",
+      "unreleased": true,
+      "number": 458,
+      "name": "빙룡의 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 100,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 빙결 스택 +1.",
+      "passive_id": [
+        "frost_strike_axe"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_500",
+      "number": 500,
+      "name": "사신의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "description": "처치 시 HP +8%, SP +5%.",
+      "passive_id": [
+        "reaper_kill_heal",
+        "reaper_sp_kill"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_524",
+      "number": 524,
+      "name": "처형자의 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 110,
+      "item_level": 600,
+      "price": 0,
+      "description": "처치 시 ATK +5% (5스택, 1전투).",
+      "passive_id": [
+        "executioner_stack"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_547",
+      "unreleased": true,
+      "number": 547,
+      "name": "신성의 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 80,
+      "item_level": 600,
+      "price": 0,
+      "description": "언데드 데미지 ×1.5, 언데드 처치 시 SP +10.",
+      "passive_id": [
+        "holy_undead_mult",
+        "holy_undead_sp"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_615",
+      "number": 615,
+      "name": "뇌신의 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 75,
+      "item_level": 600,
+      "price": 0,
+      "description": "적 번개 저항 50% 무시. 공격 시 번개 스택 누적.",
+      "passive_id": [
+        "thunder_charge",
+        "thunder_pierce"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_617",
+      "unreleased": true,
+      "number": 617,
+      "name": "절대방어 부적",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 600,
+      "price": 0,
+      "mag_def": 30,
+      "description": "절대의 방벽 — 쏟아지는 마법을 크게 경감한다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_687",
+      "number": 687,
+      "name": "공성 살육자",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 90,
+      "item_level": 600,
+      "price": 0,
+      "description": "보스/엘리트 대상 ATK +50%.",
+      "passive_id": [
+        "siege_boss_mult"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_696",
+      "unreleased": true,
+      "number": 983,
+      "name": "폐황의 장궁",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 78,
+      "item_level": 600,
+      "price": 0,
+      "description": "원거리 데미지 +15%. 3타마다 관통 화살.",
+      "passive_id": [
+        "raindless_ranged",
+        "raindless_pierce"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_726",
+      "number": 726,
+      "name": "대지의 흉갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 30,
+      "item_level": 600,
+      "price": 0,
+      "description": "받는 피해 -10%.",
+      "passive_id": [
+        "earth_dr"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_761",
+      "number": 525,
+      "name": "명공의 용광로 망치",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 90,
+      "item_level": 600,
+      "price": 0,
+      "description": "적 화염 저항 50% 무시.",
+      "passive_id": [
+        "loam_pierce"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_829",
+      "unreleased": true,
+      "number": 829,
+      "name": "부패의 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 105,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 독 스택 +2.",
+      "passive_id": [
+        "venom_strike_blade"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_830",
+      "number": 830,
+      "name": "맹독의 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 80,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 독 스택 +2.",
+      "passive_id": [
+        "venom_strike_blade"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_831",
+      "number": 831,
+      "name": "부식의 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 80,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 독 스택 +2.",
+      "passive_id": [
+        "venom_strike_blade"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_832",
+      "number": 832,
+      "name": "스베인의 성검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 6,
+      "material": "신물",
+      "atk": 108,
+      "item_level": 600,
+      "price": 0,
+      "description": "공격마다 신성 스택 +2.",
+      "passive_id": [
+        "holy_strike_blade"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1001",
+      "number": 3168,
+      "name": "떠돌이의 여행 가방",
+      "type": "bag",
+      "subtype": "numeros",
+      "slot": "bag",
+      "grade": 5,
+      "material": "신물",
+      "weight_bonus": 25,
+      "item_level": 150,
+      "price": 0,
+      "description": "선공몹 추적 거리 -20%.",
+      "passive_id": [
+        "alonso_aggro"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2578",
+      "number": 1476,
+      "name": "창천갑주",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 25,
+      "item_level": 450,
+      "price": 0,
+      "description": "받는 피해 -7%.",
+      "passive_id": [
+        "sky_dr"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8484",
+      "number": 8484,
+      "name": "무쇠심장 흉갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 50,
+      "stat_bonuses": {
+        "bone_density": 6,
+        "endurance": 4
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "수천 번의 단조로 벼려낸 흉갑. 심장처럼 단단하다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8585",
+      "number": 8585,
+      "name": "투혼의 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 5,
+      "material": "신물",
+      "def": 38,
+      "stat_bonuses": {
+        "fighting_spirit": 10
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "검성의 의지가 깃든 투구. 두려움이 스며들지 못한다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8383",
+      "number": 8383,
+      "name": "거산의 각반",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 5,
+      "material": "신물",
+      "def": 44,
+      "stat_bonuses": {
+        "endurance": 6,
+        "pain_resist": 4
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "산을 깎아 두른 듯한 각반. 어떤 충격에도 흔들리지 않는다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8686",
+      "number": 8686,
+      "name": "거인의 군화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 5,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "endurance": 4,
+        "bone_density": 3
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "거인의 발을 본떠 만든 군화. 한번 디디면 밀려나지 않는다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_7474",
+      "number": 7474,
+      "name": "그림자추적자 가죽갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "dexterity": 12
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "그림자처럼 소리 없이 움직이게 하는 가죽갑.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_7575",
+      "number": 7575,
+      "name": "매눈 면갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 5,
+      "material": "신물",
+      "def": 28,
+      "stat_bonuses": {
+        "dexterity": 8,
+        "perception": 4
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "매의 시야를 빌린 면갑. 급소가 또렷이 보인다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_4646",
+      "number": 4646,
+      "name": "날렵한 각반",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 5,
+      "material": "신물",
+      "def": 30,
+      "stat_bonuses": {
+        "dexterity": 10
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "깃털처럼 가벼운 각반. 몸놀림이 한층 날카로워진다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_1818",
+      "number": 1818,
+      "name": "표범걸음 장화",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 5,
+      "material": "신물",
+      "def": 24,
+      "stat_bonuses": {
+        "dexterity": 8
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "표범의 발놀림을 담은 장화.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5656",
+      "number": 5656,
+      "name": "현자의 법의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 30,
+      "stat_bonuses": {
+        "spirit_power": 12,
+        "magic_resist": 5
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "원소의 흐름이 짜여든 법의.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5757",
+      "mag_def": 12,
+      "number": 5757,
+      "name": "현자의 두건",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 5,
+      "material": "신물",
+      "def": 24,
+      "stat_bonuses": {
+        "spirit_power": 8,
+        "magic_resist": 3
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "마력을 갈무리하는 두건.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5959",
+      "number": 5959,
+      "name": "현자의 법의 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 5,
+      "material": "신물",
+      "def": 26,
+      "stat_bonuses": {
+        "spirit_power": 9,
+        "magic_resist": 3
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "법의와 한 벌을 이루는 하의.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3535",
+      "number": 3535,
+      "name": "현자의 신",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 5,
+      "material": "신물",
+      "def": 20,
+      "stat_bonuses": {
+        "spirit_power": 8,
+        "magic_resist": 2
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "현자의 발걸음을 받치는 신.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_848",
+      "number": 848,
+      "name": "불멸심장 흉갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 62,
+      "stat_bonuses": {
+        "bone_density": 8,
+        "endurance": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "심장이 멈추지 않는 한 살점은 계속 차오른다. 상시 체력 재생.",
+      "passive_id": [
+        "immortal_regen"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_858",
+      "number": 858,
+      "name": "불굴의 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 6,
+      "material": "신물",
+      "def": 48,
+      "stat_bonuses": {
+        "fighting_spirit": 13
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "적을 쓰러뜨릴수록 투지가 몸을 채운다. 처치 시 체력 회복.",
+      "passive_id": [
+        "indomitable_kill_heal"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_838",
+      "number": 838,
+      "name": "태산의 각반",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 6,
+      "material": "신물",
+      "def": 54,
+      "stat_bonuses": {
+        "endurance": 8,
+        "pain_resist": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "태산처럼 버티며 충격을 되돌린다. 피격 시 피해 반사.",
+      "passive_id": [
+        "taesan_reflect"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_868",
+      "number": 868,
+      "name": "거신의 군화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 6,
+      "material": "신물",
+      "def": 42,
+      "stat_bonuses": {
+        "endurance": 6,
+        "bone_density": 4
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "거신의 완력으로 후려칠 때마다 생기를 앗아온다. 타격 시 흡혈.",
+      "passive_id": [
+        "titan_lifesteal"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_747",
+      "number": 747,
+      "name": "심연추적자 가죽갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 44,
+      "stat_bonuses": {
+        "dexterity": 16
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "그림자 속에서 내딛는 첫 일격은 치명적이다. 전투 첫 타 피해 대폭 증가.",
+      "passive_id": [
+        "abyss_first_strike"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_757",
+      "number": 757,
+      "name": "천리안 면갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 6,
+      "material": "신물",
+      "def": 38,
+      "stat_bonuses": {
+        "dexterity": 10,
+        "perception": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "모든 것을 꿰뚫어 보며 손이 빨라진다. 공격 시 공격 속도 증가.",
+      "passive_id": [
+        "farsight_haste"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_464",
+      "number": 464,
+      "name": "잔영의 각반",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 6,
+      "material": "신물",
+      "def": 40,
+      "stat_bonuses": {
+        "dexterity": 14
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "잔상만 남기고 빠져나간다. 피격 시 회피.",
+      "passive_id": [
+        "afterimage_greaves"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_181",
+      "number": 181,
+      "name": "설표의 장화",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 6,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "dexterity": 10,
+        "cold_affinity": 40
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "설표처럼 눈밭을 소리 없이 딛는다. 냉기 감응 강화.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_565",
+      "number": 565,
+      "name": "대마도사의 법의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 40,
+      "stat_bonuses": {
+        "spirit_power": 16,
+        "magic_resist": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "대마도사의 격이 깃든 법의. 마법 피해 증폭.",
+      "passive_id": [
+        "archsage_magic"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_575",
+      "number": 575,
+      "name": "대마도사의 두건",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 6,
+      "material": "신물",
+      "def": 32,
+      "stat_bonuses": {
+        "spirit_power": 11,
+        "magic_resist": 4
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "마력이 마르지 않는다. 공격 적중 시 정신력 회복.",
+      "passive_id": [
+        "archsage_mana"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_595",
+      "number": 595,
+      "name": "대마도사의 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 6,
+      "material": "신물",
+      "def": 36,
+      "stat_bonuses": {
+        "spirit_power": 12,
+        "magic_resist": 3
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "명상의 흐름이 끊기지 않는다. 정신력 회복 속도 증가.",
+      "passive_id": [
+        "archsage_sp_regen"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_353",
+      "number": 353,
+      "name": "대마도사의 신",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 6,
+      "material": "신물",
+      "def": 28,
+      "stat_bonuses": {
+        "spirit_power": 11,
+        "magic_resist": 3
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "어떤 원소 저항도 꿰뚫는다. 적 원소 저항 무시.",
+      "passive_id": [
+        "archsage_pierce"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_878",
+      "number": 878,
+      "name": "반석의 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 6,
+      "material": "신물",
+      "def": 48,
+      "stat_bonuses": {
+        "bone_density": 8,
+        "pain_resist": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "바위처럼 굳어, 맞을수록 더 단단해진다. 피격 시 항마력 누적.",
+      "passive_id": [
+        "giant_carapace"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_929",
+      "unreleased": false,
+      "number": 929,
+      "name": "불굴의 흉갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 62,
+      "stat_bonuses": {
+        "fighting_spirit": 16
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "꺾이지 않는 검격. 3연격 마무리에 추가 피해.",
+      "passive_id": [
+        "valor_combo"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_939",
+      "number": 939,
+      "name": "불굴의 각반",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 6,
+      "material": "신물",
+      "def": 54,
+      "stat_bonuses": {
+        "fighting_spirit": 13
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "휘두를 때마다 생기를 흡수한다. 타격 시 흡혈.",
+      "passive_id": [
+        "valor_lifesteal"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_828",
+      "unreleased": true,
+      "number": 828,
+      "name": "불굴의 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 6,
+      "material": "신물",
+      "def": 42,
+      "stat_bonuses": {
+        "fighting_spirit": 11
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "강적일수록 투지가 불탄다. 보스·정예에 추가 피해.",
+      "passive_id": [
+        "valor_boss_mult"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_383",
+      "number": 383,
+      "name": "정령왕의 갑옷",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 6,
+      "material": "신물",
+      "def": 44,
+      "stat_bonuses": {
+        "spirit_power": 14,
+        "dexterity": 7
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "정령의 힘이 깃든 갑옷. 마법 피해 증폭.",
+      "passive_id": [
+        "spirit_leather_magic"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_343",
+      "unreleased": true,
+      "number": 343,
+      "name": "정령왕의 두건",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 6,
+      "material": "신물",
+      "def": 38,
+      "stat_bonuses": {
+        "spirit_power": 10,
+        "dexterity": 5
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "정령이 마력을 되돌린다. 공격 적중 시 정신력 회복.",
+      "passive_id": [
+        "spirit_leather_mana"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_232",
+      "unreleased": true,
+      "number": 232,
+      "name": "정령왕의 각반",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 6,
+      "material": "신물",
+      "def": 40,
+      "stat_bonuses": {
+        "spirit_power": 10,
+        "dexterity": 6
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "정령의 관통. 적 원소 저항 무시.",
+      "passive_id": [
+        "spirit_leather_pierce"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_252",
+      "unreleased": true,
+      "number": 252,
+      "name": "정령왕의 신",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 6,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "spirit_power": 9,
+        "dexterity": 5
+      },
+      "item_level": 600,
+      "price": 0,
+      "description": "정령의 발놀림. 피격 시 회피.",
+      "passive_id": [
+        "spirit_leather_dodge"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8787",
+      "number": 8787,
+      "name": "거암의 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 5,
+      "material": "신물",
+      "def": 38,
+      "stat_bonuses": {
+        "bone_density": 5,
+        "pain_resist": 4
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "거대한 암석을 깎아 씌운 투구. 어떤 일격에도 고개가 꺾이지 않는다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_9292",
+      "unreleased": false,
+      "number": 9292,
+      "name": "투혼의 흉갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 50,
+      "stat_bonuses": {
+        "fighting_spirit": 12
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "검성의 투지가 벼려진 흉갑. 싸울수록 끓어오른다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_9393",
+      "number": 9393,
+      "name": "투혼의 각반",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 5,
+      "material": "신물",
+      "def": 44,
+      "stat_bonuses": {
+        "fighting_spirit": 10
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "물러섬을 모르는 검성의 각반.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8282",
+      "number": 8282,
+      "name": "투혼의 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 5,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "fighting_spirit": 8
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "한 발도 물러나지 않으려는 자의 전투화.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3838",
+      "number": 3838,
+      "name": "정령가죽 갑옷",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 5,
+      "material": "신물",
+      "def": 34,
+      "stat_bonuses": {
+        "spirit_power": 10,
+        "dexterity": 5
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "원소의 기운이 스며든 가죽갑. 마력이 살갗을 타고 흐른다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3434",
+      "number": 3434,
+      "name": "정령가죽 두건",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 5,
+      "material": "신물",
+      "def": 28,
+      "stat_bonuses": {
+        "spirit_power": 7,
+        "dexterity": 3
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "정령의 속삭임이 깃든 두건.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2323",
+      "number": 2323,
+      "name": "정령가죽 각반",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 5,
+      "material": "신물",
+      "def": 30,
+      "stat_bonuses": {
+        "spirit_power": 7,
+        "dexterity": 4
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "원소술사의 발놀림을 받치는 가죽 각반.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2525",
+      "number": 2525,
+      "name": "정령가죽 신",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 5,
+      "material": "신물",
+      "def": 24,
+      "stat_bonuses": {
+        "spirit_power": 6,
+        "dexterity": 3
+      },
+      "item_level": 450,
+      "price": 0,
+      "description": "마력이 깃들어 발소리를 지우는 가죽 신.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_2988",
+      "number": 7404,
+      "name": "수호의 인장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "mag_def": 25,
+      "description": "수호의 인장 — 마법 피해를 경감한다.",
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_3120",
+      "number": 7218,
+      "name": "예비의 심장",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "치명적 피해 시 발동 — HP 50% 회복 + 무적 3초. 1회 사용 후 부서짐.",
+      "death_save": {
+        "type": "vital_recover",
+        "leave_hp_pct": 0.5,
+        "invuln_seconds": 3.0,
+        "charges": 1,
+        "consume_on_use": true
+      },
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5991",
+      "number": 6269,
+      "name": "맹독의 송곳니",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 5,
+      "material": "신물",
+      "atk": 65,
+      "item_level": 450,
+      "price": 0,
+      "description": "한 쌍의 독을 머금은 송곳니. 공격 시 독 스택 +1.",
+      "passive_id": [
+        "viper_venom"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_8820",
+      "number": 5517,
+      "name": "철옹성",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 450,
+      "price": 0,
+      "description": "쏟아지는 마법을 막아내는 철의 방벽. 마법 피해를 크게 경감한다.",
+      "mag_def": 25,
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_6363",
+      "context": "explore",
+      "number": 6363,
+      "name": "조타수의 손",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "키를 잡을 줄 아는 자의 손 — 거친 바다에서도 배가 본디 속도를 낸다.",
+      "passive_id": [
+        "helmsman_grip"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_7272",
+      "context": "explore",
+      "number": 7272,
+      "name": "해무관통의 눈",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "짙은 해무도 시야를 가리지 못한다.",
+      "passive_id": [
+        "mistpiercer_eye"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_5353",
+      "context": "explore",
+      "number": 5353,
+      "name": "바람타기 비술",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "역풍에 휘둘리지 않고 순풍을 온전히 탄다.",
+      "passive_id": [
+        "wind_attune"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_6464",
+      "context": "explore",
+      "number": 6464,
+      "name": "여명의 섬 풍향계",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 5,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "바다 위 바람의 방향이 손에 잡힌다.",
+      "passive_id": [
+        "raimia_compass"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_663",
+      "context": "explore",
+      "number": 663,
+      "name": "여명의 섬 항해사의 유서",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "여명의 섬 옛 항해사의 비결 — 키를 잡는 손과 멀리 보는 눈, 두 가지가 깃든다.",
+      "passive_id": [
+        "raimia_legacy"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "numeros_555",
+      "unreleased": true,
+      "context": "explore",
+      "number": 555,
+      "name": "여명의 섬 풍향 두루마리",
+      "type": "accessory",
+      "subtype": "numeros",
+      "slot": "accessory",
+      "grade": 6,
+      "material": "신물",
+      "item_level": 150,
+      "price": 0,
+      "description": "여명의 섬 옛 풍향도 — 바람의 방향을 읽고 역풍을 다스린다.",
+      "passive_id": [
+        "raimia_wind_scroll"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "steel_ring",
+      "name": "강철 반지",
+      "type": "accessory",
+      "subtype": "ring",
+      "slot": "accessory",
+      "grade": 1,
+      "material": "강철",
+      "stat_bonuses": {
+        "strength": 3
+      },
+      "item_level": 20,
+      "price": 3000,
+      "description": "힘을 높여주는 강철 반지"
+    },
+    {
+      "id": "goblin_necklace",
+      "name": "고블린 이빨 목걸이",
+      "type": "accessory",
+      "subtype": "necklace",
+      "slot": "accessory",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "stat_bonuses": {
+        "endurance": 3
+      },
+      "item_level": 20,
+      "price": 3000,
+      "description": "고블린 이빨로 만든 목걸이"
+    },
+    {
+      "id": "laitinium_sword",
+      "name": "비취강 검",
+      "type": "weapon",
+      "subtype": "sword",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 25,
+      "speed_mod": 0.0,
+      "item_level": 90,
+      "price": 72000,
+      "description": "비취강으로 벼린 검. 가볍고 날카롭다"
+    },
+    {
+      "id": "laitinium_axe",
+      "name": "비취강 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 30,
+      "speed_mod": -0.15,
+      "item_level": 100,
+      "price": 90000,
+      "description": "비취강 날의 도끼. 강철보다 가볍고 날카롭다"
+    },
+    {
+      "id": "redwood_bow",
+      "name": "레드우드 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "레드우드",
+      "atk": 22,
+      "range_mod": 3.0,
+      "item_level": 85,
+      "price": 66000,
+      "description": "레드우드의 탄성을 살린 활"
+    },
+    {
+      "id": "redwood_staff",
+      "name": "레드우드 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "레드우드",
+      "atk": 22,
+      "range_mod": 3.0,
+      "item_level": 85,
+      "price": 66000,
+      "description": "레드우드 심재로 깎은 지팡이. 마력 전도가 우수하다"
+    },
+    {
+      "id": "laitinium_dagger",
+      "name": "비취강 단검",
+      "type": "weapon",
+      "subtype": "dagger",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 18,
+      "speed_mod": 0.2,
+      "item_level": 60,
+      "price": 51000,
+      "description": "번개처럼 빠른 비취강 단검"
+    },
+    {
+      "id": "laitinium_dual_sword",
+      "name": "비취강 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 24,
+      "speed_mod": 0.1,
+      "item_level": 80,
+      "price": 78000,
+      "description": "비취강 쌍검. 날이 서로 공명한다"
+    },
+    {
+      "id": "laitinium_greatsword",
+      "name": "비취강 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 36,
+      "speed_mod": -0.25,
+      "item_level": 110,
+      "price": 90000,
+      "description": "비취강으로 단조한 대검. 검신이 검푸른 빛을 띤다"
+    },
+    {
+      "id": "laitinium_shield",
+      "mag_def": 8,
+      "name": "비취강 방패",
+      "type": "shield",
+      "subtype": "medium",
+      "slot": "shield",
+      "grade": 2,
+      "material": "비취강",
+      "def": 20,
+      "speed_mod": -0.1,
+      "item_level": 90,
+      "price": 72000,
+      "description": "비취강 합금 방패. 마법을 살짝 흘려낸다"
+    },
+    {
+      "id": "laitinium_heavy_chest",
+      "mag_def": 8,
+      "name": "비취강 중갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 2,
+      "material": "비취강",
+      "def": 18,
+      "item_level": 80,
+      "price": 60000,
+      "description": "비취강 판금 중갑. 옅은 마력 갈무리"
+    },
+    {
+      "id": "mage_robe",
+      "mag_def": 12,
+      "name": "마법사 로브",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 10,
+      "stat_bonuses": {
+        "spirit_power": 5,
+        "magic_resist": 3
+      },
+      "item_level": 75,
+      "price": 44000,
+      "description": "와이번 가죽 안감을 댄 로브. 룬 서고 정식 마법사의 의복"
+    },
+    {
+      "id": "wyvern_light_chest",
+      "name": "와이번 가죽 경갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 12,
+      "stat_bonuses": {
+        "dexterity": 5
+      },
+      "item_level": 70,
+      "price": 48000,
+      "description": "와이번 가죽으로 만든 경갑. 유연하고 튼튼하다"
+    },
+    {
+      "id": "laitinium_helmet",
+      "mag_def": 7,
+      "name": "비취강 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 2,
+      "material": "비취강",
+      "def": 14,
+      "item_level": 75,
+      "price": 51000,
+      "description": "비취강 투구. 마력을 미약하게 누른다"
+    },
+    {
+      "id": "wyvern_helmet",
+      "name": "와이번 가죽 투구",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 10,
+      "stat_bonuses": {
+        "dexterity": 3
+      },
+      "item_level": 65,
+      "price": 39000,
+      "description": "와이번 가죽 투구"
+    },
+    {
+      "id": "laitinium_legs",
+      "mag_def": 7,
+      "name": "비취강 하의",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 2,
+      "material": "비취강",
+      "def": 15,
+      "item_level": 80,
+      "price": 54000,
+      "description": "비취강 하의. 마법 기운을 살짝 흩는다"
+    },
+    {
+      "id": "wyvern_legs",
+      "name": "와이번 가죽 하의",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 10,
+      "stat_bonuses": {
+        "dexterity": 4
+      },
+      "item_level": 65,
+      "price": 42000,
+      "description": "와이번 가죽 하의"
+    },
+    {
+      "id": "wyvern_boots",
+      "name": "와이번 가죽 부츠",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 8,
+      "stat_bonuses": {
+        "dexterity": 4
+      },
+      "item_level": 55,
+      "price": 36000,
+      "description": "와이번 가죽 부츠"
+    },
+    {
+      "id": "laitinium_ring",
+      "mag_def": 4,
+      "name": "비취강 반지",
+      "type": "accessory",
+      "subtype": "ring",
+      "slot": "accessory",
+      "grade": 2,
+      "material": "비취강",
+      "stat_bonuses": {
+        "strength": 6,
+        "endurance": 3
+      },
+      "item_level": 70,
+      "price": 48000,
+      "description": "비취강 반지"
+    },
+    {
+      "id": "wyvern_necklace",
+      "name": "와이번 이빨 목걸이",
+      "type": "accessory",
+      "subtype": "necklace",
+      "slot": "accessory",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "stat_bonuses": {
+        "dexterity": 5,
+        "perception": 4
+      },
+      "item_level": 75,
+      "price": 54000,
+      "description": "와이번의 이빨로 만든 목걸이"
+    },
+    {
+      "id": "airilze_sword",
+      "name": "청강 검",
+      "type": "weapon",
+      "subtype": "sword",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 42,
+      "speed_mod": 0.0,
+      "item_level": 220,
+      "price": 460000,
+      "description": "청강 검. 검과 방패의 정석"
+    },
+    {
+      "id": "airilze_axe",
+      "name": "청강 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 50,
+      "speed_mod": -0.15,
+      "item_level": 250,
+      "price": 550000,
+      "description": "청강 도끼. 한 방의 위력이 압도적"
+    },
+    {
+      "id": "troll_bow",
+      "name": "트롤 뼈 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "트롤 뼈",
+      "atk": 38,
+      "range_mod": 3.0,
+      "item_level": 210,
+      "price": 420000,
+      "description": "트롤 뼈의 탄성으로 만든 활"
+    },
+    {
+      "id": "troll_staff",
+      "name": "트롤 뼈 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "트롤 뼈",
+      "atk": 38,
+      "range_mod": 3.0,
+      "item_level": 210,
+      "price": 420000,
+      "description": "트롤 뼈를 깎아 만든 지팡이. 재생력의 잔향이 마력에 실린다"
+    },
+    {
+      "id": "airilze_dagger",
+      "name": "청강 단검",
+      "type": "weapon",
+      "subtype": "dagger",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 32,
+      "speed_mod": 0.2,
+      "item_level": 170,
+      "price": 350000,
+      "description": "청강 단검. 빠르고 치명적"
+    },
+    {
+      "id": "airilze_dual_sword",
+      "name": "청강 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 42,
+      "speed_mod": 0.1,
+      "item_level": 200,
+      "price": 480000,
+      "description": "청강 쌍검. 푸른 빛의 검무"
+    },
+    {
+      "id": "airilze_greatsword",
+      "name": "청강 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "아이릴",
+      "atk": 60,
+      "speed_mod": -0.25,
+      "item_level": 270,
+      "price": 550000,
+      "description": "청강 합금으로 벼린 대검. 한 번 휘두르면 공기가 베인다"
+    },
+    {
+      "id": "airilze_shield",
+      "mag_def": 14,
+      "name": "청강 방패",
+      "type": "shield",
+      "subtype": "medium",
+      "slot": "shield",
+      "grade": 3,
+      "material": "청강",
+      "def": 35,
+      "speed_mod": -0.1,
+      "item_level": 230,
+      "price": 450000,
+      "description": "청강 방패. 마법까지 어느 정도 튕겨낸다"
+    },
+    {
+      "id": "airilze_heavy_chest",
+      "mag_def": 13,
+      "name": "청강 중갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 3,
+      "material": "청강",
+      "def": 32,
+      "item_level": 220,
+      "price": 400000,
+      "description": "청강 판금 중갑. 마력을 옅게 흘려낸다"
+    },
+    {
+      "id": "archmage_robe",
+      "mag_def": 16,
+      "name": "대마법사 로브",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 18,
+      "stat_bonuses": {
+        "spirit_power": 8,
+        "magic_resist": 5
+      },
+      "item_level": 195,
+      "price": 320000,
+      "description": "트롤 가죽 심에 마력 자수를 박은 고급 로브. 자체 재생 효과는 미미하다"
+    },
+    {
+      "id": "troll_light_chest",
+      "name": "트롤 가죽 경갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 22,
+      "stat_bonuses": {
+        "dexterity": 8
+      },
+      "item_level": 190,
+      "price": 350000,
+      "description": "트롤 가죽 경갑. 놀라운 복원력이 있다"
+    },
+    {
+      "id": "airilze_helmet",
+      "mag_def": 11,
+      "name": "청강 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 3,
+      "material": "청강",
+      "def": 25,
+      "item_level": 200,
+      "price": 320000,
+      "description": "청강 투구. 마력의 흐름을 다소 누른다"
+    },
+    {
+      "id": "troll_helmet",
+      "name": "트롤 가죽 투구",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 18,
+      "stat_bonuses": {
+        "dexterity": 5
+      },
+      "item_level": 175,
+      "price": 250000,
+      "description": "트롤 가죽 투구"
+    },
+    {
+      "id": "airilze_legs",
+      "mag_def": 11,
+      "name": "청강 하의",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 3,
+      "material": "청강",
+      "def": 28,
+      "item_level": 210,
+      "price": 350000,
+      "description": "청강 하의. 마법 기운을 약간 흩는다"
+    },
+    {
+      "id": "troll_legs",
+      "name": "트롤 가죽 하의",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 20,
+      "stat_bonuses": {
+        "dexterity": 6
+      },
+      "item_level": 180,
+      "price": 280000,
+      "description": "트롤 가죽 하의"
+    },
+    {
+      "id": "troll_boots",
+      "name": "트롤 가죽 부츠",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 15,
+      "stat_bonuses": {
+        "dexterity": 6
+      },
+      "item_level": 165,
+      "price": 220000,
+      "description": "트롤 가죽 부츠"
+    },
+    {
+      "id": "airilze_ring",
+      "mag_def": 6,
+      "name": "청강 반지",
+      "type": "accessory",
+      "subtype": "ring",
+      "slot": "accessory",
+      "grade": 3,
+      "material": "청강",
+      "stat_bonuses": {
+        "strength": 10,
+        "endurance": 5
+      },
+      "item_level": 190,
+      "price": 300000,
+      "description": "청강 반지. 착용자의 잠재력을 끌어낸다"
+    },
+    {
+      "id": "troll_necklace",
+      "name": "트롤 뼈 목걸이",
+      "type": "accessory",
+      "subtype": "necklace",
+      "slot": "accessory",
+      "grade": 3,
+      "material": "트롤 뼈",
+      "stat_bonuses": {
+        "regeneration": 5,
+        "endurance": 8
+      },
+      "item_level": 200,
+      "price": 320000,
+      "description": "트롤 뼈의 재생력이 미약하게 전해진다"
+    },
+    {
+      "id": "leather_bag",
+      "name": "가죽 배낭",
+      "type": "bag",
+      "subtype": "bag",
+      "slot": "bag",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "weight_bonus": 5,
+      "weight": 0,
+      "item_level": 10,
+      "price": 3500,
+      "description": "기본적인 가죽 배낭. 무게 한도 +5"
+    },
+    {
+      "id": "reinforced_bag",
+      "name": "강화 배낭",
+      "type": "bag",
+      "subtype": "bag",
+      "slot": "bag",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "weight_bonus": 10,
+      "weight": 0,
+      "item_level": 60,
+      "price": 30000,
+      "description": "와이번 가죽으로 보강한 배낭. 무게 한도 +10"
+    },
+    {
+      "id": "large_bag",
+      "name": "대형 배낭",
+      "type": "bag",
+      "subtype": "bag",
+      "slot": "bag",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "weight_bonus": 15,
+      "weight": 0,
+      "item_level": 150,
+      "price": 200000,
+      "description": "트롤 가죽의 대형 배낭. 무게 한도 +15"
+    },
+    {
+      "id": "moonsteel_sword",
+      "name": "백은 검",
+      "type": "weapon",
+      "subtype": "sword",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 60,
+      "speed_mod": 0.0,
+      "item_level": 340,
+      "price": 2400000,
+      "description": "은빛 광택의 백은 검. 그림자조차 베어낸다"
+    },
+    {
+      "id": "moonsteel_axe",
+      "name": "백은 도끼",
+      "type": "weapon",
+      "subtype": "axe",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 70,
+      "speed_mod": -0.05,
+      "item_level": 370,
+      "price": 2600000,
+      "description": "백은 양손 도끼. 묵직한 절단력"
+    },
+    {
+      "id": "moonsteel_dagger",
+      "name": "백은 단검",
+      "type": "weapon",
+      "subtype": "dagger",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 48,
+      "speed_mod": 0.2,
+      "item_level": 290,
+      "price": 1900000,
+      "description": "백은 단검. 잔영을 남기는 빠른 칼날"
+    },
+    {
+      "id": "steel_claw",
+      "name": "강철 발톱",
+      "type": "weapon",
+      "subtype": "claw",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 8,
+      "speed_mod": 0.2,
+      "item_level": 20,
+      "price": 3600,
+      "description": "짐승의 발톱을 본뜬 강철 클로. 빠른 연격"
+    },
+    {
+      "id": "laitinium_claw",
+      "name": "비취강 발톱",
+      "type": "weapon",
+      "subtype": "claw",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 18,
+      "speed_mod": 0.2,
+      "item_level": 60,
+      "price": 51000,
+      "description": "비취강으로 벼린 클로. 살을 파고드는 연격"
+    },
+    {
+      "id": "airilze_claw",
+      "name": "청강 발톱",
+      "type": "weapon",
+      "subtype": "claw",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 32,
+      "speed_mod": 0.2,
+      "item_level": 170,
+      "price": 350000,
+      "description": "청강 클로. 짐승의 야성을 실어 찢는다"
+    },
+    {
+      "id": "moonsteel_claw",
+      "name": "백은 발톱",
+      "type": "weapon",
+      "subtype": "claw",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 48,
+      "speed_mod": 0.2,
+      "item_level": 290,
+      "price": 1900000,
+      "description": "백은 클로. 잔영을 남기는 맹수의 발톱"
+    },
+    {
+      "id": "numeros_9449",
+      "unreleased": true,
+      "number": 9449,
+      "name": "야수왕의 발톱",
+      "type": "weapon",
+      "subtype": "claw",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "신물",
+      "atk": 70,
+      "item_level": 400,
+      "price": 0,
+      "description": "휘두를수록 야수의 본성이 깨어난다. 공격할수록 공격력과 속도가 오른다.",
+      "passive_id": [
+        "beast_form"
+      ],
+      "is_numeros": true
+    },
+    {
+      "id": "steel_warhammer",
+      "name": "강철 워해머",
+      "type": "weapon",
+      "subtype": "hammer",
+      "slot": "weapon",
+      "grade": 1,
+      "material": "강철",
+      "atk": 16,
+      "speed_mod": -0.2,
+      "item_level": 35,
+      "price": 6000,
+      "description": "묵직한 강철 워해머. 느리지만 강력한 일격"
+    },
+    {
+      "id": "laitinium_warhammer",
+      "name": "비취강 워해머",
+      "type": "weapon",
+      "subtype": "hammer",
+      "slot": "weapon",
+      "grade": 2,
+      "material": "비취강",
+      "atk": 32,
+      "speed_mod": -0.2,
+      "item_level": 100,
+      "price": 90000,
+      "description": "비취강 워해머. 갑주를 짓뭉개는 둔격"
+    },
+    {
+      "id": "airilze_warhammer",
+      "name": "청강 워해머",
+      "type": "weapon",
+      "subtype": "hammer",
+      "slot": "weapon",
+      "grade": 3,
+      "material": "청강",
+      "atk": 52,
+      "speed_mod": -0.2,
+      "item_level": 250,
+      "price": 550000,
+      "description": "청강 워해머. 성광을 실은 심판의 망치"
+    },
+    {
+      "id": "moonsteel_warhammer",
+      "name": "백은 워해머",
+      "type": "weapon",
+      "subtype": "hammer",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 72,
+      "speed_mod": -0.1,
+      "item_level": 370,
+      "price": 2600000,
+      "description": "백은 워해머. 한 번의 내려침이 전열을 무너뜨린다"
+    },
+    {
+      "id": "moonsteel_dual_sword",
+      "name": "백은 쌍검",
+      "type": "weapon",
+      "subtype": "dual_sword",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 62,
+      "speed_mod": 0.1,
+      "item_level": 320,
+      "price": 2200000,
+      "description": "백은 쌍검. 두 날의 협주"
+    },
+    {
+      "id": "moonsteel_greatsword",
+      "name": "백은 대검",
+      "type": "weapon",
+      "subtype": "greatsword",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "백은",
+      "atk": 82,
+      "speed_mod": -0.15,
+      "item_level": 390,
+      "price": 2900000,
+      "description": "백은 대검. 한 번의 일격이 산을 가른다"
+    },
+    {
+      "id": "ebony_bow",
+      "name": "흑단목 활",
+      "type": "weapon",
+      "subtype": "bow",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "흑단목",
+      "atk": 56,
+      "speed_mod": 0.0,
+      "item_level": 330,
+      "price": 2300000,
+      "description": "흑단목 활. 어둠처럼 조용히 날아가는 화살"
+    },
+    {
+      "id": "ebony_staff",
+      "name": "흑단목 지팡이",
+      "type": "weapon",
+      "subtype": "staff",
+      "slot": "weapon",
+      "grade": 4,
+      "material": "흑단목",
+      "atk": 56,
+      "range_mod": 3.0,
+      "item_level": 330,
+      "price": 2300000,
+      "description": "흑단목으로 깎은 지팡이. 어둠을 머금은 마력이 응축된다"
+    },
+    {
+      "id": "moonsteel_shield",
+      "mag_def": 20,
+      "name": "백은 방패",
+      "type": "shield",
+      "subtype": "medium",
+      "slot": "shield",
+      "grade": 4,
+      "material": "백은",
+      "def": 50,
+      "speed_mod": -0.1,
+      "item_level": 350,
+      "price": 2400000,
+      "description": "백은 방패. 마법조차 튕겨낸다"
+    },
+    {
+      "id": "moonsteel_heavy_chest",
+      "mag_def": 18,
+      "name": "백은 중갑",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "chest",
+      "grade": 4,
+      "material": "백은",
+      "def": 46,
+      "item_level": 340,
+      "price": 2200000,
+      "description": "백은 판금 중갑. 달빛이 마법을 흘려낸다"
+    },
+    {
+      "id": "shadow_light_chest",
+      "name": "그림자 경갑",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "chest",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 33,
+      "stat_bonuses": {
+        "dexterity": 8
+      },
+      "item_level": 310,
+      "price": 1800000,
+      "description": "그림자 추적자의 가죽으로 만든 경갑. 어둠 속에 녹아든다"
+    },
+    {
+      "id": "shadow_robe",
+      "mag_def": 20,
+      "name": "그림자 로브",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "chest",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 28,
+      "stat_bonuses": {
+        "spirit_power": 10,
+        "magic_resist": 6
+      },
+      "item_level": 315,
+      "price": 1700000,
+      "description": "그림자 가죽으로 짠 로브. 어둠과 마력이 한 옷 안에서 섞인다"
+    },
+    {
+      "id": "moonsteel_helmet",
+      "mag_def": 16,
+      "name": "백은 투구",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "helmet",
+      "grade": 4,
+      "material": "백은",
+      "def": 35,
+      "item_level": 320,
+      "price": 1700000,
+      "description": "백은 투구. 마력의 흐름을 갈무리한다"
+    },
+    {
+      "id": "shadow_helmet",
+      "name": "그림자 두건",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "helmet",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 27,
+      "stat_bonuses": {
+        "dexterity": 6
+      },
+      "item_level": 295,
+      "price": 1440000,
+      "description": "그림자 가죽 두건. 시야를 가리는 그늘"
+    },
+    {
+      "id": "moonsteel_legs",
+      "mag_def": 16,
+      "name": "백은 하의",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "legs",
+      "grade": 4,
+      "material": "백은",
+      "def": 40,
+      "item_level": 330,
+      "price": 1900000,
+      "description": "백은 하의. 마법 기운을 옅게 흩는다"
+    },
+    {
+      "id": "shadow_legs",
+      "name": "그림자 하의",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "legs",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 29,
+      "stat_bonuses": {
+        "dexterity": 7
+      },
+      "item_level": 300,
+      "price": 1600000,
+      "description": "그림자 가죽 하의. 발걸음 소리를 삼킨다"
+    },
+    {
+      "id": "shadow_boots",
+      "name": "그림자 부츠",
+      "type": "armor",
+      "subtype": "light",
+      "slot": "boots",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 22,
+      "stat_bonuses": {
+        "dexterity": 9
+      },
+      "item_level": 285,
+      "price": 1360000,
+      "description": "그림자 가죽 부츠. 추적당하지 않는 자의 발자국"
+    },
+    {
+      "id": "moonsteel_ring",
+      "mag_def": 8,
+      "name": "백은 반지",
+      "type": "accessory",
+      "subtype": "ring",
+      "slot": "accessory",
+      "grade": 4,
+      "material": "백은",
+      "stat_bonuses": {
+        "strength": 15,
+        "endurance": 8
+      },
+      "item_level": 310,
+      "price": 1700000,
+      "description": "백은 반지. 달빛이 깃든 의지"
+    },
+    {
+      "id": "ebony_necklace",
+      "name": "흑단목 목걸이",
+      "type": "accessory",
+      "subtype": "necklace",
+      "slot": "accessory",
+      "grade": 4,
+      "material": "흑단목",
+      "stat_bonuses": {
+        "willpower": 12,
+        "spirit_power": 6
+      },
+      "item_level": 320,
+      "price": 1800000,
+      "description": "흑단목 목걸이. 영혼을 단단히 매어둔다"
+    },
+    {
+      "id": "premium_bag",
+      "name": "백은 가죽 가방",
+      "type": "bag",
+      "subtype": "bag",
+      "slot": "bag",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "weight_bonus": 22,
+      "weight": 0,
+      "item_level": 270,
+      "price": 1200000,
+      "description": "그림자 가죽으로 짠 고급 배낭. 무게 한도 +22"
+    },
+    {
+      "id": "steel_boots",
+      "name": "강철 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 1,
+      "material": "강철",
+      "def": 6,
+      "item_level": 22,
+      "price": 2600,
+      "description": "강철 판금을 덧댄 전투화"
+    },
+    {
+      "id": "laitinium_boots",
+      "mag_def": 6,
+      "name": "비취강 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 2,
+      "material": "비취강",
+      "def": 12,
+      "item_level": 72,
+      "price": 48000,
+      "description": "비취강 합금 전투화. 마력을 살짝 흩뜨린다"
+    },
+    {
+      "id": "airilze_boots",
+      "mag_def": 11,
+      "name": "청강 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 3,
+      "material": "청강",
+      "def": 22,
+      "item_level": 200,
+      "price": 300000,
+      "description": "청강로 단조한 중장 전투화. 마력을 옅게 흩뜨린다"
+    },
+    {
+      "id": "moonsteel_boots",
+      "mag_def": 15,
+      "name": "백은 전투화",
+      "type": "armor",
+      "subtype": "heavy",
+      "slot": "boots",
+      "grade": 4,
+      "material": "백은",
+      "def": 32,
+      "item_level": 320,
+      "price": 1600000,
+      "description": "백은 판금 전투화. 마력을 밟아 흩뜨린다"
+    },
+    {
+      "id": "apprentice_hat",
+      "mag_def": 5,
+      "name": "견습 마법사 모자",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 3,
+      "stat_bonuses": {
+        "spirit_power": 2,
+        "magic_resist": 1
+      },
+      "item_level": 20,
+      "price": 1800,
+      "description": "룬 서고 견습생의 천 모자"
+    },
+    {
+      "id": "mage_hat",
+      "mag_def": 7,
+      "name": "마법사 모자",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 8,
+      "stat_bonuses": {
+        "spirit_power": 3,
+        "magic_resist": 2
+      },
+      "item_level": 65,
+      "price": 37000,
+      "description": "룬 서고 정식 마법사의 첨모"
+    },
+    {
+      "id": "archmage_hat",
+      "mag_def": 10,
+      "name": "대마법사 모자",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 15,
+      "stat_bonuses": {
+        "spirit_power": 5,
+        "magic_resist": 3
+      },
+      "item_level": 175,
+      "price": 270000,
+      "description": "대마법사의 위엄이 깃든 첨모"
+    },
+    {
+      "id": "shadow_hat",
+      "mag_def": 12,
+      "name": "그림자 마도 두건",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "helmet",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 23,
+      "stat_bonuses": {
+        "spirit_power": 6,
+        "magic_resist": 4
+      },
+      "item_level": 295,
+      "price": 1400000,
+      "description": "그림자 천으로 짠 마도 두건"
+    },
+    {
+      "id": "apprentice_robe_legs",
+      "mag_def": 5,
+      "name": "견습 마법사 로브 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 3,
+      "stat_bonuses": {
+        "spirit_power": 2,
+        "magic_resist": 1
+      },
+      "item_level": 20,
+      "price": 2000,
+      "description": "견습 마법사 로브의 아랫자락"
+    },
+    {
+      "id": "mage_robe_legs",
+      "mag_def": 7,
+      "name": "마법사 로브 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 9,
+      "stat_bonuses": {
+        "spirit_power": 4,
+        "magic_resist": 2
+      },
+      "item_level": 65,
+      "price": 40000,
+      "description": "마법사 로브의 아랫자락"
+    },
+    {
+      "id": "archmage_robe_legs",
+      "mag_def": 10,
+      "name": "대마법사 로브 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 16,
+      "stat_bonuses": {
+        "spirit_power": 6,
+        "magic_resist": 3
+      },
+      "item_level": 180,
+      "price": 290000,
+      "description": "대마법사 로브의 아랫자락"
+    },
+    {
+      "id": "shadow_robe_legs",
+      "mag_def": 12,
+      "name": "그림자 로브 하의",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "legs",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 24,
+      "stat_bonuses": {
+        "spirit_power": 7,
+        "magic_resist": 4
+      },
+      "item_level": 300,
+      "price": 1500000,
+      "description": "그림자 로브의 아랫자락"
+    },
+    {
+      "id": "apprentice_shoes",
+      "mag_def": 4,
+      "name": "견습 마법사 신발",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 1,
+      "material": "고블린 가죽",
+      "def": 2,
+      "stat_bonuses": {
+        "spirit_power": 2,
+        "magic_resist": 1
+      },
+      "item_level": 15,
+      "price": 1800,
+      "description": "천을 덧댄 가벼운 신발"
+    },
+    {
+      "id": "mage_shoes",
+      "mag_def": 5,
+      "name": "마법사 신발",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 2,
+      "material": "와이번 가죽",
+      "def": 7,
+      "stat_bonuses": {
+        "spirit_power": 3,
+        "magic_resist": 1
+      },
+      "item_level": 55,
+      "price": 36000,
+      "description": "마법사의 가벼운 천 신발"
+    },
+    {
+      "id": "archmage_shoes",
+      "mag_def": 7,
+      "name": "대마법사 신발",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 3,
+      "material": "트롤 가죽",
+      "def": 12,
+      "stat_bonuses": {
+        "spirit_power": 5,
+        "magic_resist": 2
+      },
+      "item_level": 165,
+      "price": 260000,
+      "description": "대마법사의 천 신발"
+    },
+    {
+      "id": "shadow_shoes",
+      "mag_def": 9,
+      "name": "그림자 마도 신발",
+      "type": "armor",
+      "subtype": "robe",
+      "slot": "boots",
+      "grade": 4,
+      "material": "그림자 가죽",
+      "def": 19,
+      "stat_bonuses": {
+        "spirit_power": 8,
+        "magic_resist": 3
+      },
+      "item_level": 285,
+      "price": 1350000,
+      "description": "소리 없이 걷는 그림자 천 신발"
+    },
+    {
+      "id": "ascetic_wish",
+      "name": "금단의 소원",
+      "type": "special",
+      "subtype": "treasure",
+      "slot": "",
+      "grade": 1,
+      "material": "소환 마법진 보석",
+      "item_level": 300,
+      "price": 0,
+      "weight": 1,
+      "max_owned": 1,
+      "description": "균형의 성역 가장 깊은 곳에서 얻은 보석. 안에 소환 마법진이 봉인되어 희미하게 빛난다."
+    },
+    {
+      "id": "truth_stone",
+      "name": "진실의 돌",
+      "type": "consumable",
+      "subtype": "tool",
+      "slot": "",
+      "grade": 3,
+      "material": "상흔 결정",
+      "item_level": 200,
+      "price": 0,
+      "weight": 1,
+      "description": "거울 미로에서 사용하면 가짜가 잠시 드러난다. 단, 쓸수록 봉인이 풀려 도플갱어가 강해진다."
+    },
+    {
+      "id": "ward_elixir",
+      "name": "항마력 영약",
+      "type": "consumable",
+      "subtype": "elixir",
+      "slot": "",
+      "grade": 3,
+      "material": "상흔 결정",
+      "item_level": 200,
+      "price": 0,
+      "sell_price": 300000,
+      "weight": 1,
+      "description": "마시면 파티 전원의 항마력이 영구히 오른다. 도플갱어의 마법에 대비한 비약."
+    }
+  ],
+  "numeros": {
+    "tiers": [
+      {
+        "grade": "Quad",
+        "number_range": [
+          1000,
+          9999
+        ],
+        "description": "일반 신물",
+        "mvp_source": "3층 상흔 보상"
+      },
+      {
+        "grade": "Triple",
+        "number_range": [
+          100,
+          999
+        ],
+        "description": "중급",
+        "mvp_source": "4층 보스 드롭"
+      },
+      {
+        "grade": "Double+",
+        "number_range": [
+          10,
+          99
+        ],
+        "description": "파괴불가 자동 부여",
+        "mvp_source": "MVP 범위 밖"
+      }
+    ],
+    "items": [
+      {
+        "number": 8820,
+        "name": "철벽 장화",
+        "slot": "boots",
+        "effect": "이동 속도 +10%, 넉백 저항 +50%",
+        "item_level": 310
+      },
+      {
+        "number": 7405,
+        "name": "방패대의 징표",
+        "slot": "accessory",
+        "effect": "방패 충격 흡수 +50%",
+        "item_level": 250
+      },
+      {
+        "number": 8667,
+        "name": "황야의 무법자",
+        "slot": "accessory",
+        "effect": "인간형 몬스터 데미지 +25%",
+        "item_level": 200
+      }
+    ]
+  }
+}
