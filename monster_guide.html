@@ -955,8 +955,7 @@
         <button class="filter-btn active" onclick="setTypeFilter('all', this)">전체 등급</button>
         <button class="filter-btn" onclick="setTypeFilter('3등급', this)">3등급</button>
         <button class="filter-btn" onclick="setTypeFilter('4등급', this)">4등급</button>
-        <button class="filter-btn" onclick="setTypeFilter('top', this)">1~2등급 최상위</button>
-      </div>
+        </div>
       <div class="filter-group">
         <span class="filter-label">공략 검색:</span>
         <div class="search-box">
@@ -5392,8 +5391,6 @@ function renderBoardList() {
     let matchType = true;
     if (currentType === '3등급') matchType = (post.grade === '3등급');
     else if (currentType === '4등급') matchType = (post.grade === '4등급');
-    else if (currentType === 'top') matchType = (post.grade === '1등급' || post.grade === '2등급');
-
     let matchSearch = true;
     if (searchKeyword) {
       const fullTxt = (post.title + " " + post.monsterName + " " + (post.subName || '')).toLowerCase();
