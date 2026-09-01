@@ -19562,6 +19562,137 @@ const RUNES_DATA = [
     "effect_value": 0.0,
     "elements": [],
     "is_relic": false
+  },
+  {
+    "id": "vaiterion",
+    "name": "한기의 야수",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 3,
+    "floor": 7,
+    "color": [
+      "white",
+      "silver",
+      "blue"
+    ],
+    "color_list": [
+      "white",
+      "silver",
+      "blue"
+    ],
+    "stat_bonuses": {
+      "민첩": 90,
+      "근력": 80,
+      "투기": 45,
+      "내구력": 30,
+      "행운": 25
+    },
+    "passive": {
+      "id": "feral_feast",
+      "name": "야수 포식",
+      "description": "공격으로 살점을 물어뜯어 생명력을 흡수한다 (타격 시 피해량의 8% 생명력 회복)"
+    },
+    "actives": [
+      {
+        "skill_id": "savage_bite",
+        "id": "savage_bite",
+        "name": "물어뜯기",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "feral_rampage",
+        "id": "feral_rampage",
+        "name": "야수 광란",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "rime_spit",
+        "id": "rime_spit",
+        "name": "서리 침",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 죽음의 벌판",
+    "effect_type": "HEAL_ON_HIT",
+    "effect_type_ko": "🩸 타격 흡혈",
+    "effect_value": 0.08,
+    "elements": [
+      "냉기"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "baion",
+    "name": "불사의 구울",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 3,
+    "floor": 7,
+    "color": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "color_list": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "stat_bonuses": {
+      "근력": 66,
+      "내구력": 60,
+      "재생력": 60,
+      "강골": 40,
+      "인내": 30,
+      "치유력": 8,
+      "적응력": 6
+    },
+    "passive": {
+      "id": "undying_flesh",
+      "name": "불사의 육신",
+      "description": "몸에 두른 버프가 많을수록 받는 피해가 크게 감소한다"
+    },
+    "actives": [
+      {
+        "skill_id": "transcendence",
+        "id": "transcendence",
+        "name": "썩지 않는 살",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "frozen_rampage",
+        "id": "frozen_rampage",
+        "name": "동결 난동",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "gore_hurl",
+        "id": "gore_hurl",
+        "name": "살점 투척",
+        "cooldown": 20,
+        "description": "",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 서리 묘역",
+    "effect_type": "DAMAGE_REDUCTION",
+    "effect_type_ko": "🛡️ 피해 감소",
+    "effect_value": 0.15,
+    "elements": [
+      "냉기",
+      "암흑"
+    ],
+    "is_relic": false
   }
 ];
   const COLOR_MAP = {
