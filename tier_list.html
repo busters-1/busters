@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브리미르 버스터즈 — 4등급 몬스터 난이도 티어표</title>
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-box: #21262d;
+      --border-color: #30363d;
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
+      --accent-blue: #58a6ff;
+      --accent-gold: #f2cc60;
+      --accent-green: #3fb950;
+      --accent-red: #ff7b72;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 16px;
+      max-width: 1440px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+    header {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .site-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .global-nav {
+      display: flex;
+      gap: 6px;
+    }
+    .nav-btn {
+      background: var(--bg-box);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Sub Header */
+    .tier-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .tier-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .count-badge {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: var(--accent-blue);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Matrix */
+    .tier-matrix {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tier-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 125px;
+    }
+    .tier-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      user-select: none;
+      padding: 8px;
+      text-align: center;
+    }
+    .tier-letter { font-size: 36px; font-weight: 900; line-height: 1; }
+    .tier-sub { font-size: 11px; font-weight: 700; margin-top: 4px; opacity: 0.9; }
+
+    .tier-head.s { background: linear-gradient(135deg, #ff4d4f, #cf1322); }
+    .tier-head.a { background: linear-gradient(135deg, #ffa940, #d46b08); }
+    .tier-head.b { background: linear-gradient(135deg, #52c41a, #237804); }
+    .tier-head.c { background: linear-gradient(135deg, #1890ff, #096dd9); }
+
+    .tier-items {
+      background: #0d1117;
+      padding: 12px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Card */
+    .m-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 6px;
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      transition: all 0.15s;
+    }
+    .m-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+      background: #21262d;
+    }
+    .m-thumb {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      image-rendering: pixelated;
+      background: #0b0e14;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .m-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #f0f6fc;
+      text-align: center;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .m-meta {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .video-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #ff0000;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 1px 4px;
+      border-radius: 3px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+    .modal-box {
+      background: #161b22;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: #8b949e;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: #fff; }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 14px 0;
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="site-title">
+      ⚔️ 브리미르 4등급 몬스터 난이도 티어표
+    </div>
+    <nav class="global-nav">
+      <a href="./index.html" class="nav-btn">💎 룬 도감</a>
+      <a href="./monster_guide.html" class="nav-btn">⚔️ 몬스터 공략</a>
+      <a href="./scar_log.html" class="nav-btn">📜 상흔 도감</a>
+      <a href="./tier_list.html" class="nav-btn active">🏆 4등급 티어표</a>
+    </nav>
+  </header>
+
+  <div class="tier-header-bar">
+    <div class="tier-title">
+      ⚔️ 4등급 몬스터 난이도 서열 (좌 ➔ 우: 가장 위험함 ➔ 수월함)
+    </div>
+    <div class="count-badge">총 29종 등록</div>
+  </div>
+
+  <!-- Main Tier Matrix -->
+  <main class="tier-matrix" id="tierMatrix">
+    <!-- Rendered via JS -->
+  </main>
+
+  <!-- Modal Popup -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const TIER_DATA = {
+  "S": [
+    {
+      "id": "dark_crystal",
+      "name": "어둠수정 골렘",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/dark_crystal.png",
+      "youtubeId": "",
+      "intro": "7층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    },
+    {
+      "id": "gigant_wolf",
+      "name": "스콜",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/gigant_wolf.png",
+      "youtubeId": "qX4sle5arm0",
+      "intro": "7층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    }
+  ],
+  "A": [
+    {
+      "id": "frozen_corpse_giant",
+      "name": "얼어붙은 거신",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/frozen_corpse_giant.png",
+      "youtubeId": "",
+      "intro": "7층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "white_wyvern",
+      "name": "빙하 와이번",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/white_wyvern.png",
+      "youtubeId": "",
+      "intro": "7층 상공을 날아다니며 냉기 폭격을 쏟아붓는 4등급 비행 몬스터다. 공중 패턴 뺄 때 무리하게 덤비지 말고, 지상 착지했을 때 약점 속성으로 두들겨 패라."
+    },
+    {
+      "id": "unmelting_cocoon",
+      "name": "녹지 않는 고치",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/unmelting_cocoon.png",
+      "youtubeId": "8luHJxHlY6g",
+      "intro": "7층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    },
+    {
+      "id": "frost_gargoyle",
+      "name": "서리 가고일",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/frost_gargoyle.png",
+      "youtubeId": "2s2kSzZnNWg",
+      "intro": "7층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "tainted_snow_spirit",
+      "name": "오염된 눈의 정령",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/tainted_snow_spirit.png",
+      "youtubeId": "cTU8h6LxdU4",
+      "intro": "7층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "skeleton_mermaid_queen",
+      "name": "백골 인어여왕",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/skeleton_mermaid_queen.png",
+      "youtubeId": "K1vpIQ3U95A",
+      "intro": "7층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    },
+    {
+      "id": "frost_dullahan",
+      "name": "빙결 수확자",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/frost_dullahan.png",
+      "youtubeId": "",
+      "intro": "7층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "ice_lich",
+      "name": "리치",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/ice_lich.png",
+      "youtubeId": "mySWJyzUp7Q",
+      "intro": "7층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    },
+    {
+      "id": "banshee_queen",
+      "name": "통곡의 여왕",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/banshee_queen.png",
+      "youtubeId": "j9sbYTjVJg4",
+      "intro": "7층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    },
+    {
+      "id": "fallen_swordsaint",
+      "name": "몰락 검성",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/fallen_swordsaint.png",
+      "youtubeId": "YvGixCIiO4s",
+      "intro": "7층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "grave_knight",
+      "name": "검총 기사",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/grave_knight.png",
+      "youtubeId": "M4IXF4bqIB8",
+      "intro": "7층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    }
+  ],
+  "B": [
+    {
+      "id": "siren_queen",
+      "name": "세이렌 여왕",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/siren_queen.png",
+      "youtubeId": "sdXJEM-yZ3U",
+      "intro": "6층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "guano_sea_serpent",
+      "name": "대양 이무기",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/guano_sea_serpent.png",
+      "youtubeId": "-7xXlXUExEs",
+      "intro": "6층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "frost_ghoul_lord",
+      "name": "설원 아귀",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/frost_ghoul_lord.png",
+      "youtubeId": "1XX-vSaYxJ8",
+      "intro": "7층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    },
+    {
+      "id": "pirate_wraith_lord",
+      "name": "해적왕의 망령",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/pirate_wraith_lord.png",
+      "youtubeId": "0jtwdl2eqmY",
+      "intro": "6층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "abyssal_kraken",
+      "name": "심연의 크라켄",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/abyssal_kraken.png",
+      "youtubeId": "8KUcctT4Rac",
+      "intro": "6층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    },
+    {
+      "id": "sylvan_tyrant",
+      "name": "수림의 폭군",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/sylvan_tyrant.png",
+      "youtubeId": "Q-3-tTMeKbY",
+      "intro": "6층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    },
+    {
+      "id": "magma_lord",
+      "name": "용암 우두머리",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/magma_lord.png",
+      "youtubeId": "",
+      "intro": "6층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    },
+    {
+      "id": "azure_flame_bird",
+      "name": "푸른 불사조",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/azure_flame_bird.png",
+      "youtubeId": "4_oXpIs8okw",
+      "intro": "7층에 서식하는 4등급 정예 몬스터다. 방심하고 들이대다간 묵직한 연격에 눕기 십상이니, 약점 인챈트 챙기고 위험 기믹만 CC기로 칼같이 끊으면서 패링으로 털어먹자."
+    },
+    {
+      "id": "frostflame_turtle",
+      "name": "서리불꽃 거북",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/frostflame_turtle.png",
+      "youtubeId": "",
+      "intro": "7층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "palpupura",
+      "name": "서리 거인",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/palpupura.png",
+      "youtubeId": "GrKbH84x_tw",
+      "intro": "6층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라."
+    }
+  ],
+  "C": [
+    {
+      "id": "spectral_marksman",
+      "name": "원귀 사수",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/spectral_marksman.png",
+      "youtubeId": "",
+      "intro": "7층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    },
+    {
+      "id": "colossus_bowman",
+      "name": "거인 궁수",
+      "floor": "7층",
+      "grade": "4등급",
+      "image": "./assets/monsters/colossus_bowman.png",
+      "youtubeId": "",
+      "intro": "7층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "key_keeper",
+      "name": "열쇠지기",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/key_keeper.png",
+      "youtubeId": "dsrXLQq6mk8",
+      "intro": "6층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "grave_keeper_aleton",
+      "name": "무덤지기",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/grave_keeper_aleton.png",
+      "youtubeId": "9LRprO-Z7Ho",
+      "intro": "'브리미르: 심장으로의 순례' 6층 4등급 '무덤지기' 실전 공략입니다."
+    },
+    {
+      "id": "obsidian_titan",
+      "name": "흑요석 거신",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/obsidian_titan.png",
+      "youtubeId": "hLSed_MoTSk",
+      "intro": "6층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다."
+    },
+    {
+      "id": "raphremmik",
+      "name": "보물 미믹",
+      "floor": "6층",
+      "grade": "4등급",
+      "image": "./assets/monsters/raphremmik.png",
+      "youtubeId": "",
+      "intro": "6층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라."
+    }
+  ]
+};
+
+    const TIER_HEADERS = {
+      'S': { label: 'S', sub: '최상급 난이도 (전멸 주의)' },
+      'A': { label: 'A', sub: '상급 난이도 (위험 패턴)' },
+      'B': { label: 'B', sub: '표준 난이도 (패링/회피)' },
+      'C': { label: 'C', sub: '수월한 난이도' }
+    };
+
+    function renderTierMatrix() {
+      const matrix = document.getElementById('tierMatrix');
+      matrix.innerHTML = '';
+
+      ['S', 'A', 'B', 'C'].forEach(tierKey => {
+        const list = TIER_DATA[tierKey] || [];
+        const info = TIER_HEADERS[tierKey];
+
+        const row = document.createElement('section');
+        row.className = 'tier-row';
+
+        const head = document.createElement('div');
+        head.className = `tier-head ${tierKey.toLowerCase()}`;
+        head.innerHTML = `
+          <div class="tier-letter">${info.label}</div>
+          <div class="tier-sub">${info.sub}</div>
+        `;
+
+        const itemsZone = document.createElement('div');
+        itemsZone.className = 'tier-items';
+
+        list.forEach(m => {
+          const card = document.createElement('div');
+          card.className = 'm-card';
+          card.innerHTML = `
+            ${m.youtubeId ? '<span class="video-badge">🎬 영상</span>' : ''}
+            <img src="${m.image}" alt="${m.name}" class="m-thumb" loading="lazy">
+            <div class="m-name" title="${m.name}">${m.name}</div>
+            <div class="m-meta">${m.floor} · ${m.grade}</div>
+          `;
+          card.addEventListener('click', () => openModal(m));
+          itemsZone.appendChild(card);
+        });
+
+        row.appendChild(head);
+        row.appendChild(itemsZone);
+        matrix.appendChild(row);
+      });
+    }
+
+    function openModal(m) {
+      const modal = document.getElementById('modalBackdrop');
+      const content = document.getElementById('modalContent');
+
+      let videoHtml = '';
+      if (m.youtubeId) {
+        videoHtml = `
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/${m.youtubeId}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        `;
+      }
+
+      content.innerHTML = `
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <img src="${m.image}" alt="${m.name}" style="width:64px; height:64px; object-fit:contain; image-rendering:pixelated; background:#0b0e14; border-radius:6px; border:1px solid #30363d;">
+          <div>
+            <h2 style="font-size:18px; color:#fff; font-weight:800;">${m.name}</h2>
+            <div style="color:#8b949e; font-size:12px; margin-top:2px;">출현지: ${m.floor} · 등급: ${m.grade}</div>
+          </div>
+        </div>
+        ${videoHtml}
+        <p style="color:#c9d1d9; font-size:13px; line-height:1.6; margin-top:12px;">${m.intro}</p>
+        <div style="margin-top:16px; display:flex; justify-content:flex-end;">
+          <a href="./index.html?search=${encodeURIComponent(m.name)}" class="nav-btn" style="background:#238636; color:#fff; border:none; padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:700;">💎 드롭 룬 도감 검색</a>
+        </div>
+      `;
+
+      modal.style.display = 'flex';
+    }
+
+    function closeModal(e) {
+      if (!e || e.target.id === 'modalBackdrop' || e.target.classList.contains('modal-close')) {
+        const modal = document.getElementById('modalBackdrop');
+        const content = document.getElementById('modalContent');
+        content.innerHTML = '';
+        modal.style.display = 'none';
+      }
+    }
+
+    renderTierMatrix();
+  </script>
+</body>
+</html>
