@@ -4,230 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>브리미르 버스터즈 — 4등급 몬스터 난이도 티어표</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --bg-main: #0d1117;
-      --bg-card: #161b22;
-      --bg-box: #21262d;
-      --border-color: #30363d;
-      --text-main: #c9d1d9;
-      --text-bright: #ffffff;
-      --text-muted: #8b949e;
-      --accent-blue: #58a6ff;
-      --accent-gold: #f2cc60;
-      --accent-green: #3fb950;
-      --accent-red: #ff7b72;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: var(--bg-main);
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding: 16px;
-      max-width: 1440px;
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .tier-container {
+      max-width: 1200px;
       margin: 0 auto;
-      font-size: 13px;
+      padding: 20px;
     }
-    header {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 16px 20px;
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
       margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 10px;
     }
-    .site-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .global-nav {
-      display: flex;
-      gap: 6px;
-    }
-    .nav-btn {
-      background: var(--bg-box);
-      color: var(--text-main);
+    .nav-tab {
+      color: #8b949e;
       text-decoration: none;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 6px;
-      font-size: 12px;
       font-weight: 600;
-      border: 1px solid var(--border-color);
-      transition: all 0.15s;
+      font-size: 14px;
+      transition: all 0.2s;
     }
-    .nav-btn:hover, .nav-btn.active {
-      background: rgba(88, 166, 255, 0.15);
-      color: var(--accent-blue);
-      border-color: var(--accent-blue);
+    .nav-tab:hover {
+      color: #c9d1d9;
+      background: #161b22;
     }
-
-    /* Sub Header */
-    .tier-header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
+    .nav-tab.active {
+      color: #58a6ff;
+      background: #1f6feb22;
+      border: 1px solid #1f6feb44;
+    }
+    .tier-title-box {
+      background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
     }
     .tier-title {
-      font-size: 16px;
+      font-size: 24px;
       font-weight: 800;
       color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
     }
-    .count-badge {
-      background: #21262d;
-      border: 1px solid #30363d;
-      color: var(--accent-blue);
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    /* Matrix */
-    .tier-matrix {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .tier-desc {
+      color: #8b949e;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.5;
     }
     .tier-row {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
+      display: flex;
+      margin-bottom: 12px;
+      border: 1px solid #30363d;
       border-radius: 8px;
       overflow: hidden;
-      min-height: 125px;
+      background: #161b22;
     }
     .tier-head {
+      width: 110px;
+      min-width: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      user-select: none;
-      padding: 8px;
+      font-weight: 900;
+      padding: 12px 8px;
       text-align: center;
     }
-    .tier-letter { font-size: 36px; font-weight: 900; line-height: 1; }
-    .tier-sub { font-size: 11px; font-weight: 700; margin-top: 4px; opacity: 0.9; }
+    .tier-head.s { background: #da3633; color: #fff; }
+    .tier-head.a { background: #d29922; color: #fff; }
+    .tier-head.b { background: #238636; color: #fff; }
+    .tier-head.c { background: #1f6feb; color: #fff; }
 
-    .tier-head.s { background: linear-gradient(135deg, #ff4d4f, #cf1322); }
-    .tier-head.a { background: linear-gradient(135deg, #ffa940, #d46b08); }
-    .tier-head.b { background: linear-gradient(135deg, #52c41a, #237804); }
-    .tier-head.c { background: linear-gradient(135deg, #1890ff, #096dd9); }
-
+    .tier-letter {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .tier-sub {
+      font-size: 10px;
+      font-weight: 700;
+      opacity: 0.9;
+      line-height: 1.2;
+    }
     .tier-items {
-      background: #0d1117;
-      padding: 12px 14px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      padding: 12px;
+      flex: 1;
+      background: #0d1117;
       align-items: center;
     }
-
-    /* Card */
     .m-card {
+      width: 82px;
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 6px;
-      padding: 8px 6px;
-      width: 100px;
+      padding: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
       cursor: pointer;
       position: relative;
-      user-select: none;
-      transition: all 0.15s;
+      transition: all 0.2s;
     }
     .m-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent-blue);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
-      background: #21262d;
+      border-color: #58a6ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
     .m-thumb {
-      width: 60px;
-      height: 60px;
+      width: 56px;
+      height: 56px;
       object-fit: contain;
       image-rendering: pixelated;
-      background: #0b0e14;
-      border-radius: 4px;
-      margin-bottom: 6px;
-      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 4px;
     }
     .m-name {
       font-size: 11px;
       font-weight: 700;
-      color: #f0f6fc;
-      text-align: center;
-      width: 100%;
+      color: #e6edf3;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      width: 100%;
     }
     .m-meta {
       font-size: 9px;
-      color: var(--text-muted);
+      color: #8b949e;
       margin-top: 2px;
     }
     .video-badge {
       position: absolute;
-      top: 4px;
-      right: 4px;
-      background: #ff0000;
+      top: 3px;
+      right: 3px;
+      background: #da3633;
       color: #fff;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 800;
-      padding: 1px 4px;
+      padding: 1px 3px;
       border-radius: 3px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      line-height: 1.1;
     }
-
-    /* Modal */
     .modal-backdrop {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
       display: none;
-      justify-content: center;
-      align-items: center;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
       z-index: 9999;
-      padding: 16px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
     .modal-box {
       background: #161b22;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      max-width: 600px;
       width: 100%;
-      max-width: 640px;
-      max-height: 90vh;
-      overflow-y: auto;
       padding: 20px;
       position: relative;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
     }
     .modal-close {
       position: absolute;
-      top: 14px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
       background: transparent;
       border: none;
       color: #8b949e;
-      font-size: 24px;
+      font-size: 20px;
       cursor: pointer;
+      line-height: 1;
     }
     .modal-close:hover { color: #fff; }
     .video-container {
@@ -235,144 +198,38 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      border-radius: 8px;
-      margin: 14px 0;
+      border-radius: 6px;
+      margin: 12px 0;
       background: #000;
     }
     .video-container iframe {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
     }
-  
-    .edit-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .edit-desc {
-      font-size: 13px;
-      color: #8b949e;
-    }
-    .edit-btn {
-      background: #238636;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .edit-btn:hover {
-      background: #2ea043;
-      transform: translateY(-1px);
-    }
-    .edit-btn.reset-btn {
-      background: #21262d;
-      color: #c9d1d9;
-      border-color: #30363d;
-    }
-    .edit-btn.reset-btn:hover {
-      background: #30363d;
-      color: #fff;
-    }
-    .m-card {
-      cursor: grab;
-      position: relative;
-      user-select: none;
-    }
-    .m-card:active {
-      cursor: grabbing;
-    }
-    .m-card.dragging {
-      opacity: 0.4;
-      border-color: #58a6ff;
-      transform: scale(0.95);
-    }
-    .tier-items.drag-over {
-      background: rgba(88, 166, 255, 0.08);
-      border: 2px dashed #58a6ff;
-      border-radius: 6px;
-    }
-    .card-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 4px;
-      margin-top: 6px;
-      padding-top: 4px;
-      border-top: 1px solid #21262d;
-    }
-    .arr-btn {
-      background: #21262d;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
-      border-radius: 4px;
-      font-size: 11px;
-      padding: 2px 6px;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .arr-btn:hover {
-      background: #388bfd;
-      color: #fff;
-      border-color: #58a6ff;
-    }
-    .tier-move-sel {
-      background: #161b22;
-      color: #58a6ff;
-      border: 1px solid #30363d;
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 2px;
-      cursor: pointer;
-    }
-</style>
+  </style>
 </head>
 <body>
-
-  <header>
-    <div class="site-title">
-      ⚔️ 브리미르 4등급 몬스터 난이도 티어표
+  <div class="tier-container">
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab">💎 룬 도감</a>
+      <a href="monster_guide.html" class="nav-tab">⚔️ 몬스터 공략</a>
+      <a href="tier_list.html" class="nav-tab active">🏆 몬스터 티어표</a>
+      <a href="scar_log.html" class="nav-tab">📖 상흔 일지</a>
     </div>
-    <nav class="global-nav">
-      <a href="index.html" class="nav-btn">💎 룬 도감</a>
-      <a href="scar_log.html" class="nav-btn">📜 신해 일지</a>
-      <a href="tier_list.html" class="nav-btn active">🏆 몬스터 티어표</a>
-      <a href="guide.html" class="nav-btn">📖 이용 가이드</a>
-      <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color:#f2cc60;">🎮 스팀 상점</a>
-      <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color:#f2cc60;">💬 공략 카톡방</a>
-    </nav>
-  </header>
 
-  <div class="tier-header-bar">
-    <div class="tier-title">
-      ⚔️ 4등급 몬스터 난이도 서열 (좌 ➔ 우: 가장 위험함 ➔ 수월함)
+    <div class="tier-title-box">
+      <h1 class="tier-title">⚔️ 4등급 몬스터 난이도 서열 (좌 ➔ 우: 가장 위험함 ➔ 수월함)</h1>
+      <p class="tier-desc">실전 전투 기믹, 전멸 위험도, 패링 난이도를 종합 평가한 브리미르 4등급 몬스터 난이도 티어표입니다.<br>카드를 클릭하면 세부 공략 정보와 유튜브 실전 영상을 시청할 수 있습니다.</p>
     </div>
-    <div class="count-badge">총 29종 등록</div>
+
+    <div id="tierMatrix"></div>
   </div>
 
-  <!-- Main Tier Matrix -->
-  <main class="tier-matrix" id="tierMatrix">
-    <!-- Rendered via JS -->
-  </main>
-
-  <!-- Modal Popup -->
-  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)">
+  <div id="modalBackdrop" class="modal-backdrop" onclick="closeModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal()">×</button>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
       <div id="modalContent"></div>
     </div>
   </div>
@@ -722,7 +579,6 @@
   ]
 };
 
-    
     const TIER_HEADERS = {
       'S': { label: 'S', sub: '최상급 난이도 (전멸 주의)' },
       'A': { label: 'A', sub: '상급 난이도 (위험 패턴)' },
@@ -730,82 +586,12 @@
       'C': { label: 'C', sub: '수월한 난이도' }
     };
 
-    const STORAGE_KEY = 'brimir_g4_tier_order_v3';
-    let currentTiers = JSON.parse(JSON.stringify(TIER_DATA));
-
-    function loadSavedTiers() {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          // Verify and merge
-          const existingIds = new Set();
-          ['S', 'A', 'B', 'C'].forEach(k => {
-            if (Array.isArray(parsed[k])) {
-              parsed[k].forEach(m => existingIds.add(m.id));
-            }
-          });
-          // Add any new monsters not in saved
-          ['S', 'A', 'B', 'C'].forEach(k => {
-            TIER_DATA[k].forEach(m => {
-              if (!existingIds.has(m.id)) {
-                if (!parsed['C']) parsed['C'] = [];
-                parsed['C'].push(m);
-                existingIds.add(m.id);
-              }
-            });
-          });
-          currentTiers = parsed;
-        }
-      } catch (e) {
-        console.error('Failed to load saved tiers', e);
-      }
-    }
-
-    function saveCurrentTiers() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentTiers));
-      } catch (e) {}
-    }
-
-    function resetTierOrder() {
-      if (confirm('기본 난이도 순서로 초기화하시겠습니까?')) {
-        localStorage.removeItem(STORAGE_KEY);
-        currentTiers = JSON.parse(JSON.stringify(TIER_DATA));
-        renderTierMatrix();
-      }
-    }
-
-    function moveMonster(tierKey, index, direction) {
-      const list = currentTiers[tierKey];
-      const targetIndex = index + direction;
-      if (targetIndex < 0 || targetIndex >= list.length) return;
-      const temp = list[index];
-      list[index] = list[targetIndex];
-      list[targetIndex] = temp;
-      saveCurrentTiers();
-      renderTierMatrix();
-    }
-
-    function changeMonsterTier(fromTier, index, toTier) {
-      if (fromTier === toTier) return;
-      const [item] = currentTiers[fromTier].splice(index, 1);
-      if (!currentTiers[toTier]) currentTiers[toTier] = [];
-      currentTiers[toTier].push(item);
-      saveCurrentTiers();
-      renderTierMatrix();
-    }
-
-    let draggedItem = null;
-    let draggedFromTier = null;
-    let draggedFromIndex = null;
-
     function renderTierMatrix() {
       const matrix = document.getElementById('tierMatrix');
       matrix.innerHTML = '';
 
       ['S', 'A', 'B', 'C'].forEach(tierKey => {
-        const list = currentTiers[tierKey] || [];
+        const list = TIER_DATA[tierKey] || [];
         const info = TIER_HEADERS[tierKey];
 
         const row = document.createElement('section');
@@ -821,108 +607,23 @@
 
         const itemsZone = document.createElement('div');
         itemsZone.className = 'tier-items';
-        itemsZone.dataset.tier = tierKey;
 
-        // Drop zone handlers for container
-        itemsZone.addEventListener('dragover', e => {
-          e.preventDefault();
-          itemsZone.classList.add('drag-over');
-        });
-        itemsZone.addEventListener('dragleave', () => {
-          itemsZone.classList.remove('drag-over');
-        });
-        itemsZone.addEventListener('drop', e => {
-          e.preventDefault();
-          itemsZone.classList.remove('drag-over');
-          if (!draggedItem) return;
-
-          if (draggedFromTier === tierKey) {
-            // Reordering inside same tier
-            const cards = Array.from(itemsZone.querySelectorAll('.m-card:not(.dragging)'));
-            let dropIndex = list.length;
-            for (let i = 0; i < cards.length; i++) {
-              const rect = cards[i].getBoundingClientRect();
-              if (e.clientX < rect.left + rect.width / 2) {
-                dropIndex = i;
-                break;
-              }
-            }
-            list.splice(draggedFromIndex, 1);
-            if (dropIndex > draggedFromIndex) dropIndex--;
-            list.splice(dropIndex, 0, draggedItem);
-          } else {
-            // Moving across tiers
-            currentTiers[draggedFromTier].splice(draggedFromIndex, 1);
-            list.push(draggedItem);
-          }
-
-          saveCurrentTiers();
-          renderTierMatrix();
-        });
-
-        list.forEach((m, idx) => {
+        list.forEach(m => {
           const card = document.createElement('div');
           card.className = 'm-card';
-          card.draggable = true;
-          card.dataset.id = m.id;
-          card.dataset.index = idx;
-
           card.innerHTML = `
             ${m.youtubeId ? '<span class="video-badge" title="클릭 시 유튜브 공략 영상 재생">🎬 영상</span>' : ''}
             <img src="${m.image}" alt="${m.name}" class="m-thumb" loading="lazy">
             <div class="m-name" title="${m.name}">${m.name}</div>
             <div class="m-meta">${m.floor} · ${m.grade}</div>
-            <div class="card-actions" onclick="event.stopPropagation()">
-              <button class="arr-btn" title="왼쪽으로 이동" onclick="moveMonster('${tierKey}', ${idx}, -1)">◀</button>
-              <select class="tier-move-sel" onchange="changeMonsterTier('${tierKey}', ${idx}, this.value)" title="티어 변경">
-                ${['S', 'A', 'B', 'C'].map(t => `<option value="${t}" ${t === tierKey ? 'selected' : ''}>${t}</option>`).join('')}
-              </select>
-              <button class="arr-btn" title="오른쪽으로 이동" onclick="moveMonster('${tierKey}', ${idx}, 1)">▶</button>
-            </div>
           `;
-
-          // Drag events
-          card.addEventListener('dragstart', e => {
-            draggedItem = m;
-            draggedFromTier = tierKey;
-            draggedFromIndex = idx;
-            card.classList.add('dragging');
-            e.dataTransfer.effectAllowed = 'move';
-          });
-          card.addEventListener('dragend', () => {
-            card.classList.remove('dragging');
-            draggedItem = null;
-            draggedFromTier = null;
-            draggedFromIndex = null;
-          });
-
-          // Click modal
-          card.addEventListener('click', e => {
-            if (e.target.closest('.card-actions')) return;
-            openModal(m);
-          });
-
+          card.addEventListener('click', () => openModal(m));
           itemsZone.appendChild(card);
         });
 
         row.appendChild(head);
         row.appendChild(itemsZone);
         matrix.appendChild(row);
-      });
-    }
-
-    function copyTierResult() {
-      let text = '=== ⚔️ 브리미르 [4등급 몬스터] 난이도 순서 최종 결과 ===\n\n';
-      ['S', 'A', 'B', 'C'].forEach(k => {
-        const list = currentTiers[k] || [];
-        const names = list.map(m => m.name).join(' > ');
-        text += `【${k} 티어】 (${list.length}마리)\n${names || '(없음)'}\n\n`;
-      });
-
-      navigator.clipboard.writeText(text).then(() => {
-        alert('📋 현재 티어 순서가 클립보드에 복사되었습니다! 채팅창에 바로 붙여넣어(Ctrl+V) 주세요.');
-      }).catch(() => {
-        prompt('아래 텍스트를 복사하세요:', text);
       });
     }
 
@@ -943,8 +644,8 @@
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
           <img src="${m.image}" alt="${m.name}" style="width:64px; height:64px; object-fit:contain; image-rendering:pixelated; background:#0b0e14; border-radius:6px; border:1px solid #30363d;">
           <div>
-            <h2 style="font-size:18px; color:#fff; font-weight:800;">${m.name}</h2>
-            <div style="color:#8b949e; font-size:12px; margin-top:2px;">출현지: ${m.floor} · 등급: ${m.grade}</div>
+            <h2 style="font-size:18px; color:#fff; font-weight:800; margin:0;">${m.name}</h2>
+            <div style="color:#8b949e; font-size:12px; margin-top:4px;">출현지: ${m.floor} · 등급: ${m.grade}</div>
           </div>
         </div>
         ${videoHtml}
@@ -966,9 +667,14 @@
       }
     }
 
-    loadSavedTiers();
+    // Clean up any legacy localStorage edit key
+    try {
+      localStorage.removeItem('brimir_g4_tier_order');
+      localStorage.removeItem('brimir_g4_tier_order_v2');
+      localStorage.removeItem('brimir_g4_tier_order_v3');
+    } catch (e) {}
+
     renderTierMatrix();
   </script>
-
 </body>
 </html>
