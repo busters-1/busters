@@ -1870,49 +1870,37 @@ const POSTS_DATA = [
   },
   {
     "id": "colossus_bowman",
-    "num": 57,
-    "floor": "7",
-    "type": "boss",
+    "name": "거인 궁수",
+    "floor": "7층",
     "grade": "4등급",
-    "baseViews": 0,
-    "baseLikes": 0,
-    "title": "[7층 4등급] 거인 궁수 실전 공략",
-    "monsterName": "거인 궁수",
-    "subName": "colossus_bowman",
-    "date": "2026.08.25",
-    "armorEnchant": "암흑",
-    "intro": "7층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다.",
+    "category": "7층 (죽음의 벌판)",
+    "image": "./assets/monsters/colossus_bowman.png",
+    "youtubeId": "2ifOX7khwL4",
+    "intro": "『브리미르: 순례자의 탑』 7층 죽음의 벌판 4등급 보스, 거인 궁수(Colossus Bowman) 실전 공략 가이드입니다.",
     "phases": [
       {
-        "phaseTitle": "핵심 스킬 패턴 및 대처법",
-        "phaseNote": "정면 공격은 패링으로 넘기고, 특수 위험 패턴은 CC기로 끊거나 범위를 벗어나라.",
-        "patterns": [
-          {
-            "name": "거인 화살",
-            "tag": "dodge",
-            "tagText": "원거리 패링 or 가드",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "분쇄 사격",
-            "tag": "dodge",
-            "tagText": "원거리 패링 or 가드",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "거인 화살비",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "지속 도트 장판 무빙 회피"
-          }
-        ],
-        "parryGuide": "💡 투사체랑 평타 모션이 훤히 보이는 패턴들이다. 칼같이 패링 넣어서 보스 자세 무너뜨리고 딜 사이클 빡빡하게 돌려라."
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "거인 화살비 (Colossal Volley) : 머리 위로 떨어지는 대규모 화살 장판, 바닥 범위 보고 이탈"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "거인 화살 (Giant Shot) : 묵직하게 날아오는 단발 거인 화살, 쳐내기 패링"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": []
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": [
+          "분쇄 사격 (Crushing Shot) : 방어력 파쇄 디버프 유발"
+        ]
       }
-    ],
-    "youtubeId": "",
-    "views": 0,
-    "likes": 0,
-    "image": "./assets/monsters/colossus_bowman.png"
+    ]
   },
   {
     "id": "grave_knight",
@@ -2858,49 +2846,37 @@ const POSTS_DATA = [
   },
   {
     "id": "spectral_marksman",
-    "num": 38,
-    "floor": "7",
-    "type": "boss",
+    "name": "원귀 사수",
+    "floor": "7층",
     "grade": "4등급",
-    "baseViews": 0,
-    "baseLikes": 0,
-    "title": "[7층 4등급] 원귀 사수 실전 공략",
-    "monsterName": "원귀 사수",
-    "subName": "spectral_marksman",
-    "date": "2026.08.25",
-    "armorEnchant": "암흑",
-    "intro": "7층 필드에서 파티원들 깜짝 킬 내기로 악명 높은 4등급 몹이다. 공격 템포만 눈에 익히면 패링 치기 매우 정직하니까 약점 속성 바르고 딜찍누해라.",
+    "category": "7층 (서리 묘역)",
+    "image": "./assets/monsters/spectral_marksman.png",
+    "youtubeId": "Ixvmb29TuQk",
+    "intro": "『브리미르: 순례자의 탑』 7층 서리 묘역 4등급 보스, 원귀 사수(Spectral Marksman) 실전 공략 가이드입니다.",
     "phases": [
       {
-        "phaseTitle": "핵심 스킬 패턴 및 대처법",
-        "phaseNote": "정면 공격은 패링으로 넘기고, 특수 위험 패턴은 CC기로 끊거나 범위를 벗어나라.",
-        "patterns": [
-          {
-            "name": "관통 화살",
-            "tag": "dodge",
-            "tagText": "원거리 패링 or 가드",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "원귀 연사",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "투사체 타이밍 패링 (패링 가능)"
-          },
-          {
-            "name": "파열탄",
-            "tag": "parry",
-            "tagText": "원거리 패링 or 가드",
-            "desc": "투사체 타이밍 패링 (패링 가능)"
-          }
-        ],
-        "parryGuide": "💡 연속으로 들어오는 타격기들인데 템포 맞춰 탁탁 쳐내면 된다. 패링 성공하면 공격 완벽하게 무효화되니 딜 손실 없이 몰아쳐라."
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "원귀 연사 (Spectral Barrage) : 쏟아지는 연속 유령 화살, 이동하며 교전 컨트롤 회피"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "관통 화살 (Piercing Arrow) : 직선 궤적 단발 저격, 날아오는 순간 패링"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": []
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": [
+          "파열탄 (Armor Break Shot) : 방어력 감소 디버프 유발"
+        ]
       }
-    ],
-    "youtubeId": "",
-    "views": 0,
-    "likes": 0,
-    "image": "./assets/monsters/spectral_marksman.png"
+    ]
   },
   {
     "id": "chaos_seaman",
@@ -4245,61 +4221,39 @@ const POSTS_DATA = [
   },
   {
     "id": "magma_lord",
-    "num": 16,
-    "floor": "6",
-    "type": "elite",
+    "name": "용암 우두머리",
+    "floor": "6층",
     "grade": "4등급",
-    "baseViews": 0,
-    "baseLikes": 0,
-    "title": "[6층 4등급] 용암 우두머리 실전 공략",
-    "monsterName": "용암 우두머리",
-    "subName": "magma_lord",
-    "date": "2026.08.25",
-    "armorEnchant": "화염",
-    "intro": "6층 던전 공략할 때 스펙 체크용으로 자주 마주치는 4등급 정예다. 쓸데없이 장기전 끌지 말고 약점 인챈트 극딜로 쉴드 깨고 빠르게 녹여라.",
+    "category": "6층 (비취의 바다)",
+    "image": "./assets/monsters/magma_lord.png",
+    "youtubeId": "2psquuUEzzQ",
+    "intro": "『브리미르: 순례자의 탑』 6층 화염 4등급 보스, 용암 우두머리(Magma Lord) 실전 공략 가이드입니다.",
     "phases": [
       {
-        "phaseTitle": "핵심 스킬 패턴 및 대처법",
-        "phaseNote": "정면 공격은 패링으로 넘기고, 특수 위험 패턴은 CC기로 끊거나 범위를 벗어나라.",
-        "patterns": [
-          {
-            "name": "분화",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "지속 도트 장판 무빙 회피"
-          },
-          {
-            "name": "용암 강타",
-            "tag": "parry",
-            "tagText": "패링 가능",
-            "desc": "근접타격 타이밍 패링 (패링 가능)"
-          },
-          {
-            "name": "화염 브레스",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "지속 도트 장판 무빙 회피"
-          },
-          {
-            "name": "용암 분출",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "용암 전사 소환",
-            "tag": "buff",
-            "tagText": "★ 무조건 CC기 캔슬 필수",
-            "desc": "버프 적 버프 스킬"
-          }
-        ],
-        "parryGuide": "💡 무식하게 정면으로 밀고 들어오는 공격들이다. 당황하지 말고 칼 내려찍히는 타이밍에 패링 딱 맞춰서 튕겨내고 역공 박아라."
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "분화 (Magma Eruption) : 바닥에서 솟구치는 용암 폭발, 즉시 이동하여 이탈",
+          "화염 브레스 (Fire Breath) : 전방 부채꼴 광역 화염 방사",
+          "용암 분출 (Lava Burst) : 불꽃 파편 다수 분출"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "용암 강타 (Lava Slam) : 정면으로 내려찍는 근접 강타, 전조 확인 후 타이밍 패링"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": [
+          "용암 전사 소환 (Magma Warrior Summon) : 쫄 소환 시 즉시 스턴/CC기로 차단"
+        ]
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": []
       }
-    ],
-    "youtubeId": "",
-    "views": 0,
-    "likes": 0,
-    "image": "./assets/monsters/magma_lord.png"
+    ]
   },
   {
     "id": "drowned_queen",
@@ -4859,147 +4813,45 @@ const POSTS_DATA = [
   },
   {
     "id": "doppelganger",
-    "num": 5,
-    "floor": "4",
-    "type": "boss",
-    "grade": "4등급",
-    "baseViews": 0,
-    "baseLikes": 0,
-    "title": "[4층 4등급] 도플갱어 실전 공략",
-    "monsterName": "도플갱어",
-    "subName": "doppelganger",
-    "date": "2026.08.25",
-    "armorEnchant": "암흑",
-    "intro": "4층에서 만나면 은근히 성가신 4등급 몬스터다. 특유의 위험 기믹만 침착하게 대처하고 일반 공격은 방패로 받아치면서 공략하면 무난하게 잡힌다.",
+    "name": "도플갱어",
+    "floor": "4층",
+    "grade": "4등급 (수호자)",
+    "category": "4층 (거울 미로)",
+    "image": "./assets/monsters/doppelganger.png",
+    "youtubeId": "G3X8tm3v_CE",
+    "intro": "『브리미르: 순례자의 탑』 4층 거울 미로 수호자 보스, 도플갱어(Doppelganger) 실전 공략 가이드입니다.",
     "phases": [
       {
-        "phaseTitle": "1페이즈 [의태]",
-        "patterns": [
-          {
-            "name": "베끼기 일격",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "그림자 돌진",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "분신 난타",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "정체 마탄",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          }
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "베낀 낙뢰 — 낙뢰 폭풍 (Mirror Thunder) : 전장 전역에 떨어지는 번개 폭풍 회피",
+          "정체 상흔 (Identity Rift) : 바닥에 생성되는 균열 장판"
         ]
       },
       {
-        "phaseTitle": "2페이즈 [바꿔치기]",
-        "patterns": [
-          {
-            "name": "베끼기 일격",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "분신 난타",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "정체 마탄",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "그림자 돌진",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "*베낀 낙뢰 — 낙뢰 폭풍",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "*결정화",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "*정체 상흔",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          }
+        "phase": "2. 패링",
+        "details": [
+          "베끼기 일격 (Mirror Swing) : 전방 베기 공격",
+          "그림자 돌진 (Mirror Charge) : 플레이어를 향한 순간 돌진",
+          "분신 난타 (Mirror Strike) : 분신과 함께 날리는 연속 타격",
+          "정체 마탄 (Mirror Bolt) : 날아오는 단발 마력탄",
+          "바꿔치기 (Mirror Swap) : 분신과 위치 교환 기습"
         ]
       },
       {
-        "phaseTitle": "3페이즈 [광폭화]",
-        "patterns": [
-          {
-            "name": "*광태 폭주",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "분신 난타",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "베끼기 일격",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "정체 마탄",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "베낀 낙뢰 — 낙뢰 폭풍",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "결정화",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          },
-          {
-            "name": "정체 상흔",
-            "tag": "dodge",
-            "tagText": "패링 가능",
-            "desc": "광역기 무빙 회피 or CC기로 끊기"
-          }
+        "phase": "3. cc기로 무조건 끊기",
+        "details": [
+          "의태 — 너희를 베껴낸다 (Mirror Summon) : 파티원 분신 복제 소환 시 즉시 CC 차단",
+          "결정화 (Crystallize) : 플레이어 행동 불능 봉인 시전 차단"
+        ]
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": [
+          "광태 폭주 (Doppel Frenzy) : 광폭화 돌입 버프"
         ]
       }
-    ],
-    "youtubeId": "",
-    "views": 0,
-    "likes": 0,
-    "image": "./assets/monsters/doppelganger.png"
+    ]
   },
   {
     "id": "kalpion",
@@ -5552,6 +5404,116 @@ const POSTS_DATA = [
             "desc": "초재생 버프 시전. 신성 공격 또는 CC기로 차단."
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "rakzar",
+    "name": "작열의 그로칸",
+    "floor": "4층",
+    "grade": "5등급 (수호자)",
+    "category": "4층 (균형의 성역)",
+    "image": "./assets/monsters/rakzar.png",
+    "youtubeId": "Cmy4QX9sS64",
+    "intro": "『브리미르: 순례자의 탑』 4층 균형의 성역 수호자 보스, 작열의 그로칸(Rakzar) 실전 공략 가이드입니다.",
+    "phases": [
+      {
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "지옥불 파동 (Flame Wave) : 퍼져나가는 화염 파동, 거리 조절 회피",
+          "짓밟기 (Bull Trample) : 바닥 광역 짓밟기 충격파",
+          "지옥불 분쇄 (Flame Smash Aoe) : 제자리 광역 분쇄 폭발",
+          "지옥불 작렬 (Flame Burst) : 단일 대상 강력한 폭발"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "뿔 들이받기 (Gore Charge) : 정면 돌진 공격, 돌진 타이밍 저스트 패링",
+          "뿔 연타 (Horn Gore) : 전방 연속 뿔 찌르기 연타"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": []
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": [
+          "사슬 풀림 (Berserk Stance) : 광폭 자세 돌입 및 공속/피해 급증"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "himar",
+    "name": "결빙의 히마르",
+    "floor": "5층",
+    "grade": "5등급 (수호자)",
+    "category": "5층 (결빙의 성소)",
+    "image": "./assets/monsters/himar.png",
+    "youtubeId": "YLcu1cW764I",
+    "intro": "『브리미르: 순례자의 탑』 5층 결빙의 성소 수호자 보스, 결빙의 히마르(Himar) 실전 공략 가이드입니다.",
+    "phases": [
+      {
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "얼음 분쇄 (Ice Smash Aoe) : 거대 얼음 분쇄 광역 폭발",
+          "빙쇄 (Frost Shatter) : 서리 파열 광역 공격",
+          "빙관 봉인 (Ice Coffin) : 대상 봉인 및 속박"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "서리 휘두르기 (Frost Swing) : 전방 냉기 무기 휘두르기",
+          "빙결 돌진 (Frost Charge) : 서릿발 몸체 돌진",
+          "서리 창 (Frost Lance) : 날아오는 단발 서리 창 저격"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": [
+          "서리 소환 (Frost Summon) : 서리 쫄 소환 캐스팅 시 즉시 CC 차단"
+        ]
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": [
+          "절대영도 (Frost Frenzy) : 광폭화 돌입 및 광역 난사 가속"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "argos",
+    "name": "백안의 셀리안",
+    "floor": "4층",
+    "grade": "5등급 (수호자)",
+    "category": "4층 (균형의 성역)",
+    "image": "./assets/monsters/argos.png",
+    "youtubeId": "HibaKd3OS14",
+    "intro": "『브리미르: 순례자의 탑』 4층 균형의 성역 수호자 보스, 백안의 셀리안(Argos) 실전 공략 가이드입니다.",
+    "phases": [
+      {
+        "phase": "1. cc기로 끊거나 교전컨트롤로 회피해야됨",
+        "details": [
+          "저주 폭발 (Curse Burst) : 시전자 주변 광역 저주 폭발"
+        ]
+      },
+      {
+        "phase": "2. 패링",
+        "details": [
+          "암흑 화살 (Shadow Bolt) : 날아오는 암흑 투사체 타이밍 패링"
+        ]
+      },
+      {
+        "phase": "3. cc기로 무조건 끊기",
+        "details": []
+      },
+      {
+        "phase": "4. 버프 및 디버프",
+        "details": []
       }
     ]
   }
