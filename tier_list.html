@@ -243,7 +243,103 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%; border: 0;
     }
-  </style>
+  
+    .edit-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .edit-desc {
+      font-size: 13px;
+      color: #8b949e;
+    }
+    .edit-btn {
+      background: #238636;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .edit-btn:hover {
+      background: #2ea043;
+      transform: translateY(-1px);
+    }
+    .edit-btn.reset-btn {
+      background: #21262d;
+      color: #c9d1d9;
+      border-color: #30363d;
+    }
+    .edit-btn.reset-btn:hover {
+      background: #30363d;
+      color: #fff;
+    }
+    .m-card {
+      cursor: grab;
+      position: relative;
+      user-select: none;
+    }
+    .m-card:active {
+      cursor: grabbing;
+    }
+    .m-card.dragging {
+      opacity: 0.4;
+      border-color: #58a6ff;
+      transform: scale(0.95);
+    }
+    .tier-items.drag-over {
+      background: rgba(88, 166, 255, 0.08);
+      border: 2px dashed #58a6ff;
+      border-radius: 6px;
+    }
+    .card-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px solid #21262d;
+    }
+    .arr-btn {
+      background: #21262d;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      font-size: 11px;
+      padding: 2px 6px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .arr-btn:hover {
+      background: #388bfd;
+      color: #fff;
+      border-color: #58a6ff;
+    }
+    .tier-move-sel {
+      background: #161b22;
+      color: #58a6ff;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 2px;
+      cursor: pointer;
+    }
+</style>
 </head>
 <body>
 
@@ -626,6 +722,7 @@
   ]
 };
 
+    
     const TIER_HEADERS = {
       'S': { label: 'S', sub: '최상급 난이도 (전멸 주의)' },
       'A': { label: 'A', sub: '상급 난이도 (위험 패턴)' },
@@ -633,12 +730,82 @@
       'C': { label: 'C', sub: '수월한 난이도' }
     };
 
+    const STORAGE_KEY = 'brimir_g4_tier_order_v3';
+    let currentTiers = JSON.parse(JSON.stringify(TIER_DATA));
+
+    function loadSavedTiers() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // Verify and merge
+          const existingIds = new Set();
+          ['S', 'A', 'B', 'C'].forEach(k => {
+            if (Array.isArray(parsed[k])) {
+              parsed[k].forEach(m => existingIds.add(m.id));
+            }
+          });
+          // Add any new monsters not in saved
+          ['S', 'A', 'B', 'C'].forEach(k => {
+            TIER_DATA[k].forEach(m => {
+              if (!existingIds.has(m.id)) {
+                if (!parsed['C']) parsed['C'] = [];
+                parsed['C'].push(m);
+                existingIds.add(m.id);
+              }
+            });
+          });
+          currentTiers = parsed;
+        }
+      } catch (e) {
+        console.error('Failed to load saved tiers', e);
+      }
+    }
+
+    function saveCurrentTiers() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentTiers));
+      } catch (e) {}
+    }
+
+    function resetTierOrder() {
+      if (confirm('기본 난이도 순서로 초기화하시겠습니까?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        currentTiers = JSON.parse(JSON.stringify(TIER_DATA));
+        renderTierMatrix();
+      }
+    }
+
+    function moveMonster(tierKey, index, direction) {
+      const list = currentTiers[tierKey];
+      const targetIndex = index + direction;
+      if (targetIndex < 0 || targetIndex >= list.length) return;
+      const temp = list[index];
+      list[index] = list[targetIndex];
+      list[targetIndex] = temp;
+      saveCurrentTiers();
+      renderTierMatrix();
+    }
+
+    function changeMonsterTier(fromTier, index, toTier) {
+      if (fromTier === toTier) return;
+      const [item] = currentTiers[fromTier].splice(index, 1);
+      if (!currentTiers[toTier]) currentTiers[toTier] = [];
+      currentTiers[toTier].push(item);
+      saveCurrentTiers();
+      renderTierMatrix();
+    }
+
+    let draggedItem = null;
+    let draggedFromTier = null;
+    let draggedFromIndex = null;
+
     function renderTierMatrix() {
       const matrix = document.getElementById('tierMatrix');
       matrix.innerHTML = '';
 
       ['S', 'A', 'B', 'C'].forEach(tierKey => {
-        const list = TIER_DATA[tierKey] || [];
+        const list = currentTiers[tierKey] || [];
         const info = TIER_HEADERS[tierKey];
 
         const row = document.createElement('section');
@@ -649,27 +816,113 @@
         head.innerHTML = `
           <div class="tier-letter">${info.label}</div>
           <div class="tier-sub">${info.sub}</div>
+          <div style="font-size:11px; color:#8b949e; margin-top:4px;">(${list.length}마리)</div>
         `;
 
         const itemsZone = document.createElement('div');
         itemsZone.className = 'tier-items';
+        itemsZone.dataset.tier = tierKey;
 
-        list.forEach(m => {
+        // Drop zone handlers for container
+        itemsZone.addEventListener('dragover', e => {
+          e.preventDefault();
+          itemsZone.classList.add('drag-over');
+        });
+        itemsZone.addEventListener('dragleave', () => {
+          itemsZone.classList.remove('drag-over');
+        });
+        itemsZone.addEventListener('drop', e => {
+          e.preventDefault();
+          itemsZone.classList.remove('drag-over');
+          if (!draggedItem) return;
+
+          if (draggedFromTier === tierKey) {
+            // Reordering inside same tier
+            const cards = Array.from(itemsZone.querySelectorAll('.m-card:not(.dragging)'));
+            let dropIndex = list.length;
+            for (let i = 0; i < cards.length; i++) {
+              const rect = cards[i].getBoundingClientRect();
+              if (e.clientX < rect.left + rect.width / 2) {
+                dropIndex = i;
+                break;
+              }
+            }
+            list.splice(draggedFromIndex, 1);
+            if (dropIndex > draggedFromIndex) dropIndex--;
+            list.splice(dropIndex, 0, draggedItem);
+          } else {
+            // Moving across tiers
+            currentTiers[draggedFromTier].splice(draggedFromIndex, 1);
+            list.push(draggedItem);
+          }
+
+          saveCurrentTiers();
+          renderTierMatrix();
+        });
+
+        list.forEach((m, idx) => {
           const card = document.createElement('div');
           card.className = 'm-card';
+          card.draggable = true;
+          card.dataset.id = m.id;
+          card.dataset.index = idx;
+
           card.innerHTML = `
-            ${m.youtubeId ? '<span class="video-badge">🎬 영상</span>' : ''}
+            ${m.youtubeId ? '<span class="video-badge" title="클릭 시 유튜브 공략 영상 재생">🎬 영상</span>' : ''}
             <img src="${m.image}" alt="${m.name}" class="m-thumb" loading="lazy">
             <div class="m-name" title="${m.name}">${m.name}</div>
             <div class="m-meta">${m.floor} · ${m.grade}</div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <button class="arr-btn" title="왼쪽으로 이동" onclick="moveMonster('${tierKey}', ${idx}, -1)">◀</button>
+              <select class="tier-move-sel" onchange="changeMonsterTier('${tierKey}', ${idx}, this.value)" title="티어 변경">
+                ${['S', 'A', 'B', 'C'].map(t => `<option value="${t}" ${t === tierKey ? 'selected' : ''}>${t}</option>`).join('')}
+              </select>
+              <button class="arr-btn" title="오른쪽으로 이동" onclick="moveMonster('${tierKey}', ${idx}, 1)">▶</button>
+            </div>
           `;
-          card.addEventListener('click', () => openModal(m));
+
+          // Drag events
+          card.addEventListener('dragstart', e => {
+            draggedItem = m;
+            draggedFromTier = tierKey;
+            draggedFromIndex = idx;
+            card.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+          });
+          card.addEventListener('dragend', () => {
+            card.classList.remove('dragging');
+            draggedItem = null;
+            draggedFromTier = null;
+            draggedFromIndex = null;
+          });
+
+          // Click modal
+          card.addEventListener('click', e => {
+            if (e.target.closest('.card-actions')) return;
+            openModal(m);
+          });
+
           itemsZone.appendChild(card);
         });
 
         row.appendChild(head);
         row.appendChild(itemsZone);
         matrix.appendChild(row);
+      });
+    }
+
+    function copyTierResult() {
+      let text = '=== ⚔️ 브리미르 [4등급 몬스터] 난이도 순서 최종 결과 ===\n\n';
+      ['S', 'A', 'B', 'C'].forEach(k => {
+        const list = currentTiers[k] || [];
+        const names = list.map(m => m.name).join(' > ');
+        text += `【${k} 티어】 (${list.length}마리)\n${names || '(없음)'}\n\n`;
+      });
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert('📋 현재 티어 순서가 클립보드에 복사되었습니다! 채팅창에 바로 붙여넣어(Ctrl+V) 주세요.');
+      }).catch(() => {
+        prompt('아래 텍스트를 복사하세요:', text);
       });
     }
 
@@ -713,7 +966,9 @@
       }
     }
 
+    loadSavedTiers();
     renderTierMatrix();
   </script>
+
 </body>
 </html>
