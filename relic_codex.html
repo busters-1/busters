@@ -447,6 +447,148 @@
     background: rgba(254, 229, 0, 0.1);
   }
 
+
+/* Relic Codex Mobile Optimization */
+
+  @media (max-width: 768px) {
+    body {
+      padding: 6px 8px 60px 8px !important;
+      font-size: 12px !important;
+    }
+
+    .header-container {
+      padding: 6px 8px !important;
+      margin-bottom: 6px !important;
+      gap: 4px !important;
+      border-radius: 6px !important;
+    }
+    .header-title h1 {
+      font-size: 14px !important;
+      gap: 4px !important;
+    }
+    .header-title p {
+      display: none !important;
+    }
+    
+    .nav-tabs {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-tab {
+      padding: 5px 9px !important;
+      font-size: 11px !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+    }
+    .nav-divider {
+      display: none !important;
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .rc-wrapper {
+      padding: 0 !important;
+    }
+    .rc-sub-bar {
+      padding: 6px 8px !important;
+      margin-bottom: 6px !important;
+      gap: 6px !important;
+    }
+    .rc-view-switcher {
+      width: 100% !important;
+      display: flex !important;
+    }
+    .rc-view-btn {
+      flex: 1 !important;
+      padding: 6px 8px !important;
+      font-size: 11.5px !important;
+      text-align: center !important;
+      justify-content: center !important;
+    }
+    .rc-count-pill {
+      font-size: 10.5px !important;
+      padding: 3px 8px !important;
+      margin-left: auto !important;
+    }
+
+    .rc-filter-panel {
+      padding: 8px !important;
+      margin-bottom: 8px !important;
+      gap: 6px !important;
+    }
+    .rc-search-input {
+      padding: 7px 10px !important;
+      font-size: 12px !important;
+      width: 100% !important;
+    }
+    .rc-filter-row1, .rc-filter-row2 {
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    .rc-btn-group {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 3px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .rc-btn-group::-webkit-scrollbar {
+      display: none;
+    }
+    .rc-f-btn {
+      padding: 4px 8px !important;
+      font-size: 11px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .rc-grid {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+    }
+    .rc-card {
+      padding: 10px 12px !important;
+    }
+    .rc-card-name {
+      font-size: 13.5px !important;
+    }
+    .rc-card-desc {
+      font-size: 11.5px !important;
+      line-height: 1.4 !important;
+    }
+
+    .rc-table-head {
+      display: none !important;
+    }
+    .rc-scar-row {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+      padding: 10px 12px !important;
+    }
+    .rc-chip {
+      padding: 4px 8px !important;
+      font-size: 11px !important;
+    }
+
+    .rc-modal-box {
+      width: 94% !important;
+      max-height: 90vh !important;
+      padding: 16px !important;
+    }
+  }
+
 </style>
 </head>
 <body>

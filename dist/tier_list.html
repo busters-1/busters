@@ -294,6 +294,102 @@
     background: rgba(254, 229, 0, 0.1);
   }
 
+
+/* Tier List Mobile Optimization */
+
+  @media (max-width: 768px) {
+    body {
+      padding: 6px 8px 60px 8px !important;
+      font-size: 12px !important;
+    }
+
+    .header-container {
+      padding: 6px 8px !important;
+      margin-bottom: 6px !important;
+      gap: 4px !important;
+      border-radius: 6px !important;
+    }
+    .header-title h1 {
+      font-size: 14px !important;
+      gap: 4px !important;
+    }
+    .header-title p {
+      display: none !important;
+    }
+    
+    .nav-tabs {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-tab {
+      padding: 5px 9px !important;
+      font-size: 11px !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+    }
+    .nav-divider {
+      display: none !important;
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .tier-container {
+      padding: 0 !important;
+    }
+    .tier-row {
+      flex-direction: column !important;
+      border-radius: 8px !important;
+      margin-bottom: 8px !important;
+      overflow: hidden !important;
+    }
+    .tier-badge {
+      width: 100% !important;
+      min-width: auto !important;
+      height: 32px !important;
+      font-size: 14px !important;
+      padding: 4px !important;
+    }
+    .tier-items-zone {
+      grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)) !important;
+      gap: 6px !important;
+      padding: 8px !important;
+    }
+    .monster-card {
+      padding: 6px !important;
+      gap: 6px !important;
+    }
+    .monster-thumb {
+      width: 48px !important;
+      height: 48px !important;
+    }
+    .monster-name {
+      font-size: 12px !important;
+    }
+    .monster-sub {
+      font-size: 10px !important;
+    }
+    .video-play-badge {
+      font-size: 9.5px !important;
+      padding: 2px 5px !important;
+    }
+
+    .modal-box {
+      width: 94% !important;
+      max-height: 90vh !important;
+      padding: 14px !important;
+    }
+  }
+
 </style>
 </head>
 <body>
