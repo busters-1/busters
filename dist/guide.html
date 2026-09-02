@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>브리미르 버스터즈 이용 가이드 — 룬 도감 · 몬스터 공략 · 신해 일지 완벽 사용법</title>
-  <meta name="description" content="브리미르: 순례자의 탑 402종 룬 도감, 60종 몬스터 실전 공략, 29종 공식 유튜브 영상, 신해 일지 10일 주기 탐험 플래너 완벽 사용 가이드.">
+  <title>브리미르 버스터즈 이용 가이드 — 룬 도감 · 신물 도감 · 티어표 · 신해 일지 완벽 사용법</title>
+  <meta name="description" content="브리미르: 심장으로의 순례 404종 룬 도감, 83종 신물 도감, 37마리 몬스터 티어표, 신해 일지 완벽 사용법 종합 백과.">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -12,6 +12,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
+
+  <meta name="google-site-verification" content="y2N4xB7RLz6-X3AV3GDWeCrG1f50ip0C1kZVhd6aJIQ" />
+  <!-- Vercel Web Analytics & Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 
   <style>
     :root {
@@ -58,7 +63,6 @@
       margin-bottom: 20px;
       flex-wrap: wrap;
       gap: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     .header-title h1 {
       font-size: 20px;
@@ -67,466 +71,291 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      letter-spacing: -0.5px;
     }
     .header-title p {
       color: var(--text-muted);
       font-size: 12px;
-      margin-top: 4px;
+      margin-top: 2px;
     }
-    .header-nav {
+    .nav-tabs {
       display: flex;
+      align-items: center;
       gap: 8px;
       flex-wrap: wrap;
     }
-    .nav-btn {
+    .nav-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+      margin: 0 4px;
+    }
+    .nav-tab {
       background: #21262d;
       color: var(--text-main);
-      border: 1px solid var(--border-color);
-      padding: 6px 14px;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
       border-radius: 6px;
       font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+      display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.15s ease;
     }
-    .nav-btn:hover {
-      background: #30363d;
-      color: var(--text-bright);
-      border-color: #8b949e;
-      transform: translateY(-1px);
-    }
-    .nav-btn.active {
-      background: rgba(88, 166, 255, 0.15);
+    .nav-tab:hover {
       border-color: var(--accent-blue);
-      color: var(--accent-blue);
+      color: var(--text-bright);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, #1f6feb, #238636);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .nav-tab.ext-link {
+      font-size: 12px;
+      padding: 7px 12px;
+      background: #161b22;
+    }
+    .nav-tab.ext-link.steam:hover {
+      border-color: #66c0f4;
+      color: #66c0f4;
+      background: rgba(102, 192, 244, 0.1);
+    }
+    .nav-tab.ext-link.stats:hover {
+      border-color: #58a6ff;
+      color: #58a6ff;
+      background: rgba(88, 166, 255, 0.1);
+    }
+    .nav-tab.ext-link.kakao:hover {
+      border-color: #fee500;
+      color: #fee500;
+      background: rgba(254, 229, 0, 0.1);
     }
 
-    /* Main Grid Layout */
-    .guide-layout {
+    /* Guide Layout */
+    .guide-hero {
+      background: linear-gradient(135deg, rgba(31, 111, 235, 0.15), rgba(35, 134, 54, 0.15));
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .guide-hero h2 {
+      font-size: 22px;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+    }
+    .guide-hero p {
+      color: var(--text-main);
+      font-size: 14px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .guide-grid {
       display: grid;
-      grid-template-columns: 240px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 24px;
       align-items: start;
     }
 
-    /* Sidebar Sticky Navigation */
-    .guide-sidebar {
+    /* Sidebar TOC */
+    .guide-toc {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 16px;
       position: sticky;
       top: 16px;
-      max-height: calc(100vh - 32px);
-      overflow-y: auto;
     }
-    .guide-sidebar h3 {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .guide-toc h3 {
+      font-size: 14px;
+      color: var(--text-bright);
       margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .sidebar-menu {
+    .toc-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
-    .sidebar-menu a {
+    .toc-link {
       color: var(--text-main);
       text-decoration: none;
       font-size: 13px;
-      font-weight: 500;
-      padding: 8px 10px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.15s;
-    }
-    .sidebar-menu a:hover {
-      background: #21262d;
-      color: var(--text-bright);
-      padding-left: 14px;
-    }
-    .sidebar-menu a.active {
-      background: rgba(88, 166, 255, 0.12);
-      color: var(--accent-blue);
-      font-weight: 700;
-      border-left: 3px solid var(--accent-blue);
-    }
-    .sidebar-badge {
-      background: rgba(242, 204, 96, 0.15);
-      color: var(--accent-gold);
-      font-size: 10px;
-      padding: 2px 6px;
+      padding: 6px 10px;
       border-radius: 4px;
-      font-weight: 700;
-      margin-left: auto;
+      transition: all 0.15s;
+      display: block;
+    }
+    .toc-link:hover {
+      background: #21262d;
+      color: var(--accent-blue);
     }
 
-    /* Content Area */
+    /* Guide Content */
     .guide-content {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 24px;
     }
+
     .guide-section {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 24px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .guide-section h2 {
-      font-size: 20px;
+      font-size: 18px;
       color: var(--text-bright);
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border-color);
-    }
-    .guide-section h3 {
-      font-size: 16px;
-      color: var(--text-bright);
-      margin: 20px 0 10px 0;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .guide-section p {
-      margin-bottom: 12px;
-      color: #b1bac4;
-      line-height: 1.7;
-    }
-
-    /* Quick Start 3-Step Cards */
-    .quick-start-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin: 16px 0;
-    }
-    .quick-card {
-      background: #0d1117;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      padding: 16px;
-      position: relative;
-      transition: all 0.2s;
-    }
-    .quick-card:hover {
-      border-color: var(--accent-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(88, 166, 255, 0.1);
-    }
-    .quick-card-num {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 24px;
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.08);
-      font-family: monospace;
-    }
-    .quick-card-title {
+    .guide-section h3 {
       font-size: 15px;
-      font-weight: 700;
-      color: var(--accent-gold);
-      margin-bottom: 8px;
+      color: var(--accent-blue);
+      margin: 18px 0 8px 0;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .quick-card-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
+    .guide-section p {
+      margin-bottom: 12px;
+      color: var(--text-main);
+      line-height: 1.65;
     }
 
-    /* Feature Grid / Cards */
-    .feature-box {
-      background: #0d1117;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      padding: 16px;
-      margin: 12px 0;
+    .feature-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
     }
-    .feature-box h4 {
-      font-size: 14px;
-      color: var(--accent-blue);
+    .feature-card {
+      background: #0d1117;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .feature-card h4 {
+      font-size: 13.5px;
+      color: var(--text-bright);
       margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-
-    /* Badges & Highlights */
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 4px;
-    }
-    .badge-gold { background: rgba(242, 204, 96, 0.15); color: var(--accent-gold); border: 1px solid rgba(242, 204, 96, 0.3); }
-    .badge-blue { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border: 1px solid rgba(88, 166, 255, 0.3); }
-    .badge-green { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); border: 1px solid rgba(63, 185, 80, 0.3); }
-    .badge-red { background: rgba(255, 123, 114, 0.15); color: var(--accent-red); border: 1px solid rgba(255, 123, 114, 0.3); }
-
-    /* Tables */
-    .guide-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 13px;
-    }
-    .guide-table th, .guide-table td {
-      padding: 10px 14px;
-      border: 1px solid var(--border-color);
-      text-align: left;
-    }
-    .guide-table th {
-      background: #21262d;
-      color: var(--text-bright);
-      font-weight: 700;
-    }
-    .guide-table tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.02);
+    .feature-card p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
     }
 
-    /* Callout Alert Box */
-    .alert-box {
+    .tip-box {
       background: rgba(88, 166, 255, 0.08);
-      border-left: 4px solid var(--accent-blue);
-      border-radius: 0 6px 6px 0;
+      border-left: 3px solid var(--accent-blue);
       padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
       margin: 14px 0;
       font-size: 13px;
     }
-    .alert-box.tip {
-      background: rgba(63, 185, 80, 0.08);
-      border-left-color: var(--accent-green);
+    .tip-box strong { color: var(--accent-blue); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
     }
-    .alert-box.warn {
-      background: rgba(242, 204, 96, 0.08);
-      border-left-color: var(--accent-gold);
+    .badge-gold { background: rgba(242, 204, 96, 0.15); color: #f2cc60; border: 1px solid rgba(242, 204, 96, 0.3); }
+    .badge-purple { background: rgba(188, 140, 255, 0.15); color: #bc8cff; border: 1px solid rgba(188, 140, 255, 0.3); }
+    .badge-cyan { background: rgba(57, 197, 187, 0.15); color: #39c5bb; border: 1px solid rgba(57, 197, 187, 0.3); }
+
+    kbd {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--text-bright);
     }
 
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      padding: 24px 0;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-    footer a {
-      color: var(--accent-blue);
-      text-decoration: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .guide-layout {
-        grid-template-columns: 1fr;
+    /* Mobile Responsive Optimization */
+    @media (max-width: 768px) {
+      body {
+        padding: 6px 8px 60px 8px !important;
+        font-size: 12px !important;
       }
-      .guide-sidebar {
-        position: relative;
-        top: 0;
-        max-height: none;
+      .header-container {
+        padding: 6px 8px !important;
+        margin-bottom: 6px !important;
+        gap: 4px !important;
+        border-radius: 6px !important;
+      }
+      .header-title h1 { font-size: 14px !important; gap: 4px !important; }
+      .header-title p { display: none !important; }
+      
+      .nav-tabs {
+        width: 100% !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+        padding-bottom: 2px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-tabs::-webkit-scrollbar { display: none; }
+      .nav-tab {
+        padding: 5px 9px !important;
+        font-size: 11px !important;
+        flex-shrink: 0 !important;
+        border-radius: 4px !important;
+      }
+      .nav-divider { display: none !important; }
+
+      .guide-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .guide-toc {
+        display: none !important;
+      }
+      .guide-section {
+        padding: 14px !important;
       }
     }
-  
-  /* Unified Global Header Container */
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 14px 20px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .header-title h1 {
-    font-size: 20px;
-    color: #f0f6fc;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
-  }
-  .header-title p {
-    color: #8b949e;
-    font-size: 12px;
-    margin-top: 2px;
-    margin-bottom: 0;
-  }
-  .nav-tabs {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .nav-divider {
-    width: 1px;
-    height: 22px;
-    background: #30363d;
-    margin: 0 4px;
-  }
-  .nav-tab {
-    background: #21262d;
-    color: #c9d1d9;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    border: 1px solid #30363d;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-tab:hover {
-    border-color: #58a6ff;
-    color: #f0f6fc;
-  }
-  .nav-tab.active {
-    background: linear-gradient(135deg, #1f6feb, #238636);
-    color: #ffffff;
-    border-color: rgba(255,255,255,0.2);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
-  .nav-tab.ext-link {
-    font-size: 12px;
-    padding: 7px 12px;
-    background: #161b22;
-  }
-  .nav-tab.ext-link.steam:hover {
-    border-color: #66c0f4;
-    color: #66c0f4;
-    background: rgba(102, 192, 244, 0.1);
-  }
-  .nav-tab.ext-link.stats:hover {
-    border-color: #58a6ff;
-    color: #58a6ff;
-    background: rgba(88, 166, 255, 0.1);
-  }
-  .nav-tab.ext-link.kakao:hover {
-    border-color: #fee500;
-    color: #fee500;
-    background: rgba(254, 229, 0, 0.1);
-  }
-
-
-/* Common Mobile Optimization */
-
-  @media (max-width: 768px) {
-    body {
-      padding: 6px 8px 60px 8px !important;
-      font-size: 12px !important;
-    }
-
-    .header-container {
-      padding: 6px 8px !important;
-      margin-bottom: 6px !important;
-      gap: 4px !important;
-      border-radius: 6px !important;
-    }
-    .header-title h1 {
-      font-size: 14px !important;
-      gap: 4px !important;
-    }
-    .header-title p {
-      display: none !important;
-    }
-    
-    .nav-tabs {
-      width: 100% !important;
-      overflow-x: auto !important;
-      white-space: nowrap !important;
-      flex-wrap: nowrap !important;
-      gap: 4px !important;
-      padding-bottom: 2px !important;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .nav-tabs::-webkit-scrollbar {
-      display: none;
-    }
-    .nav-tab {
-      padding: 5px 9px !important;
-      font-size: 11px !important;
-      flex-shrink: 0 !important;
-      border-radius: 4px !important;
-    }
-    .nav-divider {
-      display: none !important;
-    }
-  }
-
-
-  @media (max-width: 768px) {
-    .container, .scar-container, .main-wrap {
-      padding: 0 !important;
-    }
-    .filter-tabs, .tab-bar {
-      width: 100% !important;
-      overflow-x: auto !important;
-      white-space: nowrap !important;
-      flex-wrap: nowrap !important;
-      gap: 4px !important;
-      padding-bottom: 2px !important;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .filter-tabs::-webkit-scrollbar, .tab-bar::-webkit-scrollbar {
-      display: none;
-    }
-    .filter-tab, .tab-btn {
-      padding: 4px 8px !important;
-      font-size: 11px !important;
-      flex-shrink: 0 !important;
-    }
-    .card-grid, .scar-grid {
-      grid-template-columns: 1fr !important;
-      gap: 6px !important;
-    }
-    .card, .scar-card {
-      padding: 10px 12px !important;
-    }
-  }
-
-</style>
+  </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
-  <div class="header-container">
+<!-- Unified Global Header Container -->
+<div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>『브리미르: 순례자의 탑』 룬 도감, 신물 도감, 신해 일지 통합 활용 백과</p>
+    <p>『브리미르: 순례자의 탑』 룬 도감, 신물 도감, 티어표, 신해 일지 통합 활용 백과</p>
   </div>
   <nav class="nav-tabs">
-    <a href="index.html" class="nav-tab ">💎 룬 도감</a>
-    <a href="relic_codex.html" class="nav-tab ">🔮 신물 도감</a>
-    <a href="scar_log.html" class="nav-tab ">📜 신해 일지</a>
-    <a href="tier_list.html" class="nav-tab ">🏆 몬스터 티어표</a>
+    <a href="index.html" class="nav-tab">💎 룬 도감</a>
+    <a href="relic_codex.html" class="nav-tab">🔮 신물 도감</a>
+    <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
+    <a href="tier_list.html" class="nav-tab">🏆 몬스터 티어표</a>
     <a href="guide.html" class="nav-tab active">📖 이용 가이드</a>
     <div class="nav-divider"></div>
     <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
@@ -535,243 +364,130 @@
   </nav>
 </div>
 
-  <div class="guide-layout">
-    
-    <!-- Sticky Sidebar Navigation -->
-    <aside class="guide-sidebar">
-      <h3>📑 가이드 목차</h3>
-      <ul class="sidebar-menu">
-        <li><a href="#quick-start">🌟 3분 퀵 스타트</a></li>
-        <li><a href="#rune-codex">💎 룬 도감 &amp; 덱 시뮬레이터</a></li>
-        <li><a href="#monster-guide">⚔️ 몬스터 공략 &amp; 공식 영상 <span class="sidebar-badge">NEW</span></a></li>
-        <li><a href="#scar-log">📜 신해 일지 (탐험 플래너)</a></li>
-        <li><a href="#faq">❓ 자주 묻는 질문 &amp; 단축키</a></li>
-      </ul>
-    </aside>
+<!-- Hero Section -->
+<div class="guide-hero">
+  <h2>📖 브리미르 버스터즈 종합 이용 가이드</h2>
+  <p>스팀 화제작 『브리미르: 심장으로의 순례』를 공략하는 순례자들을 위해 404종 정규 룬, 83종 활성 신물, 37마리 4등급 몬스터 티어표, 신해 일지 플래너의 핵심 기능과 100% 활용법을 안내합니다.</p>
+</div>
 
-    <!-- Main Guide Content -->
-    <main class="guide-content">
+<!-- Guide Main Grid -->
+<div class="guide-grid">
+  <!-- Sidebar Navigation -->
+  <aside class="guide-toc">
+    <h3>📑 가이드 목차</h3>
+    <ul class="toc-list">
+      <li><a href="#section-rune" class="toc-link">💎 1. 룬 도감 & 덱 빌더</a></li>
+      <li><a href="#section-relic" class="toc-link">🔮 2. 신물 도감 & 드롭 테이블 <span class="badge badge-purple">NEW</span></a></li>
+      <li><a href="#section-tier" class="toc-link">🏆 3. 몬스터 난이도 티어표 <span class="badge badge-gold">NEW</span></a></li>
+      <li><a href="#section-scar" class="toc-link">📜 4. 신해 일지 플래너</a></li>
+      <li><a href="#section-faq" class="toc-link">❓ 5. 자주 묻는 질문 & 단축키</a></li>
+    </ul>
+  </aside>
 
-      <!-- 1. Quick Start -->
-      <section class="guide-section" id="quick-start">
-        <h2>🌟 3분 퀵 스타트 — 핵심 기능 3단계 마스터</h2>
-        <p>
-          브리미르 버스터즈는 스팀(Steam) 인기 다크 판타지 RPG <strong>『브리미르: 순례자의 탑』</strong>의 
-          공식 인게임 데이터(SSOT)를 100% 연동하여 순례자 여러분의 생존과 빌드 완성을 돕는 통합 공략 포털입니다.
-        </p>
+  <!-- Main Content Area -->
+  <main class="guide-content">
 
-        <div class="quick-start-grid">
-          <div class="quick-card">
-            <span class="quick-card-num">01</span>
-            <div class="quick-card-title">🔍 1단계: 스마트 룬 검색</div>
-            <div class="quick-card-desc">
-              초성 검색(<code>ㅇㄱㅇ ㅇ</code>)이나 출혈, 빙결 등 13종 특수 효과 필터를 눌러 내 직업에 꼭 맞는 402종 룬을 1초 만에 찾아보세요.
-            </div>
-          </div>
-          <div class="quick-card">
-            <span class="quick-card-num">02</span>
-            <div class="quick-card-title">⭐ 2단계: 나만의 룬 덱 빌딩</div>
-            <div class="quick-card-desc">
-              마음에 드는 룬에 별표(★)를 누르면 상단 덱 트레이에 즉시 등록됩니다. 멀티 탭으로 다양한 직업 빌드를 자유롭게 설계하세요.
-            </div>
-          </div>
-          <div class="quick-card">
-            <span class="quick-card-num">03</span>
-            <div class="quick-card-title">🎬 3단계: 보스 실전 공략 영상</div>
-            <div class="quick-card-desc">
-              막히는 몬스터나 보스는 몬스터 공략 페이지에서 29종 공식 유튜브 실전 영상과 패링 타이밍을 확인하고 격파하세요.
-            </div>
-          </div>
+    <!-- Section 1: Rune Codex -->
+    <section id="section-rune" class="guide-section">
+      <h2>💎 1. 룬 도감(Rune Codex) & 빌드 덱 시뮬레이터</h2>
+      <p>1층부터 7층까지 게임 내에 공식 출시된 **404종 정규 룬의 스탯, 패시브, 부여 액티브 스킬, 정확한 출현지**를 실시간으로 검색하고 나만의 장비 덱을 시뮬레이션할 수 있습니다.</p>
+
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>🔍 분리형 초성 & 스탯 스마트 검색</h4>
+          <p>몬스터/룬 이름 검색(`ㅇㄱㅇ ㅇ` 초성 검색 지원)과 스탯 전용 검색창이 분리되어 원하는 옵션의 룬을 0.1초 만에 찾아냅니다.</p>
         </div>
-
-        <div class="alert-box tip">
-          💡 <strong>스팀 게임 안내</strong>: 스팀(Steam) 검색창에서 <strong>『브리미르: 순례자의 탑』</strong>을 검색하시면 정식 게임을 설치하고 플레이하실 수 있습니다.
+        <div class="feature-card">
+          <h4>🎯 13종 특수 효과 & 9대 원소 필터</h4>
+          <p>무적/사망 방지, 피해 증폭, 방어구 관통, 치명타 등 핵심 전투 메커니즘과 화염/냉기/신성 등 원소별 즉시 필터링을 지원합니다.</p>
         </div>
-      </section>
-
-      <!-- 2. Rune Codex Guide -->
-      <section class="guide-section" id="rune-codex">
-        <h2>💎 파트 1. 룬 도감(Rune Codex) 완벽 활용법</h2>
-        <p>
-          1층부터 7층까지 존재하는 <strong>402종의 정식 룬</strong> 데이터를 인게임 엔진 기준으로 정확하게 탐색할 수 있습니다.
-        </p>
-
-        <h3>🔍 1.1 초성 검색 &amp; 분리형 스마트 검색</h3>
-        <p>
-          검색창에 룬 이름뿐만 아니라 <strong>초성(자음), 몬스터명, 스탯명, 스킬 키워드</strong>를 자유롭게 입력하여 검색할 수 있습니다.
-        </p>
-        <div class="feature-box">
-          <h4>💡 검색 활용 예시</h4>
-          <ul style="padding-left: 20px; line-height: 1.8; color: #c9d1d9;">
-            <li><code>ㅇㄱㅇ ㅇ</code> ➔ <strong>영겁의 용</strong> 룬 즉시 검색</li>
-            <li><code>출혈</code> ➔ 출혈 부여 및 출혈 폭발 관련 모든 룬 필터링</li>
-            <li><code>치명타</code>, <code>방어 관통</code> ➔ 해당 스탯을 올려주는 룬만 선별 검색</li>
-          </ul>
+        <div class="feature-card">
+          <h4>⭐ 무제한 멀티 탭 빌드 덱 시뮬레이터</h4>
+          <p>체크박스를 클릭하여 룬을 덱에 담으면 종합 합산 스탯이 실시간 계산됩니다. 탭 추가, 덱 이름 변경, 프리셋 저장을 지원합니다.</p>
         </div>
+      </div>
 
-        <h3>🎯 1.2 13종 특수 메커니즘 &amp; 9대 원소 속성 필터</h3>
-        <p>
-          상단의 특수 효과 태그(출혈, 빙결, 감전, 중독, 보호막, 치명타 등)와 원소 속성(화염, 냉기, 암흑 등) 버튼을 클릭하여 원하는 시너지 룬을 모아볼 수 있습니다.
-        </p>
+      <div class="tip-box">
+        <strong>💡 룬 도감 꿀팁:</strong> 키보드에서 <kbd>/</kbd> 키를 누르면 검색창으로 즉시 포커스되며, <kbd>ESC</kbd> 키를 누르면 검색어가 즉시 초기화됩니다.
+      </div>
+    </section>
 
-        <h3>⭐ 1.3 무제한 멀티 탭 룬 덱 시뮬레이터</h3>
-        <p>
-          룬 카드의 우측 상단 <strong>별표(★)</strong>를 누르면 현재 활성화된 덱 탭에 룬이 등록됩니다.
-        </p>
-        <ul style="padding-left: 20px; margin-bottom: 12px; line-height: 1.8;">
-          <li><strong>탭 추가</strong>: <code>+</code> 버튼으로 [탱커 전용], [출혈 극딜덱], [빙결 마법사] 등 무제한 탭 생성 가능</li>
-          <li><strong>자동 합산</strong>: 덱에 등록된 룬들의 스탯 합계와 특수 시너지가 실시간으로 계산됩니다.</li>
-          <li><strong>로컬 영구 보존</strong>: 작성한 룬 덱은 브라우저(LocalStorage)에 자동 저장되어 언제든 다시 불러올 수 있습니다.</li>
-        </ul>
+    <!-- Section 2: Relic Codex -->
+    <section id="section-relic" class="guide-section">
+      <h2>🔮 2. 신물 도감(Numeros Codex) & 상흔 드롭 테이블 <span class="badge badge-purple">NEW</span></h2>
+      <p>상흔 던전 수호 보스 및 특수 보물 궤짝에서 획득할 수 있는 **83종 활성 고대 신물과 26개 상흔 던전 드롭 풀**을 완벽하게 정리한 고밀도 데이터베이스입니다.</p>
 
-        <h3>🎬 1.4 룬 상세 모달의 공식 공략 영상 연동</h3>
-        <p>
-          룬 카드를 클릭하면 열리는 상세 팝업창에서 해당 룬을 드롭하는 몬스터의 <strong>[🎬 공식 공략 영상 보기]</strong> 버튼을 통해 유튜브 실전 공략 영상으로 바로 점프할 수 있습니다.
-        </p>
-      </section>
+      <h3>✨ 듀얼 뷰 스위처 (Dual View)</h3>
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>🔮 신물별 실전 목록</h4>
+          <p>번호(#), 장착 부위(장신구/무기/방어구/소모품), 드롭 상흔, 수호 보스, 고유 옵션을 카드형 뷰로 확인합니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🏛️ 상흔별 드롭 테이블</h4>
+          <p>1층부터 7층까지 26개 상흔 던전과 보스별로 드롭되는 <strong>쿼드 / 트리플</strong> 신물을 한눈에 파악하는 3열 데이터 스트라이프 테이블입니다.</p>
+        </div>
+      </div>
 
-      <!-- 3. Monster Guide -->
-      <section class="guide-section" id="monster-guide">
-        <h2>⚔️ 파트 2. 몬스터 실전 공략 &amp; 공식 유튜브 가이드 <span class="badge badge-gold">NEW</span></h2>
-        <p>
-          탑을 오르며 마주치는 <strong>60종의 3~4등급 보스 및 엘리트 몬스터</strong>의 패턴을 분석하고 실전 영상을 제공합니다.
-        </p>
+      <h3>💎 공식 인게임 등급 체계</h3>
+      <p>• <span class="badge badge-purple">쿼드 (4자리 ID)</span>: 상흔 수호 보스가 단독 드롭하는 최상위 고유 시그니처 신물<br>
+         • <span class="badge badge-cyan">트리플 (3자리 ID)</span>: 해당 상흔 던전에서 특화 드롭되는 희귀 장비 및 전용 무기</p>
 
-        <h3>🎛️ 2.1 층별 / 등급별 원클릭 필터링</h3>
-        <p>
-          상단 필터 바를 통해 현재 도전 중인 <strong>층수(1~7층)</strong>와 <strong>등급(3등급, 4등급)</strong>을 선택하여 필요한 공략 카드만 모아볼 수 있습니다.
-        </p>
+      <div class="tip-box">
+        <strong>💡 신물 도감 꿀팁:</strong> 상흔 드롭 테이블에서 보라색/푸른색 칩을 클릭하면 해당 신물의 상세 옵션과 스탯 모달 창이 즉시 열립니다.
+      </div>
+    </section>
 
-        <h3>🎬 2.2 29종 공식 유튜브 실전 영상 플레이어</h3>
-        <p>
-          공략글 상단에 내장된 고화질 유튜브 플레이어를 통해 <strong>실제 인게임 클리어 패턴, 회피 동선, 패링 타이밍</strong>을 영상으로 직관적으로 확인할 수 있습니다.
-        </p>
+    <!-- Section 3: Monster Tier List -->
+    <section id="section-tier" class="guide-section">
+      <h2>🏆 3. 4등급 몬스터 난이도 티어표(Tier List) <span class="badge badge-gold">NEW</span></h2>
+      <p>1층부터 7층까지 순례길에서 마주치는 **정규 4등급 필드 보스 37마리의 난이도 서열**을 공식 분류한 티어표입니다.</p>
 
-        <h3>🛡️ 2.3 패링 가능 vs 위험기(광역/CC) 2단계 판별 가이드</h3>
-        <p>
-          모든 몬스터의 스킬 패턴은 인게임 실제 판정 기준 2단계로 명확히 분류되어 있습니다.
-        </p>
-        <table class="guide-table">
-          <thead>
-            <tr>
-              <th style="width: 25%;">구분</th>
-              <th style="width: 35%;">스킬 유형</th>
-              <th>실전 대처 방법</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge badge-green">패링 가능</span></td>
-              <td>정면 물리 근접 베기, 단일 원거리 투사체 등</td>
-              <td>적의 타격 순간에 맞춰 방패 패링 성공 시 <strong>자세 붕괴(Stagger)</strong> 유발</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-red">패링 불가 (위험기)</span></td>
-              <td>광역 장판기, 돌진기, 속박/기절 CC기, 자폭 등</td>
-              <td>패링 시도가 차단되므로 <strong>사거리 밖으로 무빙 회피</strong>하거나 보라색 캐스팅 중 <strong>CC기로 차단</strong></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>⚔️ S / A / B / C 위험도 서열</h4>
+          <p>전멸 위험도, 패링 난이도, 특수 위험 기믹을 종합 평가하여 가장 위험한 몬스터(S)부터 수월한 몬스터(C)까지 서열을 한눈에 확인합니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🎬 유튜브 실전 공략 영상 연동</h4>
+          <p>몬스터 카드를 클릭하면 상세 출현지와 방어구 추천 인챈트, 핵심 패턴 파훼법 및 <strong>인게임 공식 유튜브 공략 영상</strong>을 팝업으로 시청할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
 
-        <h3>🔗 2.4 공략글 고유 주소(Hash) 복사 &amp; 공유</h3>
-        <p>
-          상세 글 내의 <strong>[🔗 공략글 링크 복사]</strong> 버튼을 누르면 해당 몬스터의 고유 주소(예: <code>busters.kr/monster_guide.html#belarios</code>)가 클립보드에 복사됩니다. 커뮤니티나 지인에게 링크를 공유하면 목록을 거치지 않고 해당 몬스터 공략으로 즉시 열립니다.
-        </p>
-      </section>
+    <!-- Section 4: Scar Log -->
+    <section id="section-scar" class="guide-section">
+      <h2>📜 4. 신해 일지(Scar Log) & 탐험 플래너</h2>
+      <p>상흔 던전의 10일 리셋 주기, 권장 스펙, 수호자 봉헌소 위치 및 처치 상태를 체계적으로 관리하는 탐험 주기 플래너입니다.</p>
 
-      <!-- 4. Scar Log Guide -->
-      <section class="guide-section" id="scar-log">
-        <h2>📜 파트 3. 신해 일지(Scar Log) 완벽 활용법</h2>
-        <p>
-          신해 일지는 『브리미르』의 <strong>10일 주기 생존 탐험과 상흔(Scar) 파밍</strong>을 체계적으로 계획할 수 있는 인터랙티브 매트릭스 도구입니다.
-        </p>
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>⏳ 10일 주기 리셋 매트릭스</h4>
+          <p>상흔 던전별 파밍 쿨다운과 일정을 체크박스로 기록하여 최적의 순례 동선을 설계할 수 있습니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🔒 안전한 로컬 저장</h4>
+          <p>기록한 탐험 상태와 메모는 브라우저 로컬 스토리지에 안전하게 실시간 저장됩니다.</p>
+        </div>
+      </div>
+    </section>
 
-        <h3>⏳ 3.1 10일 주기 탐험 매트릭스</h3>
-        <p>
-          1일차부터 10일차까지 날짜별로 방문할 수 있는 필드와 상흔 정보, 권장 파밍 루트를 한눈에 파악할 수 있습니다.
-        </p>
+    <!-- Section 5: FAQ -->
+    <section id="section-faq" class="guide-section">
+      <h2>❓ 5. 자주 묻는 질문(FAQ) & 데이터 무결성 보증</h2>
+      
+      <h3>Q. 사이트의 데이터는 인게임과 완전히 일치하나요?</h3>
+      <p><strong>네, 100% 일치합니다.</strong> 브리미르 버스터즈는 엔진 런타임의 4대 계층(개체 정의 ➔ 맵 구조 ➔ 월드 스폰 제어 ➔ 실전 해금)을 교차 검증하는 <strong>[Rule 30: 4계층 라이브 무결성 표준]</strong>에 따라 미출시/잠김 데이터를 원천 배제하고 실제 게임 플레이 데이터만 100% 바인딩합니다.</p>
 
-        <h3>📝 3.2 셀 메모 &amp; 탐험 상태 체크</h3>
-        <p>
-          방문 완료한 지역이나 상흔을 클릭하여 체크하고, 필요한 준비물이나 파밍 목표를 메모해 둘 수 있습니다. 작성된 모든 일지 내용은 자동으로 저장됩니다.
-        </p>
-      </section>
+      <h3>Q. 모바일 스마트폰에서도 편리하게 이용할 수 있나요?</h3>
+      <p><strong>완벽하게 지원합니다.</strong> 전 페이지가 모바일 반응형 뷰로 최적화되어 상단 탭 가로 터치 스와이프, 1열 고밀도 카드 정렬, 터치 친화적 모달을 제공합니다.</p>
 
-      <!-- 5. FAQ & Shortcuts -->
-      <section class="guide-section" id="faq">
-        <h2>❓ 파트 4. 자주 묻는 질문(FAQ) &amp; 단축키</h2>
+      <h3>Q. 작성한 룬 빌드 덱이나 일지가 사라지지 않나요?</h3>
+      <p>브라우저의 <code>LocalStorage</code>를 사용하여 브라우저를 닫거나 새로고침해도 작성한 멀티 덱과 체크 상태가 영구 보존됩니다.</p>
+    </section>
 
-        <h3>⌨️ 유용한 단축키</h3>
-        <table class="guide-table">
-          <thead>
-            <tr>
-              <th style="width: 25%;">단축키</th>
-              <th>기능 설명</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><kbd style="background:#21262d; padding:2px 6px; border-radius:4px; border:1px solid #484f58;">/</kbd></td>
-              <td>검색창으로 즉시 포커스 이동 (빠른 검색)</td>
-            </tr>
-            <tr>
-              <td><kbd style="background:#21262d; padding:2px 6px; border-radius:4px; border:1px solid #484f58;">ESC</kbd></td>
-              <td>열려 있는 룬 상세 모달 또는 팝업 닫기</td>
-            </tr>
-          </tbody>
-        </table>
+  </main>
+</div>
 
-        <h3>❓ Q. 사이트의 데이터는 인게임과 완전히 일치하나요?</h3>
-        <p>
-          네, 브리미르 버스터즈의 모든 데이터는 게임 엔진 원본 파일(<code>monsters.json</code>, <code>runes.json</code>, <code>skills.json</code>, <code>floor_layouts.json</code>)을 직접 분석하여 구축되었으므로 100% 인게임 실서버와 일치합니다.
-        </p>
-
-        <h3>❓ Q. 작성한 룬 덱이나 일지가 초기화될 위험은 없나요?</h3>
-        <p>
-          모든 덱과 일지 데이터는 브라우저 내부 LocalStorage에 안전하게 저장됩니다. 브라우저 쿠키를 완전히 삭제하지 않는 한 영구 보존됩니다.
-        </p>
-
-        <h3>❓ Q. 모바일 스마트폰에서도 이용할 수 있나요?</h3>
-        <p>
-          네, 모바일 반응형 웹으로 최적화되어 있어 스마트폰과 태블릿에서도 쾌적하게 룬 검색, 덱 시뮬레이션, 공략 영상 시청이 가능합니다.
-        </p>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Brimir Busters. All game contents and assets belong to the original creators of 『Brimir: Pilgrims of the Tower』.</p>
-    <p style="margin-top:4px; color:#58a6ff;">스팀(Steam)에서 『브리미르: 순례자의 탑』을 검색하세요.</p>
-  </footer>
-
-  <script>
-    // Smooth Sidebar Active Scroll Spy
-    window.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.sidebar-menu a');
-      const sections = document.querySelectorAll('.guide-section');
-
-      function updateActiveMenu() {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100;
-          if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        links.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-          }
-        });
-      }
-
-      window.addEventListener('scroll', updateActiveMenu);
-      updateActiveMenu();
-    });
-  </script>
 </body>
 </html>
