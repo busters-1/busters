@@ -1933,62 +1933,337 @@ function renderTable() {
 
 // ── Official Boss Strategy Guides Database ──
 const BOSS_GUIDES = {
- 'abyssal_kraken': { name: '심연의 크라켄', youtubeId: '8KUcctT4Rac', floor: '6층', grade: '4등급' },
- 'azure_flame_bird': { name: '푸른 불사조', youtubeId: '4_oXpIs8okw', floor: '7층', grade: '4등급' },
- 'baion': { name: '불사의 구울', youtubeId: 'czIxcguhwrQ', floor: '7층', grade: '3등급' },
- 'banshee_queen': { name: '통곡의 여왕', youtubeId: 'j9sbYTjVJg4', floor: '7층', grade: '4등급' },
- 'belarios': { name: '영겁의 용', youtubeId: 'fSVSaiv4fSI', floor: '7층', grade: '3등급' },
- 'chaos_seaman': { name: '저주받은 선장', youtubeId: '-E_j1vjdv8E', floor: '7층', grade: '4등급' },
- 'deep_giant': { name: '심연의 거신', youtubeId: 'UcbsCDQFL3s', floor: '6층', grade: '3등급' },
- 'dragon_slayer': { name: '참회의 세르바스', youtubeId: 'O00d0TlSM1w', floor: '5층', grade: '4등급' },
- 'dreadpeer': { name: '공포의 화신', youtubeId: 'kWo8t78nxYQ', floor: '1층', grade: '3등급' },
- 'f8_scar': { name: '피의 도살자', youtubeId: '6pmEzTkjmJg', floor: '8층', grade: '3등급' },
- 'fallen_swordsaint': { name: '몰락 검성', youtubeId: 'YvGixCIiO4s', floor: '7층', grade: '4등급' },
- 'frost_gargoyle': { name: '서리 가고일', youtubeId: '2s2kSzZnNWg', floor: '7층', grade: '4등급' },
- 'frost_ghoul_lord': { name: '설원 아귀', youtubeId: '1XX-vSaYxJ8', floor: '7층', grade: '4등급' },
- 'frost_guardian': { name: '서리 수호병', youtubeId: 'U0KYTvrPlYo', floor: '7층', grade: '3등급' },
- 'frost_swordfiend': { name: '서리 검귀', youtubeId: 'EMb-3bGDkO0', floor: '7층', grade: '3등급' },
- 'gigant_wolf': { name: '스콜', youtubeId: 'qX4sle5arm0', floor: '7층', grade: '4등급' },
- 'glacier_giant': { name: '빙하 거인', youtubeId: 'uO0R18KUQHs', floor: '7층', grade: '3등급' },
- 'goliad': { name: '중력의 골리아드', youtubeId: 'iTCP61zPmMI', floor: '5층', grade: '5등급' },
- 'grave_keeper_aleton': { name: '무덤지기', youtubeId: '9LRprO-Z7Ho', floor: '6층', grade: '4등급' },
- 'grave_knight': { name: '검총 기사', youtubeId: 'M4IXF4bqIB8', floor: '7층', grade: '4등급' },
- 'grudge_colossus': { name: '원귀 거상', youtubeId: 'HxIv08gAYjo', floor: '7층', grade: '3등급' },
- 'guano_sea_serpent': { name: '대양 이무기', youtubeId: '-7xXlXUExEs', floor: '6층', grade: '4등급' },
- 'harmony_aurvan': { name: '조화의 아우르반', youtubeId: '-JXGVz28WqI', floor: '6층', grade: '4등급' },
- 'ice_lich': { name: '리치', youtubeId: 'mySWJyzUp7Q', floor: '7층', grade: '4등급' },
- 'key_keeper': { name: '열쇠지기', youtubeId: 'dsrXLQq6mk8', floor: '6층', grade: '4등급' },
- 'obsidian_titan': { name: '흑요석 거신', youtubeId: 'hLSed_MoTSk', floor: '6층', grade: '4등급' },
- 'palpupura': { name: '서리 거인', youtubeId: 'GrKbH84x_tw', floor: '6층', grade: '4등급' },
- 'pirate_wraith_lord': { name: '해적왕의 망령', youtubeId: '0jtwdl2eqmY', floor: '6층', grade: '4등급' },
- 'siren_queen': { name: '세이렌 여왕', youtubeId: 'sdXJEM-yZ3U', floor: '6층', grade: '4등급' },
- 'skeleton_mermaid_queen': { name: '백골 인어여왕', youtubeId: 'K1vpIQ3U95A', floor: '7층', grade: '4등급' },
- 'soul_drinker': { name: '영혼을 마시는 자', youtubeId: 'JhmdNzi-LZk', floor: '7층', grade: '4등급' },
- 'stonewinter': { name: '서리 바위거인', youtubeId: 'N434wupQKds', floor: '7층', grade: '4등급' },
- 'sylvan_tyrant': { name: '수림의 폭군', youtubeId: 'Q-3-tTMeKbY', floor: '6층', grade: '4등급' },
- 'tainted_snow_spirit': { name: '오염된 눈의 정령', youtubeId: 'cTU8h6LxdU4', floor: '7층', grade: '4등급' },
- 'unmelting_cocoon': { name: '녹지 않는 고치', youtubeId: 'm6C5stj6lpY', floor: '7층', grade: '4등급' },
- 'vaiterion': { name: '한기의 야수', youtubeId: 'A3TNb6wnmis', floor: '7층', grade: '3등급' },
- 'magma_lord': { name: '용암 우두머리', youtubeId: '2psquuUEzzQ', floor: '6층', grade: '4등급' },
- 'rakzar': { name: '작열의 그로칸', youtubeId: 'Cmy4QX9sS64', floor: '4층', grade: '5등급' },
- 'himar': { name: '결빙의 히마르', youtubeId: 'YLcu1cW764I', floor: '5층', grade: '5등급' },
- 'spectral_marksman': { name: '원귀 사수', youtubeId: 'Ixvmb29TuQk', floor: '7층', grade: '4등급' },
- 'colossus_bowman': { name: '거인 궁수', youtubeId: '2ifOX7khwL4', floor: '7층', grade: '4등급' },
- 'doppelganger': { name: '도플갱어', youtubeId: 'G3X8tm3v_CE', floor: '4층', grade: '4등급' },
- 'argos': { name: '백안의 셀리안', youtubeId: 'HibaKd3OS14', floor: '4층', grade: '5등급' },
- 'abyssal_drown_lord': { name: '심연의 드로가르', youtubeId: 'XLz66JnHisU', floor: '6층', grade: '4등급' },
- 'kalpion': { name: '황금의 나자로스', youtubeId: '3PLeEJURkU0', floor: '4층', grade: '4등급' },
- 'frozen_corpse_giant': { name: '얼어붙은 거신', youtubeId: 'oKKQK5jPey4', floor: '7층', grade: '4등급' },
- 'tempest_archer': { name: '폭풍의 궁수', youtubeId: 'dJJULyQ_JFM', floor: '5층', grade: '5등급' },
- 'stormgiant': { name: '폭풍 군주', youtubeId: 'aIDUvHb3u9k', floor: '5층', grade: '5등급' },
- 'darkilion': { name: '어둠 군주', youtubeId: 'kk2nijbUnMg', floor: '5층', grade: '5등급' },
- 'frost_lord': { name: '서리 군주', youtubeId: 'WvOd-BN7Ng4', floor: '5층', grade: '5등급' },
- 'ifrit': { name: '화염 군주', youtubeId: 'b2WzOl5YZE4', floor: '5층', grade: '5등급' },
- 'white_wyvern': { name: '빙하 와이번', youtubeId: 'FA9J6dg7s8A', floor: '7층', grade: '4등급' },
- 'f8_heartlight': { name: '심장을 밝히는 자', youtubeId: 'O1efFTXEcGA', floor: '8층', grade: '3등급' },
- 'f8_stormheart': { name: '돛대잡이', youtubeId: 'MHsXnWMzh8k', floor: '8층', grade: '3등급' },
- 'frost_dullahan': { name: '빙결 수확자', youtubeId: 'xxSzTsLIRjY', floor: '7층', grade: '4등급' };
-
+  "abyssal_kraken": {
+    "name": "심연의 크라켄",
+    "youtubeId": "8KUcctT4Rac",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "azure_flame_bird": {
+    "name": "푸른 불사조",
+    "youtubeId": "4_oXpIs8okw",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "baion": {
+    "name": "불사의 구울",
+    "youtubeId": "czIxcguhwrQ",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "banshee_queen": {
+    "name": "통곡의 여왕",
+    "youtubeId": "j9sbYTjVJg4",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "belarios": {
+    "name": "영겁의 용",
+    "youtubeId": "fSVSaiv4fSI",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "chaos_seaman": {
+    "name": "저주받은 선장",
+    "youtubeId": "-E_j1vjdv8E",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "deep_giant": {
+    "name": "심연의 거신",
+    "youtubeId": "UcbsCDQFL3s",
+    "floor": "6층",
+    "grade": "3등급"
+  },
+  "dragon_slayer": {
+    "name": "참회의 세르바스",
+    "youtubeId": "O00d0TlSM1w",
+    "floor": "5층",
+    "grade": "4등급"
+  },
+  "dreadpeer": {
+    "name": "공포의 화신",
+    "youtubeId": "kWo8t78nxYQ",
+    "floor": "1층",
+    "grade": "3등급"
+  },
+  "f8_scar": {
+    "name": "피의 도살자",
+    "youtubeId": "6pmEzTkjmJg",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "fallen_swordsaint": {
+    "name": "몰락 검성",
+    "youtubeId": "YvGixCIiO4s",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "frost_gargoyle": {
+    "name": "서리 가고일",
+    "youtubeId": "2s2kSzZnNWg",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "frost_ghoul_lord": {
+    "name": "설원 아귀",
+    "youtubeId": "1XX-vSaYxJ8",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "frost_guardian": {
+    "name": "서리 수호병",
+    "youtubeId": "U0KYTvrPlYo",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "frost_swordfiend": {
+    "name": "서리 검귀",
+    "youtubeId": "EMb-3bGDkO0",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "gigant_wolf": {
+    "name": "스콜",
+    "youtubeId": "qX4sle5arm0",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "glacier_giant": {
+    "name": "빙하 거인",
+    "youtubeId": "uO0R18KUQHs",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "goliad": {
+    "name": "중력의 골리아드",
+    "youtubeId": "iTCP61zPmMI",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "grave_keeper_aleton": {
+    "name": "무덤지기",
+    "youtubeId": "9LRprO-Z7Ho",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "grave_knight": {
+    "name": "검총 기사",
+    "youtubeId": "M4IXF4bqIB8",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "grudge_colossus": {
+    "name": "원귀 거상",
+    "youtubeId": "HxIv08gAYjo",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "guano_sea_serpent": {
+    "name": "대양 이무기",
+    "youtubeId": "-7xXlXUExEs",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "harmony_aurvan": {
+    "name": "조화의 아우르반",
+    "youtubeId": "-JXGVz28WqI",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "ice_lich": {
+    "name": "리치",
+    "youtubeId": "mySWJyzUp7Q",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "key_keeper": {
+    "name": "열쇠지기",
+    "youtubeId": "dsrXLQq6mk8",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "obsidian_titan": {
+    "name": "흑요석 거신",
+    "youtubeId": "hLSed_MoTSk",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "palpupura": {
+    "name": "서리 거인",
+    "youtubeId": "GrKbH84x_tw",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "pirate_wraith_lord": {
+    "name": "해적왕의 망령",
+    "youtubeId": "0jtwdl2eqmY",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "siren_queen": {
+    "name": "세이렌 여왕",
+    "youtubeId": "sdXJEM-yZ3U",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "skeleton_mermaid_queen": {
+    "name": "백골 인어여왕",
+    "youtubeId": "K1vpIQ3U95A",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "soul_drinker": {
+    "name": "영혼을 마시는 자",
+    "youtubeId": "JhmdNzi-LZk",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "stonewinter": {
+    "name": "서리 바위거인",
+    "youtubeId": "N434wupQKds",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "sylvan_tyrant": {
+    "name": "수림의 폭군",
+    "youtubeId": "Q-3-tTMeKbY",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "tainted_snow_spirit": {
+    "name": "오염된 눈의 정령",
+    "youtubeId": "cTU8h6LxdU4",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "unmelting_cocoon": {
+    "name": "녹지 않는 고치",
+    "youtubeId": "m6C5stj6lpY",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "vaiterion": {
+    "name": "한기의 야수",
+    "youtubeId": "A3TNb6wnmis",
+    "floor": "7층",
+    "grade": "3등급"
+  },
+  "magma_lord": {
+    "name": "용암 우두머리",
+    "youtubeId": "2psquuUEzzQ",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "rakzar": {
+    "name": "작열의 그로칸",
+    "youtubeId": "Cmy4QX9sS64",
+    "floor": "4층",
+    "grade": "5등급"
+  },
+  "himar": {
+    "name": "결빙의 히마르",
+    "youtubeId": "YLcu1cW764I",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "spectral_marksman": {
+    "name": "원귀 사수",
+    "youtubeId": "Ixvmb29TuQk",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "colossus_bowman": {
+    "name": "거인 궁수",
+    "youtubeId": "2ifOX7khwL4",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "doppelganger": {
+    "name": "도플갱어",
+    "youtubeId": "G3X8tm3v_CE",
+    "floor": "4층",
+    "grade": "4등급"
+  },
+  "argos": {
+    "name": "백안의 셀리안",
+    "youtubeId": "HibaKd3OS14",
+    "floor": "4층",
+    "grade": "5등급"
+  },
+  "abyssal_drown_lord": {
+    "name": "심연의 드로가르",
+    "youtubeId": "XLz66JnHisU",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "kalpion": {
+    "name": "황금의 나자로스",
+    "youtubeId": "3PLeEJURkU0",
+    "floor": "4층",
+    "grade": "4등급"
+  },
+  "frozen_corpse_giant": {
+    "name": "얼어붙은 거신",
+    "youtubeId": "oKKQK5jPey4",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "tempest_archer": {
+    "name": "폭풍의 궁수",
+    "youtubeId": "dJJULyQ_JFM",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "stormgiant": {
+    "name": "폭풍 군주",
+    "youtubeId": "aIDUvHb3u9k",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "darkilion": {
+    "name": "어둠 군주",
+    "youtubeId": "kk2nijbUnMg",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "frost_lord": {
+    "name": "서리 군주",
+    "youtubeId": "WvOd-BN7Ng4",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "ifrit": {
+    "name": "화염 군주",
+    "youtubeId": "b2WzOl5YZE4",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "white_wyvern": {
+    "name": "빙하 와이번",
+    "youtubeId": "FA9J6dg7s8A",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "f8_heartlight": {
+    "name": "심장을 밝히는 자",
+    "youtubeId": "O1efFTXEcGA",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "f8_stormheart": {
+    "name": "돛대잡이",
+    "youtubeId": "MHsXnWMzh8k",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "frost_dullahan": {
+    "name": "빙결 수확자",
+    "youtubeId": "xxSzTsLIRjY",
+    "floor": "7층",
+    "grade": "4등급"
+  }
+};
 
 const BOSS_GUIDES_BY_NAME = {};
 Object.entries(BOSS_GUIDES).forEach(([k, v]) => {
