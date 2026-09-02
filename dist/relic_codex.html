@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브리미르 버스터즈 — 신물 도감</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      padding: 16px 20px;
+    }
+    .rc-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Global Nav */
+    .rc-nav {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+    .rc-nav-link {
+      color: #8b949e;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .rc-nav-link:hover {
+      color: #c9d1d9;
+      background: #161b22;
+    }
+    .rc-nav-link.active {
+      color: #58a6ff;
+      background: #1f6feb22;
+      border: 1px solid #1f6feb44;
+    }
+
+    /* Top Dashboard Header */
+    .rc-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .rc-header-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #f0f6fc;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rc-count-pill {
+      font-size: 12px;
+      background: #0d1117;
+      color: #79c0ff;
+      border: 1px solid #30363d;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    /* View Switcher */
+    .rc-view-switcher {
+      display: flex;
+      gap: 6px;
+    }
+    .rc-view-btn {
+      background: #0d1117;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .rc-view-btn:hover {
+      color: #c9d1d9;
+      border-color: #58a6ff;
+    }
+    .rc-view-btn.active {
+      background: #1f6feb;
+      color: #fff;
+      border-color: #58a6ff;
+    }
+
+    /* Filter Panel */
+    .rc-filter-panel {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .rc-filter-row1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .rc-search-input {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      width: 280px;
+      outline: none;
+    }
+    .rc-search-input:focus {
+      border-color: #58a6ff;
+    }
+    .rc-btn-group {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .rc-f-btn {
+      background: #0d1117;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      padding: 4px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .rc-f-btn:hover {
+      color: #c9d1d9;
+      border-color: #58a6ff;
+    }
+    .rc-f-btn.active {
+      background: #238636;
+      color: #fff;
+      border-color: #2ea043;
+    }
+
+    /* Badges */
+    .rc-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      line-height: 1.2;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .rc-badge-quad { background: #8957e522; color: #d2a8ff; border: 1px solid #8957e544; }
+    .rc-badge-triple { background: #1f6feb22; color: #79c0ff; border: 1px solid #1f6feb44; }
+    .rc-badge-floor { background: #23863622; color: #7ee787; border: 1px solid #23863644; }
+    .rc-badge-slot { background: #388bfd22; color: #58a6ff; border: 1px solid #388bfd44; }
+    .rc-badge-boss { background: #d2992222; color: #f2cc60; border: 1px solid #d2992244; }
+    
+    .rc-tag {
+      font-size: 9px;
+      font-weight: 700;
+      background: #21262d;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* View 1: Relic Grid */
+    .rc-relic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 8px;
+    }
+    .rc-relic-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+    .rc-relic-card:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+      transform: translateY(-1px);
+    }
+    .rc-relic-row1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+    .rc-relic-num {
+      font-size: 11px;
+      font-weight: 900;
+      color: #58a6ff;
+      letter-spacing: 0.5px;
+    }
+    .rc-relic-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #f0f6fc;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rc-relic-desc {
+      font-size: 12px;
+      color: #c9d1d9;
+      line-height: 1.4;
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 4px;
+      padding: 6px 8px;
+      min-height: 34px;
+    }
+    .rc-relic-row3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #8b949e;
+      gap: 6px;
+    }
+
+    /* View 2: Ultra-Dense Scar Table */
+    .rc-scar-table-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+    .rc-table-head {
+      display: grid;
+      grid-template-columns: 240px 1fr 1fr;
+      gap: 12px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #8b949e;
+      align-items: center;
+    }
+    .rc-scar-row {
+      display: grid;
+      grid-template-columns: 240px 1fr 1fr;
+      gap: 12px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 14px;
+      align-items: center;
+      transition: all 0.15s;
+    }
+    .rc-scar-row:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+    }
+    .rc-scar-col-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .rc-scar-col-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rc-scar-title-txt {
+      font-size: 13px;
+      font-weight: 800;
+      color: #f0f6fc;
+    }
+    .rc-scar-boss-txt {
+      font-size: 11px;
+      color: #8b949e;
+    }
+    .rc-scar-boss-txt strong {
+      color: #f2cc60;
+    }
+    .rc-scar-pool-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+    .rc-chip {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 3px 7px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .rc-chip:hover {
+      border-color: #58a6ff;
+      background: #1f6feb22;
+      transform: translateY(-1px);
+    }
+    .rc-chip-quad {
+      border-color: rgba(210, 168, 255, 0.25);
+    }
+    .rc-chip-triple {
+      border-color: rgba(121, 192, 255, 0.25);
+    }
+    .rc-empty-cell {
+      font-size: 11px;
+      color: #484f58;
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .rc-table-head {
+        display: none;
+      }
+      .rc-scar-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px 12px;
+      }
+    }
+    /* Modal */
+    .rc-modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .rc-modal-box {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      max-width: 480px;
+      width: 100%;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    }
+    .rc-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: #8b949e;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .rc-modal-close:hover { color: #fff; }
+  
+  /* Unified Global Header Container */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title h1 {
+    font-size: 20px;
+    color: #f0f6fc;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .header-title p {
+    color: #8b949e;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: #30363d;
+    margin: 0 4px;
+  }
+  .nav-tab {
+    background: #21262d;
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid #30363d;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    border-color: #58a6ff;
+    color: #f0f6fc;
+  }
+  .nav-tab.active {
+    background: linear-gradient(135deg, #1f6feb, #238636);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .nav-tab.ext-link {
+    font-size: 12px;
+    padding: 7px 12px;
+    background: #161b22;
+  }
+  .nav-tab.ext-link.steam:hover {
+    border-color: #66c0f4;
+    color: #66c0f4;
+    background: rgba(102, 192, 244, 0.1);
+  }
+  .nav-tab.ext-link.stats:hover {
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
+  }
+  .nav-tab.ext-link.kakao:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
+</style>
+</head>
+<body>
+  <div class="rc-wrapper">
+    <!-- Global Navigation -->
+    <nav class="rc-nav">
+      <a href="index.html" class="rc-nav-link">💎 룬 도감</a>
+      <a href="monster_guide.html" class="rc-nav-link">⚔️ 몬스터 공략</a>
+      <a href="tier_list.html" class="rc-nav-link">🏆 몬스터 티어표</a>
+      <a href="scar_log.html" class="rc-nav-link">📖 상흔 일지</a>
+      <a href="relic_codex.html" class="rc-nav-link active">🔮 신물 도감</a>
+    </nav>
+
+    <!-- Top Bar -->
+    <div class="header-container">
+  <div class="header-title">
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 83종 활성 신물 & 26개 상흔 던전 드롭 테이블 도감</p>
+  </div>
+  <nav class="nav-tabs">
+    <a href="index.html" class="nav-tab ">💎 룬 도감</a>
+    <a href="relic_codex.html" class="nav-tab active">🔮 신물 도감</a>
+    <a href="scar_log.html" class="nav-tab ">📜 신해 일지</a>
+    <a href="tier_list.html" class="nav-tab ">🏆 몬스터 티어표</a>
+    <a href="monster_guide.html" class="nav-tab ">⚔️ 몬스터 공략</a>
+    <a href="guide.html" class="nav-tab ">📖 이용 가이드</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
+    <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
+  </nav>
+</div>
+
+<header class="rc-top-bar">
+      <div class="rc-header-title">
+        🔮 신물 도감 (Numeros Codex)
+        <span class="rc-count-pill" id="statPill">88종 활성 신물</span>
+      </div>
+      <div class="rc-view-switcher">
+        <button class="rc-view-btn active" id="btnViewRelics" onclick="switchView('relics')">🔮 신물별 실전 목록</button>
+        <button class="rc-view-btn" id="btnViewScars" onclick="switchView('scars')">🏛️ 상흔별 드롭 테이블</button>
+      </div>
+    </header>
+
+    <!-- Filter Panel -->
+    <div class="rc-filter-panel">
+      <div class="rc-filter-row1">
+        <input type="text" id="searchInput" class="rc-search-input" placeholder="신물명, 번호, 효과, 상흔, 보스 검색..." oninput="handleFilterChange()">
+        
+        <div class="rc-btn-group" id="tierFilters">
+          <span style="font-size:11px; color:#8b949e; margin-right:4px;">등급:</span>
+          <button class="rc-f-btn active" onclick="setTierFilter('all')">전체</button>
+          <button class="rc-f-btn" onclick="setTierFilter('쿼드')">쿼드</button>
+          <button class="rc-f-btn" onclick="setTierFilter('트리플')">트리플</button>
+        </div>
+        
+        <div class="rc-btn-group" id="slotFilters">
+          <span style="font-size:11px; color:#8b949e; margin-right:4px;">슬롯:</span>
+          <button class="rc-f-btn active" onclick="setSlotFilter('all')">전체</button>
+          <button class="rc-f-btn" onclick="setSlotFilter('장신구')">장신구</button>
+          <button class="rc-f-btn" onclick="setSlotFilter('무기')">무기</button>
+          <button class="rc-f-btn" onclick="setSlotFilter('방어구')">방어구</button>
+          <button class="rc-f-btn" onclick="setSlotFilter('소모품')">소모품</button>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+        <span style="font-size:11px; color:#8b949e; margin-right:4px;">층수:</span>
+        <div class="rc-btn-group" id="floorFilters">
+          <button class="rc-f-btn active" onclick="setFloorFilter('all')">전체 층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('1층')">1층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('2층')">2층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('3층')">3층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('4층')">4층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('5층')">5층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('6층')">6층</button>
+          <button class="rc-f-btn" onclick="setFloorFilter('7층')">7층</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- View 1: Relic Grid -->
+    <main id="relicsContainer" class="rc-relic-grid"></main>
+
+    <!-- View 2: Scar Grid -->
+    <main id="scarsContainer" class="rc-scar-table-wrap" style="display:none;"></main>
+  </div>
+
+  <!-- Detail Modal -->
+  <div id="modalBackdrop" class="rc-modal-backdrop" onclick="closeModal(event)">
+    <div class="rc-modal-box" onclick="event.stopPropagation()">
+      <button class="rc-modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const RELICS_DATA = [{"id": "numeros_135", "number": "135", "name": "지혜의 지팡이", "type": "weapon", "subtype": "staff", "slot": "weapon", "grade": 6, "material": "신물", "atk": 70, "item_level": 600, "price": 0, "description": "마법 데미지 +15%, SP 회복 속도 +20%.", "passive_id": ["sage_staff_magic", "sage_sp_regen"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_181", "number": "181", "name": "눈표범의 장화", "type": "armor", "subtype": "light", "slot": "boots", "grade": 6, "material": "신물", "def": 34, "stat_bonuses": {"dexterity": 10, "cold_affinity": 12}, "item_level": 600, "price": 0, "description": "눈표범처럼 눈밭을 소리 없이 딛는다. 냉기 친화 강화.", "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_242", "number": "242", "name": "검성의 방벽", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 6, "material": "신물", "def": 70, "item_level": 600, "price": 0, "description": "패링 윈도우 +0.08초, 패링 시 기력 소모 -60%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.08, "stamina_mult": 0.4}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_244", "number": "244", "name": "엄호의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 6, "material": "신물", "def": 95, "item_level": 700, "price": 0, "description": "블록 중, 250px 내 동료가 받는 피해를 대신 막아낸다.", "passive_effect": {"type": "guard_cover", "range": 250.0}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "방패", "tags": ["피해증폭"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_273", "number": "273", "name": "한기의 쌍검", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 빙결 스택 +1.", "passive_id": ["frost_strike_dual"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_358", "context": "explore", "number": "358", "name": "폭풍의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +25%, 시야 +1 타일.", "passive_id": ["storm_speed", "storm_vision"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}, {"id": "numeros_370", "context": "explore", "number": "370", "name": "신성한 직관", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 150, "price": 0, "description": "신해 시야 +2 타일.", "passive_id": ["oracle_vision_high"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_372", "number": "372", "name": "진홍의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 100, "item_level": 600, "price": 0, "description": "공격마다 화염 스택 +1.", "passive_id": ["crimson_burn"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_384", "number": "384", "name": "어둠의 지팡이", "type": "weapon", "subtype": "staff", "slot": "weapon", "grade": 6, "material": "신물", "atk": 70, "item_level": 600, "price": 0, "description": "마법 데미지 +15%, 흡혈 5%.", "passive_id": ["shadow_staff_magic", "shadow_lifesteal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "특수기믹"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_447", "number": "447", "name": "도망자의 봇짐", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 6, "material": "신물", "weight_bonus": 25, "item_level": 150, "price": 0, "passive_id": ["swift_bag_steps"], "description": "쫓기던 자가 메고 달아나던 봇짐. 무게 한도 +25, 신해 이동속도 +12%.", "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_464", "number": "464", "name": "잔영의 각반", "type": "armor", "subtype": "light", "slot": "legs", "grade": 6, "material": "신물", "def": 40, "stat_bonuses": {"dexterity": 14}, "item_level": 600, "price": 0, "description": "잔상만 남기고 빠져나간다. 피격 시 회피.", "passive_id": ["afterimage_greaves"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_500", "number": "500", "name": "사신의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "처치 시 HP +8%, SP +5%.", "passive_id": ["reaper_kill_heal", "reaper_sp_kill"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_524", "number": "524", "name": "처형자의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 110, "item_level": 600, "price": 0, "description": "처치 시 ATK +5% (5스택, 1전투).", "passive_id": ["executioner_stack"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "2층 - 적야의 성채", "source_boss": "적야의 카르닉", "floor": "2층"}, {"id": "numeros_547", "number": "547", "name": "신성의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격에 빛 속성 부여 — 언데드에 강하고, 정화로 회복을 봉쇄한다. 언데드 처치 시 SP +10.", "passive_id": ["holy_strike_blade", "holy_undead_sp"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_565", "number": "565", "name": "대마도사의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 6, "material": "신물", "def": 40, "stat_bonuses": {"spirit_power": 16, "magic_resist": 6}, "item_level": 600, "price": 0, "description": "대마도사의 격이 깃든 법의. 마법 피해 증폭.", "passive_id": ["archsage_magic"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}, {"id": "numeros_615", "number": "615", "name": "뇌신의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 75, "item_level": 600, "price": 0, "description": "적 번개 저항 50% 무시. 공격 시 번개 스택 누적.", "passive_id": ["thunder_charge", "thunder_pierce"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["방어관통", "방어/생명"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_726", "number": "726", "name": "대지의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 6, "material": "신물", "def": 30, "item_level": 600, "price": 0, "description": "받는 피해 -10%.", "passive_id": ["earth_dr"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_747", "number": "747", "name": "심연추적자 가죽갑", "type": "armor", "subtype": "light", "slot": "chest", "grade": 6, "material": "신물", "def": 44, "stat_bonuses": {"dexterity": 16}, "item_level": 600, "price": 0, "description": "그림자 속에서 내딛는 첫 일격은 치명적이다. 전투 첫 타 피해 대폭 증가.", "passive_id": ["abyss_first_strike"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_757", "number": "757", "name": "천리안 면갑", "type": "armor", "subtype": "light", "slot": "helmet", "grade": 6, "material": "신물", "def": 38, "stat_bonuses": {"dexterity": 10, "perception": 6}, "item_level": 600, "price": 0, "description": "모든 것을 꿰뚫어 보며 손이 빨라진다. 공격 시 공격 속도 증가.", "passive_id": ["farsight_haste"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_761", "number": "761", "name": "명공의 용광로 망치", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 6, "material": "신물", "atk": 90, "item_level": 600, "price": 0, "description": "적 화염 저항 50% 무시.", "passive_id": ["loam_pierce"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["방어관통", "방어/생명"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_808", "number": "808", "name": "거인 도륙자", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 6, "material": "신물", "atk": 90, "item_level": 600, "price": 0, "description": "보스/엘리트 대상 ATK +20%.", "passive_id": ["siege_boss_mult"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_829", "number": "829", "name": "부패의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 105, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_830", "number": "830", "name": "맹독의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_831", "number": "831", "name": "부식의 쌍검", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_832", "number": "832", "name": "세르바스의 성검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 108, "item_level": 600, "price": 0, "description": "공격마다 신성 스택 +2.", "passive_id": ["holy_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_833", "number": "833", "name": "암살자의 비수", "type": "weapon", "subtype": "dagger", "slot": "weapon", "grade": 6, "material": "신물", "atk": 82, "item_level": 600, "price": 0, "stat_bonuses": {"dexterity": 12}, "description": "행동불능(CC) 상태의 적에게 피해 +35%, 공격마다 HP 5% 흡수.", "passive_id": ["execute_vs_cc", "shadow_lifesteal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "방어/생명"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_858", "number": "858", "name": "불굴의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 6, "material": "신물", "def": 48, "stat_bonuses": {"fighting_spirit": 13}, "item_level": 600, "price": 0, "description": "적을 쓰러뜨릴수록 투지가 몸을 채운다. 처치 시 체력 회복.", "passive_id": ["indomitable_kill_heal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_878", "number": "878", "name": "반석의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 6, "material": "신물", "def": 48, "stat_bonuses": {"bone_density": 8, "pain_resist": 6}, "item_level": 600, "price": 0, "description": "바위처럼 굳어, 맞을수록 더 단단해진다. 피격 시 항마력 누적.", "passive_id": ["giant_carapace"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "3층 - 파수의 성소", "source_boss": "파수의 우르곤", "floor": "3층"}, {"id": "numeros_911", "number": "911", "name": "한기의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 빙결 스택 +1. 빙결 데미지 +10%.", "passive_id": ["sigil_cold_greater"], "stat_bonuses": {"cold_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_922", "number": "922", "name": "작열의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 화염 스택 +1. 화염 데미지 +10%.", "passive_id": ["sigil_fire_greater"], "stat_bonuses": {"fire_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_929", "unreleased": false, "number": "929", "name": "불굴의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 6, "material": "신물", "def": 62, "stat_bonuses": {"fighting_spirit": 16}, "item_level": 600, "price": 0, "description": "꺾이지 않는 검격. 한 적을 계속 몰아치면 마무리 일격이 터진다.", "passive_id": ["valor_combo"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_933", "number": "933", "name": "부식의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 독 스택 +1. 독 데미지 +10%.", "passive_id": ["sigil_poison_greater"], "stat_bonuses": {"poison_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_943", "number": "943", "name": "굶주린 발톱", "type": "weapon", "subtype": "claw", "slot": "weapon", "grade": 6, "material": "신물", "atk": 88, "item_level": 600, "price": 0, "description": "휘두를수록 공격력·속도가 오르고, 공격 시 HP를 흡수한다.", "passive_id": ["beast_form", "beast_gorge"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_944", "number": "944", "name": "그림자 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 암흑 스택 +1. 암흑 데미지 +10%.", "passive_id": ["sigil_dark_greater"], "stat_bonuses": {"dark_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_966", "number": "966", "name": "굳건한 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 땅 스택 +1. 땅 데미지 +10%.", "passive_id": ["sigil_earth_greater"], "stat_bonuses": {"earth_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_988", "number": "988", "name": "광휘의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 빛 스택 +1. 빛 데미지 +10%.", "passive_id": ["sigil_holy_greater"], "stat_bonuses": {"holy_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_999", "number": "999", "name": "뇌격의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 번개 스택 +1. 번개 데미지 +10%.", "passive_id": ["sigil_lightning_greater"], "stat_bonuses": {"lightning_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_1001", "number": "1001", "name": "떠돌이의 여행 가방", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 25, "item_level": 150, "price": 0, "description": "선공몹 추적 거리 -20%.", "passive_id": ["alonso_aggro"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_1010", "number": "1010", "name": "한기의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 빙결 스택 +1.", "passive_id": ["sigil_cold"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_1313", "number": "1313", "name": "차원 자루", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "안이 밖보다 크다. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_1530", "context": "explore", "number": "1530", "name": "기지의 모래시계", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 400, "price": 0, "description": "지혜의 도약 시 오르는 층수 2배 (+8 → +16).", "passive_effect": {"type": "wisdom_time_bonus", "seconds": 15.0}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_1717", "context": "explore", "number": "1717", "name": "불굴의 징표", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "비전투 시 HP 회복 속도 2배.", "passive_id": ["vigil_regen"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_1818", "number": "1818", "name": "표범걸음 장화", "type": "armor", "subtype": "light", "slot": "boots", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"dexterity": 8}, "item_level": 450, "price": 0, "description": "표범의 발놀림을 담은 장화.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_2020", "number": "2020", "name": "작열의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 화염 스택 +1.", "passive_id": ["sigil_fire"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_2055", "context": "explore", "number": "2055", "name": "신탁의 후각", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "후각 +10.", "stat_bonuses": {"smell": 10}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_2424", "number": "2424", "name": "검귀의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 5, "material": "신물", "def": 55, "item_level": 450, "price": 0, "description": "패링 윈도우 +0.05초, 패링 시 기력 소모 -50%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.05, "stamina_mult": 0.5}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_2578", "number": "2578", "name": "창천갑주", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 25, "item_level": 450, "price": 0, "description": "받는 피해 -7%.", "passive_id": ["sky_dr"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_2727", "number": "2727", "name": "전사의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "근접 공격 데미지 +15%.", "passive_id": ["warrior_sigil_melee"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_2828", "context": "explore", "number": "2828", "name": "행상의 봇짐", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "행상이 짊어지던 큼직한 봇짐. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_2988", "number": "2988", "name": "수호의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "mag_def": 25, "description": "수호의 인장 — 마법 피해를 경감한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_3030", "number": "3030", "name": "광인의 송곳니", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "HP 60% 이하부터 잃은 체력에 비례해 공격 속도 상승 (최대 +30%).", "passive_effect": {"type": "berserk_attack_speed", "hp_threshold": 0.6, "full_threshold": 0.3, "bonus_min": 0.1, "bonus_max": 0.3}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_3120", "number": "3120", "name": "예비의 심장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 시 발동 — HP 50% 회복 + 무적 3초. 1회 사용 후 부서짐.", "death_save": {"type": "vital_recover", "leave_hp_pct": 0.5, "invuln_seconds": 3.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_3131", "number": "3131", "name": "부식의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 독 스택 +1.", "passive_id": ["sigil_poison"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_3535", "number": "3535", "name": "현자의 신", "type": "armor", "subtype": "robe", "slot": "boots", "grade": 5, "material": "신물", "def": 20, "stat_bonuses": {"spirit_power": 8, "magic_resist": 2}, "item_level": 450, "price": 0, "description": "현자의 발걸음을 받치는 신.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_3700", "context": "explore", "number": "3700", "name": "천공의 시야", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 시야 +1 타일.", "passive_id": ["oracle_vision_mid"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "1층 - 혹한의 빙동", "source_boss": "혹한의 이스바르", "floor": "1층"}, {"id": "numeros_4141", "number": "4141", "name": "그림자 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 암흑 스택 +1.", "passive_id": ["sigil_dark"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_4646", "number": "4646", "name": "날렵한 각반", "type": "armor", "subtype": "light", "slot": "legs", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"dexterity": 10}, "item_level": 450, "price": 0, "description": "깃털처럼 가벼운 각반. 몸놀림이 한층 날카로워진다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_4747", "context": "explore", "number": "4747", "name": "빠른 발걸음", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +15%.", "passive_id": ["swift_labyrinth_steps"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_5050", "number": "5050", "name": "총잡이의 단안경", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "원거리 공격 데미지 +15%.", "passive_id": ["monocle_ranged"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "2층 - 무법지대", "source_boss": "무법의 두르칸", "floor": "2층"}, {"id": "numeros_5151", "number": "5151", "name": "심판자의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "패링 성공 시 다음 타격 데미지 +25%.", "passive_effect": {"type": "parry_next_hit_bonus", "damage_mult": 1.25}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_5656", "number": "5656", "name": "현자의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"spirit_power": 12, "magic_resist": 5}, "item_level": 450, "price": 0, "description": "원소의 흐름이 짜여든 법의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_5757", "mag_def": 12, "number": "5757", "name": "현자의 두건", "type": "armor", "subtype": "robe", "slot": "helmet", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"spirit_power": 8, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "마력을 갈무리하는 두건.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "1층 - 점액의 폐광", "source_boss": "점액의 왕", "floor": "1층"}, {"id": "numeros_5959", "number": "5959", "name": "현자의 법의 하의", "type": "armor", "subtype": "robe", "slot": "legs", "grade": 5, "material": "신물", "def": 26, "stat_bonuses": {"spirit_power": 9, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "법의와 한 벌을 이루는 하의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_5991", "number": "5991", "name": "맹독의 송곳니", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 5, "material": "신물", "atk": 65, "item_level": 450, "price": 0, "description": "한 쌍의 독을 머금은 송곳니. 공격 시 독 스택 +1.", "passive_id": ["viper_venom"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_6060", "number": "6060", "name": "굳건한 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 땅 스택 +1.", "passive_id": ["sigil_earth"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_6666", "number": "6666", "name": "그릇된 도끼", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 5, "material": "신물", "atk": 72, "item_level": 450, "price": 0, "description": "처치한 영혼이 흘러든 저주받은 도끼. 처치 시 HP +5%.", "passive_id": ["cursed_kill_heal"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["방어/생명"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_7099", "number": "7099", "name": "마지막 뼈", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.", "death_save": {"type": "vital_intercept", "leave_hp": 1, "invuln_seconds": 5.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "1층 - 저주의 예배당", "source_boss": "저주의 베른", "floor": "1층"}, {"id": "numeros_7474", "number": "7474", "name": "그림자추적자 가죽갑", "type": "armor", "subtype": "light", "slot": "chest", "grade": 5, "material": "신물", "def": 34, "stat_bonuses": {"dexterity": 12}, "item_level": 450, "price": 0, "description": "그림자처럼 소리 없이 움직이게 하는 가죽갑.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_7575", "number": "7575", "name": "매눈 면갑", "type": "armor", "subtype": "light", "slot": "helmet", "grade": 5, "material": "신물", "def": 28, "stat_bonuses": {"dexterity": 8, "perception": 4}, "item_level": 450, "price": 0, "description": "매의 시야를 빌린 면갑. 급소가 또렷이 보인다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_8080", "number": "8080", "name": "신성한 호의", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 1, "charges": 1, "use_effect": "essence_remove_free", "description": "새긴 룬 1개를 부수지 않고 빼내 빈 혼병에 담는다. 빈 혼병이 있어야 한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["룬조작"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8181", "number": "8181", "name": "광휘의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 빛 스택 +1.", "passive_id": ["sigil_holy"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_8338", "number": "8338", "name": "그림자 단검", "type": "weapon", "subtype": "dagger", "slot": "weapon", "grade": 5, "material": "신물", "atk": 62, "item_level": 500, "price": 0, "stat_bonuses": {"dexterity": 8}, "description": "전투의 첫 일격에 피해 +50%.", "passive_id": ["first_strike"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_8383", "number": "8383", "name": "거산의 각반", "type": "armor", "subtype": "heavy", "slot": "legs", "grade": 5, "material": "신물", "def": 44, "stat_bonuses": {"endurance": 6, "pain_resist": 4}, "item_level": 450, "price": 0, "description": "산을 깎아 두른 듯한 각반. 어떤 충격에도 흔들리지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_8484", "number": "8484", "name": "무쇠심장 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 50, "stat_bonuses": {"bone_density": 6, "endurance": 4}, "item_level": 450, "price": 0, "description": "수천 번의 단조로 벼려낸 흉갑. 심장처럼 단단하다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8585", "number": "8585", "name": "투혼의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 5, "material": "신물", "def": 38, "stat_bonuses": {"fighting_spirit": 10}, "item_level": 450, "price": 0, "description": "검성의 의지가 깃든 투구. 두려움이 스며들지 못한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8686", "number": "8686", "name": "거인의 군화", "type": "armor", "subtype": "heavy", "slot": "boots", "grade": 5, "material": "신물", "def": 34, "stat_bonuses": {"endurance": 4, "bone_density": 3}, "item_level": 450, "price": 0, "description": "거인의 발을 본떠 만든 군화. 한번 디디면 밀려나지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_8787", "number": "8787", "name": "거암의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 5, "material": "신물", "def": 38, "stat_bonuses": {"bone_density": 5, "pain_resist": 4}, "item_level": 450, "price": 0, "description": "거대한 암석을 깎아 씌운 투구. 어떤 일격에도 고개가 꺾이지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 파수의 성소", "source_boss": "파수의 우르곤", "floor": "3층"}, {"id": "numeros_8820", "number": "8820", "name": "철옹성", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "쏟아지는 마법을 막아내는 철의 방벽. 마법 피해를 크게 경감한다.", "mag_def": 25, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8888", "number": "8888", "name": "참회의 향", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 1, "charges": 1, "use_effect": "essence_remove_count_down", "max_owned": 1, "description": "룬 제거 비용을 한 단계 낮춘다. 룬은 그대로 남는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["룬조작"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_9292", "unreleased": false, "number": "9292", "name": "투혼의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 50, "stat_bonuses": {"fighting_spirit": 12}, "item_level": 450, "price": 0, "description": "검성의 투지가 벼려진 흉갑. 싸울수록 끓어오른다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_9449", "number": "9449", "name": "야수왕의 발톱", "type": "weapon", "subtype": "claw", "slot": "weapon", "grade": 5, "material": "신물", "atk": 70, "item_level": 400, "price": 0, "description": "휘두를수록 야수의 본성이 깨어난다. 공격할수록 공격력과 속도가 오른다.", "passive_id": ["beast_form"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}];
+    const SCARS_DATA = [{"guardian_id": "ildium", "scar_name": "불멸의 봉인묘", "floor": "1층", "boss_name": "불멸의 골가르", "quad_relics": [{"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "1층 - 불멸의 봉인묘", "source_boss": "불멸의 골가르", "floor": "1층"}], "triple_relics": []}, {"guardian_id": "blater", "scar_name": "저주의 예배당", "floor": "1층", "boss_name": "저주의 베른", "quad_relics": [{"id": "numeros_7099", "number": "7099", "name": "마지막 뼈", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.", "death_save": {"type": "vital_intercept", "leave_hp": 1, "invuln_seconds": 5.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "1층 - 저주의 예배당", "source_boss": "저주의 베른", "floor": "1층"}], "triple_relics": []}, {"guardian_id": "king_slime", "scar_name": "점액의 폐광", "floor": "1층", "boss_name": "점액의 왕", "quad_relics": [{"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "1층 - 점액의 폐광", "source_boss": "점액의 왕", "floor": "1층"}], "triple_relics": []}, {"guardian_id": "tarunbas", "scar_name": "혹한의 빙동", "floor": "1층", "boss_name": "혹한의 이스바르", "quad_relics": [{"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "1층 - 혹한의 빙동", "source_boss": "혹한의 이스바르", "floor": "1층"}], "triple_relics": []}, {"guardian_id": "chained_wraith", "scar_name": "망자의 제단", "floor": "2층", "boss_name": "사슬의 모르그", "quad_relics": [{"id": "numeros_4747", "context": "explore", "number": "4747", "name": "빠른 발걸음", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +15%.", "passive_id": ["swift_labyrinth_steps"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_5991", "number": "5991", "name": "맹독의 송곳니", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 5, "material": "신물", "atk": 65, "item_level": 450, "price": 0, "description": "한 쌍의 독을 머금은 송곳니. 공격 시 독 스택 +1.", "passive_id": ["viper_venom"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_2424", "number": "2424", "name": "검귀의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 5, "material": "신물", "def": 55, "item_level": 450, "price": 0, "description": "패링 윈도우 +0.05초, 패링 시 기력 소모 -50%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.05, "stamina_mult": 0.5}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}, {"id": "numeros_7099", "number": "7099", "name": "마지막 뼈", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.", "death_save": {"type": "vital_intercept", "leave_hp": 1, "invuln_seconds": 5.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "2층 - 망자의 제단", "source_boss": "사슬의 모르그", "floor": "2층"}], "triple_relics": []}, {"guardian_id": "gunman_chief", "scar_name": "무법지대", "floor": "2층", "boss_name": "무법의 두르칸", "quad_relics": [{"id": "numeros_5050", "number": "5050", "name": "총잡이의 단안경", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "원거리 공격 데미지 +15%.", "passive_id": ["monocle_ranged"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "2층 - 무법지대", "source_boss": "무법의 두르칸", "floor": "2층"}, {"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 무법지대", "source_boss": "무법의 두르칸", "floor": "2층"}, {"id": "numeros_1313", "number": "1313", "name": "차원 자루", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "안이 밖보다 크다. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 무법지대", "source_boss": "무법의 두르칸", "floor": "2층"}], "triple_relics": []}, {"guardian_id": "awakened_megalith", "scar_name": "안개의 거석 폐허", "floor": "2층", "boss_name": "태고의 그로트", "quad_relics": [{"id": "numeros_6666", "number": "6666", "name": "그릇된 도끼", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 5, "material": "신물", "atk": 72, "item_level": 450, "price": 0, "description": "처치한 영혼이 흘러든 저주받은 도끼. 처치 시 HP +5%.", "passive_id": ["cursed_kill_heal"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["방어/생명"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_1313", "number": "1313", "name": "차원 자루", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "안이 밖보다 크다. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_5944", "context": "explore", "number": "5944", "name": "재사용 야영 키트", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "야영 시 연료를 대신 소모(탐험당 7회). 마을 복귀 시 재충전.", "passive_effect": {"type": "camp_kit"}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}, {"id": "numeros_1530", "context": "explore", "number": "1530", "name": "기지의 모래시계", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 400, "price": 0, "description": "지혜의 도약 시 오르는 층수 2배 (+8 → +16).", "passive_effect": {"type": "wisdom_time_bonus", "seconds": 15.0}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}], "triple_relics": [{"id": "numeros_808", "number": "808", "name": "거인 도륙자", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 6, "material": "신물", "atk": 90, "item_level": 600, "price": 0, "description": "보스/엘리트 대상 ATK +20%.", "passive_id": ["siege_boss_mult"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "2층 - 안개의 거석 폐허", "source_boss": "태고의 그로트", "floor": "2층"}]}, {"guardian_id": "dark_lycanthrope", "scar_name": "야월의 소굴", "floor": "2층", "boss_name": "야월의 하르갈", "quad_relics": [{"id": "numeros_3030", "number": "3030", "name": "광인의 송곳니", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "HP 60% 이하부터 잃은 체력에 비례해 공격 속도 상승 (최대 +30%).", "passive_effect": {"type": "berserk_attack_speed", "hp_threshold": 0.6, "full_threshold": 0.3, "bonus_min": 0.1, "bonus_max": 0.3}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_1001", "number": "1001", "name": "떠돌이의 여행 가방", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 25, "item_level": 150, "price": 0, "description": "선공몹 추적 거리 -20%.", "passive_id": ["alonso_aggro"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_4747", "context": "explore", "number": "4747", "name": "빠른 발걸음", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +15%.", "passive_id": ["swift_labyrinth_steps"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_7099", "number": "7099", "name": "마지막 뼈", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.", "death_save": {"type": "vital_intercept", "leave_hp": 1, "invuln_seconds": 5.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_9449", "number": "9449", "name": "야수왕의 발톱", "type": "weapon", "subtype": "claw", "slot": "weapon", "grade": 5, "material": "신물", "atk": 70, "item_level": 400, "price": 0, "description": "휘두를수록 야수의 본성이 깨어난다. 공격할수록 공격력과 속도가 오른다.", "passive_id": ["beast_form"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}], "triple_relics": [{"id": "numeros_500", "number": "500", "name": "사신의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "처치 시 HP +8%, SP +5%.", "passive_id": ["reaper_kill_heal", "reaper_sp_kill"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}, {"id": "numeros_943", "number": "943", "name": "굶주린 발톱", "type": "weapon", "subtype": "claw", "slot": "weapon", "grade": 6, "material": "신물", "atk": 88, "item_level": 600, "price": 0, "description": "휘두를수록 공격력·속도가 오르고, 공격 시 HP를 흡수한다.", "passive_id": ["beast_form", "beast_gorge"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "2층 - 야월의 소굴", "source_boss": "야월의 하르갈", "floor": "2층"}]}, {"guardian_id": "vampire_guardian", "scar_name": "적야의 성채", "floor": "2층", "boss_name": "적야의 카르닉", "quad_relics": [{"id": "numeros_7099", "number": "7099", "name": "마지막 뼈", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 직전 발동 — 무적 5초 후 부서짐. 1회 사용.", "death_save": {"type": "vital_intercept", "leave_hp": 1, "invuln_seconds": 5.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "2층 - 적야의 성채", "source_boss": "적야의 카르닉", "floor": "2층"}], "triple_relics": [{"id": "numeros_524", "number": "524", "name": "처형자의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 110, "item_level": 600, "price": 0, "description": "처치 시 ATK +5% (5스택, 1전투).", "passive_id": ["executioner_stack"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "2층 - 적야의 성채", "source_boss": "적야의 카르닉", "floor": "2층"}]}, {"guardian_id": "hobgoblin_chieftain", "scar_name": "홉고블린 요새", "floor": "2층", "boss_name": "홉고블린 대족장", "quad_relics": [{"id": "numeros_2727", "number": "2727", "name": "전사의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "근접 공격 데미지 +15%.", "passive_id": ["warrior_sigil_melee"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "2층 - 홉고블린 요새", "source_boss": "홉고블린 대족장", "floor": "2층"}, {"id": "numeros_4040", "number": "4040", "name": "휴대용 모닥불", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 5, "charges": 50, "use_effect": "bonfire_kit", "description": "어디서든 야영지 생성. 50회 사용 후 부서짐.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "2층 - 홉고블린 요새", "source_boss": "홉고블린 대족장", "floor": "2층"}], "triple_relics": []}, {"guardian_id": "white_temple_knight", "scar_name": "석화된 성소", "floor": "3층", "boss_name": "석화의 비그디스", "quad_relics": [{"id": "numeros_5151", "number": "5151", "name": "심판자의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "패링 성공 시 다음 타격 데미지 +25%.", "passive_effect": {"type": "parry_next_hit_bonus", "damage_mult": 1.25}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_2424", "number": "2424", "name": "검귀의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 5, "material": "신물", "def": 55, "item_level": 450, "price": 0, "description": "패링 윈도우 +0.05초, 패링 시 기력 소모 -50%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.05, "stamina_mult": 0.5}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_2988", "number": "2988", "name": "수호의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "mag_def": 25, "description": "수호의 인장 — 마법 피해를 경감한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_2578", "number": "2578", "name": "창천갑주", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 25, "item_level": 450, "price": 0, "description": "받는 피해 -7%.", "passive_id": ["sky_dr"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_8820", "number": "8820", "name": "철옹성", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "쏟아지는 마법을 막아내는 철의 방벽. 마법 피해를 크게 경감한다.", "mag_def": 25, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}, {"id": "numeros_3120", "number": "3120", "name": "예비의 심장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 시 발동 — HP 50% 회복 + 무적 3초. 1회 사용 후 부서짐.", "death_save": {"type": "vital_recover", "leave_hp_pct": 0.5, "invuln_seconds": 3.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}], "triple_relics": [{"id": "numeros_726", "number": "726", "name": "대지의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 6, "material": "신물", "def": 30, "item_level": 600, "price": 0, "description": "받는 피해 -10%.", "passive_id": ["earth_dr"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 석화된 성소", "source_boss": "석화의 비그디스", "floor": "3층"}]}, {"guardian_id": "petrified_oracle", "scar_name": "예언의 성소", "floor": "3층", "boss_name": "예언의 미르가", "quad_relics": [{"id": "numeros_4141", "number": "4141", "name": "그림자 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 암흑 스택 +1.", "passive_id": ["sigil_dark"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_5656", "number": "5656", "name": "현자의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"spirit_power": 12, "magic_resist": 5}, "item_level": 450, "price": 0, "description": "원소의 흐름이 짜여든 법의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_5757", "mag_def": 12, "number": "5757", "name": "현자의 두건", "type": "armor", "subtype": "robe", "slot": "helmet", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"spirit_power": 8, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "마력을 갈무리하는 두건.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_5959", "number": "5959", "name": "현자의 법의 하의", "type": "armor", "subtype": "robe", "slot": "legs", "grade": 5, "material": "신물", "def": 26, "stat_bonuses": {"spirit_power": 9, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "법의와 한 벌을 이루는 하의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_3535", "number": "3535", "name": "현자의 신", "type": "armor", "subtype": "robe", "slot": "boots", "grade": 5, "material": "신물", "def": 20, "stat_bonuses": {"spirit_power": 8, "magic_resist": 2}, "item_level": 450, "price": 0, "description": "현자의 발걸음을 받치는 신.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}], "triple_relics": [{"id": "numeros_384", "number": "384", "name": "어둠의 지팡이", "type": "weapon", "subtype": "staff", "slot": "weapon", "grade": 6, "material": "신물", "atk": 70, "item_level": 600, "price": 0, "description": "마법 데미지 +15%, 흡혈 5%.", "passive_id": ["shadow_staff_magic", "shadow_lifesteal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "특수기믹"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_135", "number": "135", "name": "지혜의 지팡이", "type": "weapon", "subtype": "staff", "slot": "weapon", "grade": 6, "material": "신물", "atk": 70, "item_level": 600, "price": 0, "description": "마법 데미지 +15%, SP 회복 속도 +20%.", "passive_id": ["sage_staff_magic", "sage_sp_regen"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "공속/가속"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}, {"id": "numeros_944", "number": "944", "name": "그림자 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 암흑 스택 +1. 암흑 데미지 +10%.", "passive_id": ["sigil_dark_greater"], "stat_bonuses": {"dark_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "3층 - 예언의 성소", "source_boss": "예언의 미르가", "floor": "3층"}]}, {"guardian_id": "petrified_colossus", "scar_name": "파수의 성소", "floor": "3층", "boss_name": "파수의 우르곤", "quad_relics": [{"id": "numeros_8787", "number": "8787", "name": "거암의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 5, "material": "신물", "def": 38, "stat_bonuses": {"bone_density": 5, "pain_resist": 4}, "item_level": 450, "price": 0, "description": "거대한 암석을 깎아 씌운 투구. 어떤 일격에도 고개가 꺾이지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 파수의 성소", "source_boss": "파수의 우르곤", "floor": "3층"}, {"id": "numeros_8484", "number": "8484", "name": "무쇠심장 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 50, "stat_bonuses": {"bone_density": 6, "endurance": 4}, "item_level": 450, "price": 0, "description": "수천 번의 단조로 벼려낸 흉갑. 심장처럼 단단하다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "3층 - 파수의 성소", "source_boss": "파수의 우르곤", "floor": "3층"}], "triple_relics": [{"id": "numeros_878", "number": "878", "name": "반석의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 6, "material": "신물", "def": 48, "stat_bonuses": {"bone_density": 8, "pain_resist": 6}, "item_level": 600, "price": 0, "description": "바위처럼 굳어, 맞을수록 더 단단해진다. 피격 시 항마력 누적.", "passive_id": ["giant_carapace"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "3층 - 파수의 성소", "source_boss": "파수의 우르곤", "floor": "3층"}]}, {"guardian_id": "doppelganger", "scar_name": "거울 미로", "floor": "4층", "boss_name": "도플갱어", "quad_relics": [{"id": "numeros_4141", "number": "4141", "name": "그림자 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 암흑 스택 +1.", "passive_id": ["sigil_dark"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_8888", "number": "8888", "name": "참회의 향", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 1, "charges": 1, "use_effect": "essence_remove_count_down", "max_owned": 1, "description": "룬 제거 비용을 한 단계 낮춘다. 룬은 그대로 남는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["룬조작"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_8338", "number": "8338", "name": "그림자 단검", "type": "weapon", "subtype": "dagger", "slot": "weapon", "grade": 5, "material": "신물", "atk": 62, "item_level": 500, "price": 0, "stat_bonuses": {"dexterity": 8}, "description": "전투의 첫 일격에 피해 +50%.", "passive_id": ["first_strike"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}], "triple_relics": [{"id": "numeros_747", "number": "747", "name": "심연추적자 가죽갑", "type": "armor", "subtype": "light", "slot": "chest", "grade": 6, "material": "신물", "def": 44, "stat_bonuses": {"dexterity": 16}, "item_level": 600, "price": 0, "description": "그림자 속에서 내딛는 첫 일격은 치명적이다. 전투 첫 타 피해 대폭 증가.", "passive_id": ["abyss_first_strike"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_757", "number": "757", "name": "천리안 면갑", "type": "armor", "subtype": "light", "slot": "helmet", "grade": 6, "material": "신물", "def": 38, "stat_bonuses": {"dexterity": 10, "perception": 6}, "item_level": 600, "price": 0, "description": "모든 것을 꿰뚫어 보며 손이 빨라진다. 공격 시 공격 속도 증가.", "passive_id": ["farsight_haste"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_464", "number": "464", "name": "잔영의 각반", "type": "armor", "subtype": "light", "slot": "legs", "grade": 6, "material": "신물", "def": 40, "stat_bonuses": {"dexterity": 14}, "item_level": 600, "price": 0, "description": "잔상만 남기고 빠져나간다. 피격 시 회피.", "passive_id": ["afterimage_greaves"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_181", "number": "181", "name": "눈표범의 장화", "type": "armor", "subtype": "light", "slot": "boots", "grade": 6, "material": "신물", "def": 34, "stat_bonuses": {"dexterity": 10, "cold_affinity": 12}, "item_level": 600, "price": 0, "description": "눈표범처럼 눈밭을 소리 없이 딛는다. 냉기 친화 강화.", "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}, {"id": "numeros_833", "number": "833", "name": "암살자의 비수", "type": "weapon", "subtype": "dagger", "slot": "weapon", "grade": 6, "material": "신물", "atk": 82, "item_level": 600, "price": 0, "stat_bonuses": {"dexterity": 12}, "description": "행동불능(CC) 상태의 적에게 피해 +35%, 공격마다 HP 5% 흡수.", "passive_id": ["execute_vs_cc", "shadow_lifesteal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["피해증폭", "방어/생명"], "source_scar": "4층 - 거울 미로", "source_boss": "도플갱어", "floor": "4층"}]}, {"guardian_id": "oracle_marksman", "scar_name": "하늘 신탁소", "floor": "4층", "boss_name": "신탁의 볼가르", "quad_relics": [{"id": "numeros_1001", "number": "1001", "name": "떠돌이의 여행 가방", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 25, "item_level": 150, "price": 0, "description": "선공몹 추적 거리 -20%.", "passive_id": ["alonso_aggro"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_4747", "context": "explore", "number": "4747", "name": "빠른 발걸음", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +15%.", "passive_id": ["swift_labyrinth_steps"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_2578", "number": "2578", "name": "창천갑주", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 25, "item_level": 450, "price": 0, "description": "받는 피해 -7%.", "passive_id": ["sky_dr"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_8080", "number": "8080", "name": "신성한 호의", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 1, "charges": 1, "use_effect": "essence_remove_free", "description": "새긴 룬 1개를 부수지 않고 빼내 빈 혼병에 담는다. 빈 혼병이 있어야 한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["룬조작"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_2055", "context": "explore", "number": "2055", "name": "신탁의 후각", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "후각 +10.", "stat_bonuses": {"smell": 10}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_3700", "context": "explore", "number": "3700", "name": "천공의 시야", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 시야 +1 타일.", "passive_id": ["oracle_vision_mid"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_1530", "context": "explore", "number": "1530", "name": "기지의 모래시계", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 400, "price": 0, "description": "지혜의 도약 시 오르는 층수 2배 (+8 → +16).", "passive_effect": {"type": "wisdom_time_bonus", "seconds": 15.0}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}], "triple_relics": [{"id": "numeros_615", "number": "615", "name": "뇌신의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 75, "item_level": 600, "price": 0, "description": "적 번개 저항 50% 무시. 공격 시 번개 스택 누적.", "passive_id": ["thunder_charge", "thunder_pierce"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["방어관통", "방어/생명"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_370", "context": "explore", "number": "370", "name": "신성한 직관", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 150, "price": 0, "description": "신해 시야 +2 타일.", "passive_id": ["oracle_vision_high"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}, {"id": "numeros_999", "number": "999", "name": "뇌격의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 번개 스택 +1. 번개 데미지 +10%.", "passive_id": ["sigil_lightning_greater"], "stat_bonuses": {"lightning_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "4층 - 하늘 신탁소", "source_boss": "신탁의 볼가르", "floor": "4층"}]}, {"guardian_id": "dragon_slayer", "scar_name": "검성의 시련", "floor": "5층", "boss_name": "참회의 세르바스", "quad_relics": [{"id": "numeros_3120", "number": "3120", "name": "예비의 심장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 시 발동 — HP 50% 회복 + 무적 3초. 1회 사용 후 부서짐.", "death_save": {"type": "vital_recover", "leave_hp_pct": 0.5, "invuln_seconds": 3.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_8181", "number": "8181", "name": "광휘의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 빛 스택 +1.", "passive_id": ["sigil_holy"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}], "triple_relics": [{"id": "numeros_832", "number": "832", "name": "세르바스의 성검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 108, "item_level": 600, "price": 0, "description": "공격마다 신성 스택 +2.", "passive_id": ["holy_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_244", "number": "244", "name": "엄호의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 6, "material": "신물", "def": 95, "item_level": 700, "price": 0, "description": "블록 중, 250px 내 동료가 받는 피해를 대신 막아낸다.", "passive_effect": {"type": "guard_cover", "range": 250.0}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "방패", "tags": ["피해증폭"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_988", "number": "988", "name": "광휘의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 빛 스택 +1. 빛 데미지 +10%.", "passive_id": ["sigil_holy_greater"], "stat_bonuses": {"holy_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}, {"id": "numeros_547", "number": "547", "name": "신성의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격에 빛 속성 부여 — 언데드에 강하고, 정화로 회복을 봉쇄한다. 언데드 처치 시 SP +10.", "passive_id": ["holy_strike_blade", "holy_undead_sp"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 검성의 시련", "source_boss": "참회의 세르바스", "floor": "5층"}]}, {"guardian_id": "himar", "scar_name": "결빙의 성소", "floor": "5층", "boss_name": "결빙의 히마르", "quad_relics": [{"id": "numeros_1010", "number": "1010", "name": "한기의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 빙결 스택 +1.", "passive_id": ["sigil_cold"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_2727", "number": "2727", "name": "전사의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "근접 공격 데미지 +15%.", "passive_id": ["warrior_sigil_melee"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_3030", "number": "3030", "name": "광인의 송곳니", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "HP 60% 이하부터 잃은 체력에 비례해 공격 속도 상승 (최대 +30%).", "passive_effect": {"type": "berserk_attack_speed", "hp_threshold": 0.6, "full_threshold": 0.3, "bonus_min": 0.1, "bonus_max": 0.3}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_4747", "context": "explore", "number": "4747", "name": "빠른 발걸음", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +15%.", "passive_id": ["swift_labyrinth_steps"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_1313", "number": "1313", "name": "차원 자루", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "안이 밖보다 크다. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}], "triple_relics": [{"id": "numeros_273", "number": "273", "name": "한기의 쌍검", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 빙결 스택 +1.", "passive_id": ["frost_strike_dual"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}, {"id": "numeros_911", "number": "911", "name": "한기의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 빙결 스택 +1. 빙결 데미지 +10%.", "passive_id": ["sigil_cold_greater"], "stat_bonuses": {"cold_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 결빙의 성소", "source_boss": "결빙의 히마르", "floor": "5층"}]}, {"guardian_id": "balkaros", "scar_name": "용광의 도가니", "floor": "5층", "boss_name": "용광의 발카로스", "quad_relics": [{"id": "numeros_2020", "number": "2020", "name": "작열의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 화염 스택 +1.", "passive_id": ["sigil_fire"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_2727", "number": "2727", "name": "전사의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "근접 공격 데미지 +15%.", "passive_id": ["warrior_sigil_melee"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_3030", "number": "3030", "name": "광인의 송곳니", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "HP 60% 이하부터 잃은 체력에 비례해 공격 속도 상승 (최대 +30%).", "passive_effect": {"type": "berserk_attack_speed", "hp_threshold": 0.6, "full_threshold": 0.3, "bonus_min": 0.1, "bonus_max": 0.3}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_8383", "number": "8383", "name": "거산의 각반", "type": "armor", "subtype": "heavy", "slot": "legs", "grade": 5, "material": "신물", "def": 44, "stat_bonuses": {"endurance": 6, "pain_resist": 4}, "item_level": 450, "price": 0, "description": "산을 깎아 두른 듯한 각반. 어떤 충격에도 흔들리지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_8686", "number": "8686", "name": "거인의 군화", "type": "armor", "subtype": "heavy", "slot": "boots", "grade": 5, "material": "신물", "def": 34, "stat_bonuses": {"endurance": 4, "bone_density": 3}, "item_level": 450, "price": 0, "description": "거인의 발을 본떠 만든 군화. 한번 디디면 밀려나지 않는다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}], "triple_relics": [{"id": "numeros_372", "number": "372", "name": "진홍의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 100, "item_level": 600, "price": 0, "description": "공격마다 화염 스택 +1.", "passive_id": ["crimson_burn"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_761", "number": "761", "name": "명공의 용광로 망치", "type": "weapon", "subtype": "axe", "slot": "weapon", "grade": 6, "material": "신물", "atk": 90, "item_level": 600, "price": 0, "description": "적 화염 저항 50% 무시.", "passive_id": ["loam_pierce"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["방어관통", "방어/생명"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}, {"id": "numeros_922", "number": "922", "name": "작열의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 화염 스택 +1. 화염 데미지 +10%.", "passive_id": ["sigil_fire_greater"], "stat_bonuses": {"fire_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 용광의 도가니", "source_boss": "용광의 발카로스", "floor": "5층"}]}, {"guardian_id": "goliad", "scar_name": "중력의 묘", "floor": "5층", "boss_name": "중력의 골리아드", "quad_relics": [{"id": "numeros_6060", "number": "6060", "name": "굳건한 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 땅 스택 +1.", "passive_id": ["sigil_earth"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8484", "number": "8484", "name": "무쇠심장 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 50, "stat_bonuses": {"bone_density": 6, "endurance": 4}, "item_level": 450, "price": 0, "description": "수천 번의 단조로 벼려낸 흉갑. 심장처럼 단단하다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8585", "number": "8585", "name": "투혼의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 5, "material": "신물", "def": 38, "stat_bonuses": {"fighting_spirit": 10}, "item_level": 450, "price": 0, "description": "검성의 의지가 깃든 투구. 두려움이 스며들지 못한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8080", "number": "8080", "name": "신성한 호의", "type": "consumable", "subtype": "numeros", "slot": "", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "weight": 1, "charges": 1, "use_effect": "essence_remove_free", "description": "새긴 룬 1개를 부수지 않고 빼내 빈 혼병에 담는다. 빈 혼병이 있어야 한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["룬조작"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_8820", "number": "8820", "name": "철옹성", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "쏟아지는 마법을 막아내는 철의 방벽. 마법 피해를 크게 경감한다.", "mag_def": 25, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_1717", "context": "explore", "number": "1717", "name": "불굴의 징표", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 150, "price": 0, "description": "비전투 시 HP 회복 속도 2배.", "passive_id": ["vigil_regen"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["공속/가속", "방어/생명"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}, {"id": "numeros_2828", "context": "explore", "number": "2828", "name": "행상의 봇짐", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 5, "material": "신물", "weight_bonus": 30, "item_level": 150, "price": 0, "description": "행상이 짊어지던 큼직한 봇짐. 무게 한도 +30.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}], "triple_relics": [{"id": "numeros_966", "number": "966", "name": "굳건한 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 땅 스택 +1. 땅 데미지 +10%.", "passive_id": ["sigil_earth_greater"], "stat_bonuses": {"earth_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "5층 - 중력의 묘", "source_boss": "중력의 골리아드", "floor": "5층"}]}, {"guardian_id": "abyssal_drown_lord", "scar_name": "가라앉은 심연", "floor": "6층", "boss_name": "심연의 드로가르", "quad_relics": [{"id": "numeros_5656", "number": "5656", "name": "현자의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"spirit_power": 12, "magic_resist": 5}, "item_level": 450, "price": 0, "description": "원소의 흐름이 짜여든 법의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}, {"id": "numeros_5757", "mag_def": 12, "number": "5757", "name": "현자의 두건", "type": "armor", "subtype": "robe", "slot": "helmet", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"spirit_power": 8, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "마력을 갈무리하는 두건.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}], "triple_relics": [{"id": "numeros_565", "number": "565", "name": "대마도사의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 6, "material": "신물", "def": 40, "stat_bonuses": {"spirit_power": 16, "magic_resist": 6}, "item_level": 600, "price": 0, "description": "대마도사의 격이 깃든 법의. 마법 피해 증폭.", "passive_id": ["archsage_magic"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}, {"id": "numeros_358", "context": "explore", "number": "358", "name": "폭풍의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 150, "price": 0, "description": "신해 이동속도 +25%, 시야 +1 타일.", "passive_id": ["storm_speed", "storm_vision"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "6층 - 가라앉은 심연", "source_boss": "심연의 드로가르", "floor": "6층"}]}, {"guardian_id": "drowned_queen", "scar_name": "난파 무덤", "floor": "6층", "boss_name": "익사의 이스라", "quad_relics": [{"id": "numeros_3535", "number": "3535", "name": "현자의 신", "type": "armor", "subtype": "robe", "slot": "boots", "grade": 5, "material": "신물", "def": 20, "stat_bonuses": {"spirit_power": 8, "magic_resist": 2}, "item_level": 450, "price": 0, "description": "현자의 발걸음을 받치는 신.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 난파 무덤", "source_boss": "익사의 이스라", "floor": "6층"}], "triple_relics": []}, {"guardian_id": "torrent_leviathan", "scar_name": "수몰 협곡", "floor": "6층", "boss_name": "격류의 모르켈", "quad_relics": [{"id": "numeros_5959", "number": "5959", "name": "현자의 법의 하의", "type": "armor", "subtype": "robe", "slot": "legs", "grade": 5, "material": "신물", "def": 26, "stat_bonuses": {"spirit_power": 9, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "법의와 한 벌을 이루는 하의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 수몰 협곡", "source_boss": "격류의 모르켈", "floor": "6층"}], "triple_relics": []}, {"guardian_id": "abyssal_end_knight", "scar_name": "심연의 성소", "floor": "6층", "boss_name": "심연의 헬바르드", "quad_relics": [{"id": "numeros_2424", "number": "2424", "name": "검귀의 방패", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 5, "material": "신물", "def": 55, "item_level": 450, "price": 0, "description": "패링 윈도우 +0.05초, 패링 시 기력 소모 -50%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.05, "stamina_mult": 0.5}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_9292", "unreleased": false, "number": "9292", "name": "투혼의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 5, "material": "신물", "def": 50, "stat_bonuses": {"fighting_spirit": 12}, "item_level": 450, "price": 0, "description": "검성의 투지가 벼려진 흉갑. 싸울수록 끓어오른다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_8585", "number": "8585", "name": "투혼의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 5, "material": "신물", "def": 38, "stat_bonuses": {"fighting_spirit": 10}, "item_level": 450, "price": 0, "description": "검성의 의지가 깃든 투구. 두려움이 스며들지 못한다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_3120", "number": "3120", "name": "예비의 심장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "치명적 피해 시 발동 — HP 50% 회복 + 무적 3초. 1회 사용 후 부서짐.", "death_save": {"type": "vital_recover", "leave_hp_pct": 0.5, "invuln_seconds": 3.0, "charges": 1, "consume_on_use": true}, "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["생존/무적", "피해증폭"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}], "triple_relics": [{"id": "numeros_242", "number": "242", "name": "검성의 방벽", "type": "shield", "subtype": "numeros", "slot": "shield", "grade": 6, "material": "신물", "def": 70, "item_level": 600, "price": 0, "description": "패링 윈도우 +0.08초, 패링 시 기력 소모 -60%.", "passive_effect": {"type": "parry_master", "window_bonus": 0.08, "stamina_mult": 0.4}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "방패", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_929", "unreleased": false, "number": "929", "name": "불굴의 흉갑", "type": "armor", "subtype": "heavy", "slot": "chest", "grade": 6, "material": "신물", "def": 62, "stat_bonuses": {"fighting_spirit": 16}, "item_level": 600, "price": 0, "description": "꺾이지 않는 검격. 한 적을 계속 몰아치면 마무리 일격이 터진다.", "passive_id": ["valor_combo"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}, {"id": "numeros_858", "number": "858", "name": "불굴의 투구", "type": "armor", "subtype": "heavy", "slot": "helmet", "grade": 6, "material": "신물", "def": 48, "stat_bonuses": {"fighting_spirit": 13}, "item_level": 600, "price": 0, "description": "적을 쓰러뜨릴수록 투지가 몸을 채운다. 처치 시 체력 회복.", "passive_id": ["indomitable_kill_heal"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["방어/생명"], "source_scar": "6층 - 심연의 성소", "source_boss": "심연의 헬바르드", "floor": "6층"}]}, {"guardian_id": "raphremmik", "scar_name": "보물섬 (피오네)", "floor": "6층", "boss_name": "보물 미믹", "quad_relics": [{"id": "numeros_7474", "number": "7474", "name": "그림자추적자 가죽갑", "type": "armor", "subtype": "light", "slot": "chest", "grade": 5, "material": "신물", "def": 34, "stat_bonuses": {"dexterity": 12}, "item_level": 450, "price": 0, "description": "그림자처럼 소리 없이 움직이게 하는 가죽갑.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_7575", "number": "7575", "name": "매눈 면갑", "type": "armor", "subtype": "light", "slot": "helmet", "grade": 5, "material": "신물", "def": 28, "stat_bonuses": {"dexterity": 8, "perception": 4}, "item_level": 450, "price": 0, "description": "매의 시야를 빌린 면갑. 급소가 또렷이 보인다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_4646", "number": "4646", "name": "날렵한 각반", "type": "armor", "subtype": "light", "slot": "legs", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"dexterity": 10}, "item_level": 450, "price": 0, "description": "깃털처럼 가벼운 각반. 몸놀림이 한층 날카로워진다.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}, {"id": "numeros_1818", "number": "1818", "name": "표범걸음 장화", "type": "armor", "subtype": "light", "slot": "boots", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"dexterity": 8}, "item_level": 450, "price": 0, "description": "표범의 발놀림을 담은 장화.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}], "triple_relics": [{"id": "numeros_447", "number": "447", "name": "도망자의 봇짐", "type": "bag", "subtype": "numeros", "slot": "bag", "grade": 6, "material": "신물", "weight_bonus": 25, "item_level": 150, "price": 0, "passive_id": ["swift_bag_steps"], "description": "쫓기던 자가 메고 달아나던 봇짐. 무게 한도 +25, 신해 이동속도 +12%.", "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["공속/가속"], "source_scar": "6층 - 보물섬 (피오네)", "source_boss": "보물 미믹", "floor": "6층"}]}, {"guardian_id": "golden_mimic", "scar_name": "황금의 보고", "floor": "7층", "boss_name": "황금 미믹", "quad_relics": [{"id": "numeros_5656", "number": "5656", "name": "현자의 법의", "type": "armor", "subtype": "robe", "slot": "chest", "grade": 5, "material": "신물", "def": 30, "stat_bonuses": {"spirit_power": 12, "magic_resist": 5}, "item_level": 450, "price": 0, "description": "원소의 흐름이 짜여든 법의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_5757", "mag_def": 12, "number": "5757", "name": "현자의 두건", "type": "armor", "subtype": "robe", "slot": "helmet", "grade": 5, "material": "신물", "def": 24, "stat_bonuses": {"spirit_power": 8, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "마력을 갈무리하는 두건.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_5959", "number": "5959", "name": "현자의 법의 하의", "type": "armor", "subtype": "robe", "slot": "legs", "grade": 5, "material": "신물", "def": 26, "stat_bonuses": {"spirit_power": 9, "magic_resist": 3}, "item_level": 450, "price": 0, "description": "법의와 한 벌을 이루는 하의.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}, {"id": "numeros_3535", "number": "3535", "name": "현자의 신", "type": "armor", "subtype": "robe", "slot": "boots", "grade": 5, "material": "신물", "def": 20, "stat_bonuses": {"spirit_power": 8, "magic_resist": 2}, "item_level": 450, "price": 0, "description": "현자의 발걸음을 받치는 신.", "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금 미믹", "floor": "7층"}], "triple_relics": []}, {"guardian_id": "kalpion", "scar_name": "황금의 보고", "floor": "7층", "boss_name": "황금의 나자로스", "quad_relics": [{"id": "numeros_3131", "number": "3131", "name": "부식의 인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 5, "material": "신물", "item_level": 450, "price": 0, "description": "공격 시 독 스택 +1.", "passive_id": ["sigil_poison"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "장신구", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_8338", "number": "8338", "name": "그림자 단검", "type": "weapon", "subtype": "dagger", "slot": "weapon", "grade": 5, "material": "신물", "atk": 62, "item_level": 500, "price": 0, "stat_bonuses": {"dexterity": 8}, "description": "전투의 첫 일격에 피해 +50%.", "passive_id": ["first_strike"], "is_numeros": true, "tier_type": "쿼드", "slot_korean": "무기", "tags": ["피해증폭"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}], "triple_relics": [{"id": "numeros_933", "number": "933", "name": "부식의 대인장", "type": "accessory", "subtype": "numeros", "slot": "accessory", "grade": 6, "material": "신물", "item_level": 600, "price": 0, "description": "공격 시 독 스택 +1. 독 데미지 +10%.", "passive_id": ["sigil_poison_greater"], "stat_bonuses": {"poison_affinity": 12}, "is_numeros": true, "tier_type": "트리플", "slot_korean": "장신구", "tags": ["피해증폭"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_830", "number": "830", "name": "맹독의 활", "type": "weapon", "subtype": "bow", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_831", "number": "831", "name": "부식의 쌍검", "type": "weapon", "subtype": "dual_sword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 80, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}, {"id": "numeros_829", "number": "829", "name": "부패의 대검", "type": "weapon", "subtype": "greatsword", "slot": "weapon", "grade": 6, "material": "신물", "atk": 105, "item_level": 600, "price": 0, "description": "공격마다 독 스택 +2.", "passive_id": ["venom_strike_blade"], "is_numeros": true, "tier_type": "트리플", "slot_korean": "무기", "tags": ["능력강화"], "source_scar": "7층 - 황금의 보고", "source_boss": "황금의 나자로스", "floor": "7층"}]}];
+
+    const RELICS_MAP = {};
+    RELICS_DATA.forEach(r => {
+      RELICS_MAP[r.id] = r;
+    });
+
+    let currentView = 'relics';
+    let currentFloor = 'all';
+    let currentTier = 'all';
+    let currentSlot = 'all';
+    let searchQuery = '';
+
+    function switchView(view) {
+      currentView = view;
+      document.getElementById('btnViewRelics').classList.toggle('active', view === 'relics');
+      document.getElementById('btnViewScars').classList.toggle('active', view === 'scars');
+      
+      document.getElementById('relicsContainer').style.display = view === 'relics' ? 'grid' : 'none';
+      document.getElementById('scarsContainer').style.display = view === 'scars' ? 'grid' : 'none';
+      render();
+    }
+
+    function setFloorFilter(floor) {
+      currentFloor = floor;
+      updateActiveBtn('#floorFilters', floor, '전체 층');
+      render();
+    }
+
+    function setTierFilter(tier) {
+      currentTier = tier;
+      updateActiveBtn('#tierFilters', tier, '전체');
+      render();
+    }
+
+    function setSlotFilter(slot) {
+      currentSlot = slot;
+      updateActiveBtn('#slotFilters', slot, '전체');
+      render();
+    }
+
+    function updateActiveBtn(containerSelector, val, allLabel) {
+      const btns = document.querySelectorAll(`${containerSelector} .rc-f-btn`);
+      btns.forEach(b => {
+        if (val === 'all') {
+          b.classList.toggle('active', b.innerText === allLabel);
+        } else {
+          b.classList.toggle('active', b.innerText === val);
+        }
+      });
+    }
+
+    function handleFilterChange() {
+      searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      render();
+    }
+
+    function render() {
+      if (currentView === 'relics') {
+        renderRelics();
+      } else {
+        renderScars();
+      }
+    }
+
+    function renderRelics() {
+      const container = document.getElementById('relicsContainer');
+      container.innerHTML = '';
+
+      const filtered = RELICS_DATA.filter(r => {
+        if (currentFloor !== 'all' && r.floor !== currentFloor) return false;
+        if (currentTier !== 'all' && r.tier_type !== currentTier) return false;
+        if (currentSlot !== 'all' && r.slot_korean !== currentSlot) return false;
+        if (searchQuery) {
+          const allTags = (r.tags || []).join(' ');
+          const str = `${r.name} ${r.number} ${r.description} ${r.source_scar} ${r.source_boss} ${allTags}`.toLowerCase();
+          if (!str.includes(searchQuery)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('statPill').innerText = `${filtered.length}개 신물 표시 중 (전체 88종)`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:30px; color:#8b949e;">일치하는 신물이 없습니다.</div>';
+        return;
+      }
+
+      filtered.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'rc-relic-card';
+        
+        const isQuad = r.tier_type === '쿼드';
+        const badgeTierClass = isQuad ? 'rc-badge-quad' : 'rc-badge-triple';
+        const numDisplay = r.number ? `#${r.number}` : '신물';
+
+        const tagsHtml = (r.tags || []).map(t => `<span class="rc-tag">${t}</span>`).join('');
+
+        card.innerHTML = `
+          <div class="rc-relic-row1">
+            <span class="rc-relic-num">${numDisplay}</span>
+            <span class="rc-relic-name" title="${r.name}">${r.name}</span>
+            <div style="display:flex; gap:4px;">
+              <span class="rc-badge rc-badge-slot">${r.slot_korean}</span>
+              <span class="rc-badge ${badgeTierClass}">${r.tier_type}</span>
+              <span class="rc-badge rc-badge-floor">${r.floor}</span>
+            </div>
+          </div>
+          <div class="rc-relic-desc">
+            ${r.description || '효과 정보 없음'}
+          </div>
+          <div class="rc-relic-row3">
+            <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              ${r.source_scar} <strong style="color:#f2cc60;">(${r.source_boss})</strong>
+            </span>
+            <div style="display:flex; gap:4px;">${tagsHtml}</div>
+          </div>
+        `;
+        card.addEventListener('click', () => openRelicModal(r.id));
+        container.appendChild(card);
+      });
+    }
+
+    function renderScars() {
+      const container = document.getElementById('scarsContainer');
+      container.innerHTML = '';
+
+      const filtered = SCARS_DATA.filter(s => {
+        if (currentFloor !== 'all' && s.floor !== currentFloor) return false;
+        if (searchQuery) {
+          const allRelicTxt = [...s.quad_relics, ...s.triple_relics].map(r => `${r.name} ${r.number} ${r.description}`).join(' ');
+          const str = `${s.scar_name} ${s.boss_name} ${s.floor} ${allRelicTxt}`.toLowerCase();
+          if (!str.includes(searchQuery)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('statPill').innerText = `${filtered.length}개 상흔 던전 표시 중 (전체 28개)`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding:30px; color:#8b949e; background:#161b22; border-radius:6px;">일치하는 상흔이 없습니다.</div>';
+        return;
+      }
+
+      // Render Table Header
+      const head = document.createElement('div');
+      head.className = 'rc-table-head';
+      head.innerHTML = `
+        <div>🏛️ 상흔 던전 / 수호 보스</div>
+        <div><span class="rc-badge rc-badge-quad">쿼드</span> 보스 전용 신물</div>
+        <div><span class="rc-badge rc-badge-triple">트리플</span> 상흔 특화 신물</div>
+      `;
+      container.appendChild(head);
+
+      filtered.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'rc-scar-row';
+
+        const quadChipsHtml = s.quad_relics.length > 0 
+          ? s.quad_relics.map(r => `
+              <div class="rc-chip rc-chip-quad" onclick="openRelicModal('${r.id}')" title="${r.description || ''}">
+                <span style="color:#d2a8ff; font-weight:800; font-size:10px;">#${r.number}</span>
+                <span style="color:#f0f6fc; font-weight:700;">${r.name}</span>
+              </div>
+            `).join('')
+          : '<span class="rc-empty-cell">—</span>';
+
+        const tripleChipsHtml = s.triple_relics.length > 0
+          ? s.triple_relics.map(r => `
+              <div class="rc-chip rc-chip-triple" onclick="openRelicModal('${r.id}')" title="${r.description || ''}">
+                <span style="color:#79c0ff; font-weight:800; font-size:10px;">#${r.number}</span>
+                <span style="color:#f0f6fc; font-weight:700;">${r.name}</span>
+              </div>
+            `).join('')
+          : '<span class="rc-empty-cell">—</span>';
+
+        row.innerHTML = `
+          <div class="rc-scar-col-info">
+            <div class="rc-scar-col-title">
+              <span class="rc-badge rc-badge-floor">${s.floor}</span>
+              <span class="rc-scar-title-txt">${s.scar_name}</span>
+            </div>
+            <div class="rc-scar-boss-txt">수호 보스: <strong>${s.boss_name}</strong></div>
+          </div>
+          <div class="rc-scar-pool-cell">
+            ${quadChipsHtml}
+          </div>
+          <div class="rc-scar-pool-cell">
+            ${tripleChipsHtml}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function openRelicModal(relicId) {
+      const r = RELICS_MAP[relicId];
+      if (!r) return;
+
+      const modal = document.getElementById('modalBackdrop');
+      const content = document.getElementById('modalContent');
+
+      content.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+          <div>
+            <div style="font-size:12px; font-weight:800; color:#58a6ff;">신물 식별 번호: #${r.number || '-'}</div>
+            <h2 style="font-size:18px; font-weight:900; color:#fff; margin:2px 0;">${r.name}</h2>
+          </div>
+          <div style="display:flex; gap:4px;">
+            <span class="rc-badge rc-badge-slot">${r.slot_korean || '장신구'}</span>
+            <span class="rc-badge ${r.tier_type === '쿼드' ? 'rc-badge-quad' : 'rc-badge-triple'}">${r.tier_type}</span>
+            <span class="rc-badge rc-badge-floor">${r.floor}</span>
+          </div>
+        </div>
+        <div style="background:#0d1117; border:1px solid #30363d; border-radius:6px; padding:12px; margin-bottom:12px;">
+          <div style="font-size:11px; font-weight:700; color:#8b949e; margin-bottom:4px;">실전 장착 효과 및 옵션</div>
+          <div style="font-size:13px; color:#e6edf3; line-height:1.5;">${r.description || '효과 설명이 없습니다.'}</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:#8b949e; background:#21262d; padding:8px 12px; border-radius:6px;">
+          <div>획득처: <strong style="color:#fff;">${r.source_scar || '-'}</strong></div>
+          <div>수호자: <strong style="color:#f2cc60;">${r.source_boss || '-'}</strong></div>
+        </div>
+      `;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal(e) {
+      if (!e || e.target.id === 'modalBackdrop' || e.target.classList.contains('rc-modal-close')) {
+        const modal = document.getElementById('modalBackdrop');
+        const content = document.getElementById('modalContent');
+        content.innerHTML = '';
+        modal.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      render();
+    });
+    render();
+  </script>
+</body>
+</html>

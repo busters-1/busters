@@ -908,7 +908,93 @@
       color: var(--text-muted);
       font-size: 12px;
     }
-  </style>
+  
+  /* Unified Global Header Container */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title h1 {
+    font-size: 20px;
+    color: #f0f6fc;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .header-title p {
+    color: #8b949e;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: #30363d;
+    margin: 0 4px;
+  }
+  .nav-tab {
+    background: #21262d;
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid #30363d;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    border-color: #58a6ff;
+    color: #f0f6fc;
+  }
+  .nav-tab.active {
+    background: linear-gradient(135deg, #1f6feb, #238636);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .nav-tab.ext-link {
+    font-size: 12px;
+    padding: 7px 12px;
+    background: #161b22;
+  }
+  .nav-tab.ext-link.steam:hover {
+    border-color: #66c0f4;
+    color: #66c0f4;
+    background: rgba(102, 192, 244, 0.1);
+  }
+  .nav-tab.ext-link.stats:hover {
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
+  }
+  .nav-tab.ext-link.kakao:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
+</style>
 </head>
 <body>
 
@@ -916,14 +1002,15 @@
 <div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>브리미르: 심장으로의 순례 — 몬스터 &amp; 보스 레이드 실전 공략 게시판</p>
+    <p>브리미르: 심장으로의 순례 — 몬스터 & 보스 레이드 실전 공략 게시판</p>
   </div>
   <nav class="nav-tabs">
-    <a href="index.html" class="nav-tab">💎 룬 도감</a>
-    <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
-    <a href="tier_list.html" class="nav-tab">🏆 몬스터 티어표</a>
-    <a href="guide.html" class="nav-tab">📖 이용 가이드</a>
+    <a href="index.html" class="nav-tab ">💎 룬 도감</a>
+    <a href="relic_codex.html" class="nav-tab ">🔮 신물 도감</a>
+    <a href="scar_log.html" class="nav-tab ">📜 신해 일지</a>
+    <a href="tier_list.html" class="nav-tab ">🏆 몬스터 티어표</a>
     <a href="monster_guide.html" class="nav-tab active">⚔️ 몬스터 공략</a>
+    <a href="guide.html" class="nav-tab ">📖 이용 가이드</a>
     <div class="nav-divider"></div>
     <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
     <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
@@ -5268,49 +5355,6 @@ const POSTS_DATA = [
       }
     ],
     "category": "5층 (검성의 시련)"
-  },
-  {
-    "id": "f8_scar",
-    "monsterName": "피의 도살자",
-    "grade": "3등급",
-    "floor": 8,
-    "region": "8층 심막",
-    "image": "./assets/monsters/f8_scar.webp",
-    "youtubeId": "6pmEzTkjmJg",
-    "armorEnchant": "암흑 / 출혈 저항",
-    "intro": "『브리미르: 순례자의 탑』 8층 심막 3등급 최상위 보스, 피의 도살자(f8_scar) 실전 공략입니다.",
-    "phases": [
-      {
-        "phaseNum": 1,
-        "title": "실전 대응 액션 가이드",
-        "patterns": [
-          {
-            "name": "피 뿌리기 (Scar Rupture)",
-            "tag": "avoid",
-            "tagText": "교전 회피",
-            "desc": "지면에 출혈 장판을 생성하므로 범위 밖으로 회피하거나 거리 유지."
-          },
-          {
-            "name": "저주 검격 (Cursed Slash)",
-            "tag": "parry",
-            "tagText": "패링",
-            "desc": "정면 저주 베기 공격. 공격 모션 보고 정면 패링."
-          },
-          {
-            "name": "응혈 연격 (Clot Flurry)",
-            "tag": "parry",
-            "tagText": "패링/가드",
-            "desc": "4연속 난무 공격. 가드 유지 또는 타이밍 패링."
-          },
-          {
-            "name": "도살의 선고 (Butcher's Verdict)",
-            "tag": "cancel",
-            "tagText": "필수 차단",
-            "desc": "P3 광폭화 즉사급 필살기. 파티의 하드 CC기로 무조건 즉시 차단."
-          }
-        ]
-      }
-    ]
   },
   {
     "id": "vaiterion",

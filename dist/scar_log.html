@@ -698,6 +698,92 @@
   }
  }
 
+
+  /* Unified Global Header Container */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title h1 {
+    font-size: 20px;
+    color: #f0f6fc;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .header-title p {
+    color: #8b949e;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: #30363d;
+    margin: 0 4px;
+  }
+  .nav-tab {
+    background: #21262d;
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid #30363d;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab:hover {
+    border-color: #58a6ff;
+    color: #f0f6fc;
+  }
+  .nav-tab.active {
+    background: linear-gradient(135deg, #1f6feb, #238636);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .nav-tab.ext-link {
+    font-size: 12px;
+    padding: 7px 12px;
+    background: #161b22;
+  }
+  .nav-tab.ext-link.steam:hover {
+    border-color: #66c0f4;
+    color: #66c0f4;
+    background: rgba(102, 192, 244, 0.1);
+  }
+  .nav-tab.ext-link.stats:hover {
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
+  }
+  .nav-tab.ext-link.kakao:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
 </style>
  <!-- Vercel Web Analytics & Speed Insights -->
  <script defer src="/_vercel/insights/script.js"></script>
@@ -706,20 +792,22 @@
 <body>
 
 <div class="header-container">
- <div class="header-title">
-  <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-  <p>브리미르: 심장으로의 순례 — 신해 일지 & 상흔 던전 탐험 주기 플래너</p>
- </div>
+  <div class="header-title">
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 신해 일지 & 상흔 던전 탐험 주기 플래너</p>
+  </div>
   <nav class="nav-tabs">
-  <a href="index.html" class="nav-tab">💎 룬 도감</a>
-  <a href="scar_log.html" class="nav-tab active">📜 신해 일지</a>
-  <a href="tier_list.html" class="nav-tab">🏆 몬스터 티어표</a>
-  <a href="guide.html" class="nav-tab">📖 이용 가이드</a>
-<div class="nav-divider"></div>
-  <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
-  <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
-  <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
- </nav>
+    <a href="index.html" class="nav-tab ">💎 룬 도감</a>
+    <a href="relic_codex.html" class="nav-tab ">🔮 신물 도감</a>
+    <a href="scar_log.html" class="nav-tab active">📜 신해 일지</a>
+    <a href="tier_list.html" class="nav-tab ">🏆 몬스터 티어표</a>
+    <a href="monster_guide.html" class="nav-tab ">⚔️ 몬스터 공략</a>
+    <a href="guide.html" class="nav-tab ">📖 이용 가이드</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
+    <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
+  </nav>
 </div>
 
 <!-- Log Control Panel -->
