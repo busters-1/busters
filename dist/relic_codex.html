@@ -24,35 +24,6 @@
     }
 
     /* Global Nav */
-    .rc-nav {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 10px;
-      overflow-x: auto;
-    }
-    .rc-nav-link {
-      color: #8b949e;
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px;
-      white-space: nowrap;
-      transition: all 0.15s;
-    }
-    .rc-nav-link:hover {
-      color: #c9d1d9;
-      background: #161b22;
-    }
-    .rc-nav-link.active {
-      color: #58a6ff;
-      background: #1f6feb22;
-      border: 1px solid #1f6feb44;
-    }
-
-    /* Top Dashboard Header */
     .rc-top-bar {
       display: flex;
       justify-content: space-between;
@@ -481,13 +452,7 @@
 <body>
   <div class="rc-wrapper">
     <!-- Global Navigation -->
-    <nav class="rc-nav">
-      <a href="index.html" class="rc-nav-link">💎 룬 도감</a>
-      <a href="monster_guide.html" class="rc-nav-link">⚔️ 몬스터 공략</a>
-      <a href="tier_list.html" class="rc-nav-link">🏆 몬스터 티어표</a>
-      <a href="scar_log.html" class="rc-nav-link">📖 상흔 일지</a>
-      <a href="relic_codex.html" class="rc-nav-link active">🔮 신물 도감</a>
-    </nav>
+    
 
     <!-- Top Bar -->
     <div class="header-container">
@@ -508,16 +473,14 @@
   </nav>
 </div>
 
-<header class="rc-top-bar">
-      <div class="rc-header-title">
-        🔮 신물 도감 (Numeros Codex)
-        <span class="rc-count-pill" id="statPill">88종 활성 신물</span>
-      </div>
+<!-- View Switcher Bar -->
+    <div class="rc-sub-bar">
       <div class="rc-view-switcher">
         <button class="rc-view-btn active" id="btnViewRelics" onclick="switchView('relics')">🔮 신물별 실전 목록</button>
         <button class="rc-view-btn" id="btnViewScars" onclick="switchView('scars')">🏛️ 상흔별 드롭 테이블</button>
       </div>
-    </header>
+      <span class="rc-count-pill" id="statPill">83종 실전 신물 표시 중</span>
+    </div>
 
     <!-- Filter Panel -->
     <div class="rc-filter-panel">
