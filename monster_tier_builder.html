@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브리미르 버스터즈 — 몬스터 티어 정리기 (Tier Builder)</title>
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-box: #21262d;
+      --border-color: #30363d;
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
+      --accent-blue: #58a6ff;
+      --accent-gold: #f2cc60;
+      --accent-green: #3fb950;
+      --accent-red: #ff7b72;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 16px;
+      max-width: 1440px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+    header {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    h1 { font-size: 20px; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .action-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #238636;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .btn:hover { background: #2ea043; transform: translateY(-1px); }
+    .btn-blue { background: #1f6feb; }
+    .btn-blue:hover { background: #388bfd; }
+    .btn-gray { background: #30363d; }
+    .btn-gray:hover { background: #484f58; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: #8b949e;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+    .tab-btn:hover { background: #30363d; color: #fff; }
+    .tab-btn.active {
+      background: rgba(88, 166, 255, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+    .badge {
+      background: #0d1117;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Workspace */
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 16px;
+    }
+
+    /* Tier Rows */
+    .tier-matrix {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tier-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 110px;
+    }
+    .tier-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      user-select: none;
+    }
+    .tier-head.s { background: linear-gradient(135deg, #ff4d4f, #cf1322); }
+    .tier-head.a { background: linear-gradient(135deg, #ffa940, #d46b08); }
+    .tier-head.b { background: linear-gradient(135deg, #52c41a, #237804); }
+    .tier-head.c { background: linear-gradient(135deg, #1890ff, #096dd9); }
+
+    .tier-dropzone {
+      background: #0d1117;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
+      min-height: 110px;
+      transition: background 0.15s;
+    }
+    .tier-dropzone.dragover {
+      background: rgba(88, 166, 255, 0.1);
+      outline: 2px dashed var(--accent-blue);
+    }
+
+    /* Monster Card */
+    .m-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 6px;
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: grab;
+      position: relative;
+      user-select: none;
+      transition: all 0.15s;
+    }
+    .m-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      background: #21262d;
+    }
+    .m-card.dragging {
+      opacity: 0.4;
+    }
+    .m-thumb {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      image-rendering: pixelated;
+      background: #0b0e14;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .m-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #f0f6fc;
+      text-align: center;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .m-meta {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    .m-buttons {
+      display: flex;
+      gap: 2px;
+      margin-top: 4px;
+      width: 100%;
+      justify-content: center;
+    }
+    .m-btn {
+      background: #30363d;
+      color: #c9d1d9;
+      border: none;
+      border-radius: 3px;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 4px;
+      cursor: pointer;
+    }
+    .m-btn:hover { background: var(--accent-blue); color: #fff; }
+
+    /* Sidebar Pool */
+    .pool-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 160px);
+      position: sticky;
+      top: 16px;
+    }
+    .pool-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pool-search {
+      background: #0d1117;
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      width: 100%;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    .pool-items {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-content: flex-start;
+      background: #0d1117;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #238636;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 9999;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>🛠️ 브리미르 몬스터 티어 정리기 (Tier Builder)</h1>
+      <p style="color:#8b949e; margin-top:4px;">몬스터 카드를 드래그하거나 버튼을 눌러 S/A/B/C 티어로 정리한 후, <strong>[📋 정리된 결과 텍스트 복사]</strong>를 눌러주세요.</p>
+    </div>
+    <div class="action-bar">
+      <button class="btn" id="copyResultBtn">📋 정리된 결과 텍스트 복사</button>
+      <button class="btn btn-blue" id="downloadJsonBtn">💾 JSON 다운로드</button>
+      <button class="btn btn-gray" id="resetBtn">🔄 초기화</button>
+    </div>
+  </header>
+
+  <!-- Category Tabs -->
+  <nav class="tabs">
+    <button class="tab-btn active" data-cat="grade3">👑 3등급 몬스터 풀 <span class="badge" id="b-g3">0</span></button>
+    <button class="tab-btn" data-cat="grade4">⚔️ 4등급 몬스터 풀 <span class="badge" id="b-g4">0</span></button>
+    <button class="tab-btn" data-cat="guardian">🛡️ 수호자 몬스터 풀 <span class="badge" id="b-guardian">0</span></button>
+  </nav>
+
+  <!-- Main Workspace -->
+  <div class="workspace">
+
+    <!-- Left: Tier Matrix (S, A, B, C) -->
+    <div class="tier-matrix">
+
+      <div class="tier-row">
+        <div class="tier-head s">S</div>
+        <div class="tier-dropzone" id="zone-S" data-tier="S"></div>
+      </div>
+
+      <div class="tier-row">
+        <div class="tier-head a">A</div>
+        <div class="tier-dropzone" id="zone-A" data-tier="A"></div>
+      </div>
+
+      <div class="tier-row">
+        <div class="tier-head b">B</div>
+        <div class="tier-dropzone" id="zone-B" data-tier="B"></div>
+      </div>
+
+      <div class="tier-row">
+        <div class="tier-head c">C</div>
+        <div class="tier-dropzone" id="zone-C" data-tier="C"></div>
+      </div>
+
+    </div>
+
+    <!-- Right: Unassigned Pool -->
+    <aside class="pool-container">
+      <div class="pool-header">
+        <span>📦 미분류 몬스터 풀</span>
+        <span class="badge" id="poolCountBadge">0</span>
+      </div>
+      <input type="text" id="poolSearch" class="pool-search" placeholder="몬스터명 검색..." autocomplete="off">
+      <div class="pool-items tier-dropzone" id="zone-POOL" data-tier="POOL"></div>
+    </aside>
+
+  </div>
+
+  <div class="toast" id="toast">📋 복사 완료!</div>
+
+  <script>
+    const ALL_POOLS = {"grade3": [{"id": "dreadpeer", "name": "공포의 화신", "floor": "1층", "grade": "3등급", "image": "./assets/monsters/dreadpeer.webp", "youtubeId": "kWo8t78nxYQ"}, {"id": "greedmaw", "name": "탐욕의 화신", "floor": "2층", "grade": "3등급", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}, {"id": "deep_giant", "name": "심연의 거신", "floor": "6층", "grade": "3등급", "image": "./assets/monsters/deep_giant.webp", "youtubeId": "UcbsCDQFL3s"}, {"id": "ogre", "name": "오우거", "floor": "6층", "grade": "3등급", "image": "./assets/monsters/ogre.webp", "youtubeId": ""}, {"id": "stormgush", "name": "해일", "floor": "6층", "grade": "3등급", "image": "./assets/monsters/stormgush.webp", "youtubeId": ""}, {"id": "baion", "name": "불사의 구울", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/baion.webp", "youtubeId": "czIxcguhwrQ"}, {"id": "glacier_giant", "name": "빙하 거인", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/glacier_giant.webp", "youtubeId": "uO0R18KUQHs"}, {"id": "reaper_lord", "name": "사령군주", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/reaper_lord.webp", "youtubeId": ""}, {"id": "frost_swordfiend", "name": "서리 검귀", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/frost_swordfiend.webp", "youtubeId": "EMb-3bGDkO0"}, {"id": "frost_guardian", "name": "서리 수호병", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/frost_guardian.webp", "youtubeId": "U0KYTvrPlYo"}, {"id": "belarios", "name": "영겁의 용", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/belarios.webp", "youtubeId": "fSVSaiv4fSI"}, {"id": "grudge_colossus", "name": "원귀 거상", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/grudge_colossus.webp", "youtubeId": "HxIv08gAYjo"}, {"id": "cariadea", "name": "한기의 망령술사", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/cariadea.webp", "youtubeId": ""}, {"id": "vaiterion", "name": "한기의 야수", "floor": "7층", "grade": "3등급", "image": "./assets/monsters/vaiterion.webp", "youtubeId": "A3TNb6wnmis"}, {"id": "f8_stormheart", "name": "돛대잡이", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_stormheart.webp", "youtubeId": ""}, {"id": "wailing_wraith", "name": "비탄의 망령", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/wailing_wraith.webp", "youtubeId": ""}, {"id": "f8_rime", "name": "서리 창귀", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_rime.webp", "youtubeId": ""}, {"id": "hellsmith", "name": "쇠를 두드리는 자", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/hellsmith.webp", "youtubeId": ""}, {"id": "abyssal_watcher", "name": "심연의 응시자", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/abyssal_watcher.webp", "youtubeId": ""}, {"id": "vol_herchan", "name": "심연의 흑기사", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/vol_herchan.webp", "youtubeId": ""}, {"id": "f8_heartlight", "name": "심장을 밝히는 자", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_heartlight.webp", "youtubeId": ""}, {"id": "f8_outbreak", "name": "역병 이무기", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_outbreak.webp", "youtubeId": ""}, {"id": "f8_drown", "name": "익사의 수문장", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_drown.webp", "youtubeId": ""}, {"id": "f8_erosion", "name": "짓누르는 거상", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_erosion.webp", "youtubeId": ""}, {"id": "f8_scar", "name": "피의 도살자", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/f8_scar.webp", "youtubeId": "6pmEzTkjmJg"}, {"id": "bone_dragonian", "name": "해골 와이번", "floor": "8층", "grade": "3등급", "image": "./assets/monsters/bone_dragonian.webp", "youtubeId": ""}], "grade4": [{"id": "doppelganger", "name": "도플갱어", "floor": "4층", "grade": "4등급", "image": "./assets/monsters/doppelganger.webp", "youtubeId": ""}, {"id": "kalpion", "name": "황금의 나자로스", "floor": "4층", "grade": "4등급", "image": "./assets/monsters/kalpion.webp", "youtubeId": ""}, {"id": "martyr_commander", "name": "순교의 케이던", "floor": "5층", "grade": "4등급", "image": "./assets/monsters/martyr_commander.webp", "youtubeId": ""}, {"id": "ironwall_odric", "name": "철벽의 오드릭", "floor": "5층", "grade": "4등급", "image": "./assets/monsters/ironwall_odric.webp", "youtubeId": ""}, {"id": "torrent_leviathan", "name": "격류의 모르켈", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/torrent_leviathan.webp", "youtubeId": ""}, {"id": "bedrock_spiritlord", "name": "굳어진 정령장", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/bedrock_spiritlord.webp", "youtubeId": ""}, {"id": "tide_spiritlord", "name": "굽이치는 정령장", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/tide_spiritlord.webp", "youtubeId": ""}, {"id": "guano_sea_serpent", "name": "대양 이무기", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/guano_sea_serpent.webp", "youtubeId": "-7xXlXUExEs"}, {"id": "hooked_leviathan", "name": "리바이어던 유생", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/hooked_leviathan.webp", "youtubeId": ""}, {"id": "grave_keeper_aleton", "name": "무덤지기", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/grave_keeper_aleton.webp", "youtubeId": "9LRprO-Z7Ho"}, {"id": "raphremmik", "name": "보물 미믹", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/raphremmik.webp", "youtubeId": ""}, {"id": "elfrot", "name": "부패한 구울", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/elfrot.webp", "youtubeId": ""}, {"id": "palpupura", "name": "서리 거인", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/palpupura.webp", "youtubeId": "GrKbH84x_tw"}, {"id": "siren_queen", "name": "세이렌 여왕", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/siren_queen.webp", "youtubeId": "sdXJEM-yZ3U"}, {"id": "sylvan_tyrant", "name": "수림의 폭군", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/sylvan_tyrant.webp", "youtubeId": "Q-3-tTMeKbY"}, {"id": "abyssal_drown_lord", "name": "심연의 드로가르", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/abyssal_drown_lord.webp", "youtubeId": ""}, {"id": "abyssal_kraken", "name": "심연의 크라켄", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/abyssal_kraken.webp", "youtubeId": "8KUcctT4Rac"}, {"id": "abyssal_end_knight", "name": "심연의 헬바르드", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/abyssal_end_knight.webp", "youtubeId": ""}, {"id": "trench_lurker", "name": "심해의 잠행자", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/trench_lurker.webp", "youtubeId": ""}, {"id": "key_keeper", "name": "열쇠지기", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/key_keeper.webp", "youtubeId": "dsrXLQq6mk8"}, {"id": "magma_lord", "name": "용암 우두머리", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/magma_lord.webp", "youtubeId": ""}, {"id": "drowned_queen", "name": "익사의 이스라", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/drowned_queen.webp", "youtubeId": ""}, {"id": "drowned_azure_judge", "name": "익사한 심판상", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/drowned_azure_judge.webp", "youtubeId": ""}, {"id": "sunken_armor_guard", "name": "침몰한 봉인 수호상", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/sunken_armor_guard.webp", "youtubeId": ""}, {"id": "flame_spiritlord", "name": "타오르는 정령장", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/flame_spiritlord.webp", "youtubeId": ""}, {"id": "hooked_storm_drake", "name": "폭풍 해룡", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/hooked_storm_drake.webp", "youtubeId": ""}, {"id": "pirate_wraith_lord", "name": "해적왕의 망령", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/pirate_wraith_lord.webp", "youtubeId": "0jtwdl2eqmY"}, {"id": "gale_spiritlord", "name": "휘몰아치는 정령장", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/gale_spiritlord.webp", "youtubeId": ""}, {"id": "obsidian_titan", "name": "흑요석 거신", "floor": "6층", "grade": "4등급", "image": "./assets/monsters/obsidian_titan.webp", "youtubeId": "hLSed_MoTSk"}, {"id": "colossus_bowman", "name": "거인 궁수", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/colossus_bowman.webp", "youtubeId": ""}, {"id": "grave_knight", "name": "검총 기사", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/grave_knight.webp", "youtubeId": "M4IXF4bqIB8"}, {"id": "void_shard", "name": "공허 결정", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/void_shard.webp", "youtubeId": ""}, {"id": "unmelting_cocoon", "name": "녹지 않는 고치", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/unmelting_cocoon.webp", "youtubeId": "8luHJxHlY6g"}, {"id": "earthquake_lord", "name": "대지의 폭군", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/earthquake_lord.webp", "youtubeId": ""}, {"id": "ice_lich", "name": "리치", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/ice_lich.webp", "youtubeId": "mySWJyzUp7Q"}, {"id": "fallen_swordsaint", "name": "몰락 검성", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/fallen_swordsaint.webp", "youtubeId": "YvGixCIiO4s"}, {"id": "skeleton_mermaid_queen", "name": "백골 인어여왕", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/skeleton_mermaid_queen.webp", "youtubeId": "K1vpIQ3U95A"}, {"id": "frost_dullahan", "name": "빙결 수확자", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frost_dullahan.webp", "youtubeId": ""}, {"id": "white_wyvern", "name": "빙하 와이번", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/white_wyvern.webp", "youtubeId": ""}, {"id": "frost_gargoyle", "name": "서리 가고일", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frost_gargoyle.webp", "youtubeId": "2s2kSzZnNWg"}, {"id": "stonewinter", "name": "서리 바위거인", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/stonewinter.webp", "youtubeId": "N434wupQKds"}, {"id": "kaldris", "name": "서리 처형자 칼드리스", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frost_dullahan.webp", "youtubeId": ""}, {"id": "frostflame_turtle", "name": "서리불꽃 거북", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frostflame_turtle.webp", "youtubeId": ""}, {"id": "frost_ghoul_lord", "name": "설원 아귀", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frost_ghoul_lord.webp", "youtubeId": "1XX-vSaYxJ8"}, {"id": "gigant_wolf", "name": "스콜", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/gigant_wolf.webp", "youtubeId": "qX4sle5arm0"}, {"id": "dark_crystal", "name": "어둠수정 골렘", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/dark_crystal.webp", "youtubeId": ""}, {"id": "frozen_corpse_giant", "name": "얼어붙은 거신", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/frozen_corpse_giant.webp", "youtubeId": ""}, {"id": "soul_drinker", "name": "영혼을 마시는 자", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/soul_drinker.webp", "youtubeId": "JhmdNzi-LZk"}, {"id": "tainted_snow_spirit", "name": "오염된 눈의 정령", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/tainted_snow_spirit.webp", "youtubeId": "cTU8h6LxdU4"}, {"id": "spectral_marksman", "name": "원귀 사수", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/spectral_marksman.webp", "youtubeId": ""}, {"id": "chaos_seaman", "name": "저주받은 선장", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/chaos_seaman.webp", "youtubeId": "-E_j1vjdv8E"}, {"id": "banshee_queen", "name": "통곡의 여왕", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/banshee_queen.webp", "youtubeId": "j9sbYTjVJg4"}, {"id": "azure_flame_bird", "name": "푸른 불사조", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/azure_flame_bird.webp", "youtubeId": "4_oXpIs8okw"}, {"id": "gilded_knight", "name": "황금 기사", "floor": "7층", "grade": "4등급", "image": "./assets/monsters/gilded_knight.webp", "youtubeId": ""}, {"id": "f8_blackmage", "name": "검은 물 마도사", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_blackmage.webp", "youtubeId": ""}, {"id": "f8_clotward", "name": "굳은 피 파수병", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_clotward.webp", "youtubeId": ""}, {"id": "f8_gildedvalve", "name": "금빛 제단지기", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_gildedvalve.webp", "youtubeId": ""}, {"id": "f8_hulk", "name": "난파선 지기", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_hulk.webp", "youtubeId": ""}, {"id": "f8_forgeheat", "name": "달군 갑옷병", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_forgeheat.webp", "youtubeId": ""}, {"id": "f8_keelstone", "name": "닻잡이", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_keelstone.webp", "youtubeId": ""}, {"id": "f8_raftbound", "name": "묶인 뱃사람", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_raftbound.webp", "youtubeId": ""}, {"id": "f8_slackwater", "name": "물시계지기", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_slackwater.webp", "youtubeId": ""}, {"id": "f8_tidepriest", "name": "밀물 사제", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_tidepriest.webp", "youtubeId": ""}, {"id": "f8_arcward", "name": "방전 파수", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_arcward.webp", "youtubeId": ""}, {"id": "f8_jetsam", "name": "버려진 짐꾼", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_jetsam.webp", "youtubeId": ""}, {"id": "f8_bloated", "name": "부푼 익사자", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_bloated.webp", "youtubeId": ""}, {"id": "f8_rimeseer", "name": "서리 무녀", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_rimeseer.webp", "youtubeId": ""}, {"id": "f8_surgebreak", "name": "성난 노잡이", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_surgebreak.webp", "youtubeId": ""}, {"id": "f8_heartworm", "name": "심막 기생근", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_heartworm.webp", "youtubeId": ""}, {"id": "f8_clotshaman", "name": "응혈 술사", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_clotshaman.webp", "youtubeId": ""}, {"id": "f8_ashbow", "name": "재의 궁수", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_ashbow.webp", "youtubeId": ""}, {"id": "f8_emberforge", "name": "잿불 벼림꾼", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_emberforge.webp", "youtubeId": ""}, {"id": "f8_pulsecore", "name": "전격 심장지기", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_pulsecore.webp", "youtubeId": ""}, {"id": "f8_valvestone", "name": "판막 석상", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_valvestone.webp", "youtubeId": ""}, {"id": "f8_valvechoir", "name": "판막 선창자", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_valvechoir.webp", "youtubeId": ""}, {"id": "f8_driftplate", "name": "표류하는 갑주", "floor": "8층", "grade": "4등급", "image": "./assets/monsters/f8_driftplate.webp", "youtubeId": ""}, {"id": "dragon_slayer", "name": "참회의 세르바스", "floor": "상흔", "grade": "4등급", "image": "./assets/monsters/dragon_slayer.webp", "youtubeId": "O00d0TlSM1w"}], "guardian": [{"id": "harmony_aurvan", "name": "조화의 아우르반", "floor": "6층", "grade": "수호자", "image": "./assets/monsters/harmony_aurvan.webp", "youtubeId": "-JXGVz28WqI"}, {"id": "abyssal_drown_lord", "name": "심연의 드로가르", "floor": "6층", "grade": "수호자", "image": "./assets/monsters/abyssal_drown_lord.webp", "youtubeId": ""}, {"id": "dragon_slayer", "name": "참회의 세르바스", "floor": "5층", "grade": "수호자", "image": "./assets/monsters/dragon_slayer.webp", "youtubeId": "O00d0TlSM1w"}, {"id": "abyssal_end_knight", "name": "심연의 헬바르드", "floor": "6층", "grade": "수호자", "image": "./assets/monsters/abyssal_end_knight.webp", "youtubeId": ""}, {"id": "doppelganger", "name": "도플갱어", "floor": "4층", "grade": "수호자", "image": "./assets/monsters/doppelganger.webp", "youtubeId": ""}, {"id": "kalpion", "name": "황금 나자로스", "floor": "4층", "grade": "수호자", "image": "./assets/monsters/kalpion.webp", "youtubeId": ""}, {"id": "drowned_queen", "name": "익사의 이스라", "floor": "6층", "grade": "수호자", "image": "./assets/monsters/drowned_queen.webp", "youtubeId": ""}, {"id": "torrent_leviathan", "name": "격류의 모르켈", "floor": "6층", "grade": "수호자", "image": "./assets/monsters/torrent_leviathan.webp", "youtubeId": ""}, {"id": "balkaros", "name": "용광의 발카로스", "floor": "5층", "grade": "수호자", "image": "./assets/monsters/balkaros.webp", "youtubeId": ""}, {"id": "himar", "name": "결빙의 히마르", "floor": "7층", "grade": "수호자", "image": "./assets/monsters/himar.webp", "youtubeId": ""}, {"id": "goliad", "name": "중력의 골리아드", "floor": "5층", "grade": "수호자", "image": "./assets/monsters/goliad.webp", "youtubeId": "iTCP61zPmMI"}, {"id": "petrified_knight", "name": "석화의 종언기사", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}, {"id": "oracle_marksman", "name": "신탁사수", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/oracle_marksman.webp", "youtubeId": ""}, {"id": "petrified_colossus", "name": "석화의 수호거상", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/petrified_colossus.webp", "youtubeId": ""}, {"id": "petrified_oracle", "name": "석화의 신탁상", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/petrified_oracle.webp", "youtubeId": ""}, {"id": "vampire_guardian", "name": "흡혈귀", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/vampire_guardian.webp", "youtubeId": ""}, {"id": "dark_lycanthrope", "name": "어스름 늑대인간", "floor": "2층", "grade": "수호자", "image": "./assets/monsters/dark_lycanthrope.webp", "youtubeId": ""}, {"id": "chain_swordfiend", "name": "사슬 검귀", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}, {"id": "awakened_megalith", "name": "깨어난 거석", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/awakened_megalith.webp", "youtubeId": ""}, {"id": "cursed_black_knight", "name": "저주 흑기사", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}, {"id": "steel_colossus", "name": "강철 거상", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}, {"id": "king_slime", "name": "점액의 왕", "floor": "1층", "grade": "수호자", "image": "./assets/monsters/king_slime.webp", "youtubeId": ""}, {"id": "hobgoblin", "name": "홉고블린 대족장", "floor": "2층", "grade": "수호자", "image": "./assets/monsters/hobgoblin.webp", "youtubeId": ""}, {"id": "gunman_chief", "name": "건맨 두목", "floor": "3층", "grade": "수호자", "image": "./assets/monsters/gunman_chief.webp", "youtubeId": ""}, {"id": "frost_tyrant", "name": "혹한 폭군", "floor": "상흔", "grade": "수호자", "image": "./assets/monsters/chaos_guardian.png", "youtubeId": ""}]};
+    let currentCat = 'grade3';
+
+    // Clear old corrupted localstorage keys
+    localStorage.removeItem('brimir_tier_builder_state');
+    localStorage.removeItem('brimir_tier_builder_state_v2');
+
+    let tierState = JSON.parse(localStorage.getItem('brimir_tier_builder_state_v4') || '{}');
+
+    function saveState() {
+      localStorage.setItem('brimir_tier_builder_state_v4', JSON.stringify(tierState));
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2000);
+    }
+
+    function initCategory() {
+      const list = ALL_POOLS[currentCat] || [];
+      if (!tierState[currentCat]) {
+        tierState[currentCat] = {};
+        list.forEach(m => tierState[currentCat][m.id] = 'POOL');
+      }
+
+      renderWorkspace();
+    }
+
+    function renderWorkspace() {
+      const list = ALL_POOLS[currentCat] || [];
+      const zones = {
+        'S': document.getElementById('zone-S'),
+        'A': document.getElementById('zone-A'),
+        'B': document.getElementById('zone-B'),
+        'C': document.getElementById('zone-C'),
+        'POOL': document.getElementById('zone-POOL')
+      };
+
+      Object.values(zones).forEach(z => z.innerHTML = '');
+
+      const searchQ = document.getElementById('poolSearch').value.toLowerCase().trim();
+
+      list.forEach(m => {
+        const t = tierState[currentCat][m.id] || 'POOL';
+        
+        if (t === 'POOL' && searchQ && !m.name.toLowerCase().includes(searchQ)) {
+          return;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'm-card';
+        card.draggable = true;
+        card.setAttribute('data-id', m.id);
+
+        card.innerHTML = `
+          <img src="${m.image}" alt="${m.name}" class="m-thumb" loading="lazy">
+          <div class="m-name" title="${m.name}">${m.name}</div>
+          <div class="m-meta">${m.floor} · ${m.grade}</div>
+          <div class="m-buttons">
+            <button class="m-btn" data-set="S">S</button>
+            <button class="m-btn" data-set="A">A</button>
+            <button class="m-btn" data-set="B">B</button>
+            <button class="m-btn" data-set="C">C</button>
+            <button class="m-btn" data-set="POOL">✕</button>
+          </div>
+        `;
+
+        card.querySelectorAll('.m-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const setT = btn.getAttribute('data-set');
+            tierState[currentCat][m.id] = setT;
+            saveState();
+            renderWorkspace();
+          });
+        });
+
+        card.addEventListener('dragstart', (e) => {
+          card.classList.add('dragging');
+          e.dataTransfer.setData('text/plain', m.id);
+        });
+        card.addEventListener('dragend', () => {
+          card.classList.remove('dragging');
+        });
+
+        zones[t].appendChild(card);
+      });
+
+      const poolCount = list.filter(m => (tierState[currentCat][m.id] || 'POOL') === 'POOL').length;
+      document.getElementById('poolCountBadge').textContent = poolCount;
+      document.getElementById('b-g3').textContent = ALL_POOLS.grade3.length;
+      document.getElementById('b-g4').textContent = ALL_POOLS.grade4.length;
+      document.getElementById('b-guardian').textContent = ALL_POOLS.guardian.length;
+    }
+
+    document.querySelectorAll('.tier-dropzone').forEach(zone => {
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        zone.classList.add('dragover');
+      });
+      zone.addEventListener('dragleave', () => {
+        zone.classList.remove('dragover');
+      });
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.classList.remove('dragover');
+        const mid = e.dataTransfer.getData('text/plain');
+        const targetTier = zone.getAttribute('data-tier');
+        if (mid && targetTier) {
+          tierState[currentCat][mid] = targetTier;
+          saveState();
+          renderWorkspace();
+        }
+      });
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCat = btn.getAttribute('data-cat');
+        initCategory();
+      });
+    });
+
+    document.getElementById('poolSearch').addEventListener('input', renderWorkspace);
+
+    document.getElementById('copyResultBtn').addEventListener('click', () => {
+      let text = `=== 🏆 브리미르 [${currentCat.toUpperCase()}] 티어 정리 결과 ===\n\n`;
+      const catList = ALL_POOLS[currentCat] || [];
+      const idMap = {};
+      catList.forEach(m => idMap[m.id] = m);
+
+      ['S', 'A', 'B', 'C'].forEach(t => {
+        const inTier = catList.filter(m => tierState[currentCat][m.id] === t);
+        text += `【${t} 티어】 (${inTier.length}마리)\n`;
+        text += inTier.map(m => m.name).join(', ') || '(비어있음)';
+        text += '\n\n';
+      });
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('📋 텍스트가 클립보드에 복사되었습니다! 채팅창에 붙여넣어 주세요.');
+      });
+    });
+
+    document.getElementById('downloadJsonBtn').addEventListener('click', () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tierState, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `brimir_tier_result.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('💾 JSON 파일이 다운로드되었습니다!');
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      if (confirm('현재 카테고리의 티어 설정을 초기화하시겠습니까?')) {
+        const list = ALL_POOLS[currentCat] || [];
+        list.forEach(m => tierState[currentCat][m.id] = 'POOL');
+        saveState();
+        renderWorkspace();
+      }
+    });
+
+    initCategory();
+  </script>
+</body>
+</html>
