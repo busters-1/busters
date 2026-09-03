@@ -863,6 +863,39 @@
     }
   }
 
+
+  .btn-toggle-expected {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   font-weight: 600;
+   font-size: 12px;
+   padding: 6px 12px;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: all 0.2s ease;
+   user-select: none;
+  }
+  .btn-toggle-expected.active {
+   background: rgba(35, 134, 54, 0.15);
+   border: 1px solid rgba(63, 185, 80, 0.5);
+   color: #3fb950;
+   box-shadow: 0 0 8px rgba(63, 185, 80, 0.2);
+  }
+  .btn-toggle-expected.active:hover {
+   background: rgba(35, 134, 54, 0.25);
+   border-color: #3fb950;
+  }
+  .btn-toggle-expected.inactive {
+   background: rgba(110, 118, 129, 0.1);
+   border: 1px solid var(--border-color);
+   color: var(--text-muted);
+  }
+  .btn-toggle-expected.inactive:hover {
+   background: rgba(110, 118, 129, 0.2);
+   color: var(--text-main);
+  }
+
 </style>
  <!-- Vercel Web Analytics & Speed Insights -->
  <script defer src="/_vercel/insights/script.js"></script>
@@ -902,6 +935,7 @@
     <span style="font-size: 11px; opacity: 0.7; margin-left: 2px;">✏️</span>
    </div>
    <button class="btn" onclick="openStartDayModal()" title="진행 중인 일차로 바로 점프">⚙️ 시작일차 설정</button>
+   <button class="btn btn-toggle-expected active" id="btn-toggle-expected" onclick="toggleExpectedRegens()" title="상흔 리젠 예정일 뱃지 표시 켜기/끄기">🟢 상흔 예정일: ON</button>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
    <button class="btn btn-primary" onclick="addNewDay(10)">➕ +10일 탐험 추가</button>
@@ -1035,6 +1069,32 @@ const OFFICIAL_FLOOR_SCARS = {
 };
 
 // Storage Key
+
+// Expected Regens Visibility State
+const SHOW_EXPECTED_KEY = 'brimir_show_expected_regens';
+let showExpectedRegens = localStorage.getItem(SHOW_EXPECTED_KEY) !== 'false';
+
+function toggleExpectedRegens() {
+ showExpectedRegens = !showExpectedRegens;
+ localStorage.setItem(SHOW_EXPECTED_KEY, showExpectedRegens);
+ updateExpectedRegenButton();
+ renderTable();
+}
+
+function updateExpectedRegenButton() {
+ const btn = document.getElementById('btn-toggle-expected');
+ if (!btn) return;
+ if (showExpectedRegens) {
+  btn.className = 'btn btn-toggle-expected active';
+  btn.innerHTML = '🟢 상흔 예정일: ON';
+  btn.title = '클릭 시 리젠 예정일 뱃지를 숨깁니다.';
+ } else {
+  btn.className = 'btn btn-toggle-expected inactive';
+  btn.innerHTML = '⚪ 상흔 예정일: OFF';
+  btn.title = '클릭 시 리젠 예정일 뱃지를 표시합니다.';
+ }
+}
+
 const STORAGE_KEY = 'brimir_scar_log_perfect_v8';
 
 let runsState = {
@@ -1340,10 +1400,12 @@ function renderTable() {
      }
     });
 
-    expectedList.forEach(exp => {
-     const shortName = exp.scarName.split(' ')[0];
-     badgesHtml += `<span class="badge-regen-expected" title="${exp.fromDay}일차 클리어 후 최대 리젠일">🟢 ${shortName} 리젠예정</span>`;
-    });
+    if (showExpectedRegens) {
+     expectedList.forEach(exp => {
+      const shortName = exp.scarName.split(' ')[0];
+      badgesHtml += `<span class="badge-regen-expected" title="${exp.fromDay}일차 클리어 후 최대 리젠일">🟢 ${shortName} 리젠예정</span>`;
+     });
+    }
 
     if (!badgesHtml) {
      badgesHtml = '<span class="cell-empty-plus">+</span>';
