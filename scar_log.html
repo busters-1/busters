@@ -896,6 +896,21 @@
    color: var(--text-main);
   }
 
+
+  .badge-regen-min {
+   background: rgba(210, 153, 34, 0.18);
+   border: 1px solid rgba(210, 153, 34, 0.4);
+   color: #e3b341;
+   font-size: 11px;
+   padding: 2px 6px;
+   border-radius: 4px;
+   display: inline-flex;
+   align-items: center;
+   gap: 3px;
+   font-weight: 500;
+   white-space: nowrap;
+  }
+
 </style>
  <!-- Vercel Web Analytics & Speed Insights -->
  <script defer src="/_vercel/insights/script.js"></script>
@@ -950,13 +965,13 @@
   <thead>
    <tr>
     <th class="th-day">생존 일차</th>
-    <th class="th-floor f-1">1층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40일 이내</span></th>
-    <th class="th-floor f-2">2층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40일 이내</span></th>
-    <th class="th-floor f-3">3층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
-    <th class="th-floor f-4">4층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
-    <th class="th-floor f-5">5층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">50일 이내</span></th>
-    <th class="th-floor f-6">6층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">60일 이내</span></th>
-    <th class="th-floor f-7">7층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">60일 이내</span></th>
+    <th class="th-floor f-1">1층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">20~40일 (2~4탐)</span></th>
+    <th class="th-floor f-2">2층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">20~40일 (2~4탐)</span></th>
+    <th class="th-floor f-3">3층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">30~50일 (3~5탐)</span></th>
+    <th class="th-floor f-4">4층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">30~50일 (3~5탐)</span></th>
+    <th class="th-floor f-5">5층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">30~50일 (3~5탐)</span></th>
+    <th class="th-floor f-6">6층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40~60일 (4~6탐)</span></th>
+    <th class="th-floor f-7">7층<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">40~60일 (4~6탐)</span></th>
     <th class="th-memo">탐험 메모 / 룬 획득 기록</th>
    </tr>
   </thead>
@@ -1018,53 +1033,46 @@
 </div>
 
 <script>
-// Official Brimir Scars Metadata (Pure In-Game Names)
+// Official Brimir Scars Metadata (Pure In-Game Names - 100% In-Game SSOT)
 const OFFICIAL_FLOOR_SCARS = {
  1: [
-  { id: 'glacier_cave', name: '혹한의 빙동', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
-  { id: 'cursed_chapel', name: '저주의 예배당', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
-  { id: 'green_mine', name: '점액의 폐광', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
-  { id: 'steel_tomb', name: '불멸의 봉인묘', maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
-  { id: 'dread_peer', name: '공포의 신해', maxPeriod: 40, openType: '자연 스폰 / 화신 봉헌 제단' }
+  { id: 'glacier_cave', name: '혹한의 빙동', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+  { id: 'cursed_chapel', name: '저주의 예배당', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+  { id: 'green_mine', name: '점액의 폐광', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' },
+  { id: 'steel_tomb', name: '불멸의 봉인묘', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 1층 혼석 봉헌' }
  ],
  2: [
-  { id: 'blood_citadel', name: '적야의 성채', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
-  { id: 'dead_altar', name: '망자의 제단', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
-  { id: 'beast_den', name: '야월의 소굴', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
-  { id: 'hobgoblin_fortress', name: '홉고블린 요새', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
-  { id: 'gunfire_desert', name: '무법지대', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
-  { id: 'misty_megalith_ruins', name: '안개의 거석 폐허', maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' }
+  { id: 'blood_citadel', name: '적야의 성채', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+  { id: 'dead_altar', name: '망자의 제단', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+  { id: 'beast_den', name: '야월의 소굴', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+  { id: 'hobgoblin_fortress', name: '홉고블린 요새', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+  { id: 'gunfire_desert', name: '무법지대', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' },
+  { id: 'misty_megalith_ruins', name: '안개의 거석 폐허', minPeriod: 20, maxPeriod: 40, openType: '자연 스폰 / 2층 혼석 봉헌' }
  ],
  3: [
-  { id: 'white_temple', name: '석화된 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
-  { id: 'sanctum_bastion', name: '파수의 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
-  { id: 'sanctum_oracle', name: '예언의 성소', maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' }
+  { id: 'white_temple', name: '석화된 성소', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
+  { id: 'sanctum_bastion', name: '파수의 성소', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' },
+  { id: 'sanctum_oracle', name: '예언의 성소', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 3층 혼석 봉헌' }
  ],
  4: [
-  { id: 'doppelganger_forest', name: '거울 미로', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
-  { id: 'sky_oracle', name: '하늘 신탁소', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
-  { id: 'larcaz_labyrinth', name: '균형의 성역', maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' }
+  { id: 'doppelganger_forest', name: '거울 미로', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
+  { id: 'sky_oracle', name: '하늘 신탁소', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
+  { id: 'larcaz_labyrinth', name: '균형의 성역', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' },
+  { id: 'howling_spine', name: '울음의 풍혈', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 4층 탑 봉헌' }
  ],
  5: [
-  { id: 'frozen_sanctum', name: '결빙의 성소', maxPeriod: 50, openType: '자연 스폰 / 5층 서리 혼석 봉헌' },
-  { id: 'magma_crucible', name: '용광의 도가니', maxPeriod: 50, openType: '자연 스폰 / 5층 화염 혼석 봉헌' },
-  { id: 'gravity_tomb', name: '중력의 묘', maxPeriod: 50, openType: '자연 스폰 / 5층 혼석 봉헌' },
-  { id: 'burning_zone', name: '작열의 황야', maxPeriod: 50, openType: '자연 스폰 / 5층 혼석 봉헌' },
-  { id: 'penance_trial', name: '검성의 시련', maxPeriod: 50, openType: '5층 시련 제단 봉헌 전용' },
-  { id: 'dead_altar_f5', name: '망자의 제단', maxPeriod: 50, openType: '5층 제단 봉헌 소환 전용' }
+  { id: 'frozen_sanctum', name: '결빙의 성소', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 5층 서리 혼석 봉헌' },
+  { id: 'magma_crucible', name: '용광의 도가니', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 5층 화염 혼석 봉헌' },
+  { id: 'gravity_tomb', name: '중력의 묘', minPeriod: 30, maxPeriod: 50, openType: '자연 스폰 / 5층 혼석 봉헌' },
+  { id: 'penance_trial', name: '검성의 시련', minPeriod: 30, maxPeriod: 50, openType: '5층 시련 제단 봉헌 전용' }
  ],
  6: [
-  { id: 'abyssal_sanctum', name: '심연의 성소', maxPeriod: 60, openType: '항해 탐사 조우 / 대해 봉헌 제단' },
-  { id: 'harmony_maelstrom', name: '조화의 소용돌이', maxPeriod: 60, openType: '항해 소용돌이 조우 / 대해 봉헌 제단' },
-  { id: 'abyssal_deep', name: '가라앉은 심연', maxPeriod: 60, openType: '항해 낚시 / 심해 히든 조우' },
-  { id: 'treasure_island', name: '보물섬', maxPeriod: 60, openType: '항해 히든 섬 조우' },
-  { id: 'stormgush_altar', name: '거신 해일', maxPeriod: 60, openType: '6층 대해 거신 봉헌 제단 소환' }
+  { id: 'abyssal_sanctum', name: '심연의 성소', minPeriod: 40, maxPeriod: 60, openType: '항해 탐사 조우 / 대해 봉헌 제단' },
+  { id: 'harmony_maelstrom', name: '조화의 소용돌이', minPeriod: 40, maxPeriod: 60, openType: '항해 소용돌이 조우 / 대해 봉헌 제단' },
+  { id: 'abyssal_deep', name: '가라앉은 심연', minPeriod: 40, maxPeriod: 60, openType: '항해 낚시 / 심해 히든 조우' }
  ],
  7: [
-  { id: 'golden_ruins', name: '황금의 보고', maxPeriod: 60, openType: '심연 필드 상흔 스폰 / 7층 봉헌' },
-  { id: 'end_sanctum', name: '종언의 성소', maxPeriod: 60, openType: '최심부 정규 상흔 스폰' },
-  { id: 'weeping_swamp', name: '통곡의 늪', maxPeriod: 60, openType: '심연 필드 상흔 스폰' },
-  { id: 'sword_graveyard', name: '검총', maxPeriod: 60, openType: '심연 필드 상흔 스폰' }
+  { id: 'golden_ruins', name: '황금의 보고', minPeriod: 40, maxPeriod: 60, openType: '심연 필드 상흔 스폰 / 7층 봉헌' }
  ]
 };
 
@@ -1208,7 +1216,7 @@ function openFloorModal(day, floor) {
  const list = document.getElementById('modal-scar-list');
 
  const run = getActiveRun();
- const floorRegenText = (floor <= 2) ? '40일 이내' : ((floor <= 5) ? '50일 이내' : '60일 이내');
+ const floorRegenText = (floor <= 2) ? '20~40일 (2~4탐)' : ((floor <= 5) ? '30~50일 (3~5탐)' : '40~60일 (4~6탐)');
  title.innerText = `🏛️ [${run.name}] ${day}일차 — ${floor}층 상흔 (${floorRegenText} 리젠)`;
 
  const scars = OFFICIAL_FLOOR_SCARS[floor] || [];
@@ -1228,8 +1236,8 @@ function openFloorModal(day, floor) {
    }
   } else {
    statusHtml = `
-    <button class="btn-action-clear" onclick="setScarAction('${scar.id}', '${scar.name}', 'CLEAR', ${scar.maxPeriod})">⚔️ 클리어</button>
-    <button class="btn-action-sac" onclick="setScarAction('${scar.id}', '${scar.name}', 'SACRIFICE', ${scar.maxPeriod})">🔮 봉헌</button>
+    <button class="btn-action-clear" onclick="setScarAction('${scar.id}', '${scar.name}', 'CLEAR', ${scar.maxPeriod}, ${scar.minPeriod})">⚔️ 클리어</button>
+    <button class="btn-action-sac" onclick="setScarAction('${scar.id}', '${scar.name}', 'SACRIFICE', ${scar.maxPeriod}, ${scar.minPeriod})">🔮 봉헌</button>
    `;
   }
 
@@ -1254,7 +1262,7 @@ function closeModal() {
  document.getElementById('scar-modal').style.display = 'none';
 }
 
-function setScarAction(scarId, scarName, type, maxPeriod) {
+function setScarAction(scarId, scarName, type, maxPeriod, minPeriod) {
  const { day, floor } = modalTarget;
  if (!day || !floor) return;
 
@@ -1264,8 +1272,9 @@ function setScarAction(scarId, scarName, type, maxPeriod) {
  const dayKey = `floor_${floor}`;
  if (!run.entries[day][dayKey]) run.entries[day][dayKey] = [];
 
+ const calcMin = minPeriod || (floor <= 2 ? 20 : (floor <= 5 ? 30 : 40));
  run.entries[day][dayKey] = run.entries[day][dayKey].filter(s => s.scarId !== scarId);
- run.entries[day][dayKey].push({ scarId, scarName, type, maxPeriod });
+ run.entries[day][dayKey].push({ scarId, scarName, type, maxPeriod, minPeriod: calcMin });
 
  saveState();
  renderTable();
@@ -1310,17 +1319,41 @@ function calculateExpectedRegens(run) {
    const items = dayData[dayKey] || [];
    items.forEach(item => {
     if (item.type === 'CLEAR') {
-     const nextDay = d + (item.maxPeriod || 40);
-     const regenKey = `${nextDay}_${fl}`;
-     if (!regens[regenKey]) regens[regenKey] = [];
-     regens[regenKey].push({ scarName: item.scarName, fromDay: d });
+     const minP = item.minPeriod || ((fl <= 2) ? 20 : ((fl <= 5) ? 30 : 40));
+     const maxP = item.maxPeriod || ((fl <= 2) ? 40 : ((fl <= 5) ? 50 : 60));
+     
+     const minDay = d + minP;
+     const maxDay = d + maxP;
+     
+     const shortName = (item.scarName || '').split(' ')[0];
+     
+     // 1. Min day (리젠 시작)
+     const minKey = `${minDay}_${fl}`;
+     if (!regens[minKey]) regens[minKey] = [];
+     regens[minKey].push({
+      scarName: item.scarName,
+      fromDay: d,
+      type: 'MIN',
+      label: `${shortName} 리젠시작`
+     });
+     
+     // 2. Max day (확정 리젠) - if different from minDay
+     if (maxDay !== minDay) {
+      const maxKey = `${maxDay}_${fl}`;
+      if (!regens[maxKey]) regens[maxKey] = [];
+      regens[maxKey].push({
+       scarName: item.scarName,
+       fromDay: d,
+       type: 'MAX',
+       label: `${shortName} 확정리젠`
+      });
+     }
     }
    });
   }
  }
  return regens;
 }
-
 function renderAll() {
  renderTabs();
  renderTable();
@@ -1400,10 +1433,13 @@ function renderTable() {
      }
     });
 
-    if (showExpectedRegens) {
+        if (showExpectedRegens) {
      expectedList.forEach(exp => {
-      const shortName = exp.scarName.split(' ')[0];
-      badgesHtml += `<span class="badge-regen-expected" title="${exp.fromDay}일차 클리어 후 최대 리젠일">🟢 ${shortName} 리젠예정</span>`;
+      const isMax = (exp.type === 'MAX');
+      const badgeClass = isMax ? 'badge-regen-expected' : 'badge-regen-min';
+      const icon = isMax ? '🟢' : '🟡';
+      const tipText = isMax ? `${exp.fromDay}일차 클리어 후 최대 확정 리젠일` : `${exp.fromDay}일차 클리어 후 최초 리젠 가능일`;
+      badgesHtml += `<span class="${badgeClass}" title="${tipText}">${icon} ${exp.label}</span>`;
      });
     }
 
