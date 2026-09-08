@@ -4320,5 +4320,60 @@
         ]
       }
     ]
+  },
+  {
+    "id": "dragon_slayer",
+    "title": "[5층 4등급] 참회의 세르바스 실전 공략",
+    "monsterName": "참회의 세르바스",
+    "floor": 5,
+    "grade": "4등급",
+    "intro": "5층 성전/검성의 시련 수호 보스. 빠른 공속과 신성 검격, 피해를 40% 흡수하는 암흑장막 및 부활 기믹을 구사하는 타락 성기사입니다.",
+    "image": "./assets/monsters/dragon_slayer.png",
+    "youtubeId": "O00d0TlSM1w",
+    "armorEnchant": "빛, 암흑",
+    "views": 0,
+    "likes": 0,
+    "phases": [
+      {
+        "phaseName": "Phase 1 — 성전의 칼날",
+        "patterns": [
+          {
+            "name": "신성한 칼날",
+            "desc": "정면을 향해 짓쳐드는 연속 신성 참격 (패링 가능)",
+            "tag": "parry",
+            "tagText": "근접타격 타이밍 패링"
+          },
+          {
+            "name": "상급 가속",
+            "desc": "공속 및 이속 +40% 증가 버프",
+            "tag": "buff",
+            "tagText": "적 버프 스킬"
+          },
+          {
+            "name": "공포각인",
+            "desc": "플레이어에게 공포 상태이상을 부여합니다",
+            "tag": "avoid",
+            "tagText": "거리 벌리기"
+          }
+        ]
+      },
+      {
+        "phaseName": "Phase 2 — 배교의 어둠 (부활 1회)",
+        "patterns": [
+          {
+            "name": "암흑장막",
+            "desc": "피해를 40% 흡수하는 방어막 시전",
+            "tag": "cancel",
+            "tagText": "★ CC기 캔슬 필수"
+          },
+          {
+            "name": "용언: 영혼의 침묵",
+            "desc": "광역 침묵 및 영혼력 소각",
+            "tag": "avoid",
+            "tagText": "광역기 사거리 밖 회피"
+          }
+        ]
+      }
+    ]
   }
 ]
