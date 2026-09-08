@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사이트 소개 — 브리미르 버스터즈</title>
+  <meta name="description" content="스팀 게임 브리미르: 심장으로의 순례 비공식 공략 백과 '브리미르 버스터즈'의 소개, 제공 기능, 데이터 관리 기준 및 운영자 연락처.">
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <meta name="google-site-verification" content="y2N4xB7RLz6-X3AV3GDWeCrG1f50ip0C1kZVhd6aJIQ" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-header: #1f242c;
+      --border-color: #30363d;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
+      --accent-blue: #58a6ff;
+      --accent-gold: #f2cc60;
+      --accent-green: #3fb950;
+      --accent-purple: #bc8cff;
+      --accent-cyan: #39c5bb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      padding: 16px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+      /* ═══════════════════════════════════════════════════════════════
+     🏛️ UNIFIED GLOBAL HEADER CONTAINER (about.html standard)
+     ═══════════════════════════════════════════════════════════════ */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card, #161b22);
+    border: 1px solid var(--border-color, #30363d);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .header-title {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+  .header-title h1 {
+    font-size: 20px;
+    color: var(--text-bright, #ffffff);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .header-title p {
+    color: var(--text-muted, #8b949e);
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+  }
+  .nav-tab {
+    color: var(--text-muted, #8b949e);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab:hover {
+    color: var(--text-bright, #ffffff);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-color, #30363d);
+  }
+  .nav-tab.active {
+    color: #ffffff;
+    background: #1f6feb;
+    border-color: #388bfd;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--border-color, #30363d);
+    margin: 0 4px;
+    flex-shrink: 0;
+  }
+  .nav-tab.ext-link {
+    font-size: 12px;
+    padding: 7px 12px;
+    background: #161b22;
+  }
+  .nav-tab.ext-link:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
+  @media (max-width: 1100px) and (min-width: 769px) {
+    .header-container {
+      padding: 12px 14px;
+      gap: 8px;
+    }
+    .nav-tabs {
+      gap: 5px;
+    }
+    .nav-tab {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+    .header-title h1 {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 8px 10px !important;
+      margin-bottom: 8px !important;
+      gap: 8px !important;
+      border-radius: 6px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .header-title h1 {
+      font-size: 14.5px !important;
+      gap: 4px !important;
+    }
+    .header-title p {
+      display: none !important;
+    }
+    .nav-tabs {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-tab {
+      padding: 5px 9px !important;
+      font-size: 11.5px !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+    }
+    .nav-divider {
+      display: none !important;
+    }
+  }
+    .nav-tab:hover {
+      color: var(--text-bright);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-color);
+    }
+    .nav-tab.active {
+      color: #fff;
+      background: #1f6feb;
+      border-color: #388bfd;
+    }
+    .nav-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+      margin: 0 4px;
+    }
+    .nav-tab.ext-link {
+      font-size: 12px;
+      padding: 7px 12px;
+      background: #161b22;
+    }
+
+    .content-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .content-card h2 {
+      font-size: 18px;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 10px;
+    }
+    .content-card h3 {
+      font-size: 15px;
+      color: var(--accent-gold);
+      margin: 20px 0 10px;
+    }
+    .content-card p {
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .feature-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .feature-item h4 {
+      color: var(--accent-blue);
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact-box {
+      background: rgba(88, 166, 255, 0.08);
+      border: 1px solid rgba(88, 166, 255, 0.25);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .contact-box a {
+      color: var(--accent-blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    
+  /* Global Site Footer */
+  .site-footer {
+    margin-top: 50px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-color, #30363d);
+    background: #0a0d12;
+    color: var(--text-muted, #8b949e);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .footer-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 16px 36px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 36px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .footer-brand {
+    flex: 1 1 320px;
+    max-width: 440px;
+  }
+  .footer-logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-bright, #ffffff);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-desc {
+    font-size: 12.5px;
+    color: var(--text-muted, #8b949e);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .footer-links-group {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .footer-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-links-col .col-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright, #f0f6fc);
+    margin-bottom: 4px;
+  }
+  .footer-links-col a {
+    color: var(--text-muted, #8b949e);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.15s ease;
+  }
+  .footer-links-col a:hover {
+    color: var(--accent-blue, #58a6ff);
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 11.5px;
+    color: #6e7681;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-disclaimer {
+    margin: 0;
+    line-height: 1.55;
+  }
+  .footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-copyright a {
+    color: #8b949e;
+    text-decoration: none;
+  }
+  .footer-copyright a:hover {
+    color: #58a6ff;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="header-container">
+  <div class="header-title">
+    <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
+    <p>브리미르: 심장으로의 순례 — 사이트 소개</p>
+  </div>
+  <nav class="nav-tabs">
+    <a href="index.html" class="nav-tab">💎 룬 도감</a>
+    <a href="relic_codex.html" class="nav-tab">🔮 신물 도감</a>
+    <a href="scar_log.html" class="nav-tab">📜 신해 일지</a>
+    <a href="tier_list.html" class="nav-tab">🏆 몬스터 티어표</a>
+    <a href="guide.html" class="nav-tab">📖 이용 가이드</a>
+    <div class="nav-divider"></div>
+    <a href="about.html" class="nav-tab active">🏛️ 소개</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link" title="공략 오픈채팅">💬 카톡방</a>
+  </nav>
+</div>
+
+<main>
+  <div class="content-card">
+    <h2>📖 브리미르 버스터즈에 오신 것을 환영합니다!</h2>
+    <p>
+      안녕하세요! <strong>브리미르 버스터즈(busters.kr)</strong>는 스팀(Steam) 인디 RPG인 
+      <strong>『브리미르: 심장으로의 순례 (Brimir: Pilgrimage to the Heart)』</strong>를 직접 재미있게 플레이하는 게이머가 만든 
+      <strong>비공식 게임 공략 백과 &amp; 덱 빌딩 시뮬레이터</strong>입니다.
+    </p>
+    <p>
+      브리미르는 수많은 룬 조합과 신물 시너지, 그리고 까다로운 보스 패턴을 파훼하는 손맛이 뛰어난 명작 게임입니다. 
+      하지만 룬과 신물 종류가 수백 가지가 넘다 보니, <strong>실제 게임 안에서 하나하나 찾아보고 나만의 세팅을 짜기에는 다소 번거로운 점</strong>이 있었습니다.
+    </p>
+    <p>
+      그래서 저처럼 게임을 즐기는 다른 유저(순례자)분들이 언제 어디서나 편하게 룬 정보를 검색하고, 
+      나만의 장비 덱을 자유롭게 맞춰볼 수 있도록 돕고자 이 사이트를 만들었습니다.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <h2>✨ 사이트에서 이용할 수 있는 기능들</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h4>💎 464종 룬 도감 &amp; 덱 시뮬레이터</h4>
+        <p>1층부터 최신 8층(심막)까지 모든 룬을 초성 검색, 스탯/속성별로 바로 찾아보고 내 덱에 담아 총 스탯을 미리 계산해볼 수 있습니다.</p>
+      </div>
+      <div class="feature-item">
+        <h4>🔮 83종 신물 도감 &amp; 드롭 장소</h4>
+        <p>26개 상흔 던전에서 나오는 모든 신물의 효과와 어디서 떨어지는지 쉽게 확인하고 공략 계획을 세울 수 있습니다.</p>
+      </div>
+      <div class="feature-item">
+        <h4>📜 신해 일지 &amp; 리젠 타이머</h4>
+        <p>잡은 신해를 체크해두면 다음 리젠 타이밍을 계산해 효율적인 일일 파밍 동선을 짜기 편합니다.</p>
+      </div>
+      <div class="feature-item">
+        <h4>🏆 37마리 4등급 몬스터 티어표</h4>
+        <p>까다로운 몬스터들의 체감 난이도 순위와 핵심 패턴 공략 팁, 실전 플레이 영상을 한눈에 정리했습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>🛡️ 데이터 안내 및 운영 원칙</h2>
+    <p>
+      브리미르 버스터즈는 유저분들이 실제 게임을 플레이할 때 가장 신뢰할 수 있는 도우미가 되고자 합니다:
+    </p>
+    <ul style="margin-left: 20px; line-height: 1.85;">
+      <li><strong>실제 게임 속 최신 정보와 100% 일치:</strong> 모든 룬과 신물의 스탯, 효과 설명은 최신 정식 버전의 실제 게임 텍스트를 직접 꼼꼼히 확인해서 반영하고 있습니다.</li>
+      <li><strong>순수 게임플레이 공략 중심:</strong> 실제 게임에서 공개되지 않은 비공식 내부 수치 등은 다루지 않으며, 게이머분들이 직접 플레이하며 유용하게 참고할 수 있는 정상적인 공략 정보만을 다룹니다.</li>
+      <li><strong>유저를 위한 비공식 팬 사이트:</strong> 본 사이트는 게임을 좋아하는 팬이 만든 비공식 웹사이트이며, 게임 속 모든 이미지와 상표의 권리는 원 개발사에게 있습니다.</li>
+    </ul>
+
+    <div class="contact-box">
+      <h3 style="margin-top: 0; color: var(--accent-blue);">✉️ 운영자 문의 &amp; 데이터 제보</h3>
+      <p style="margin-bottom: 8px;">
+        데이터에 오탈자가 있거나, 게임 패치로 바뀐 내용이 있다면 언제든 알려주세요! 유저분들의 소중한 제보로 더 정확하고 유용한 사이트를 만들어가고 있습니다.
+      </p>
+      <p style="margin-bottom: 6px;">
+        <strong>문의 이메일:</strong> <a href="mailto:ymmz0105@gmail.com">ymmz0105@gmail.com</a>
+      </p>
+      <p style="margin-bottom: 0;">
+        <strong>오픈 커뮤니티:</strong> <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer">브리미르 공략 &amp; 팁 카카오톡 오픈채팅방</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">⚔️ 브리미르(Brimir) 버스터즈</div>
+        <p class="footer-desc">
+          스팀 게임 『브리미르: 심장으로의 순례』를 즐기는 유저분들을 위해 만든 비공식 공략 백과 &amp; 덱 시뮬레이터입니다.
+          464종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
+        </p>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <div class="col-title">도감 &amp; 시뮬레이터</div>
+          <a href="index.html">💎 룬 도감 &amp; 덱 시뮬레이터</a>
+          <a href="relic_codex.html">🔮 신물 도감 &amp; 상흔 드롭</a>
+          <a href="scar_log.html">📜 신해 일지 &amp; 리젠 타이머</a>
+          <a href="tier_list.html">🏆 4등급 몬스터 티어표</a>
+          <a href="guide.html">📖 종합 이용 가이드</a>
+        </div>
+        <div class="footer-links-col">
+          <div class="col-title">사이트 정보 &amp; 문의</div>
+          <a href="about.html">🏛️ 사이트 소개 (About)</a>
+          <a href="privacy.html">🔒 개인정보처리방침 (Privacy)</a>
+          <a href="terms.html">📋 이용약관 (Terms)</a>
+          <a href="mailto:ymmz0105@gmail.com">✉️ 문의: ymmz0105@gmail.com</a>
+        </div>
+        <div class="footer-links-col">
+          <div class="col-title">공식 &amp; 커뮤니티</div>
+          <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer">🎮 스팀 상점 공식 페이지</a>
+          <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer">📊 브리미르 공식 통계</a>
+          <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer">💬 공략 카카오톡 오픈채팅</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        Disclaimer: 본 사이트는 스팀 인디 게임 『브리미르: 심장으로의 순례(Brimir: Pilgrimage to the Heart)』의 비공식 팬 사이트입니다.
+        게임과 관련된 모든 상표, 이미지, 캐릭터 및 데이터의 저작권은 게임 개발사 및 원저작권자에게 있습니다.
+      </p>
+      <div class="footer-copyright">
+        <span>© 2026 Brimir Busters. All rights reserved.</span>
+        <span>Contact: <a href="mailto:ymmz0105@gmail.com">ymmz0105@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

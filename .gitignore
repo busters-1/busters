@@ -8,3 +8,14 @@ node_modules/
 
 # Scratch
 scratch/
+
+# Unreleased internal files
+mechanics_guide.html
+stats_guide.html
+character_damage_codex.html
+*.py
+*.txt
+*.json
+!dist/**
+!processed_data/**
+!assets/**

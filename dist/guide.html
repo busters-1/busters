@@ -52,88 +52,6 @@
     }
 
     /* Header Container */
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 14px 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .header-title h1 {
-      font-size: 20px;
-      color: var(--text-bright);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .header-title p {
-      color: var(--text-muted);
-      font-size: 12px;
-      margin-top: 2px;
-    }
-    .nav-tabs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .nav-divider {
-      width: 1px;
-      height: 22px;
-      background: var(--border-color);
-      margin: 0 4px;
-    }
-    .nav-tab {
-      background: #21262d;
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      border: 1px solid var(--border-color);
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .nav-tab:hover {
-      border-color: var(--accent-blue);
-      color: var(--text-bright);
-    }
-    .nav-tab.active {
-      background: linear-gradient(135deg, #1f6feb, #238636);
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.2);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-    .nav-tab.ext-link {
-      font-size: 12px;
-      padding: 7px 12px;
-      background: #161b22;
-    }
-    .nav-tab.ext-link.steam:hover {
-      border-color: #66c0f4;
-      color: #66c0f4;
-      background: rgba(102, 192, 244, 0.1);
-    }
-    .nav-tab.ext-link.stats:hover {
-      border-color: #58a6ff;
-      color: #58a6ff;
-      background: rgba(88, 166, 255, 0.1);
-    }
-    .nav-tab.ext-link.kakao:hover {
-      border-color: #fee500;
-      color: #fee500;
-      background: rgba(254, 229, 0, 0.1);
-    }
-
     /* Guide Layout */
     .guide-hero {
       background: linear-gradient(135deg, rgba(31, 111, 235, 0.15), rgba(35, 134, 54, 0.15));
@@ -303,32 +221,6 @@
         padding: 6px 8px 60px 8px !important;
         font-size: 12px !important;
       }
-      .header-container {
-        padding: 6px 8px !important;
-        margin-bottom: 6px !important;
-        gap: 4px !important;
-        border-radius: 6px !important;
-      }
-      .header-title h1 { font-size: 14px !important; gap: 4px !important; }
-      .header-title p { display: none !important; }
-      
-      .nav-tabs {
-        width: 100% !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        flex-wrap: nowrap !important;
-        gap: 4px !important;
-        padding-bottom: 2px !important;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .nav-tabs::-webkit-scrollbar { display: none; }
-      .nav-tab {
-        padding: 5px 9px !important;
-        font-size: 11px !important;
-        flex-shrink: 0 !important;
-        border-radius: 4px !important;
-      }
       .nav-divider { display: none !important; }
 
       .guide-grid {
@@ -341,7 +233,252 @@
         padding: 14px !important;
       }
     }
-  </style>
+  
+  /* Global Site Footer */
+  .site-footer {
+    margin-top: 50px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-color, #30363d);
+    background: #0a0d12;
+    color: var(--text-muted, #8b949e);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .footer-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 16px 36px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 36px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .footer-brand {
+    flex: 1 1 320px;
+    max-width: 440px;
+  }
+  .footer-logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-bright, #ffffff);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-desc {
+    font-size: 12.5px;
+    color: var(--text-muted, #8b949e);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .footer-links-group {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .footer-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-links-col .col-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright, #f0f6fc);
+    margin-bottom: 4px;
+  }
+  .footer-links-col a {
+    color: var(--text-muted, #8b949e);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.15s ease;
+  }
+  .footer-links-col a:hover {
+    color: var(--accent-blue, #58a6ff);
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 11.5px;
+    color: #6e7681;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-disclaimer {
+    margin: 0;
+    line-height: 1.55;
+  }
+  .footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-copyright a {
+    color: #8b949e;
+    text-decoration: none;
+  }
+  .footer-copyright a:hover {
+    color: #58a6ff;
+  }
+
+  
+      /* ═══════════════════════════════════════════════════════════════
+     🏛️ UNIFIED GLOBAL HEADER CONTAINER (about.html standard)
+     ═══════════════════════════════════════════════════════════════ */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card, #161b22);
+    border: 1px solid var(--border-color, #30363d);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  .header-title {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+  .header-title h1 {
+    font-size: 20px;
+    color: var(--text-bright, #ffffff);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .header-title p {
+    color: var(--text-muted, #8b949e);
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+  }
+  .nav-tab {
+    color: var(--text-muted, #8b949e);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .nav-tab:hover {
+    color: var(--text-bright, #ffffff);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-color, #30363d);
+  }
+  .nav-tab.active {
+    color: #ffffff;
+    background: #1f6feb;
+    border-color: #388bfd;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--border-color, #30363d);
+    margin: 0 4px;
+    flex-shrink: 0;
+  }
+  .nav-tab.ext-link {
+    font-size: 12px;
+    padding: 7px 12px;
+    background: #161b22;
+  }
+  .nav-tab.ext-link:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
+  @media (max-width: 1100px) and (min-width: 769px) {
+    .header-container {
+      padding: 12px 14px;
+      gap: 8px;
+    }
+    .nav-tabs {
+      gap: 5px;
+    }
+    .nav-tab {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+    .header-title h1 {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 8px 10px !important;
+      margin-bottom: 8px !important;
+      gap: 8px !important;
+      border-radius: 6px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .header-title h1 {
+      font-size: 14.5px !important;
+      gap: 4px !important;
+    }
+    .header-title p {
+      display: none !important;
+    }
+    .nav-tabs {
+      width: 100% !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      gap: 4px !important;
+      padding-bottom: 2px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-tab {
+      padding: 5px 9px !important;
+      font-size: 11.5px !important;
+      flex-shrink: 0 !important;
+      border-radius: 4px !important;
+    }
+    .nav-divider {
+      display: none !important;
+    }
+  }
+  .nav-tab.ext-link:hover {
+    border-color: #fee500;
+    color: #fee500;
+    background: rgba(254, 229, 0, 0.1);
+  }
+
+</style>
 </head>
 <body>
 
@@ -349,7 +486,7 @@
 <div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>『브리미르: 순례자의 탑』 룬 도감, 신물 도감, 티어표, 신해 일지 통합 활용 백과</p>
+    <p>브리미르: 심장으로의 순례 — 게임 이용 &amp; 초보자 공략</p>
   </div>
   <nav class="nav-tabs">
     <a href="index.html" class="nav-tab">💎 룬 도감</a>
@@ -358,9 +495,8 @@
     <a href="tier_list.html" class="nav-tab">🏆 몬스터 티어표</a>
     <a href="guide.html" class="nav-tab active">📖 이용 가이드</a>
     <div class="nav-divider"></div>
-    <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link steam" title="스팀 스토어 공식 페이지">🎮 스팀 상점</a>
-    <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link stats" title="브리미르 실시간 게임 통계 사이트">📊 게임 통계</a>
-    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link kakao" title="브리미르 공략 &amp; 팁 카카오톡 오픈채팅방">💬 공략 카톡방</a>
+    <a href="about.html" class="nav-tab">🏛️ 소개</a>
+    <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer" class="nav-tab ext-link" title="공략 오픈채팅">💬 카톡방</a>
   </nav>
 </div>
 
@@ -380,7 +516,9 @@
       <li><a href="#section-relic" class="toc-link">🔮 2. 신물 도감 & 드롭 테이블 <span class="badge badge-purple">NEW</span></a></li>
       <li><a href="#section-tier" class="toc-link">🏆 3. 몬스터 난이도 티어표 <span class="badge badge-gold">NEW</span></a></li>
       <li><a href="#section-scar" class="toc-link">📜 4. 신해 일지 플래너</a></li>
-      <li><a href="#section-faq" class="toc-link">❓ 5. 자주 묻는 질문(FAQ)</a></li>
+      <li><a href="#section-beginner" class="toc-link">🧭 5. 초보 순례자 생존 가이드 <span class="badge badge-gold">TIP</span></a></li>
+      <li><a href="#section-builds" class="toc-link">⚔️ 6. 속성별 덱 빌딩 기초</a></li>
+      <li><a href="#section-faq" class="toc-link">❓ 7. 자주 묻는 질문(FAQ)</a></li>
     </ul>
   </aside>
 
@@ -429,7 +567,7 @@
         </div>
       </div>
 
-      <h3>💎 공식 인게임 등급 체계</h3>
+      <h3>💎 실제 게임 속 등급 체계</h3>
       <p>• <span class="badge badge-purple">쿼드 (4자리 ID)</span>: 상흔 수호 보스가 단독 드롭하는 최상위 고유 시그니처 신물<br>
          • <span class="badge badge-cyan">트리플 (3자리 ID)</span>: 해당 상흔 던전에서 특화 드롭되는 희귀 장비 및 전용 무기</p>
 
@@ -450,7 +588,7 @@
         </div>
         <div class="feature-card">
           <h4>🎬 유튜브 실전 공략 영상 연동</h4>
-          <p>몬스터 카드를 클릭하면 상세 출현지와 방어구 추천 인챈트, 핵심 패턴 파훼법 및 <strong>인게임 공식 유튜브 공략 영상</strong>을 팝업으로 시청할 수 있습니다.</p>
+          <p>몬스터 카드를 클릭하면 상세 출현지와 방어구 추천 인챈트, 핵심 패턴 파훼법 및 <strong>실제 게임 보스 공략 영상</strong>을 팝업으로 시청할 수 있습니다.</p>
         </div>
       </div>
     </section>
@@ -472,19 +610,123 @@
       </div>
     </section>
 
-    <!-- Section 5: FAQ -->
+    <!-- Section 5: Beginner Survival Guide -->
+    <section id="section-beginner" class="guide-section">
+      <h2>🧭 5. 초보 순례자 기초 생존 & 파밍 가이드 <span class="badge badge-gold">TIP</span></h2>
+      <p>『브리미르: 심장으로의 순례』에 처음 발을 들인 순례자들을 위한 필수 생존 수칙 및 초반 1~3층 파밍 운영 팁입니다.</p>
+
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>🛡️ 1순위: 내구력과 기력 관리</h4>
+          <p>초반 1~2층에서는 공격력보다 <strong>내구력(최대 체력)</strong>과 <strong>기력(행동력)</strong> 스탯이 우선입니다. 기력이 바닥나면 회피와 패링이 봉쇄되어 위험해지므로 고블린, 늑대 등 기초 룬으로 기본 체급을 다지세요.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🗺️ 층별 신해 던전 순회 동선</h4>
+          <p>보스방 직행보다는 각 층에 배치된 신해 던전을 먼저 공략하여 <strong>활성 신물과 상위 등급 룬</strong>을 파밍해야 합니다. 10일 리젠 주기를 신해 일지에 기록하여 낭비 없는 파밍을 실천하세요.</p>
+        </div>
+        <div class="feature-card">
+          <h4>⚠️ 4등급 필드 몬스터 경계</h4>
+          <p>필드에서 마주치는 4등급 몬스터는 단순 잡몹이 아닌 중간 보스급 위험도를 가집니다. 몬스터 티어표를 확인하여 S/A급 몬스터를 조우했을 때는 확실한 버프 세팅 후 교전하세요.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 초보 순례자 팁:</strong> 초반에는 여러 속성을 섞기보다 하나의 주력 공격 스탯(근력 또는 민첩)에 집중 투자하는 것이 덱의 데미지 상승에 훨씬 유리합니다.
+      </div>
+    </section>
+
+    <!-- Section 6: Element & Archetype Deck Building -->
+    <section id="section-builds" class="guide-section">
+      <h2>⚔️ 6. 속성별 실제 게임 룬 시너지 기본 가이드</h2>
+      <p>실제 게임에 등록된 패시브와 액티브 스킬의 속성 메커니즘을 조합하여 강력한 전투 시너지를 내는 대표적인 기본 빌드 원리입니다.</p>
+
+      <div class="feature-card-grid">
+        <div class="feature-card">
+          <h4>🔥 화염 버서커 빌드 (근력 + 폭발)</h4>
+          <p>화염 스택을 누적하여 단일 및 광역 폭발 피해를 입히는 공격적 빌드입니다. 근력과 화염 친화가 부여된 룬을 조합하여 강력한 타격 일격을 가합니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>❄️ 냉기 제어 빌드 (동결 + 방어)</h4>
+          <p>적의 행동 속도를 늦추고 결박하여 안전하게 거리를 확보하는 제어 빌드입니다. 냉기 친화와 내구성 룬을 조합해 안정적인 보스전 운영이 가능합니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>⚡ 번개 연쇄 사수 (원거리 + 감전)</h4>
+          <p>원거리 무기 및 빠른 공격 속도로 번개 스택을 쌓아 다수의 적에게 감전 전이 피해를 입히는 빌드입니다. 민첩과 번개 친화 룬이 핵심입니다.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🧪 맹독 침식 빌드 (지속 피해)</h4>
+          <p>독과 부패 상태이상을 중첩시켜 보스의 높은 체력을 지속적으로 갉아먹는 빌드입니다. 장기전에 매우 유리하며 회피 기동 위주 운영에 적합합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: FAQ -->
     <section id="section-faq" class="guide-section">
-      <h2>❓ 5. 자주 묻는 질문(FAQ)</h2>
+      <h2>❓ 7. 자주 묻는 질문(FAQ)</h2>
 
       <h3>Q. 모바일 스마트폰에서도 편리하게 이용할 수 있나요?</h3>
       <p><strong>완벽하게 지원합니다.</strong> 전 페이지가 모바일 반응형 뷰로 최적화되어 상단 탭 가로 터치 스와이프, 1열 고밀도 카드 정렬, 터치 친화적 모달을 제공합니다.</p>
 
       <h3>Q. 작성한 룬 빌드 덱이나 일지가 사라지지 않나요?</h3>
-      <p>브라우저의 <code>LocalStorage</code>를 사용하여 브라우저를 닫거나 새로고침해도 작성한 멀티 덱과 체크 상태가 영구 보존됩니다.</p>
+      <p>브라우저의 <code>LocalStorage</code>를 사용하여 브라우저를 닫거나 새로고침해도 작성한 멀티 덱과 체크 상태가 영구 보존됩니다. (단, 브라우저 캐시 및 사이트 데이터를 모두 삭제하면 초기화될 수 있으므로 주의하세요.)</p>
+
+      <h3>Q. 데이터 오탈자나 오류를 발견하면 어디로 제보하나요?</h3>
+      <p>브리미르 버스터즈는 유저 피드백을 환영합니다. 상단 또는 푸터에 안내된 공식 이메일(<code>ymmz0105@gmail.com</code>)이나 카카오톡 오픈채팅방으로 제보해 주시면 즉시 검토 후 반영됩니다.</p>
+
+      <h3>Q. 게임 업데이트 후 데이터는 언제 갱신되나요?</h3>
+      <p>공식 스팀 패치 및 밸런스 변경이 적용되는 즉시 실제 게임 속 최신 데이터를 꼼꼼히 확인하여 당일 내 실시간 핫픽스 배포를 원칙으로 운영하고 있습니다.</p>
     </section>
 
   </main>
 </div>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">⚔️ 브리미르(Brimir) 버스터즈</div>
+        <p class="footer-desc">
+          스팀 게임 『브리미르: 심장으로의 순례』를 즐기는 유저분들을 위해 만든 비공식 공략 백과 &amp; 덱 시뮬레이터입니다.
+          464종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
+        </p>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <div class="col-title">도감 &amp; 시뮬레이터</div>
+          <a href="index.html">💎 룬 도감 &amp; 덱 시뮬레이터</a>
+          <a href="relic_codex.html">🔮 신물 도감 &amp; 상흔 드롭</a>
+          <a href="scar_log.html">📜 신해 일지 &amp; 리젠 타이머</a>
+          <a href="tier_list.html">🏆 4등급 몬스터 티어표</a>
+          <a href="guide.html">📖 종합 이용 가이드</a>
+        </div>
+        <div class="footer-links-col">
+          <div class="col-title">사이트 정보 &amp; 문의</div>
+          <a href="about.html">🏛️ 사이트 소개 (About)</a>
+          <a href="privacy.html">🔒 개인정보처리방침 (Privacy)</a>
+          <a href="terms.html">📋 이용약관 (Terms)</a>
+          <a href="mailto:ymmz0105@gmail.com">✉️ 문의: ymmz0105@gmail.com</a>
+        </div>
+        <div class="footer-links-col">
+          <div class="col-title">공식 &amp; 커뮤니티</div>
+          <a href="https://store.steampowered.com/app/4958780/Brimir_Pilgrimage_to_the_Heart/" target="_blank" rel="noopener noreferrer">🎮 스팀 상점 공식 페이지</a>
+          <a href="https://brimirgame.com/" target="_blank" rel="noopener noreferrer">📊 브리미르 공식 통계</a>
+          <a href="https://open.kakao.com/o/p2OKO9Di" target="_blank" rel="noopener noreferrer">💬 공략 카카오톡 오픈채팅</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        Disclaimer: 본 사이트는 스팀 인디 게임 『브리미르: 심장으로의 순례(Brimir: Pilgrimage to the Heart)』의 비공식 팬 사이트입니다.
+        게임과 관련된 모든 상표, 이미지, 캐릭터 및 데이터의 저작권은 게임 개발사 및 원저작권자에게 있습니다.
+      </p>
+      <div class="footer-copyright">
+        <span>© 2026 Brimir Busters. All rights reserved.</span>
+        <span>Contact: <a href="mailto:ymmz0105@gmail.com">ymmz0105@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
