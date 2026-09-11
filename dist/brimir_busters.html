@@ -26,20 +26,20 @@
  "@type": "WebApplication",
  "name": "브리미르 버스터즈 — 룬 도감 & 빌드 시뮬레이터",
  "url": "https://busters.kr/",
- "description": "브리미르: 심장으로의 순례 450종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
+ "description": "브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
  "applicationCategory": "GameApplication",
  "operatingSystem": "All",
  "inLanguage": "ko-KR"
 }
 </script>
-<meta name="description" content="브리미르: 심장으로의 순례 450종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
+<meta name="description" content="브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://busters.kr/">
 <meta property="og:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta property="og:description" content="브리미르: 심장으로의 순례 450종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
+<meta property="og:description" content="브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta name="twitter:description" content="브리미르: 심장으로의 순례 450종 룬 도감 & 멀티 덱 시뮬레이터">
+<meta name="twitter:description" content="브리미르: 심장으로의 순례 452종 룬 도감 & 멀티 덱 시뮬레이터">
 <style>
  :root {
   --bg-main: #0d1117;
@@ -23042,6 +23042,114 @@ const RUNES_DATA = [
       "신성"
     ],
     "is_relic": false
+  },
+  {
+    "id": "void_shard",
+    "name": "공허 결정",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 4,
+    "floor": 7,
+    "color": [
+      "purple",
+      "blue"
+    ],
+    "color_list": [
+      "purple",
+      "blue"
+    ],
+    "stat_bonuses": {
+      "마력": 65,
+      "민첩": 45,
+      "예리": 30,
+      "암흑친화": 25,
+      "물리내성": 15
+    },
+    "passive": {
+      "id": "void_hollowing",
+      "name": "공허 잠식",
+      "description": "공허가 어둠을 더 빨리 잠식시킨다 — 파티 전원이 그 적에게서 이득을 본다"
+    },
+    "actives": [
+      {
+        "skill_id": "void_collapse",
+        "name": "공허 붕괴",
+        "color": "purple",
+        "cooldown": 30,
+        "description": "결정 내부의 공허가 붕괴하며 강골을 무시하는 암흑 폭발을 일으킨다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "shadow_orb",
+        "name": "그림자 구체",
+        "color": "blue",
+        "cooldown": 35,
+        "description": "광역 어둠 폭발 — 어둠 누적",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 몰락자의 안식처",
+    "effect_type": "NONE",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "hungry_claw",
+    "name": "핏빛 마수",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": [
+      "red",
+      "purple"
+    ],
+    "color_list": [
+      "red",
+      "purple"
+    ],
+    "stat_bonuses": {
+      "민첩": 45,
+      "예리": 35,
+      "근력": 30,
+      "불굴": 20,
+      "내구력": 15
+    },
+    "passive": {
+      "id": "hungry_claw_drain",
+      "name": "흡혈 포식",
+      "description": "공격 시 적의 생기를 흡수해 회복. 만신이면 잉여 생기를 소환수에게 전이해 부상을 치유한다."
+    },
+    "actives": [
+      {
+        "skill_id": "ravenous_claw",
+        "name": "굶주린 발톱",
+        "color": "red",
+        "cooldown": 26,
+        "description": "굶주린 발톱으로 적을 찢어발기며 생기를 빨아들인다.",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "devour_leap",
+        "name": "포식 도약",
+        "color": "purple",
+        "cooldown": 28,
+        "description": "도약해 먹잇감을 덮치고 생기를 빨아들인다 (경직 0.8초)",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "7층 - 원한의 협곡",
+    "effect_type": "NONE",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
   }
 ];
  const COLOR_MAP = {
@@ -24225,7 +24333,7 @@ renderTable();
         <div class="footer-logo">⚔️ 브리미르(Brimir) 버스터즈</div>
         <p class="footer-desc">
           스팀 게임 『브리미르: 심장으로의 순례』를 즐기는 유저분들을 위해 만든 비공식 공략 백과 &amp; 덱 시뮬레이터입니다.
-          450종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
+          452종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
         </p>
       </div>
       <div class="footer-links-group">
