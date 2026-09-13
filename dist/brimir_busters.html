@@ -26,20 +26,20 @@
  "@type": "WebApplication",
  "name": "브리미르 버스터즈 — 룬 도감 & 빌드 시뮬레이터",
  "url": "https://busters.kr/",
- "description": "브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
+ "description": "브리미르: 심장으로의 순례 467종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
  "applicationCategory": "GameApplication",
  "operatingSystem": "All",
  "inLanguage": "ko-KR"
 }
 </script>
-<meta name="description" content="브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
+<meta name="description" content="브리미르: 심장으로의 순례 467종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://busters.kr/">
 <meta property="og:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta property="og:description" content="브리미르: 심장으로의 순례 452종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
+<meta property="og:description" content="브리미르: 심장으로의 순례 467종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta name="twitter:description" content="브리미르: 심장으로의 순례 452종 룬 도감 & 멀티 덱 시뮬레이터">
+<meta name="twitter:description" content="브리미르: 심장으로의 순례 467종 룬 도감 & 멀티 덱 시뮬레이터">
 <style>
  :root {
   --bg-main: #0d1117;
@@ -23150,6 +23150,686 @@ const RUNES_DATA = [
       "암흑"
     ],
     "is_relic": false
+  },
+  {
+    "id": "marrow_conduit",
+    "name": "골수 도관",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "강골": 65,
+      "마력": 42,
+      "정신력": 25,
+      "영력": 14
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "골수 도관",
+      "description": "강골의 절반이 영혼력으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "marrow_shot",
+        "name": "골수 사출",
+        "color": "blue",
+        "cooldown": 22,
+        "description": "골수를 태워 쏘는 암흑 탄 — 암흑 스택",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "overclock_core",
+    "name": "과부하 회로",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 5,
+    "color": [
+      "orange",
+      "red"
+    ],
+    "color_list": [
+      "orange",
+      "red"
+    ],
+    "stat_bonuses": {
+      "근력": 63,
+      "불굴": 35,
+      "내구력": 26,
+      "영력": 12
+    },
+    "passive": {
+      "id": "soul_siphon",
+      "name": "영혼 착취",
+      "description": "공격이 적중할 때마다 영혼력을 되찾는다."
+    },
+    "actives": [
+      {
+        "skill_id": "overclock_chant",
+        "name": "과열 영창",
+        "color": "orange",
+        "cooldown": 3,
+        "description": "영력을 태워 공격 속도와 가하는 피해를 끌어올린다. 영력이 바닥나면 자동 해제되고, 다시 시전하면 즉시 해제된다.",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "rush_bite",
+        "name": "돌진 물기",
+        "color": "red",
+        "cooldown": 28,
+        "description": "빠르게 돌진하며 물어뜯기, 출혈 부여",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "MANA_ON_HIT",
+    "effect_type_ko": "🩸 타격 흡혈",
+    "effect_value": 0.04,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "storm_lord",
+    "name": "뇌신",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 5,
+    "color": [
+      "yellow",
+      "white",
+      "purple"
+    ],
+    "color_list": [
+      "yellow",
+      "white",
+      "purple"
+    ],
+    "stat_bonuses": {
+      "마력": 42,
+      "민첩": 42,
+      "영력": 17
+    },
+    "passive": {
+      "id": "overcharge",
+      "name": "과충전",
+      "description": "타격을 이어갈수록 공격이 점점 빨라지며 폭주한다"
+    },
+    "actives": [
+      {
+        "skill_id": "thunder_lance",
+        "name": "뇌격",
+        "color": "yellow",
+        "cooldown": 38,
+        "description": "관통 뇌격 — 일직선 번개, 번개 스택",
+        "is_ranged": true
+      },
+      {
+        "skill_id": "overload_discharge",
+        "name": "과부하 방전",
+        "color": "white",
+        "cooldown": 35,
+        "description": "광역 전류 방출 — 번개 스택",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "chain_lightning",
+        "name": "연쇄 번개",
+        "color": "purple",
+        "cooldown": 41,
+        "description": "대상에서 시작해 최대 4체 연쇄 번개, 각 적에게 데미지",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "KILL_STACK",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "번개"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "mana_carapace",
+    "name": "마갑",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "마력": 53,
+      "강골": 35,
+      "내구력": 25,
+      "영력": 18,
+      "정신력": 15
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "마갑",
+      "description": "영혼력의 절반이 강골로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "carapace_riposte",
+        "name": "마력 반격",
+        "color": "blue",
+        "cooldown": 25,
+        "description": "마력 갑각을 튕겨 되쏘는 반격 탄 + 스턴 (기절 1.5초)",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "clear_mirror",
+    "name": "명경지수",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "정신력": 55,
+      "물리내성": 45,
+      "마법내성": 25,
+      "내구력": 15,
+      "영력": 6
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "명경지수",
+      "description": "물리 저항의 절반이 마법 저항으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "mirror_flash",
+        "name": "반사 섬광",
+        "color": "blue",
+        "cooldown": 25,
+        "description": "빛을 되쏘는 신성 섬광 + 스턴 (기절 1.5초)",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "신성"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "feral_regression",
+    "name": "야성회귀",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "근력": 60,
+      "민첩": 35,
+      "유연성": 25,
+      "내구력": 20,
+      "영력": 6
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "야성회귀",
+      "description": "근력의 절반이 민첩으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "feral_fang",
+        "name": "야성 송곳니",
+        "color": "green",
+        "cooldown": 22,
+        "description": "야수로 회귀해 물어뜯는 근접 강타",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "soul_incarnate",
+    "name": "영혼 육화",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "red",
+    "color_list": [
+      "red"
+    ],
+    "stat_bonuses": {
+      "마력": 53,
+      "근력": 35,
+      "불굴": 25,
+      "영력": 18,
+      "정신력": 15
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "영혼 육화",
+      "description": "영혼력의 절반이 근력으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "incarnate_strike",
+        "name": "육화 강타",
+        "color": "red",
+        "cooldown": 22,
+        "description": "영혼을 육신에 실어 내리치는 근접 강타",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [],
+    "is_relic": false
+  },
+  {
+    "id": "soul_smelting",
+    "name": "영혼 제련",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "근력": 65,
+      "마력": 42,
+      "정신력": 25,
+      "영력": 14
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "영혼 제련",
+      "description": "근력의 절반이 영혼력으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "soul_spear",
+        "name": "영혼 창",
+        "color": "blue",
+        "cooldown": 32,
+        "description": "제련한 영혼을 꿰뚫는 암흑 창 — 암흑 스택",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "mind_overflow",
+    "name": "정신 과류",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 5,
+    "floor": 7,
+    "color": "blue",
+    "color_list": [
+      "blue"
+    ],
+    "stat_bonuses": {
+      "정신력": 65,
+      "마력": 42,
+      "예리": 25,
+      "영력": 14
+    },
+    "passive": {
+      "id": "stat_conversion",
+      "name": "정신 과류",
+      "description": "정신력의 절반이 영혼력으로 전환된다."
+    },
+    "actives": [
+      {
+        "skill_id": "overflow_beam",
+        "name": "정신 광선",
+        "color": "blue",
+        "cooldown": 22,
+        "description": "정신을 압축해 쏘는 신성 광탄 — 빛 스택",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "STAT_BONUS",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "신성"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "thornstone",
+    "name": "가시 석상",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 5,
+    "color": [
+      "green",
+      "brown"
+    ],
+    "color_list": [
+      "green",
+      "brown"
+    ],
+    "stat_bonuses": {
+      "마력": 45,
+      "예리": 22,
+      "강골": 20,
+      "영력": 6
+    },
+    "passive": {
+      "id": "earthen_grip",
+      "name": "대지의 손아귀",
+      "description": "공격 시 땅 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "spike_field",
+        "name": "가시밭",
+        "color": "green",
+        "cooldown": 30,
+        "description": "바닥에서 돌가시 솟음 — 범위 지속 피해 + 땅 스택",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "quagmire",
+        "name": "진흙 수렁",
+        "color": "brown",
+        "cooldown": 27,
+        "description": "주위를 수렁으로 만들어 적을 둔화시키고 갉는다",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "대지"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "gorgon_statue",
+    "name": "석화 석상",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 5,
+    "color": [
+      "green",
+      "brown"
+    ],
+    "color_list": [
+      "green",
+      "brown"
+    ],
+    "stat_bonuses": {
+      "강골": 36,
+      "정신력": 26,
+      "마법내성": 15,
+      "내구력": 10,
+      "적응력": 4
+    },
+    "passive": {
+      "id": "earthen_grip",
+      "name": "대지의 손아귀",
+      "description": "공격 시 땅 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "stone_curse",
+        "name": "석화",
+        "color": "green",
+        "cooldown": 17,
+        "description": "적 하나를 돌로 굳힘 (석화 1.8초) (석화 1.8초)",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "petrify_gaze",
+        "name": "석화의 시선",
+        "color": "brown",
+        "cooldown": 38,
+        "description": "시선이 닿는 적들을 한꺼번에 석화시켜 굳힌다 (석화 1.4초)",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "대지"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "thundercloud",
+    "name": "전운",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 6,
+    "floor": 5,
+    "color": [
+      "purple",
+      "yellow"
+    ],
+    "color_list": [
+      "purple",
+      "yellow"
+    ],
+    "stat_bonuses": {
+      "마력": 39,
+      "민첩": 20,
+      "영력": 14
+    },
+    "passive": {
+      "id": "static_charge",
+      "name": "정전기 충전",
+      "description": "공격 시 번개 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "static_field",
+        "name": "감전 장판",
+        "color": "purple",
+        "cooldown": 30,
+        "description": "지속 감전 장판 — 번개 스택",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "blink_strike",
+        "name": "점멸 일격",
+        "color": "yellow",
+        "cooldown": 33,
+        "description": "순간이동 후 일격 — 기동 + 번개 스택",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "번개"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "venom_stalker",
+    "name": "맹독 추적자",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 7,
+    "floor": 5,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "민첩": 35,
+      "예리": 20,
+      "마력": 15,
+      "영력": 4
+    },
+    "passive": {
+      "id": "venom_coat",
+      "name": "맹독 도포",
+      "description": "공격 시 독 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "paralytic_dart",
+        "name": "마비독침",
+        "color": "green",
+        "cooldown": 22,
+        "description": "마비독 다트 — 적을 잠시 마비시키고 독 스택 (기절 0.8초)",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "독"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "gravel_gunner",
+    "name": "자갈 포격수",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 7,
+    "floor": 5,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "민첩": 33,
+      "근력": 19,
+      "예리": 18
+    },
+    "passive": {
+      "id": "earthen_aim",
+      "name": "석화된 조준",
+      "description": "공격 시 땅 스택 (원거리)"
+    },
+    "actives": [
+      {
+        "skill_id": "pebble_shot",
+        "name": "자갈 사격",
+        "color": "green",
+        "cooldown": 22,
+        "description": "자갈 투사체 — 땅 스택",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "대지"
+    ],
+    "is_relic": false
+  },
+  {
+    "id": "pebble_golem",
+    "name": "자갈 골렘",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 8,
+    "floor": 5,
+    "color": "green",
+    "color_list": [
+      "green"
+    ],
+    "stat_bonuses": {
+      "근력": 21,
+      "강골": 18,
+      "물리내성": 15
+    },
+    "passive": {
+      "id": "earthen_grip",
+      "name": "대지의 손아귀",
+      "description": "공격 시 땅 스택 부여"
+    },
+    "actives": [
+      {
+        "skill_id": "stone_jab",
+        "name": "돌 찌르기",
+        "color": "green",
+        "cooldown": 22,
+        "description": "약한 근접 일격 — 땅 스택",
+        "is_ranged": false
+      }
+    ],
+    "acquisition": "4층 - 균형의 성역",
+    "effect_type": "APPLY_ELEMENT",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "대지"
+    ],
+    "is_relic": false
   }
 ];
  const COLOR_MAP = {
@@ -24333,7 +25013,7 @@ renderTable();
         <div class="footer-logo">⚔️ 브리미르(Brimir) 버스터즈</div>
         <p class="footer-desc">
           스팀 게임 『브리미르: 심장으로의 순례』를 즐기는 유저분들을 위해 만든 비공식 공략 백과 &amp; 덱 시뮬레이터입니다.
-          452종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
+          467종 룬 도감, 83종 신물 도감, 상흔 리젠 타이머, 몬스터 티어표 등 실제 게임 속 정보와 똑같이 맞춘 유용한 데이터를 제공합니다.
         </p>
       </div>
       <div class="footer-links-group">
