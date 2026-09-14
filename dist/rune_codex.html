@@ -26,20 +26,20 @@
  "@type": "WebApplication",
  "name": "브리미르 버스터즈 — 룬 도감 & 빌드 시뮬레이터",
  "url": "https://busters.kr/",
- "description": "브리미르: 심장으로의 순례 470종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
+ "description": "브리미르: 심장으로의 순례 471종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터",
  "applicationCategory": "GameApplication",
  "operatingSystem": "All",
  "inLanguage": "ko-KR"
 }
 </script>
-<meta name="description" content="브리미르: 심장으로의 순례 470종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
+<meta name="description" content="브리미르: 심장으로의 순례 471종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터 — 브리미르 버스터즈">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://busters.kr/">
 <meta property="og:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta property="og:description" content="브리미르: 심장으로의 순례 470종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
+<meta property="og:description" content="브리미르: 심장으로의 순례 471종 룬 도감, 실시간 필터 & 멀티 덱 빌드 시뮬레이터">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="⚔️ 브리미르(Brimir) 버스터즈 — 룬 도감">
-<meta name="twitter:description" content="브리미르: 심장으로의 순례 470종 룬 도감 & 멀티 덱 시뮬레이터">
+<meta name="twitter:description" content="브리미르: 심장으로의 순례 471종 룬 도감 & 멀티 덱 시뮬레이터">
 <style>
  :root {
   --bg-main: #0d1117;
@@ -1106,7 +1106,7 @@
 <div class="header-container">
   <div class="header-title">
     <h1>⚔️ 브리미르(Brimir) 버스터즈</h1>
-    <p>브리미르: 심장으로의 순례 — 470종 룬 도감 & 빌드 덱 시뮬레이터</p>
+    <p>브리미르: 심장으로의 순례 — 471종 룬 도감 & 빌드 덱 시뮬레이터</p>
   </div>
   <nav class="nav-tabs">
     <a href="index.html" class="nav-tab active">💎 룬 도감</a>
@@ -23949,6 +23949,71 @@ const RUNES_DATA = [
       "암흑"
     ],
     "is_relic": false
+  },
+  {
+    "id": "bone_dragonian",
+    "name": "해골 와이번",
+    "type": "normal",
+    "is_guardian": false,
+    "grade": 3,
+    "floor": 8,
+    "color": [
+      "purple",
+      "red",
+      "silver"
+    ],
+    "color_list": [
+      "purple",
+      "red",
+      "silver"
+    ],
+    "stat_bonuses": {
+      "민첩": 105,
+      "근력": 80,
+      "불굴": 52,
+      "암흑친화": 22,
+      "행운": 8
+    },
+    "passive": {
+      "id": "bone_verdict",
+      "name": "뼈가시 파열",
+      "description": "같은 적을 거듭 때리면 박힌 뼛조각이 터져 어둠이 번진다",
+      "element": "dark"
+    },
+    "actives": [
+      {
+        "skill_id": "bone_breath",
+        "name": "뼈 브레스",
+        "color": "purple",
+        "cooldown": 33,
+        "description": "뼈 사이로 죽음의 브레스를 내뿜어 광역 피해를 입힌다",
+        "is_ranged": false
+      },
+      {
+        "skill_id": "dragonian_bonedust",
+        "name": "뼛가루 장판",
+        "color": "red",
+        "cooldown": 30,
+        "description": "부서진 뼛가루를 흩뿌려 밟고 선 자를 좀먹는다",
+        "is_ranged": true
+      },
+      {
+        "skill_id": "dragonian_bonefall",
+        "name": "뼈 소나기",
+        "color": "silver",
+        "cooldown": 30,
+        "description": "하늘이 무너지듯 뼛조각을 쏟아붓는다",
+        "is_ranged": true
+      }
+    ],
+    "acquisition": "8층 - 굳은 피 (南)",
+    "effect_type": "NONE",
+    "effect_type_ko": "일반",
+    "effect_value": 0.0,
+    "elements": [
+      "암흑"
+    ],
+    "is_relic": false
   }
 ];
  const COLOR_MAP = {
@@ -24625,11 +24690,23 @@ function renderTable() {
 
 // ── Official Boss Strategy Guides Database ──
 const BOSS_GUIDES = {
+  "abyssal_drown_lord": {
+    "name": "심연의 드로가르",
+    "youtubeId": "XLz66JnHisU",
+    "floor": "6층",
+    "grade": "4등급"
+  },
   "abyssal_kraken": {
     "name": "심연의 크라켄",
     "youtubeId": "8KUcctT4Rac",
     "floor": "6층",
     "grade": "4등급"
+  },
+  "argos": {
+    "name": "백안의 셀리안",
+    "youtubeId": "HibaKd3OS14",
+    "floor": "4층",
+    "grade": "5등급"
   },
   "azure_flame_bird": {
     "name": "푸른 불사조",
@@ -24655,17 +24732,41 @@ const BOSS_GUIDES = {
     "floor": "7층",
     "grade": "3등급"
   },
+  "bone_dragonian": {
+    "name": "해골 와이번",
+    "youtubeId": "YjS7f4s1VIk",
+    "floor": "8층",
+    "grade": "3등급"
+  },
   "chaos_seaman": {
     "name": "저주받은 선장",
     "youtubeId": "-E_j1vjdv8E",
     "floor": "7층",
     "grade": "4등급"
   },
+  "colossus_bowman": {
+    "name": "거인 궁수",
+    "youtubeId": "2ifOX7khwL4",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "darkilion": {
+    "name": "어둠 군주",
+    "youtubeId": "kk2nijbUnMg",
+    "floor": "5층",
+    "grade": "5등급"
+  },
   "deep_giant": {
     "name": "심연의 거신",
     "youtubeId": "UcbsCDQFL3s",
     "floor": "6층",
     "grade": "3등급"
+  },
+  "doppelganger": {
+    "name": "도플갱어",
+    "youtubeId": "G3X8tm3v_CE",
+    "floor": "4층",
+    "grade": "4등급"
   },
   "dragon_slayer": {
     "name": "참회의 세르바스",
@@ -24679,15 +24780,57 @@ const BOSS_GUIDES = {
     "floor": "1층",
     "grade": "3등급"
   },
+  "f8_drown": {
+    "name": "익사의 수문장",
+    "youtubeId": "LrT5gdb0AVs",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "f8_erosion": {
+    "name": "짓누르는 거상",
+    "youtubeId": "UV5WI-UnAuU",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "f8_heartlight": {
+    "name": "심장을 밝히는 자",
+    "youtubeId": "O1efFTXEcGA",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "f8_outbreak": {
+    "name": "역병 이무기",
+    "youtubeId": "oc8ACPXeC-I",
+    "floor": "8층",
+    "grade": "3등급"
+  },
+  "f8_rime": {
+    "name": "서리 창귀",
+    "youtubeId": "SvfdFmAHNM8",
+    "floor": "8층",
+    "grade": "3등급"
+  },
   "f8_scar": {
     "name": "피의 도살자",
     "youtubeId": "6pmEzTkjmJg",
     "floor": "8층",
     "grade": "3등급"
   },
+  "f8_stormheart": {
+    "name": "돛대잡이",
+    "youtubeId": "MHsXnWMzh8k",
+    "floor": "8층",
+    "grade": "3등급"
+  },
   "fallen_swordsaint": {
     "name": "몰락 검성",
     "youtubeId": "YvGixCIiO4s",
+    "floor": "7층",
+    "grade": "4등급"
+  },
+  "frost_dullahan": {
+    "name": "빙결 수확자",
+    "youtubeId": "xxSzTsLIRjY",
     "floor": "7층",
     "grade": "4등급"
   },
@@ -24709,11 +24852,23 @@ const BOSS_GUIDES = {
     "floor": "7층",
     "grade": "3등급"
   },
+  "frost_lord": {
+    "name": "서리 군주",
+    "youtubeId": "WvOd-BN7Ng4",
+    "floor": "5층",
+    "grade": "5등급"
+  },
   "frost_swordfiend": {
     "name": "서리 검귀",
     "youtubeId": "EMb-3bGDkO0",
     "floor": "7층",
     "grade": "3등급"
+  },
+  "frozen_corpse_giant": {
+    "name": "얼어붙은 거신",
+    "youtubeId": "oKKQK5jPey4",
+    "floor": "7층",
+    "grade": "4등급"
   },
   "gigant_wolf": {
     "name": "스콜",
@@ -24763,10 +24918,28 @@ const BOSS_GUIDES = {
     "floor": "6층",
     "grade": "4등급"
   },
+  "himar": {
+    "name": "결빙의 히마르",
+    "youtubeId": "YLcu1cW764I",
+    "floor": "5층",
+    "grade": "5등급"
+  },
   "ice_lich": {
     "name": "리치",
     "youtubeId": "mySWJyzUp7Q",
     "floor": "7층",
+    "grade": "4등급"
+  },
+  "ifrit": {
+    "name": "화염 군주",
+    "youtubeId": "b2WzOl5YZE4",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "kalpion": {
+    "name": "황금의 나자로스",
+    "youtubeId": "3PLeEJURkU0",
+    "floor": "4층",
     "grade": "4등급"
   },
   "key_keeper": {
@@ -24775,11 +24948,23 @@ const BOSS_GUIDES = {
     "floor": "6층",
     "grade": "4등급"
   },
+  "magma_lord": {
+    "name": "용암 우두머리",
+    "youtubeId": "2psquuUEzzQ",
+    "floor": "6층",
+    "grade": "4등급"
+  },
   "obsidian_titan": {
     "name": "흑요석 거신",
     "youtubeId": "hLSed_MoTSk",
     "floor": "6층",
     "grade": "4등급"
+  },
+  "ogre": {
+    "name": "오우거",
+    "youtubeId": "J0J5XM4wBn4",
+    "floor": "6층",
+    "grade": "3등급"
   },
   "palpupura": {
     "name": "서리 거인",
@@ -24792,6 +24977,24 @@ const BOSS_GUIDES = {
     "youtubeId": "0jtwdl2eqmY",
     "floor": "6층",
     "grade": "4등급"
+  },
+  "rakzar": {
+    "name": "작열의 그로칸",
+    "youtubeId": "Cmy4QX9sS64",
+    "floor": "4층",
+    "grade": "5등급"
+  },
+  "raphremmik": {
+    "name": "보물 미믹",
+    "youtubeId": "lewOTSBwW-8",
+    "floor": "6층",
+    "grade": "4등급"
+  },
+  "reaper_lord": {
+    "name": "사령군주",
+    "youtubeId": "epTxKyc2RvA",
+    "floor": "7층",
+    "grade": "3등급"
   },
   "siren_queen": {
     "name": "세이렌 여왕",
@@ -24811,11 +25014,35 @@ const BOSS_GUIDES = {
     "floor": "7층",
     "grade": "4등급"
   },
+  "spectral_marksman": {
+    "name": "원귀 사수",
+    "youtubeId": "Ixvmb29TuQk",
+    "floor": "7층",
+    "grade": "4등급"
+  },
   "stonewinter": {
     "name": "서리 바위거인",
     "youtubeId": "N434wupQKds",
     "floor": "7층",
     "grade": "4등급"
+  },
+  "stormgiant": {
+    "name": "폭풍 군주",
+    "youtubeId": "aIDUvHb3u9k",
+    "floor": "5층",
+    "grade": "5등급"
+  },
+  "stormgursh": {
+    "name": "해일",
+    "youtubeId": "QiGfP1wmEQw",
+    "floor": "6층",
+    "grade": "3등급"
+  },
+  "stormgush": {
+    "name": "해일",
+    "youtubeId": "QiGfP1wmEQw",
+    "floor": "6층",
+    "grade": "3등급"
   },
   "sylvan_tyrant": {
     "name": "수림의 폭군",
@@ -24829,6 +25056,12 @@ const BOSS_GUIDES = {
     "floor": "7층",
     "grade": "4등급"
   },
+  "tempest_archer": {
+    "name": "폭풍의 궁수",
+    "youtubeId": "dJJULyQ_JFM",
+    "floor": "5층",
+    "grade": "5등급"
+  },
   "unmelting_cocoon": {
     "name": "녹지 않는 고치",
     "youtubeId": "m6C5stj6lpY",
@@ -24841,173 +25074,30 @@ const BOSS_GUIDES = {
     "floor": "7층",
     "grade": "3등급"
   },
-  "magma_lord": {
-    "name": "용암 우두머리",
-    "youtubeId": "2psquuUEzzQ",
-    "floor": "6층",
-    "grade": "4등급"
+  "vol_herchan": {
+    "name": "심연의 흑기사",
+    "youtubeId": "-lXR7O-FzuU",
+    "floor": "8층",
+    "grade": "3등급"
   },
-  "rakzar": {
-    "name": "작열의 그로칸",
-    "youtubeId": "Cmy4QX9sS64",
-    "floor": "4층",
-    "grade": "5등급"
-  },
-  "himar": {
-    "name": "결빙의 히마르",
-    "youtubeId": "YLcu1cW764I",
-    "floor": "5층",
-    "grade": "5등급"
-  },
-  "spectral_marksman": {
-    "name": "원귀 사수",
-    "youtubeId": "Ixvmb29TuQk",
-    "floor": "7층",
-    "grade": "4등급"
-  },
-  "colossus_bowman": {
-    "name": "거인 궁수",
-    "youtubeId": "2ifOX7khwL4",
-    "floor": "7층",
-    "grade": "4등급"
-  },
-  "doppelganger": {
-    "name": "도플갱어",
-    "youtubeId": "G3X8tm3v_CE",
-    "floor": "4층",
-    "grade": "4등급"
-  },
-  "argos": {
-    "name": "백안의 셀리안",
-    "youtubeId": "HibaKd3OS14",
-    "floor": "4층",
-    "grade": "5등급"
-  },
-  "abyssal_drown_lord": {
-    "name": "심연의 드로가르",
-    "youtubeId": "XLz66JnHisU",
-    "floor": "6층",
-    "grade": "4등급"
-  },
-  "kalpion": {
-    "name": "황금의 나자로스",
-    "youtubeId": "3PLeEJURkU0",
-    "floor": "4층",
-    "grade": "4등급"
-  },
-  "frozen_corpse_giant": {
-    "name": "얼어붙은 거신",
-    "youtubeId": "oKKQK5jPey4",
-    "floor": "7층",
-    "grade": "4등급"
-  },
-  "tempest_archer": {
-    "name": "폭풍의 궁수",
-    "youtubeId": "dJJULyQ_JFM",
-    "floor": "5층",
-    "grade": "5등급"
-  },
-  "stormgiant": {
-    "name": "폭풍 군주",
-    "youtubeId": "aIDUvHb3u9k",
-    "floor": "5층",
-    "grade": "5등급"
-  },
-  "darkilion": {
-    "name": "어둠 군주",
-    "youtubeId": "kk2nijbUnMg",
-    "floor": "5층",
-    "grade": "5등급"
-  },
-  "frost_lord": {
-    "name": "서리 군주",
-    "youtubeId": "WvOd-BN7Ng4",
-    "floor": "5층",
-    "grade": "5등급"
-  },
-  "ifrit": {
-    "name": "화염 군주",
-    "youtubeId": "b2WzOl5YZE4",
-    "floor": "5층",
-    "grade": "5등급"
+  "wailing_wraith": {
+    "name": "비탄의 망령",
+    "youtubeId": "uDQr_BbSx_8",
+    "floor": "8층",
+    "grade": "3등급"
   },
   "white_wyvern": {
     "name": "빙하 와이번",
     "youtubeId": "FA9J6dg7s8A",
     "floor": "7층",
     "grade": "4등급"
-  },
-  "f8_heartlight": {
-    "name": "심장을 밝히는 자",
-    "youtubeId": "O1efFTXEcGA",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "f8_stormheart": {
-    "name": "돛대잡이",
-    "youtubeId": "MHsXnWMzh8k",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "frost_dullahan": {
-    "name": "빙결 수확자",
-    "youtubeId": "xxSzTsLIRjY",
-    "floor": "7층",
-    "grade": "4등급"
-  },
-  "f8_erosion": {
-    "name": "짓누르는 거상",
-    "youtubeId": "UV5WI-UnAuU",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "f8_rime": {
-    "name": "서리 창귀",
-    "youtubeId": "SvfdFmAHNM8",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "f8_drown": {
-    "name": "익사의 수문장",
-    "youtubeId": "LrT5gdb0AVs",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "f8_outbreak": {
-    "name": "역병 이무기",
-    "youtubeId": "oc8ACPXeC-I",
-    "floor": "8층",
-    "grade": "3등급"
-  },
-  "ogre": {
-    "name": "오우거",
-    "youtubeId": "J0J5XM4wBn4",
-    "floor": "6층",
-    "grade": "3등급"
-  },
-  "stormgush": {
-    "name": "해일",
-    "youtubeId": "QiGfP1wmEQw",
-    "floor": "6층",
-    "grade": "3등급"
-  },
-  "stormgursh": {
-    "name": "해일",
-    "youtubeId": "QiGfP1wmEQw",
-    "floor": "6층",
-    "grade": "3등급"
-  },
-  "reaper_lord": {
-    "name": "사령군주",
-    "youtubeId": "epTxKyc2RvA",
-    "floor": "7층",
-    "grade": "3등급"
   }
 };
 
 const BOSS_GUIDES_BY_NAME = {};
 Object.entries(BOSS_GUIDES).forEach(([k, v]) => {
  BOSS_GUIDES_BY_NAME[v.name] = { id: k, ...v };
+ BOSS_GUIDES_BY_NAME[v.name.replace(/\s+/g, '')] = { id: k, ...v };
 });
 
 function getBossGuide(id, name) {
